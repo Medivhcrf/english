@@ -196,6 +196,31 @@
     border-top: 1px solid #e5e7eb;
     padding-top: 5px;
   }
+/* ---------- 单词发音（神经网络 MP3，缺失回退系统语音） ---------- */
+.psay{
+  display:inline-flex; align-items:center; justify-content:center;
+  width:18px; height:18px; margin:0 5px 0 0; padding:0;
+  border:1px solid #cbd5e1; border-radius:50%; background:#f8fafc;
+  color:#2563eb; font-size:9px; line-height:1; cursor:pointer;
+  vertical-align:1px; -webkit-tap-highlight-color:transparent;
+  transition:background .15s,border-color .15s;
+}
+.psay:hover{ background:#dbeafe; border-color:#93c5fd; }
+.psay.playing{ background:#2563eb; border-color:#2563eb; color:#fff; animation:psay-pulse 1s infinite; }
+@keyframes psay-pulse{ 0%,100%{opacity:1;} 50%{opacity:.5;} }
+
+#pron-toggle{
+  position:fixed; left:12px; bottom:calc(16px + env(safe-area-inset-bottom));
+  z-index:950; border:none; border-radius:999px; padding:8px 14px;
+  background:rgba(37,99,235,.95); color:#fff; font-size:13px; cursor:pointer;
+  box-shadow:0 4px 14px rgba(0,0,0,.25);
+  font-family:'Noto Sans CJK SC','Droid Sans Fallback',sans-serif;
+  -webkit-tap-highlight-color:transparent;
+}
+#pron-toggle.on{ background:#047857; }
+
+@media print{ .psay, #pron-toggle{ display:none !important; } }
+
 </style>
 </head>
 <body>
@@ -404,7 +429,7 @@
 <div class="quiz">
   <div class="qhead">练习三 · 判断对错<span class="hint">凭本义推断，说出为什么</span></div>
   <ol class="fill">
-    <li>"the top <b>of</b> the mountain" 的逻辑本义是"从山上取下来的那部分"。</li>
+    <li>"the top <b data-say="words-audio/8bf8854bebe108183caeb845c7676ae4.mp3">of</b> the mountain" 的逻辑本义是"从山上取下来的那部分"。</li>
     <li>with 的古义是"对抗"，"一起"义来自另一个词 mid 的合流。</li>
     <li>on 的本义与 in 同源，所以 on fire 可理解为"在火中"。</li>
     <li>up 与拉丁语 sub（下面）同源。</li>
@@ -423,4 +448,97 @@
 
 <div class="footer">介词本义词源 · 空间本义 → 引申逻辑 ｜ 抓住一幅图，推出一片用法 👋</div>
 </body>
+<script>
+/* ---------- 单词发音 ---------- */
+(function () {
+  var synth = ("speechSynthesis" in window) ? window.speechSynthesis : null;
+  var audio = new Audio();
+  audio.preload = "auto";
+  audio.playbackRate = 0.95;
+  var curBtn = null;
+
+  function pickVoice() {
+    if (!synth) return null;
+    var vs = synth.getVoices() || [];
+    return vs.filter(function (v) { return /en[-_]US/i.test(v.lang); })[0] ||
+           vs.filter(function (v) { return /^en/i.test(v.lang); })[0] || null;
+  }
+  function tts(text) {
+    if (!synth) return;
+    var u = new SpeechSynthesisUtterance(text);
+    u.lang = "en-US";
+    var v = pickVoice(); if (v) u.voice = v;
+    try { synth.cancel(); } catch (e) {}
+    synth.speak(u);
+  }
+  function clear() { if (curBtn) { curBtn.classList.remove("playing"); curBtn = null; } }
+  function play(el, btn) {
+    var src = el.getAttribute("data-say");
+    var text = el.textContent.replace(/\s+/g, " ").trim();
+    clear();
+    if (btn) { btn.classList.add("playing"); curBtn = btn; }
+    if (src) {
+      audio.src = src;
+      audio.onended = function () { if (curBtn === btn) clear(); };
+      audio.onerror = function () { if (curBtn === btn) clear(); tts(text); };
+      var p = audio.play();
+      if (p && p.catch) { p.catch(function () { clear(); tts(text); }); }
+    } else {
+      tts(text);
+      setTimeout(function () { if (curBtn === btn) clear(); }, 1500);
+    }
+  }
+
+  document.querySelectorAll("[data-say]").forEach(function (el) {
+    var prev = el.previousElementSibling;
+    if (prev && prev.classList && prev.classList.contains("psay")) return;
+    var b = document.createElement("button");
+    b.type = "button"; b.className = "psay"; b.textContent = "\uD83D\uDD0A"; b.title = "发音";
+    b.setAttribute("aria-label", "发音");
+    b.addEventListener("click", function (e) {
+      e.stopPropagation(); e.preventDefault();
+      if (curBtn === b) {
+        try { audio.pause(); } catch (err) {}
+        if (synth) { try { synth.cancel(); } catch (err) {} }
+        clear(); return;
+      }
+      play(el, b);
+    });
+    el.parentNode.insertBefore(b, el);
+  });
+
+  /* 点任意英文词发音 */
+  var on = false;
+  var tg = document.createElement("button");
+  tg.id = "pron-toggle"; tg.type = "button"; tg.textContent = "\uD83D\uDD24 点词发音";
+  document.body.appendChild(tg);
+  tg.addEventListener("click", function () {
+    on = !on; tg.classList.toggle("on", on);
+    tg.textContent = on ? "\uD83D\uDD24 点词发音：开" : "\uD83D\uDD24 点词发音";
+  });
+  function wordAt(x, y) {
+    var node, offset;
+    if (document.caretRangeFromPoint) {
+      var r = document.caretRangeFromPoint(x, y);
+      if (!r) return null; node = r.startContainer; offset = r.startOffset;
+    } else if (document.caretPositionFromPoint) {
+      var p = document.caretPositionFromPoint(x, y);
+      if (!p) return null; node = p.offsetNode; offset = p.offset;
+    } else { return null; }
+    if (!node || node.nodeType !== 3) return null;
+    var t = node.textContent, re = /[A-Za-z][A-Za-z'\u2019\-]*/g, m;
+    while ((m = re.exec(t))) {
+      if (offset >= m.index && offset <= m.index + m[0].length) return m[0];
+    }
+    return null;
+  }
+  document.addEventListener("click", function (e) {
+    if (!on) return;
+    if (e.target.closest && (e.target.closest(".psay") || e.target.closest("#pron-toggle"))) return;
+    var w = wordAt(e.clientX, e.clientY);
+    if (w) tts(w);
+  }, true);
+})();
+
+</script>
 </html>

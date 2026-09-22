@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>词缀总辨析 · 51 个</title>
+<style>
+  @page { size: A4; margin: 15mm 14mm; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Noto Sans CJK SC', 'Droid Sans Fallback', 'WenQuanYi Zen Hei', sans-serif;
+    font-size: 10pt;
+    color: #1f2937;
+    line-height: 1.65;
+  }
+  .header {
+    border-bottom: 3px solid #059669;
+    padding-bottom: 9px;
+    margin-bottom: 8px;
+  }
+  .header h1 { font-size: 19pt; color: #065f46; letter-spacing: 1px; }
+  .header .meta { color: #6b7280; font-size: 9.5pt; margin-top: 2px; }
+  .header .meta b { color: #059669; }
+
+  h2.section {
+    font-size: 13pt;
+    color: #065f46;
+    margin: 14px 0 7px 0;
+    padding-left: 8px;
+    border-left: 4px solid #059669;
+    page-break-after: avoid;
+  }
+
+  /* 辨析表 */
+  table.diff {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 9pt;
+    margin-bottom: 12px;
+    page-break-inside: avoid;
+  }
+  table.diff th {
+    background: #059669;
+    color: #fff;
+    border: 1px solid #059669;
+    padding: 4px 7px;
+    text-align: left;
+  }
+  table.diff td {
+    border: 1px solid #e5e7eb;
+    padding: 4px 7px;
+    vertical-align: top;
+  }
+  table.diff tr:nth-child(even) td { background: #f0fdf4; }
+  table.diff .af { white-space: nowrap; font-weight: bold; color: #b91c1c; }
+  table.diff .word b { color: #065f46; }
+
+  /* 重点提示块 */
+  .key {
+    margin: 6px 0 12px 0;
+    background: #fef2f2;
+    border-left: 4px solid #dc2626;
+    border-radius: 4px;
+    padding: 6px 10px;
+    font-size: 9.5pt;
+    color: #7f1d1d;
+  }
+  .key b { color: #b91c1c; }
+
+  .footer {
+    margin-top: 14px;
+    text-align: center;
+    color: #9ca3af;
+    font-size: 8.5pt;
+    border-top: 1px solid #e5e7eb;
+    padding-top: 6px;
+  }
+/* ---------- 单词发音（神经网络 MP3，缺失回退系统语音） ---------- */
+.psay{
+  display:inline-flex; align-items:center; justify-content:center;
+  width:18px; height:18px; margin:0 5px 0 0; padding:0;
+  border:1px solid #cbd5e1; border-radius:50%; background:#f8fafc;
+  color:#2563eb; font-size:9px; line-height:1; cursor:pointer;
+  vertical-align:1px; -webkit-tap-highlight-color:transparent;
+  transition:background .15s,border-color .15s;
+}
+.psay:hover{ background:#dbeafe; border-color:#93c5fd; }
+.psay.playing{ background:#2563eb; border-color:#2563eb; color:#fff; animation:psay-pulse 1s infinite; }
+@keyframes psay-pulse{ 0%,100%{opacity:1;} 50%{opacity:.5;} }
+
+#pron-toggle{
+  position:fixed; left:12px; bottom:calc(16px + env(safe-area-inset-bottom));
+  z-index:950; border:none; border-radius:999px; padding:8px 14px;
+  background:rgba(37,99,235,.95); color:#fff; font-size:13px; cursor:pointer;
+  box-shadow:0 4px 14px rgba(0,0,0,.25);
+  font-family:'Noto Sans CJK SC','Droid Sans Fallback',sans-serif;
+  -webkit-tap-highlight-color:transparent;
+}
+#pron-toggle.on{ background:#047857; }
+
+@media print{ .psay, #pron-toggle{ display:none !important; } }
+
+/* mobile-generic */
+  html { -webkit-text-size-adjust: 100%; }
+  body { overflow-wrap: break-word; }
+  @media (max-width: 640px) {
+    body { font-size: 16px !important; line-height: 1.8;
+           padding: 14px 12px calc(34px + env(safe-area-inset-bottom)); }
+    .header h1 { font-size: 1.5rem; }
+    .header .meta { font-size: .82rem; }
+    h2.section { font-size: 1.12rem; }
+    .card { padding: 11px 13px; border-radius: 10px; }
+    .card .root { font-size: 1.18rem; }
+    .card li { font-size: 1rem; padding: 3px 0; }
+    .card .usage { font-size: .95rem; }
+    .card .etym, .card .evo, .card .trick,
+    .card .confuse, .card .variant, .card .cognate { font-size: .86rem; }
+    table { display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    .flow { font-size: .9rem; }
+  }
+
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>词缀总辨析 · 51 个</h1>
+  <div class="meta">2026 年 8 月 20 日 ｜ <b>累计 17 天所学全部词缀</b> ｜ 按功能分组对比</div>
+</div>
+
+<h2 class="section">一、名词后缀（最容易混的一组 · 先看这里）</h2>
+
+<div class="key"><b>一句话总结</b>：-ness = "感觉/状态"，-ment = "动作的产物"，-tion = "动作本身/结果"，-ity = "品质/性质"，-ance/-ence = "动作的状态"，-ship = "身份/关系"，-hood = "人生阶段/群体"，-dom = "领域/统治"，-age = "行为/总量"。同源词根的动词会告诉你该用哪个。</div>
+
+<table class="diff">
+  <tr><th>后缀</th><th>核心意思</th><th>典型词</th><th>vs 其他</th></tr>
+  <tr>
+    <td class="af">-ness</td>
+    <td>状态、感觉（日耳曼，加形容词）</td>
+    <td class="word"><b>happiness</b> 快乐、<b>kindness</b> 善良、<b>darkness</b> 黑暗、<b>awareness</b> 意识</td>
+    <td>最万能，几乎任何形容词都能加；表"感觉到的状态"</td>
+  </tr>
+  <tr>
+    <td class="af">-ment</td>
+    <td>行为的产物、结果（拉丁，加动词）</td>
+    <td class="word"><b>development</b> 发展、<b>agreement</b> 协议、<b>improvement</b> 改进、<b>achievement</b> 成就</td>
+    <td>强调"做出来的东西/结果"，不是感觉</td>
+  </tr>
+  <tr>
+    <td class="af">-tion</td>
+    <td>行为、动作本身（拉丁，加动词）</td>
+    <td class="word"><b>information</b> 信息、<b>education</b> 教育、<b>decision</b> 决定、<b>creation</b> 创造</td>
+    <td>表"这个动作"本身；-ment 表"动作的结果"，两者最易混</td>
+  </tr>
+  <tr>
+    <td class="af">-ity / -ty</td>
+    <td>性质、品质（拉丁，加形容词）</td>
+    <td class="word"><b>ability</b> 能力、<b>reality</b> 现实、<b>activity</b> 活动、<b>diversity</b> 多样性</td>
+    <td>vs -ness：-ness 表"感觉到状态"，-ity 表"客观属性"；ability 不说 ableness</td>
+  </tr>
+  <tr>
+    <td class="af">-ance / -ence</td>
+    <td>动作的状态（拉丁，配 -ant/-ent 形容词）</td>
+    <td class="word"><b>importance</b> 重要性、<b>performance</b> 表现、<b>patience</b> 耐心、<b>difference</b> 差别</td>
+    <td>见 -ant/-ent 形容词，名词就配 -ance/-ence；如 important→importance</td>
+  </tr>
+  <tr>
+    <td class="af">-ship</td>
+    <td>身份、关系（日耳曼）</td>
+    <td class="word"><b>friendship</b> 友谊、<b>leadership</b> 领导、<b>membership</b> 会员、<b>scholarship</b> 奖学金</td>
+    <td>表"人与人的关系 / 身份地位"</td>
+  </tr>
+  <tr>
+    <td class="af">-hood</td>
+    <td>人生阶段、群体（日耳曼）</td>
+    <td class="word"><b>childhood</b> 童年、<b>neighborhood</b> 社区、<b>brotherhood</b> 兄弟情</td>
+    <td>表"一段人生 / 一类人组成的群体"</td>
+  </tr>
+  <tr>
+    <td class="af">-dom</td>
+    <td>领域、统治状态（日耳曼）</td>
+    <td class="word"><b>kingdom</b> 王国、<b>freedom</b> 自由、<b>wisdom</b> 智慧、<b>boredom</b> 无聊</td>
+    <td>表"统辖的领域"或"抽象境界"</td>
+  </tr>
+  <tr>
+    <td class="af">-age</td>
+    <td>行为、总量（拉丁/法语）</td>
+    <td class="word"><b>usage</b> 用法、<b>storage</b> 存储、<b>package</b> 包裹、<b>luggage</b> 行李、<b>postage</b> 邮资</td>
+    <td>表"行为本身"或"东西的集合量"</td>
+  </tr>
+</table>
+
+<div class="key"><b>记忆口诀</b>：<b>感觉靠 ness，结果靠 ment，动作靠 tion，属性靠 ity，关系靠 ship，阶段靠 hood，领域靠 dom，总量靠 age。</b> 想不起来就看原动词：develop（发展）→development，educate（教育）→education，happy（开心）→happiness，able（有能力）→ability。</div>
+
+<h2 class="section">二、"人"后缀</h2>
+
+<table class="diff">
+  <tr><th>后缀</th><th>含义</th><th>典型词</th><th>辨析</th></tr>
+  <tr>
+    <td class="af">-er / -or</td>
+    <td>做…的人/物（日耳曼/拉丁）</td>
+    <td class="word"><b>teacher</b> 老师、<b>worker</b> 工人、<b>actor</b> 演员、<b>doctor</b> 医生</td>
+    <td>最通用；-er 日耳曼，-or 拉丁</td>
+  </tr>
+  <tr>
+    <td class="af">-ist</td>
+    <td>专业人员/主义者（希腊）</td>
+    <td class="word"><b>artist</b> 艺术家、<b>scientist</b> 科学家、<b>dentist</b> 牙医</td>
+    <td>表"以…为业 / 信仰…的人"</td>
+  </tr>
+  <tr>
+    <td class="af">-ant / -ent</td>
+    <td>做…的人（拉丁分词）</td>
+    <td class="word"><b>assistant</b> 助手、<b>student</b> 学生、<b>president</b> 总统</td>
+    <td>见形容词 -ant/-ent，常成对</td>
+  </tr>
+  <tr>
+    <td class="af">-ee</td>
+    <td>被…的人（法语）</td>
+    <td class="word"><b>employee</b> 雇员、<b>trainee</b> 学员、<b>payee</b> 收款人</td>
+    <td>与 -er 成对：employer 雇主 / employee 雇员</td>
+  </tr>
+  <tr>
+    <td class="af">-ess</td>
+    <td>女性（法语，渐少用）</td>
+    <td class="word"><b>actress</b> 女演员、<b>princess</b> 公主、<b>waitress</b> 女服务生</td>
+    <td>现代趋向中性化（用 server 而非 waitress）</td>
+  </tr>
+</table>
+
+<h2 class="section">三、形容词后缀</h2>
+
+<table class="diff">
+  <tr><th>后缀</th><th>含义</th><th>典型词</th><th>辨析</th></tr>
+  <tr>
+    <td class="af">-ful</td>
+    <td>充满…的（日耳曼）</td>
+    <td class="word"><b>careful</b> 仔细的、<b>hopeful</b> 充满希望的、<b>beautiful</b> 美丽的</td>
+    <td>"满"→褒义居多</td>
+  </tr>
+  <tr>
+    <td class="af">-less</td>
+    <td>无…的（日耳曼）</td>
+    <td class="word"><b>careless</b> 粗心的、<b>helpless</b> 无助的、<b>useless</b> 无用的</td>
+    <td>-ful 的反面：careful 细心 / careless 粗心</td>
+  </tr>
+  <tr>
+    <td class="af">-able / -ible</td>
+    <td>可…的（拉丁）</td>
+    <td class="word"><b>comfortable</b> 舒服的、<b>reliable</b> 可靠的、<b>possible</b> 可能的</td>
+    <td>加动词表"能被…的"：read→readable 可读</td>
+  </tr>
+  <tr>
+    <td class="af">-ous</td>
+    <td>充满…的、具…性质（拉丁）</td>
+    <td class="word"><b>dangerous</b> 危险的、<b>famous</b> 著名的、<b>nervous</b> 紧张的</td>
+    <td>vs -ful：-ous 多表"带来…的"（dangerous 带来危险）</td>
+  </tr>
+  <tr>
+    <td class="af">-al</td>
+    <td>与…有关的（拉丁）</td>
+    <td class="word"><b>natural</b> 自然的、<b>personal</b> 个人的、<b>cultural</b> 文化的</td>
+    <td>中性"归属/相关"</td>
+  </tr>
+  <tr>
+    <td class="af">-ive</td>
+    <td>倾向于…的、有…能力（拉丁）</td>
+    <td class="word"><b>active</b> 积极的、<b>creative</b> 有创造力的、<b>decisive</b> 果断的</td>
+    <td>强调"爱做… / 能做…"</td>
+  </tr>
+  <tr>
+    <td class="af">-ly</td>
+    <td>…的 / …地（日耳曼）</td>
+    <td class="word"><b>friendly</b> 友好的（形）、<b>quickly</b> 快速地（副）</td>
+    <td>加名词变形容词（friendly），加形容词变副词（quickly）</td>
+  </tr>
+</table>
+
+<h2 class="section">四、动词后缀</h2>
+
+<table class="diff">
+  <tr><th>后缀</th><th>含义</th><th>典型词</th><th>辨析</th></tr>
+  <tr>
+    <td class="af">-ize / -ise</td>
+    <td>使…化、变成（希腊）</td>
+    <td class="word"><b>realize</b> 意识到、<b>modernize</b> 现代化、<b>organize</b> 组织</td>
+    <td>美式 -ize，英式 -ise 通用</td>
+  </tr>
+  <tr>
+    <td class="af">-ify</td>
+    <td>使…（拉丁）</td>
+    <td class="word"><b>clarify</b> 澄清、<b>magnify</b> 放大、<b>beautify</b> 美化</td>
+    <td>与 -ize 近似，-ify 更短促（未单独成篇，见词根卡片）</td>
+  </tr>
+</table>
+
+<h2 class="section">五、否定前缀（dis-/un-/non-/in-/mis-/de-）</h2>
+
+<table class="diff">
+  <tr><th>前缀</th><th>含义</th><th>典型词</th><th>辨析</th></tr>
+  <tr>
+    <td class="af">un-</td>
+    <td>单纯否定状态（日耳曼）</td>
+    <td class="word"><b>unhappy</b> 不开心、<b>unclear</b> 不清楚、<b>unfair</b> 不公平</td>
+    <td>最常用，"没有这种状态"</td>
+  </tr>
+  <tr>
+    <td class="af">dis-</td>
+    <td>主动反向动作（拉丁）</td>
+    <td class="word"><b>disagree</b> 不同意、<b>disconnect</b> 断开、<b>disappear</b> 消失</td>
+    <td>强调"去做相反的事"</td>
+  </tr>
+  <tr>
+    <td class="af">non-</td>
+    <td>客观分类"非"（拉丁）</td>
+    <td class="word"><b>nonstop</b> 不停的、<b>nonfiction</b> 纪实、<b>nonprofit</b> 非营利</td>
+    <td>表"不属于某类"，最中性</td>
+  </tr>
+  <tr>
+    <td class="af">in- / il- / im- / ir-</td>
+    <td>形容词否定（拉丁）</td>
+    <td class="word"><b>illegal</b> 非法、<b>impossible</b> 不可能、<b>irregular</b> 不规则</td>
+    <td>后面首字母同化（l→il、p/m→im、r→ir）</td>
+  </tr>
+  <tr>
+    <td class="af">mis-</td>
+    <td>做错了（日耳曼）</td>
+    <td class="word"><b>mistake</b> 错误、<b>misunderstand</b> 误解、<b>mislead</b> 误导</td>
+    <td>强调"方式不对、搞错"</td>
+  </tr>
+  <tr>
+    <td class="af">de-</td>
+    <td>向下/离开/反转（拉丁）</td>
+    <td class="word"><b>decrease</b> 减少、<b>decode</b> 解码、<b>depart</b> 出发</td>
+    <td>"向下"或"反过来"</td>
+  </tr>
+</table>
+
+<div class="key"><b>记法</b>：<b>没状态用 un（unhappy）</b>，<b>反着做用 dis（disagree）</b>，<b>归类别用 non（nonfiction）</b>，<b>形容词否定用 in（impossible）</b>，<b>搞错了用 mis（mistake）</b>，<b>往下/反着用 de（decode）</b>。</div>
+
+<h2 class="section">六、方向/位置前缀</h2>
+
+<table class="diff">
+  <tr><th>前缀</th><th>含义</th><th>典型词</th></tr>
+  <tr><td class="af">re-</td><td>再、回</td><td class="word"><b>return</b> 返回、<b>review</b> 复习、<b>recycle</b> 回收</td></tr>
+  <tr><td class="af">pre-</td><td>时间上"预先"</td><td class="word"><b>prepare</b> 准备、<b>predict</b> 预测</td></tr>
+  <tr><td class="af">post-</td><td>时间上"之后"</td><td class="word"><b>postpone</b> 推迟、<b>postwar</b> 战后</td></tr>
+  <tr><td class="af">fore-</td><td>位置"在前"（日耳曼）</td><td class="word"><b>forecast</b> 预报、<b>foresee</b> 预见</td></tr>
+  <tr><td class="af">inter-</td><td>在…之间</td><td class="word"><b>international</b> 国际的、<b>interview</b> 面试</td></tr>
+  <tr><td class="af">trans-</td><td>横跨</td><td class="word"><b>transport</b> 运输、<b>translate</b> 翻译</td></tr>
+  <tr><td class="af">ex- / e-</td><td>向外</td><td class="word"><b>exit</b> 出口、<b>export</b> 出口</td></tr>
+  <tr><td class="af">out-</td><td>向外（日耳曼）</td><td class="word"><b>output</b> 产出、<b>outstanding</b> 杰出</td></tr>
+  <tr><td class="af">over-</td><td>过度、在上</td><td class="word"><b>overwork</b> 加班、<b>overdue</b> 逾期</td></tr>
+  <tr><td class="af">super- / sur-</td><td>超越、在上</td><td class="word"><b>supermarket</b> 超市、<b>survive</b> 幸存</td></tr>
+  <tr><td class="af">sub-</td><td>在下</td><td class="word"><b>subway</b> 地铁、<b>submit</b> 提交</td></tr>
+  <tr><td class="af">under-</td><td>在下（日耳曼）</td><td class="word"><b>underground</b> 地下、<b>understand</b> 理解</td></tr>
+  <tr><td class="af">per-</td><td>贯穿、彻底</td><td class="word"><b>perfect</b> 完美、<b>persist</b> 坚持</td></tr>
+  <tr><td class="af">intro- / intra-</td><td>向内 / 内部</td><td class="word"><b>introduce</b> 介绍、<b>introvert</b> 内向</td></tr>
+  <tr><td class="af">circum-</td><td>环绕</td><td class="word"><b>circumstance</b> 情况、<b>circumference</b> 周长</td></tr>
+  <tr><td class="af">anti-</td><td>对抗（希腊）</td><td class="word"><b>antibiotic</b> 抗生素、<b>antisocial</b> 反社会</td></tr>
+  <tr><td class="af">syn- / sym-</td><td>一起（希腊）</td><td class="word"><b>symphony</b> 交响乐、<b>system</b> 系统</td></tr>
+  <tr><td class="af">com- / con- / co-</td><td>一起（拉丁）</td><td class="word"><b>combine</b> 结合、<b>cooperate</b> 合作</td></tr>
+</table>
+
+<div class="key"><b>时间对</b>：pre-（之前）↔ post-（之后）｜ <b>位置对</b>：fore-（在前）↔ after ｜ <b>方向对</b>：inter-（之间）↔ intra-（内部）↔ intro-（向内）｜ <b>上下对</b>：super-/over-（上）↔ sub-/under-（下）｜ <b>内外对</b>：ex-/out-（外）↔ in-（内）</div>
+
+<h2 class="section">七、数量/其他小词缀</h2>
+
+<table class="diff">
+  <tr><th>词缀</th><th>含义</th><th>典型词</th></tr>
+  <tr><td class="af">bi-</td><td>二（拉丁）</td><td class="word"><b>bicycle</b> 自行车、<b>bilingual</b> 双语</td></tr>
+  <tr><td class="af">semi-</td><td>半（拉丁）</td><td class="word"><b>semicircle</b> 半圆、<b>semifinal</b> 半决赛</td></tr>
+  <tr><td class="af">multi-</td><td>多（拉丁）</td><td class="word"><b>multimedia</b> 多媒体、<b>multiply</b> 乘</td></tr>
+  <tr><td class="af">-ette</td><td>小、女性（法语）</td><td class="word"><b>cigarette</b> 香烟、<b>kitchenette</b> 小厨房</td></tr>
+  <tr><td class="af">-able / -ible</td><td>可…的</td><td class="word"><b>available</b> 可用的、<b>possible</b> 可能的</td></tr>
+  <tr><td class="af">-ly</td><td>…地 / …的</td><td class="word"><b>quickly</b> 快速地、<b>friendly</b> 友好的</td></tr>
+</table>
+
+<div class="footer">词缀总辨析 · 学而时习之 · 不亦说乎 👋</div>
+
+</body>
+<script>
+/* ---------- 单词发音 ---------- */
+(function () {
+  var synth = ("speechSynthesis" in window) ? window.speechSynthesis : null;
+  var audio = new Audio();
+  audio.preload = "auto";
+  audio.playbackRate = 0.95;
+  var curBtn = null;
+
+  function pickVoice() {
+    if (!synth) return null;
+    var vs = synth.getVoices() || [];
+    return vs.filter(function (v) { return /en[-_]US/i.test(v.lang); })[0] ||
+           vs.filter(function (v) { return /^en/i.test(v.lang); })[0] || null;
+  }
+  function tts(text) {
+    if (!synth) return;
+    var u = new SpeechSynthesisUtterance(text);
+    u.lang = "en-US";
+    var v = pickVoice(); if (v) u.voice = v;
+    try { synth.cancel(); } catch (e) {}
+    synth.speak(u);
+  }
+  function clear() { if (curBtn) { curBtn.classList.remove("playing"); curBtn = null; } }
+  function play(el, btn) {
+    var src = el.getAttribute("data-say");
+    var text = el.textContent.replace(/\s+/g, " ").trim();
+    clear();
+    if (btn) { btn.classList.add("playing"); curBtn = btn; }
+    if (src) {
+      audio.src = src;
+      audio.onended = function () { if (curBtn === btn) clear(); };
+      audio.onerror = function () { if (curBtn === btn) clear(); tts(text); };
+      var p = audio.play();
+      if (p && p.catch) { p.catch(function () { clear(); tts(text); }); }
+    } else {
+      tts(text);
+      setTimeout(function () { if (curBtn === btn) clear(); }, 1500);
+    }
+  }
+
+  document.querySelectorAll("[data-say]").forEach(function (el) {
+    var prev = el.previousElementSibling;
+    if (prev && prev.classList && prev.classList.contains("psay")) return;
+    var b = document.createElement("button");
+    b.type = "button"; b.className = "psay"; b.textContent = "\uD83D\uDD0A"; b.title = "发音";
+    b.setAttribute("aria-label", "发音");
+    b.addEventListener("click", function (e) {
+      e.stopPropagation(); e.preventDefault();
+      if (curBtn === b) {
+        try { audio.pause(); } catch (err) {}
+        if (synth) { try { synth.cancel(); } catch (err) {} }
+        clear(); return;
+      }
+      play(el, b);
+    });
+    el.parentNode.insertBefore(b, el);
+  });
+
+  /* 点任意英文词发音 */
+  var on = false;
+  var tg = document.createElement("button");
+  tg.id = "pron-toggle"; tg.type = "button"; tg.textContent = "\uD83D\uDD24 点词发音";
+  document.body.appendChild(tg);
+  tg.addEventListener("click", function () {
+    on = !on; tg.classList.toggle("on", on);
+    tg.textContent = on ? "\uD83D\uDD24 点词发音：开" : "\uD83D\uDD24 点词发音";
+  });
+  function wordAt(x, y) {
+    var node, offset;
+    if (document.caretRangeFromPoint) {
+      var r = document.caretRangeFromPoint(x, y);
+      if (!r) return null; node = r.startContainer; offset = r.startOffset;
+    } else if (document.caretPositionFromPoint) {
+      var p = document.caretPositionFromPoint(x, y);
+      if (!p) return null; node = p.offsetNode; offset = p.offset;
+    } else { return null; }
+    if (!node || node.nodeType !== 3) return null;
+    var t = node.textContent, re = /[A-Za-z][A-Za-z'\u2019\-]*/g, m;
+    while ((m = re.exec(t))) {
+      if (offset >= m.index && offset <= m.index + m[0].length) return m[0];
+    }
+    return null;
+  }
+  document.addEventListener("click", function (e) {
+    if (!on) return;
+    if (e.target.closest && (e.target.closest(".psay") || e.target.closest("#pron-toggle"))) return;
+    var w = wordAt(e.clientX, e.clientY);
+    if (w) tts(w);
+  }, true);
+})();
+
+</script>
+</html>

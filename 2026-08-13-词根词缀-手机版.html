@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>词根词缀每日积累 · 补（8月13日）</title>
+<style>
+  @page { size: A4; margin: 16mm 15mm; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Noto Sans CJK SC', 'Droid Sans Fallback', 'WenQuanYi Zen Hei', sans-serif;
+    font-size: 10.5pt;
+    color: #1f2937;
+    line-height: 1.65;
+  }
+  /* 页眉 */
+  .header {
+    border-bottom: 3px solid #2563eb;
+    padding-bottom: 10px;
+    margin-bottom: 6px;
+  }
+  .header h1 { font-size: 19pt; color: #1e3a8a; letter-spacing: 1px; }
+  .header .meta { color: #6b7280; font-size: 9.5pt; margin-top: 2px; }
+  .header .meta b { color: #2563eb; }
+
+  /* 分区标题 */
+  h2.section {
+    font-size: 12.5pt;
+    color: #1e3a8a;
+    margin: 14px 0 8px 0;
+    padding-left: 8px;
+    border-left: 4px solid #2563eb;
+  }
+
+  /* 词根卡片 */
+  .card {
+    border: 1px solid #e5e7eb;
+    border-left: 4px solid #2563eb;
+    border-radius: 6px;
+    padding: 8px 12px 9px 12px;
+    margin-bottom: 9px;
+    page-break-inside: avoid;
+  }
+  .card .root-head { margin-bottom: 4px; }
+  .card .num {
+    display: inline-block;
+    width: 17px; height: 17px;
+    background: #2563eb; color: #fff;
+    border-radius: 50%;
+    text-align: center; line-height: 17px;
+    font-size: 9pt; font-weight: bold;
+    margin-right: 6px;
+  }
+  .card .root { font-size: 12.5pt; font-weight: bold; color: #1e3a8a; font-family: 'DejaVu Sans', sans-serif; }
+  .card .meaning { color: #4b5563; }
+  .card .trick {
+    display: block;
+    color: #047857;
+    font-size: 9pt;
+    margin-top: 1px;
+  }
+  /* 词源与演化 */
+  .card .etym {
+    display: block;
+    margin-top: 3px;
+    font-size: 9pt;
+    color: #6d28d9;
+  }
+  .card .etym .lab, .card .evo .lab { font-weight: bold; }
+  .card .evo {
+    display: block;
+    margin-top: 1px;
+    font-size: 9pt;
+    color: #b45309;
+  }
+  .card ul { list-style: none; padding: 0; }
+  .card li {
+    padding: 1px 0;
+    font-size: 10.5pt;
+  }
+  .card li b { color: #111827; }
+  .card .note { color: #9ca3af; font-size: 9pt; }
+  .card .usage {
+    margin-top: 4px;
+    background: #eff6ff;
+    border-radius: 4px;
+    padding: 3px 8px;
+    font-size: 9.5pt;
+    color: #1e40af;
+  }
+  .card .usage b { color: #1e3a8a; }
+
+  /* 深度辨析块（词缀卡片内，浅黄背景） */
+  .card .confuse {
+    margin-top: 5px;
+    background: #fefce8;
+    border: 1px solid #fde047;
+    border-radius: 5px;
+    padding: 5px 9px;
+    font-size: 9pt;
+    color: #854d0e;
+    line-height: 1.6;
+  }
+  .card .confuse .confuse-title {
+    display: block;
+    font-weight: bold;
+    font-size: 9.5pt;
+    color: #92400e;
+    margin-bottom: 3px;
+  }
+  .card .confuse b { color: #78350f; }
+  .card .confuse .sub { color: #a16207; font-weight: bold; }
+
+  /* 多形词根变体块（紫色系） */
+  .card .variant {
+    margin-top: 5px;
+    background: #f5f3ff;
+    border: 1px solid #c4b5fd;
+    border-radius: 5px;
+    padding: 5px 9px;
+    font-size: 9pt;
+    color: #5b21b6;
+    line-height: 1.6;
+  }
+  .card .variant .var-title {
+    display: block;
+    font-weight: bold;
+    font-size: 9.5pt;
+    color: #6d28d9;
+    margin-bottom: 3px;
+  }
+  .card .variant b { color: #5b21b6; }
+
+  /* 同源对照块（琥珀系） */
+  .card .cognate {
+    margin-top: 5px;
+    background: #fffbeb;
+    border: 1px solid #fcd34d;
+    border-radius: 5px;
+    padding: 5px 9px;
+    font-size: 9pt;
+    color: #92400e;
+    line-height: 1.6;
+  }
+  .card .cognate .cog-title {
+    display: block;
+    font-weight: bold;
+    font-size: 9.5pt;
+    color: #b45309;
+    margin-bottom: 3px;
+  }
+  .card .cognate b { color: #78350f; }
+
+  /* 词缀卡片（不同色区分） */
+  .card.affix { border-left-color: #059669; }
+  .card.affix .num { background: #059669; }
+  .card.affix .root { color: #065f46; }
+  .card.affix .usage { background: #ecfdf5; color: #065f46; }
+
+  .footer {
+    margin-top: 14px;
+    text-align: center;
+    color: #9ca3af;
+    font-size: 8.5pt;
+    border-top: 1px solid #e5e7eb;
+    padding-top: 6px;
+  }
+/* ---------- 单词发音（神经网络 MP3，缺失回退系统语音） ---------- */
+.psay{
+  display:inline-flex; align-items:center; justify-content:center;
+  width:18px; height:18px; margin:0 5px 0 0; padding:0;
+  border:1px solid #cbd5e1; border-radius:50%; background:#f8fafc;
+  color:#2563eb; font-size:9px; line-height:1; cursor:pointer;
+  vertical-align:1px; -webkit-tap-highlight-color:transparent;
+  transition:background .15s,border-color .15s;
+}
+.psay:hover{ background:#dbeafe; border-color:#93c5fd; }
+.psay.playing{ background:#2563eb; border-color:#2563eb; color:#fff; animation:psay-pulse 1s infinite; }
+@keyframes psay-pulse{ 0%,100%{opacity:1;} 50%{opacity:.5;} }
+
+#pron-toggle{
+  position:fixed; left:12px; bottom:calc(16px + env(safe-area-inset-bottom));
+  z-index:950; border:none; border-radius:999px; padding:8px 14px;
+  background:rgba(37,99,235,.95); color:#fff; font-size:13px; cursor:pointer;
+  box-shadow:0 4px 14px rgba(0,0,0,.25);
+  font-family:'Noto Sans CJK SC','Droid Sans Fallback',sans-serif;
+  -webkit-tap-highlight-color:transparent;
+}
+#pron-toggle.on{ background:#047857; }
+
+@media print{ .psay, #pron-toggle{ display:none !important; } }
+
+/* mobile-generic */
+  html { -webkit-text-size-adjust: 100%; }
+  body { overflow-wrap: break-word; }
+  @media (max-width: 640px) {
+    body { font-size: 16px !important; line-height: 1.8;
+           padding: 14px 12px calc(34px + env(safe-area-inset-bottom)); }
+    .header h1 { font-size: 1.5rem; }
+    .header .meta { font-size: .82rem; }
+    h2.section { font-size: 1.12rem; }
+    .card { padding: 11px 13px; border-radius: 10px; }
+    .card .root { font-size: 1.18rem; }
+    .card li { font-size: 1rem; padding: 3px 0; }
+    .card .usage { font-size: .95rem; }
+    .card .etym, .card .evo, .card .trick,
+    .card .confuse, .card .variant, .card .cognate { font-size: .86rem; }
+    table { display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    .flow { font-size: .9rem; }
+  }
+
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>词根词缀每日积累 · 补（8月13日）</h1>
+  <div class="meta">2026 年 8 月 13 日 ｜ <b>词根 7 个 · 词缀 3 个</b> ｜ 附词源与演化</div>
+</div>
+
+<h2 class="section">词根（7 个）</h2>
+
+<div class="card">
+  <div class="root-head"><span class="num">1</span><span class="root">ag / act</span> <span class="meaning">= do, drive 做、驱动</span></div>
+  <span class="trick">💡 记法：act = "做"；agent = 替别人"做事"的人（代理人）</span>
+  <span class="etym"><span class="lab">词源</span>：拉丁语 <b>agere</b>「做、推动」，完成分词 <b>actus</b>，源自印欧语 <b>*h₂eǵ-</b>「驱使、做」</span>
+  <span class="evo"><span class="lab">演化</span>：<b>做/驱动</b> → 动作(act) ｜ 推动者=agent ｜ 反着"做"=react ｜ 再"做"一遍=re-enact</span>
+  <ul>
+    <li><b data-say="words-audio/316c9c3ed45a83ee318b1f859d9b8b79.mp3">act</b> 行动、表演 <span class="note">（agere 的名词，"去做"）</span></li>
+    <li><b data-say="words-audio/418c5509e2171d55b0aee5c2ea4442b5.mp3">action</b> 行动 <span class="note">（act + -ion）</span></li>
+    <li><b data-say="words-audio/c76a5e84e4bdee527e274ea30c680d79.mp3">active</b> 活跃的 <span class="note">（act + -ive，爱行动的，呼应 Day 6）</span></li>
+    <li><b data-say="words-audio/b33aed8f3134996703dc39f9a7c95783.mp3">agent</b> 代理人、中介 <span class="note">（ag + -ent，"替人做事者"）</span></li>
+    <li><b data-say="words-audio/266a1f7c2e2345169d3bc448da45eae6.mp3">react</b> 反应 <span class="note">（re- 回 + act，"对刺激做回去"）</span></li>
+    <li><b data-say="words-audio/3b7efa09444a31c5d58596e5bbf87d47.mp3">exact</b> 精确的 <span class="note">（ex- 出 + act，"做出来一丝不差"）</span></li>
+  </ul>
+  <div class="variant">
+    <span class="var-title">🧩 变体家族</span>
+    <b>ag-</b> agent, agency, agenda「待办议程（要去做的事）」<br>
+    <b>act-</b> act, action, active, react, exact, transaction「交易」
+  </div>
+  <div class="usage">口语/生活用：<b data-say="words-audio/e4e93179255779931a923b66fdfc839f.mp3">Actions speak louder than words.</b> 行动胜于言辞。</div>
+</div>
+
+<div class="card">
+  <div class="root-head"><span class="num">2</span><span class="root">cid / cis</span> <span class="meaning">= cut, kill 切、杀</span></div>
+  <span class="trick">💡 记法：decide = 一刀"切"断犹豫（决定）；scissors = 用来"切"的剪刀</span>
+  <span class="etym"><span class="lab">词源</span>：拉丁语 <b>caedere</b>「切割、杀死」，完成分词 <b>caesus</b>，源自印欧语 <b>*ka-</b>「切」</span>
+  <span class="evo"><span class="lab">演化</span>：<b>切割</b> → 一刀两断=decide ｜ 切掉多余=concise（简洁） ｜ 自"杀"=suicide</span>
+  <ul>
+    <li><b data-say="words-audio/681647a719e45584566fe980061fe10d.mp3">decide</b> 决定 <span class="note">（de- 完全 + cid，"一刀切下定论"）</span></li>
+    <li><b data-say="words-audio/12a101dd68b75764976022c7502f5ba6.mp3">decisive</b> 果断的 <span class="note">（decide 变 de + cisive，能当机立断的）</span></li>
+    <li><b data-say="words-audio/d465f46b143cd0a250a4e2a948e10460.mp3">concise</b> 简洁的 <span class="note">（con- 加强 + cis，"切掉废话"）</span></li>
+    <li><b data-say="words-audio/70a5d255a4109da344424e6bc9bb40c0.mp3">suicide</b> 自杀 <span class="note">（sui 自己 + cide，"杀自己"）</span></li>
+    <li><b data-say="words-audio/d13f6bb08e4138e4cb5fe099b36bc69b.mp3">precise</b> 精确的 <span class="note">（pre- 前 + cis，"预先切准"）</span></li>
+    <li><b data-say="words-audio/7d89153387e0f3ffc41641cc4fb91cc1.mp3">scissors</b> 剪刀 <span class="note">（源自 caedere 的派生，"切割工具"）</span></li>
+  </ul>
+  <div class="variant">
+    <span class="var-title">🧩 变体家族</span>
+    <b>cid-</b> decide, suicide, pesticide「杀虫剂」<br>
+    <b>cis-</b> decisive, concise, precise, incision「切口」<br>
+    <b>cide-</b> homicide「杀人」, insecticide「杀虫剂」
+  </div>
+  <div class="usage">口语/生活用：<b data-say="words-audio/19bc8b33a74cb7ea08b463eada7512e0.mp3">I can't decide between the two — they're both great.</b> 这两个我选不出来——都很好。</div>
+</div>
+
+<div class="card">
+  <div class="root-head"><span class="num">3</span><span class="root">corp / corpor</span> <span class="meaning">= body 身体</span></div>
+  <span class="trick">💡 记法：corps = 一"具"躯体→军团；corporate = 公司这个"整体"</span>
+  <span class="etym"><span class="lab">词源</span>：拉丁语 <b>corpus</b>「身体、实体」，源自印欧语 <b>*kr̥p-</b>「身体」</span>
+  <span class="evo"><span class="lab">演化</span>：<b>身体</b> → 尸体(corpse) ｜ 结为"一体"=incorporate ｜ 公司的整体=corporate</span>
+  <ul>
+    <li><b data-say="words-audio/e89196f1cb52069efe1f4bf0942bcb7f.mp3">corpse</b> 尸体 <span class="note">（corp + -se，无生命之躯）</span></li>
+    <li><b data-say="words-audio/061117da4e327cac66b31d2b35068c0a.mp3">corporate</b> 公司的、法人的 <span class="note">（corpor + -ate，"结成一体的"）</span></li>
+    <li><b data-say="words-audio/cf7b81c07152f075088a7c42eb613958.mp3">corporation</b> 公司 <span class="note">（corpor + -ation，"法人实体"）</span></li>
+    <li><b data-say="words-audio/b4f33622f4be434effffc81770d3b961.mp3">incorporate</b> 合并、包含 <span class="note">（in- 入 + corpor + -ate，"纳入一体"）</span></li>
+    <li><b data-say="words-audio/74e9af2246b7085ed082dae691a3bcaa.mp3">corps</b> 军团、团体 <span class="note">（法语，"一整体人马"，s 不发音）</span></li>
+    <li><b data-say="words-audio/842e5a39b01fadaead6970f5ff5de1d5.mp3">physical</b> 身体的 <span class="note">（源自希腊语同源词，physical exercise 锻炼身体）</span></li>
+  </ul>
+  <div class="cognate">
+    <span class="cog-title">🧬 同源对照</span>
+    <b>corpus</b>（拉丁）→ corporate, corpse ｜ <b>soma</b>（希腊）→ somatic「身体的」, chromosome「染色体」——两个"身体"是不同词根，各走一路
+  </div>
+  <div class="usage">口语/生活用：<b data-say="words-audio/ee83f0f1e8cbd1bf6af351d4786ef67e.mp3">I work for a large corporation with offices in fifty countries.</b> 我在一家在五十个国家设有办事处的大型公司工作。</div>
+</div>
+
+<div class="card">
+  <div class="root-head"><span class="num">4</span><span class="root">trib</span> <span class="meaning">= give, pay 给予、分配</span></div>
+  <span class="trick">💡 记法：tribute = 献给国家的供奉；contribute = 一起"给"（贡献）</span>
+  <span class="etym"><span class="lab">词源</span>：拉丁语 <b>tribuere</b>「分配、给予」，源自 <b>tribus</b>「部落」（按部落分配）</span>
+  <span class="evo"><span class="lab">演化</span>：<b>分配/给予</b> → 上缴的贡物=tribute ｜ 一起贡献=contribute ｜ 分发给众人=distribute</span>
+  <ul>
+    <li><b data-say="words-audio/dec4c00f11b18978177a6d532dcd36f1.mp3">tribute</b> 致敬、贡品 <span class="note">（trib + -ute，"献出之物"）</span></li>
+    <li><b data-say="words-audio/d3898b50605f6e2f5e75a15bed9e7539.mp3">contribute</b> 贡献、捐助 <span class="note">（con- 一起 + trib + -ute，"一起拿出"）</span></li>
+    <li><b data-say="words-audio/8738eb91d5c8a6008b0adec17da73c4a.mp3">distribute</b> 分发、分配 <span class="note">（dis- 分开 + trib + -ute，"分头给出去"）</span></li>
+    <li><b data-say="words-audio/d2eb444e35c0a71f0a85df8194acb5b6.mp3">attribute</b> 归因于；属性 <span class="note">（at- 朝 + trib + -ute，"把功劳/性质分给…"）</span></li>
+    <li><b data-say="words-audio/673628c02cabf35c94106f48c1f4d598.mp3">retribution</b> 报应、惩罚 <span class="note">（re- 回 + trib + -ution，"应得之偿还"）</span></li>
+    <li><b data-say="words-audio/0f699dfaebaccc1f11a3f84ed452a30c.mp3">tribunal</b> 法庭 <span class="note">（tribun 保民官 + -al，"主持公道之处"）</span></li>
+  </ul>
+  <div class="usage">口语/生活用：<b data-say="words-audio/cac26a6bc933289b36e1bcae89055fae.mp3">Everyone should contribute a little to keep the office clean.</b> 每个人都应该为保持办公室整洁出一点力。</div>
+</div>
+
+<div class="card">
+  <div class="root-head"><span class="num">5</span><span class="root">terr / terra</span> <span class="meaning">= earth, land 土地</span></div>
+  <span class="trick">💡 记法：terrace = 一层层"土地"砌的梯田；territory = 圈起来的"领地"</span>
+  <span class="etym"><span class="lab">词源</span>：拉丁语 <b>terra</b>「土地、大地」；注意与 terr「使害怕」（terrere）是两个不同词根，切勿混淆</span>
+  <span class="evo"><span class="lab">演化</span>：<b>土地</b> → 圈占的土地=territory ｜ 地形=terrain ｜ 地球=terrestrial（陆地的）</span>
+  <ul>
+    <li><b data-say="words-audio/b15bf92e8d1a16d7b5f725e70cbee681.mp3">territory</b> 领土、领域 <span class="note">（terr + -itory，"圈占之地"）</span></li>
+    <li><b data-say="words-audio/47afa88cfb198f52733fa3d1f43d7f04.mp3">terrain</b> 地形 <span class="note">（terr + -ain，"土地的形态"）</span></li>
+    <li><b data-say="words-audio/4f95e419da1d9c4e0f28825db7fb3568.mp3">terrace</b> 露台、梯田 <span class="note">（terr + -ace，"泥土砌的台地"）</span></li>
+    <li><b data-say="words-audio/e64355955f6cfd8e6e577bd05c6fa0ce.mp3">terrestrial</b> 陆地的、地球的 <span class="note">（terrest + -rial，"大地的"）</span></li>
+    <li><b data-say="words-audio/4f68b69589dc047ff16232ce31af1068.mp3">subterranean</b> 地下的 <span class="note">（sub- 下 + terr + -anean，"土地之下的"）</span></li>
+    <li><b data-say="words-audio/8c7c345ce2a67662e02244778dae2f59.mp3">Mediterranean</b> 地中海的 <span class="note">（medi 中 + terr + -anean，"大地中央的海"）</span></li>
+  </ul>
+  <div class="cognate">
+    <span class="cog-title">🧬 同源对照</span>
+    <b>terra</b>（拉丁）→ territory, terrain ｜ <b>geo</b>（希腊）→ geography, geology——同表"大地"，拉丁/希腊各走一路
+  </div>
+  <div class="usage">口语/生活用：<b data-say="words-audio/98c22771aa87bec5c469c0c70619aed5.mp3">Our company is expanding into new territory this year.</b> 我们公司今年正在开拓新领域。</div>
+</div>
+
+<div class="card">
+  <div class="root-head"><span class="num">6</span><span class="root">son</span> <span class="meaning">= sound 声音</span></div>
+  <span class="trick">💡 记法：person = per（透过）+ son（声音）→ 透过"声音"成为的人（人）</span>
+  <span class="etym"><span class="lab">词源</span>：拉丁语 <b>sonus</b>「声音」，源自印欧语 <b>*swen-</b>「发出声响」</span>
+  <span class="evo"><span class="lab">演化</span>：<b>声音</b> → 声波=sonic ｜ 共同发声=consonant ｜ 回"声"=resonate</span>
+  <ul>
+    <li><b data-say="words-audio/bb5459bf19132d4dc1340654c17331df.mp3">sonic</b> 音速的、声波的 <span class="note">（son + -ic）</span></li>
+    <li><b data-say="words-audio/2b7b93155422a4034d65f5238c334e88.mp3">resonate</b> 引起共鸣 <span class="note">（re- 回 + son + -ate，"声音回荡"）</span></li>
+    <li><b data-say="words-audio/dd93c6336f82a73eb2e6f1b59c82246d.mp3">consonant</b> 辅音；一致的 <span class="note">（con- 一起 + son + -ant，"与元音一同发声"）</span></li>
+    <li><b data-say="words-audio/8b0a44048f58988b486bdd0d245b22a8.mp3">person</b> 人 <span class="note">（per- 透过 + son，"透过声音面具的角色"→人）</span></li>
+    <li><b data-say="words-audio/af8beff03fe8e62cf614a1f424209bad.mp3">sonata</b> 奏鸣曲 <span class="note">（son + -ata，"奏响之曲"）</span></li>
+    <li><b data-say="words-audio/ac524e5ff20def890919743ef1bfbda7.mp3">sonorous</b> 洪亮的 <span class="note">（sonor + -ous，"声音洪大"）</span></li>
+  </ul>
+  <div class="variant">
+    <span class="var-title">🧩 变体家族</span>
+    <b>son-</b> sonic, sonata, sonorous<br>
+    <b>sonan-</b> consonant, resonance「共鸣」<br>
+    <b>soun-</b> sound（经法语，直接借自 sonus）
+  </div>
+  <div class="usage">口语/生活用：<b data-say="words-audio/9d8a087085379eceb45117a2dbbef04d.mp3">Her speech really resonated with the audience.</b> 她的演讲深深引起了观众的共鸣。</div>
+</div>
+
+<div class="card">
+  <div class="root-head"><span class="num">7</span><span class="root">phil</span> <span class="meaning">= love 爱（希腊）</span></div>
+  <span class="trick">💡 记法：philosophy = 爱（phil）智慧（soph）→ 哲学；Philadelphia = 兄弟之"爱"之城（费城）</span>
+  <span class="etym"><span class="lab">词源</span>：希腊语 <b>philein</b>「爱」，<b>philos</b>「亲爱的」；与英语 <b>friend</b> 同源（同出印欧语 <b>*prāi-</b>「喜欢」）</span>
+  <span class="evo"><span class="lab">演化</span>：<b>爱</b> → 爱智慧=哲学(philosophy) ｜ 爱人类=博爱(philanthropy) ｜ 爱书人=bibliophile</span>
+  <ul>
+    <li><b data-say="words-audio/225ab6cdf797eae79495ff584a46dfd2.mp3">philosophy</b> 哲学 <span class="note">（phil + soph 智慧 + -y，"爱智慧"）</span></li>
+    <li><b data-say="words-audio/7cef8d9b9520e5402fe6ecfe32d4fe35.mp3">philanthropist</b> 慈善家 <span class="note">（phil + anthrop 人类 + -ist，"爱人类者"）</span></li>
+    <li><b data-say="words-audio/99d616273e72ffd7e2ec5e19a78f13af.mp3">bibliophile</b> 藏书家 <span class="note">（biblio 书 + phil + -e，"爱书之人"）</span></li>
+    <li><b data-say="words-audio/3064b320cef260c8f077f7c12a080f33.mp3">Philadelphia</b> 费城 <span class="note">（phil + adelph 兄弟，"兄弟之爱之城"）</span></li>
+    <li><b data-say="words-audio/ee7c185bd94382437c641f303993f925.mp3">philharmonic</b> 爱乐的、交响乐团 <span class="note">（phil + harmon 和谐 + -ic，"爱和谐音乐的"）</span></li>
+    <li><b data-say="words-audio/e08330d026a8ebbabd1c9b78de18afc6.mp3">-philia</b> 对…的病态爱好 <span class="note">（后缀，如 necrophilia 恋尸癖）</span></li>
+  </ul>
+  <div class="cognate">
+    <span class="cog-title">🧬 同源对照</span>
+    <b>philein</b>（希腊）→ philosophy, philanthropist ｜ <b>friend</b>（英语） ｜ <b>frīōn</b>（古英语"去爱"）——同出 PIE <b>*prāi-</b>「喜爱」
+  </div>
+  <div class="usage">口语/生活用：<b data-say="words-audio/02cd89a73afc448d5ec8dcf77cccd000.mp3">My philosophy is simple: work hard, rest well.</b> 我的人生哲学很简单：好好工作，好好休息。</div>
+</div>
+
+<h2 class="section">词缀（3 个）</h2>
+
+<div class="card affix">
+  <div class="root-head"><span class="num">8</span><span class="root">de-</span> <span class="meaning">= down, away, reverse 向下、离开、反转</span></div>
+  <span class="trick">💡 记法：decrease = 往下"降"；decode = "反"译回明文（解码）</span>
+  <span class="etym"><span class="lab">词源</span>：拉丁语 <b>de</b>「向下、离开、远离」，源自印欧语 <b>*dō-</b>「去、离开」</span>
+  <span class="evo"><span class="lab">演化</span>：<b>向下/离开</b> → 下降(decrease) ｜ 离开=出发(depart) ｜ 反转=解除(decode)</span>
+  <ul>
+    <li><b data-say="words-audio/b0fe2606af48e49fd3746844798eb6a0.mp3">decrease</b> 减少 <span class="note">（de- 下 + creas 长，"往下长"）</span></li>
+    <li><b data-say="words-audio/2b122770316eec706934c954faa7bee3.mp3">decline</b> 下降、婉拒 <span class="note">（de- 下 + clin 斜，"向下倾斜"）</span></li>
+    <li><b data-say="words-audio/993a0f1eb3c74e7fa0534a6f61ac82e7.mp3">depart</b> 出发、离开 <span class="note">（de- 离 + part 分开，"分道离开"）</span></li>
+    <li><b data-say="words-audio/5b93625023a1c2180221257849744b59.mp3">decode</b> 解码 <span class="note">（de- 反 + code，"逆向破译"）</span></li>
+    <li><b data-say="words-audio/ad42f6697b035b7580e4fef93be20b4d.mp3">debug</b> 调试 <span class="note">（de- 除 + bug 虫，"去除程序漏洞"）</span></li>
+    <li><b data-say="words-audio/05afb6ce69b9cef1bd6ece7e4745f96c.mp3">deny</b> 否认 <span class="note">（de- 加强 + ny 否定，"坚决说不"）</span></li>
+  </ul>
+  <div class="confuse">
+    <span class="confuse-title">💡 深度辨析：de- vs dis- vs un-</span>
+    <span class="sub">de-</span>（向下/离开/反转）：decrease, depart, decode<br>
+    <span class="sub">dis-</span>（主动反向/去除，Day 2）：disagree, disconnect<br>
+    <span class="sub">un-</span>（单纯否定状态，Day 3）：unhappy, unclear<br>
+    例：<b>decode</b>（反着解，de-）vs <b>disagree</b>（反着做，dis-）vs <b>unfair</b>（没公平，un-）——de- 强调"向下的方向"，dis- 强调"相反的动作"
+  </div>
+  <div class="usage">口语/生活用：<b data-say="words-audio/ef9f5bd6dea24640e086a3940df9c6be.mp3">Sales usually decrease after the holiday season.</b> 假期过后销售额通常会下降。</div>
+</div>
+
+<div class="card affix">
+  <div class="root-head"><span class="num">9</span><span class="root">-ance / -ence</span> <span class="meaning">= 状态、性质（名词后缀）</span></div>
+  <span class="trick">💡 记法：important → importance（重要性）；patient → patience（耐心）</span>
+  <span class="etym"><span class="lab">词源</span>：拉丁语 <b>-antia / -entia</b>，经法语 <b>-ance / -ence</b> 进入英语，构成抽象名词</span>
+  <span class="evo"><span class="lab">演化</span>：拉丁 <b>-antia/-entia</b> → 法语 -ance/-ence → 英语，表"…的状态、性质"</span>
+  <ul>
+    <li><b data-say="words-audio/7170f2678a3e108baac4fa8744f39743.mp3">importance</b> 重要性 <span class="note">（important → import + -ance）</span></li>
+    <li><b data-say="words-audio/95456e7506a8c9c04e3bdffd78da1cae.mp3">difference</b> 差别 <span class="note">（differ + -ence，"不同之处"）</span></li>
+    <li><b data-say="words-audio/c05f6c233521207f6fe311afef550c3c.mp3">performance</b> 表现、演出 <span class="note">（perform + -ance，"完成的状态"）</span></li>
+    <li><b data-say="words-audio/4c8476db197a1039153ca724674f7e13.mp3">patience</b> 耐心 <span class="note">（patient → pati + -ence，"忍受的状态"）</span></li>
+    <li><b data-say="words-audio/8bf91b0f43ddf159ed36ad0f50ee3e04.mp3">confidence</b> 自信 <span class="note">（confide → confid + -ence，"相信自己的状态"）</span></li>
+    <li><b data-say="words-audio/bfd175972bfae38549e3a3cf51a4be1d.mp3">assistance</b> 帮助 <span class="note">（assist + -ance）</span></li>
+  </ul>
+  <div class="confuse">
+    <span class="confuse-title">💡 深度辨析：名词后缀 -ance / -ence 与 -ity / -ness</span>
+    <span class="sub">-ance / -ence</span>（拉丁，多配 -ant/-ent 形容词）：importance, performance, difference<br>
+    <span class="sub">-ity</span>（拉丁，Day 8 学过）：ability, reality<br>
+    <span class="sub">-ness</span>（日耳曼，Day 4 学过）：happiness, kindness<br>
+    规律：以 -ant/-ent 结尾的形容词，其名词通常用 -ance/-ence——记一个就能推另一个
+  </div>
+  <div class="usage">口语/生活用：<b data-say="words-audio/34bf7705fdb47de2942166c9dcd110be.mp3">Practice makes perfect — your performance will improve.</b> 熟能生巧——你的表现会进步的。</div>
+</div>
+
+<div class="card affix">
+  <div class="root-head"><span class="num">10</span><span class="root">syn- / sym- / syl-</span> <span class="meaning">= together 一起（希腊）</span></div>
+  <span class="trick">💡 记法：synonym = 和另一个词"一起"一个意思（同义词）；system = 部件"合成"的整体</span>
+  <span class="etym"><span class="lab">词源</span>：希腊语 <b>syn</b>「一起、共同」；随后面辅音同化：m/p/b 前→<b>sym-</b>、l 前→<b>syl-</b></span>
+  <span class="evo"><span class="lab">演化</span>：希腊 <b>syn</b>「一起」→ 一起=共同 ｜ 合成整体=system ｜ 同义=synonym</span>
+  <ul>
+    <li><b data-say="words-audio/9f2d9601b324bb6c1e36737e59ed3d96.mp3">synonym</b> 同义词 <span class="note">（syn + onym 名，"同名"）</span></li>
+    <li><b data-say="words-audio/54b53072540eeeb8f8e9343e71f28176.mp3">system</b> 系统 <span class="note">（sy + stem 立，"部件合成一体"）</span></li>
+    <li><b data-say="words-audio/c57dbeac51de2b31f323f5b4c69e03b5.mp3">symphony</b> 交响乐 <span class="note">（sym + phon 声 + -y，"众声和鸣"）</span></li>
+    <li><b data-say="words-audio/85405d3eb20315155b9d09982f54da9d.mp3">sympathy</b> 同情 <span class="note">（sym + path 感受，呼应 Day 4，"同感"）</span></li>
+    <li><b data-say="words-audio/bc2d9185b78b27a4c8864fff9ed80762.mp3">syllable</b> 音节 <span class="note">（syl + lab 取，"音素合在一起"）</span></li>
+    <li><b data-say="words-audio/5f06b85e1619b2b8b56f7b758a0a310a.mp3">synthetic</b> 合成的 <span class="note">（syn + thet 放，"放到一起"）</span></li>
+  </ul>
+  <div class="confuse">
+    <span class="confuse-title">💡 深度辨析：syn- vs com-</span>
+    <span class="sub">syn- / sym- / syl-</span>（希腊，"合成一体"）：symphony, system, sympathy<br>
+    <span class="sub">com- / con- / co-</span>（拉丁，"共同"，补课已学）：combine, cooperate<br>
+    例：<b>symphony</b>（希腊乐名）vs <b>company</b>（拉丁"共同伴面包的人"）——希腊词根多进科学/艺术词，拉丁词根多进日常词
+  </div>
+  <div class="usage">口语/生活用：<b data-say="words-audio/a8d705a8a211125122c0632738036adc.mp3">I have every sympathy for what you're going through.</b> 我非常理解你正在经历的一切。</div>
+</div>
+
+<div class="footer">词根词缀每日积累 · 每天 10 个 · 明天见 👋</div>
+
+</body>
+<script>
+/* ---------- 单词发音 ---------- */
+(function () {
+  var synth = ("speechSynthesis" in window) ? window.speechSynthesis : null;
+  var audio = new Audio();
+  audio.preload = "auto";
+  audio.playbackRate = 0.95;
+  var curBtn = null;
+
+  function pickVoice() {
+    if (!synth) return null;
+    var vs = synth.getVoices() || [];
+    return vs.filter(function (v) { return /en[-_]US/i.test(v.lang); })[0] ||
+           vs.filter(function (v) { return /^en/i.test(v.lang); })[0] || null;
+  }
+  function tts(text) {
+    if (!synth) return;
+    var u = new SpeechSynthesisUtterance(text);
+    u.lang = "en-US";
+    var v = pickVoice(); if (v) u.voice = v;
+    try { synth.cancel(); } catch (e) {}
+    synth.speak(u);
+  }
+  function clear() { if (curBtn) { curBtn.classList.remove("playing"); curBtn = null; } }
+  function play(el, btn) {
+    var src = el.getAttribute("data-say");
+    var text = el.textContent.replace(/\s+/g, " ").trim();
+    clear();
+    if (btn) { btn.classList.add("playing"); curBtn = btn; }
+    if (src) {
+      audio.src = src;
+      audio.onended = function () { if (curBtn === btn) clear(); };
+      audio.onerror = function () { if (curBtn === btn) clear(); tts(text); };
+      var p = audio.play();
+      if (p && p.catch) { p.catch(function () { clear(); tts(text); }); }
+    } else {
+      tts(text);
+      setTimeout(function () { if (curBtn === btn) clear(); }, 1500);
+    }
+  }
+
+  document.querySelectorAll("[data-say]").forEach(function (el) {
+    var prev = el.previousElementSibling;
+    if (prev && prev.classList && prev.classList.contains("psay")) return;
+    var b = document.createElement("button");
+    b.type = "button"; b.className = "psay"; b.textContent = "\uD83D\uDD0A"; b.title = "发音";
+    b.setAttribute("aria-label", "发音");
+    b.addEventListener("click", function (e) {
+      e.stopPropagation(); e.preventDefault();
+      if (curBtn === b) {
+        try { audio.pause(); } catch (err) {}
+        if (synth) { try { synth.cancel(); } catch (err) {} }
+        clear(); return;
+      }
+      play(el, b);
+    });
+    el.parentNode.insertBefore(b, el);
+  });
+
+  /* 点任意英文词发音 */
+  var on = false;
+  var tg = document.createElement("button");
+  tg.id = "pron-toggle"; tg.type = "button"; tg.textContent = "\uD83D\uDD24 点词发音";
+  document.body.appendChild(tg);
+  tg.addEventListener("click", function () {
+    on = !on; tg.classList.toggle("on", on);
+    tg.textContent = on ? "\uD83D\uDD24 点词发音：开" : "\uD83D\uDD24 点词发音";
+  });
+  function wordAt(x, y) {
+    var node, offset;
+    if (document.caretRangeFromPoint) {
+      var r = document.caretRangeFromPoint(x, y);
+      if (!r) return null; node = r.startContainer; offset = r.startOffset;
+    } else if (document.caretPositionFromPoint) {
+      var p = document.caretPositionFromPoint(x, y);
+      if (!p) return null; node = p.offsetNode; offset = p.offset;
+    } else { return null; }
+    if (!node || node.nodeType !== 3) return null;
+    var t = node.textContent, re = /[A-Za-z][A-Za-z'\u2019\-]*/g, m;
+    while ((m = re.exec(t))) {
+      if (offset >= m.index && offset <= m.index + m[0].length) return m[0];
+    }
+    return null;
+  }
+  document.addEventListener("click", function (e) {
+    if (!on) return;
+    if (e.target.closest && (e.target.closest(".psay") || e.target.closest("#pron-toggle"))) return;
+    var w = wordAt(e.clientX, e.clientY);
+    if (w) tts(w);
+  }, true);
+})();
+
+</script>
+</html>

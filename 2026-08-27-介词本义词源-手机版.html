@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>介词的本义 · 为什么介词会这么用</title>
+<style>
+  @page { size: A4; margin: 15mm 14mm; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Noto Sans CJK SC', 'Droid Sans Fallback', 'WenQuanYi Zen Hei', sans-serif;
+    font-size: 9.8pt;
+    color: #1f2937;
+    line-height: 1.62;
+  }
+  .header {
+    border-bottom: 3px solid #0d9488;
+    padding-bottom: 8px;
+    margin-bottom: 6px;
+  }
+  .header h1 { font-size: 17pt; color: #134e4a; letter-spacing: 1px; }
+  .header .sub { font-size: 10.5pt; color: #0f766e; margin-top: 2px; }
+  .header .meta { color: #6b7280; font-size: 9pt; margin-top: 2px; }
+  .header .meta b { color: #0d9488; }
+
+  h2.section {
+    font-size: 12pt;
+    color: #134e4a;
+    margin: 13px 0 7px 0;
+    padding-left: 8px;
+    border-left: 4px solid #0d9488;
+    page-break-after: avoid;
+  }
+
+  .intro {
+    background: #f0fdfa;
+    border: 1px solid #99f6e4;
+    border-radius: 6px;
+    padding: 7px 11px;
+    margin-bottom: 9px;
+    font-size: 9pt;
+    color: #134e4a;
+  }
+  .intro b { color: #0f766e; }
+
+  .bigidea {
+    background: #fff7ed;
+    border: 1px solid #fdba74;
+    border-radius: 6px;
+    padding: 7px 11px;
+    margin-bottom: 9px;
+    font-size: 9.5pt;
+    color: #7c2d12;
+  }
+  .bigidea b { color: #9a3412; }
+  .bigidea .it { display: block; margin: 2px 0; }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 8.6pt;
+    margin: 5px 0 9px 0;
+    page-break-inside: avoid;
+  }
+  th {
+    background: #0d9488; color: #fff;
+    border: 1px solid #0d9488;
+    padding: 3px 6px; text-align: left;
+  }
+  td {
+    border: 1px solid #e5e7eb;
+    padding: 3px 6px; vertical-align: top;
+  }
+  tr:nth-child(even) td { background: #f0fdfa; }
+  td b { color: #0f766e; }
+  td .s { color: #6b7280; font-size: 8pt; }
+
+  .card {
+    border: 1px solid #e5e7eb;
+    border-left: 4px solid #0d9488;
+    border-radius: 6px;
+    padding: 7px 11px 8px 11px;
+    margin-bottom: 8px;
+    page-break-inside: avoid;
+  }
+  .card .head { margin-bottom: 3px; }
+  .card .num {
+    display: inline-block;
+    width: 17px; height: 17px;
+    background: #0d9488; color: #fff;
+    border-radius: 50%;
+    text-align: center; line-height: 17px;
+    font-size: 9pt; font-weight: bold;
+    margin-right: 6px; vertical-align: 1px;
+  }
+  .card .fam { font-size: 12pt; font-weight: bold; color: #134e4a; font-family: 'DejaVu Sans', sans-serif; }
+  .card .rm { color: #b45309; font-size: 9pt; font-weight: bold; margin-left: 5px; }
+  .card .etym {
+    display: block;
+    margin-top: 2px;
+    font-size: 9pt;
+    color: #0f766e;
+    line-height: 1.6;
+  }
+  .card .etym .lab { font-weight: bold; }
+  .card .why {
+    display: block;
+    margin-top: 3px;
+    font-size: 8.8pt;
+    color: #6d28d9;
+    background: #f5f3ff;
+    border-left: 3px solid #a78bfa;
+    border-radius: 3px;
+    padding: 3px 8px;
+  }
+  .card .why b { color: #5b21b6; }
+  .card .usage {
+    margin-top: 4px;
+    background: #ecfeff;
+    border-radius: 4px;
+    padding: 3px 8px;
+    font-size: 9.2pt;
+    color: #155e75;
+  }
+  .card .usage b { color: #0e7490; }
+  .card .usage .zh { color: #164e63; }
+
+  .card .confuse {
+    margin-top: 4px;
+    background: #fefce8;
+    border: 1px solid #fde047;
+    border-radius: 5px;
+    padding: 4px 8px;
+    font-size: 8.8pt;
+    color: #854d0e;
+    line-height: 1.55;
+  }
+  .card .confuse .confuse-title { display: block; font-weight: bold; font-size: 9pt; color: #92400e; margin-bottom: 1px; }
+  .card .confuse b { color: #78350f; }
+
+  .story {
+    border: 1px solid #e5e7eb;
+    border-left: 4px solid #e11d48;
+    border-radius: 6px;
+    padding: 7px 11px 8px 11px;
+    margin-bottom: 8px;
+    page-break-inside: avoid;
+  }
+  .story .head { margin-bottom: 3px; }
+  .story .num {
+    display: inline-block;
+    width: 17px; height: 17px;
+    background: #e11d48; color: #fff;
+    border-radius: 50%;
+    text-align: center; line-height: 17px;
+    font-size: 9pt; font-weight: bold;
+    margin-right: 6px; vertical-align: 1px;
+  }
+  .story .t { font-size: 11.5pt; font-weight: bold; color: #881337; font-family: 'DejaVu Sans', sans-serif; }
+  .story p { margin-top: 3px; font-size: 9.2pt; }
+  .story p b { color: #be123c; }
+
+  .quiz table.match td:nth-child(1) { width: 55%; }
+  .quiz table.match td:nth-child(2) { width: 45%; }
+  .quiz .qhead {
+    background: #ccfbf1;
+    border-radius: 4px;
+    padding: 3px 9px;
+    font-size: 9.5pt;
+    font-weight: bold;
+    color: #134e4a;
+    margin-bottom: 4px;
+  }
+  .quiz .qhead .hint { font-weight: normal; color: #6b7280; font-size: 8.5pt; margin-left: 6px; }
+  .quiz ol.fill { list-style: decimal; padding-left: 22px; }
+  .quiz ol.fill li { margin: 2px 0; font-size: 9.2pt; }
+  .quiz ol.fill li b { color: #0f766e; }
+
+  .answers {
+    margin-top: 5px;
+    background: #ecfdf5;
+    border: 1px dashed #34d399;
+    border-radius: 5px;
+    padding: 7px 11px;
+    font-size: 9pt;
+    color: #065f46;
+    line-height: 1.8;
+  }
+  .answers .atitle { font-weight: bold; color: #047857; }
+  .answers b { color: #047857; }
+
+  .footer {
+    margin-top: 12px;
+    text-align: center;
+    color: #9ca3af;
+    font-size: 8.3pt;
+    border-top: 1px solid #e5e7eb;
+    padding-top: 5px;
+  }
+/* ---------- 单词发音（神经网络 MP3，缺失回退系统语音） ---------- */
+.psay{
+  display:inline-flex; align-items:center; justify-content:center;
+  width:18px; height:18px; margin:0 5px 0 0; padding:0;
+  border:1px solid #cbd5e1; border-radius:50%; background:#f8fafc;
+  color:#2563eb; font-size:9px; line-height:1; cursor:pointer;
+  vertical-align:1px; -webkit-tap-highlight-color:transparent;
+  transition:background .15s,border-color .15s;
+}
+.psay:hover{ background:#dbeafe; border-color:#93c5fd; }
+.psay.playing{ background:#2563eb; border-color:#2563eb; color:#fff; animation:psay-pulse 1s infinite; }
+@keyframes psay-pulse{ 0%,100%{opacity:1;} 50%{opacity:.5;} }
+
+#pron-toggle{
+  position:fixed; left:12px; bottom:calc(16px + env(safe-area-inset-bottom));
+  z-index:950; border:none; border-radius:999px; padding:8px 14px;
+  background:rgba(37,99,235,.95); color:#fff; font-size:13px; cursor:pointer;
+  box-shadow:0 4px 14px rgba(0,0,0,.25);
+  font-family:'Noto Sans CJK SC','Droid Sans Fallback',sans-serif;
+  -webkit-tap-highlight-color:transparent;
+}
+#pron-toggle.on{ background:#047857; }
+
+@media print{ .psay, #pron-toggle{ display:none !important; } }
+
+/* mobile-generic */
+  html { -webkit-text-size-adjust: 100%; }
+  body { overflow-wrap: break-word; }
+  @media (max-width: 640px) {
+    body { font-size: 16px !important; line-height: 1.8;
+           padding: 14px 12px calc(34px + env(safe-area-inset-bottom)); }
+    .header h1 { font-size: 1.5rem; }
+    .header .meta { font-size: .82rem; }
+    h2.section { font-size: 1.12rem; }
+    .card { padding: 11px 13px; border-radius: 10px; }
+    .card .root { font-size: 1.18rem; }
+    .card li { font-size: 1rem; padding: 3px 0; }
+    .card .usage { font-size: .95rem; }
+    .card .etym, .card .evo, .card .trick,
+    .card .confuse, .card .variant, .card .cognate { font-size: .86rem; }
+    table { display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    .flow { font-size: .9rem; }
+  }
+
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>介词的本义 · 为什么介词会这么用</h1>
+  <div class="sub">从印欧语 / 古英语词源追到"为什么会这样用" ｜ 空间本义 → 引申逻辑</div>
+  <div class="meta">2026 年 8 月 27 日 ｜ 词源依据：OED / etymonline 通说 ｜ 共 10 大词源家族 · 17 个核心介词</div>
+</div>
+
+<div class="bigidea">
+  <span class="it">💡 <b>总纲：介词全都起源于"空间图景"。</b>上古人类用身体感知方位，这些方位词后来全部隐喻化：</span>
+  <span class="it">　<b>空间 → 时间</b>（in the morning 把"早晨"当容器装）</span>
+  <span class="it">　<b>空间 → 状态 / 情绪</b>（in love 泡在"爱"里，under pressure 被压在"压力"下面）</span>
+  <span class="it">　<b>空间 → 数量 / 程度</b>（over 100 超过一百，under 18 不到十八）</span>
+  <span class="it">　<b>空间 → 关系</b>（for 站在某人"前面"=支持他，against 迎面相对=反对）</span>
+  <span class="it">　所以只要抓住每个介词<b>一幅空间画面</b>，所有用法都能顺理成章推出来——这就是"为什么"的答案。</span>
+</div>
+
+<h2 class="section">一、核心介词的空间本义全景图</h2>
+
+<table>
+  <thead>
+    <tr><th style="width:14%">介词</th><th style="width:20%">空间本义</th><th style="width:30%">一幅画面</th><th>一句话记忆</th></tr>
+  </thead>
+  <tbody>
+    <tr><td><b>at</b></td><td>靠近某一点</td><td>标靶：箭射中靶心</td><td>"点"——时间用点（at 3 点）、目标（look at）、状态（at ease）</td></tr>
+    <tr><td><b>in</b></td><td>三维空间之内</td><td>容器：东西装进箱子</td><td>"包住"——房间、时段、情绪都是容器</td></tr>
+    <tr><td><b>on</b></td><td>与表面接触</td><td>贴纸：贴在墙面上</td><td>"接触"——桌面、墙面、日期线上的一天</td></tr>
+    <tr><td><b>out</b></td><td>由内向外</td><td>水从杯子里溢出来</td><td>"出来"——火走出燃烧态=熄灭，知识走出来=发现</td></tr>
+    <tr><td><b>off</b></td><td>离开、分离</td><td>果子从枝头掉落</td><td>"断开"——脱下、起飞、关掉</td></tr>
+    <tr><td><b>up</b></td><td>向上</td><td>气球升空</td><td>"往上"——涨、准备好（爬到顶=完成）</td></tr>
+    <tr><td><b>down</b></td><td>向下（本义"下山"）</td><td>从山坡往下走</td><td>"下"——减少、记下（放下来落到纸上）、坏掉</td></tr>
+    <tr><td><b>over</b></td><td>在上方、越过</td><td>鸟儿飞越屋顶</td><td>"越过去"——完成（翻过去了）、超过、再来一遍</td></tr>
+    <tr><td><b>under</b></td><td>在正下方</td><td>猫躲在床底</td><td>"在下面"——少于、承受压力、进行中（被盖着）</td></tr>
+    <tr><td><b>through</b></td><td>从一端穿到另一端</td><td>穿过隧道</td><td>"穿透"——办完（走完全程）、彻底</td></tr>
+    <tr><td><b>by</b></td><td>在旁边、经过旁边</td><td>路过车站</td><td>"旁边经过"——经由、被（动作者在旁边）、最迟（靠到那点）</td></tr>
+    <tr><td><b>with</b></td><td>相伴 ／ 原义相对</td><td>并肩同行 vs 面对面而立</td><td>"同在一边"→ 也用（刀陪着切）、对抗（fight with）</td></tr>
+    <tr><td><b>to</b></td><td>朝、向、达</td><td>箭头指向目标</td><td>"朝…去"——方向、给予、到达、目的</td></tr>
+    <tr><td><b>for</b></td><td>在…前面</td><td>站在某人面前挡护</td><td>"在前（支持）"——为了、替、支持</td></tr>
+    <tr><td><b>from</b></td><td>向前离开</td><td>离弦之箭离开弓</td><td>"出发"——来源、离开、因…而</td></tr>
+    <tr><td><b>between</b></td><td>在两者之间</td><td>夹在两本书中间</td><td>be+two"在两者旁边"——只用于两者</td></tr>
+    <tr><td><b>among</b></td><td>在群体之中</td><td>混在人群里</td><td>on+gemang"人群"——用于三者以上</td></tr>
+  </tbody>
+</table>
+
+<h2 class="section">二、词源家族（本义 + 为什么）</h2>
+
+<div class="card">
+  <div class="head"><span class="num">1</span><span class="fam">in / on</span><span class="rm">PIE *h₁en「在内、在上」</span></div>
+  <span class="etym"><span class="lab">本义</span>：<b>in 和 on 是同一个词</b>。古英语 on / an 同时表"在内"与"在上"，in 只是它的另一个变体，两者都源自印欧语 *h₁en「在内」。（同源跨语言：拉丁语 in、希腊语 en、德语 in。）</span>
+  <span class="why">🤔 <b>为什么 on 至今留着"in"的痕迹？</b>因为从源头看它们本是一家。于是：<b>on fire</b>（本义"在火<u>中</u>"）、<b>on holiday</b>（在假期<u>中</u>）、<b>on the way</b>（在路<u>上</u>）、<b>on the contrary</b>（恰恰相反，"在另一边"）。这些 on 都可以当 in 理解。</span>
+  <span class="usage"><b>用法分工</b> <span class="zh">in 需要"包围"（三维容器：房间、箱子、月份）；on 只需"接触"（二维表面：桌子、墙、日期线）。所以 <b>in the morning</b>（早晨=被包住的时段）vs <b>on Monday</b>（周一=日期线上的一个点）。</span></span>
+  <div class="confuse"><span class="confuse-title">⚠️ 记忆点</span><b>on 的核心是"接触"，in 的核心是"包围"。</b>两者分工不是随意的，而是"面 vs 容器"两种空间图景。</div>
+</div>
+
+<div class="card">
+  <div class="head"><span class="num">2</span><span class="fam">of / off / out</span><span class="rm">PIE *apo「离开、从…取出」</span></div>
+  <span class="etym"><span class="lab">本义</span>：<b>of 和 off 本是同一个词</b>（古英语 of，源自印欧语 *apo「离开、远离」）。14 世纪后分化：off 保留"离开"强义，of 弱化后专职表"所属 / 部分 / 来源"。out 出自同族 *ud「向上、向外」，画面一致——都从"离开原处"来。</span>
+  <span class="why">🤔 <b>为什么 "the top of the mountain" 是这个逻辑？</b>山顶 = 从山体"取出来的那部分"。把 of 理解成"从…分出来的"：a piece <u>of</u> cake（从蛋糕切下的一块）、the color <u>of</u> the sky（天空"带出"的颜色）、made <u>of</u> wood（用木头"取来"做的）。所有格、部分格、来源格全部从这一幅"取出"的画面长出来。</span>
+  <span class="usage"><b>区分</b> <span class="zh"><b>of</b>（所属 / 来源）：the book of John；<b>off</b>（分离）：Take off your coat 脱下（离开身体）、The lights went off 熄灭（离开明亮态）；<b>out</b>（出来）：The fire is out 火灭了（火"走出"燃烧态）、run out 耗尽（东西"走光了"）。</span></span>
+  <div class="confuse"><span class="confuse-title">⚠️ 记忆点</span>"从整体取出" = of（所属 / 部分）；"离开原处" = off（断开）；"从容器出来" = out（出现 / 消失）。三者同源，画面可连成一条：<b>切一块出来(of)→ 掉下来(off)→ 走出来(out)</b>。</div>
+</div>
+
+<div class="card">
+  <div class="head"><span class="num">3</span><span class="fam">up / over</span><span class="rm">PIE *upo「从下往上」→ up；*upéri「在上」→ over</span></div>
+  <span class="etym"><span class="lab">本义</span>：<b>up</b> 出自印欧语 *upo，本义"从下往上"。惊人同源：拉丁语 <b>sub「在下面」</b>也来自同一个 *upo——同一个根，"往上"与"在下"一体两面（古希腊语 hypó「在下」同源）。<b>over</b> 出自 *upéri「在上、越过」，与希腊语 <b>hyper（超级）</b>、拉丁语 <b>super（超级）</b>同源——over = super = hyper。</span>
+  <span class="why">🤔 <b>为什么 up 会表"完成"？</b>因为"升到顶"= 到头了：eat <u>up</u>（吃到碗底朝天=吃光）、use <u>up</u>（用到底=用完）、give <u>up</u>（把双手举上去=认输）。<b>为什么 over 表"结束"？</b>因为"翻过去"= 跨过终点：game <u>over</u>（游戏翻篇了）。"再来一遍"= 把书页翻回去重做：do it <u>over</u>（再做一遍）、go <u>over</u> the notes（把笔记从头扫到尾）。"超过数量"= 越过了那条线：over 100 人。</span>
+  <span class="usage"><b>例句</b> <span class="zh">Prices went <u>up</u>. 物价上涨。／ Eat <u>up</u> your vegetables. 把菜吃光。／ The plane flew <u>over</u> the clouds. 飞机飞越云层。／ It cost <u>over</u> $100. 花了 100 多美元。</span></span>
+  <div class="confuse"><span class="confuse-title">⚠️ 辨析</span><b>up</b> 强调"向上"的方向；<b>over</b> 强调"在上方、越过去"。"重复"义只属于 over（翻页再来），up 没有这个意思。</div>
+</div>
+
+<div class="card">
+  <div class="head"><span class="num">4</span><span class="fam">down / under</span><span class="rm">down 本义"下山"；under ← PIE *ndher「在下」</span></div>
+  <span class="etym"><span class="lab">本义</span>：<b>down 的字面意思竟真的是"从山上下来"。</b>古英语 dūn「山丘」，adūne「从山丘（下来）」→ 缩成 down。所以 down 天生带着"下降"的动感。<b>under</b> 源自印欧语 *ndher「在下方」，与拉丁语 <b>infra「低于、次等」</b>同源。</span>
+  <span class="why">🤔 <b>为什么 down 有"记下"义？</b>把东西"放下来"落到纸上 = write <u>down</u>。为什么"坏掉"？大厦"倒下来" = break <u>down</u>。为什么"情绪低落"？心情"低下去" = feel <u>down</u>。为什么"削减"？数字"降下来" = cut <u>down</u>。<b>为什么 under 表"进行中"？</b>工程"被盖在脚手架下面"= under construction；讨论"被压在会议桌下"= under discussion。</span>
+  <span class="usage"><b>例句</b> <span class="zh">He ran <u>down</u> the hill. 他跑下山。／ Write <u>down</u> the address. 把地址记下来。／ The car broke <u>down</u>. 车抛锚了。／ The child hid <u>under</u> the bed. 孩子躲在床下。／ Children <u>under</u> 18 are not admitted. 未满 18 岁不得入内。</span></span>
+  <div class="confuse"><span class="confuse-title">⚠️ 辨析</span><b>under</b> 强调"正下方"；<b>below</b> 只强调"低于"（未必正下方）；<b>beneath</b> 偏书面。under pressure（压力之下）、under the sun（普天之下）都用 under。</div>
+</div>
+
+<div class="card">
+  <div class="head"><span class="num">5</span><span class="fam">through / across</span><span class="rm">through ← PIE *terh₂「穿越」；across 借自法语"十字形"</span></div>
+  <span class="etym"><span class="lab">本义</span>：<b>through</b> 与拉丁语 <b>trans「横越、穿过」</b>同源（transatlantic 跨大西洋、transparent 透光=光"穿过"）。核心画面：从一端穿到另一端。<b>across</b> 来自古法语 <b>à croix「成十字形」</b>（a=朝 + croix=十字），本义是"横着画一个十字"——横跨。</span>
+  <span class="why">🤔 <b>为什么 through 表"完成"？</b>因为"走完全程"= 做完：get <u>through</u> the exam（撑过考试）、live <u>through</u> the war（熬过战争）。为什么"彻底"？"从里到外都看了"= 透：a <u>through</u> search（地毯式搜查）。</span>
+  <span class="usage"><b>例句</b> <span class="zh">We walked <u>through</u> the tunnel. 我们穿过隧道。／ She got <u>through</u> the interview. 她通过了面试。／ They swam <u>across</u> the river. 他们游到河对岸。／ A bridge <u>across</u> the valley. 横跨峡谷的桥。</span></span>
+  <div class="confuse"><span class="confuse-title">⚠️ 辨析</span><b>through</b> 强调"从内部穿行"（隧道、人群、时段）；<b>across</b> 强调"横跨表面"（桥、马路、河面）。走隧道=through，过桥=across。</div>
+</div>
+
+<div class="card">
+  <div class="head"><span class="num">6</span><span class="fam">to / toward</span><span class="rm">to ← PIE *de/do「朝、达」；toward = to + -ward「转身朝…」</span></div>
+  <span class="etym"><span class="lab">本义</span>：<b>to</b> 的本义就是"朝着目标前进、到达"。<b>toward</b> 由 to + -ward 组成；-ward 源自印欧语 *wert「转动」，所以 toward = "朝着…转过身去"（forward 向前方转、backward 向后转、homeward 往家转）。</span>
+  <span class="why">🤔 <b>为什么 give it to me？</b>递东西 = 让它"朝我"而来。<b>为什么 from X to Y？</b>一段路程的起点与终点。<b>为什么 to + 动词原形（不定式）？</b>to do 本义"朝着(做)…去"——目的是动词不定式最深的本义：I came <u>to</u> help（我来<u>是为了</u>帮忙）。<b>为什么 too = "也 / 太"？</b>too 是 to 的加强形："走得再远一点"→ 超出 → 也 / 太。</span>
+  <span class="usage"><b>例句</b> <span class="zh">Give the book <u>to</u> me. 把书给我。／ I prefer tea <u>to</u> coffee. 我偏爱茶胜过咖啡。／ He walked <u>toward</u> the door. 他向门口走去。</span></span>
+  <div class="confuse"><span class="confuse-title">⚠️ 辨析</span><b>to 强调到达，toward 只表方向（未必到达）。</b>I went <u>to</u> the store（我到了店里）vs I walked <u>toward</u> the store（我朝店走，可能没到）。</div>
+</div>
+
+<div class="card">
+  <div class="head"><span class="num">7</span><span class="fam">for / from / before / after</span><span class="rm">PIE *pro「向前、在前」家族</span></div>
+  <span class="etym"><span class="lab">本义</span>：这一家全都围绕"向前、在前"展开。<b>for</b>（古英语 for）本义"在…前面"，与 fore（前面）同源；<b>from</b> 本义"向前离开"；<b>before</b> = be + fore"在前方"；<b>after</b> = 印欧语 *apo「离开」+ 比较级 -ter，本义"更远离（现在）"→ 之后。</span>
+  <span class="why">🤔 <b>为什么 for 表"支持"？</b>为某人说话 = "站到他前面"把他挡在身前。为什么"目的"？把目标"摆在面前"。为什么"交换"？把东西放上前去交易（buy <u>for</u> $5）。为什么"持续"？把一段时间"铺在面前"（wait <u>for</u> 3 hours）。<b>为什么 from 表"来源 / 原因"？</b>离开起点：come <u>from</u> China（从中国出发）、suffer <u>from</u> a cold（病从感冒"来"）。</span>
+  <span class="usage"><b>例句</b> <span class="zh">I bought it <u>for</u> you. 我买给你。／ He fought <u>for</u> freedom. 他为自由而战。／ She comes <u>from</u> Beijing. 她来自北京。／ <u>Before</u> dinner, we took a walk. 晚饭前我们散了步。／ <u>After</u> the meeting, we talked. 会后我们聊了聊。</span></span>
+  <div class="confuse"><span class="confuse-title">⚠️ 记忆点</span>for（在前支持）与 against（迎面反对）是天生反义；from（向前离开）与 toward（朝…去）是方向两兄弟。before 在前、after 在后，一"前"一"后"。</div>
+</div>
+
+<div class="card">
+  <div class="head"><span class="num">8</span><span class="fam">by / with / against</span><span class="rm">by ← PIE *ambhi「在周围」；with ← PIE *wi「分开、相对」</span></div>
+  <span class="etym"><span class="lab">本义</span>：<b>by</b> 本义"在旁边、经过旁边"（一般认为与希腊语 amphí「四周」、拉丁语 ambi-「周围」同源）。<b>with</b> 的本义竟 是<b>"对抗、相对"</b>（印欧语 *wi「分开、相对」），与拉丁语 vice / vitium（缺点）同族。<b>against</b> 本义"迎面、相对"（古英语 ongean"对面"，again 的亲属）。</span>
+  <span class="why">🤔 <b>为什么 with 又"一起"又"对抗"？</b>这是英语最大的词源彩蛋之一：with 原义是"相对"（至今保留在 <b>withstand</b> 顶住、<b>withdraw</b> 撤回=朝反方向拉）。"一起"的意思来自另一个词古英语 <b>mid</b>（德语 mit"一起"的亲兄弟）的合流。所以 with 一词装了三种画面：①并肩（come with me）②工具（cut with a knife，"刀陪着"手）③相对（fight with sb = 和…打）。<b>为什么 by 表"被…做"？</b>动作由"站在旁边的那个人"完成：written <u>by</u> Lu Xun（鲁迅"在旁边/经手"写）。<b>为什么 by Friday？</b>最迟"靠到"周五——在周五这个点之前。</span>
+  <span class="usage"><b>例句</b> <span class="zh">I go <u>by</u> bus. 我乘公交去。／ Finish it <u>by</u> Friday. 最迟周五完成。／ He cut the cake <u>with</u> a knife. 他用刀切蛋糕。／ He fought <u>with</u> his brother. 他和哥哥打了起来。／ He stood <u>against</u> the wall. 他靠墙站着。</span></span>
+  <div class="confuse"><span class="confuse-title">⚠️ 辨析</span>表"工具"用 <b>with</b>（with a knife 用刀）；表"交通方式"用 <b>by</b>（by bus 乘公交）；被动句"被…做"用 <b>by</b>（written by）。against 强调"顶着 / 反对"（against the law 违法）。</div>
+</div>
+
+<div class="card">
+  <div class="head"><span class="num">9</span><span class="fam">between / among / about / around</span><span class="rm">between = be+twēon「二」；among = on+gemang「人群」；about = on+būtan「外面」</span></div>
+  <span class="etym"><span class="lab">本义</span>：<b>between</b> 字面是"在两个（东西）旁边之间"（be=在 + twēon=二，twain"二"的亲戚）。<b>among</b> 字面是"钻进人群里"（on=在 + gemang=人群、混杂）。<b>about</b> 字面是"在外面、在外围转"（on=在 + būtan=外面）→ 环绕 → 大约、关于。<b>around</b> = a + round「成圆形地」。</span>
+  <span class="why">🤔 <b>为什么 about 既能"大约"又能"关于"？</b>同一个"绕圈"的画面：about 10 = 在 10 前后"绕圈子"（≈10）；a book about dogs = 绕着"狗"这个话题打转。<b>为什么 among 表"之一"？</b>站在人群里，自然就是"群中一员"：among the best（名列前茅=在最优秀者<u>之中</u>）。</span>
+  <span class="usage"><b>例句</b> <span class="zh">Share it <u>between</u> the two of you. 你们俩分了吧。／ He sat <u>among</u> his friends. 他坐在朋友中间。／ We talked <u>about</u> the plan. 我们讨论了计划。／ There are <u>about</u> 20 people. 大约有二十人。</span></span>
+  <div class="confuse"><span class="confuse-title">⚠️ 辨析</span><b>between 用于两者之间；among 用于三者以上之中。</b>about 与 around 都可表"大约"，about 更书面。between you and me（你我之间，保密）是固定说法。</div>
+</div>
+
+<div class="card">
+  <div class="head"><span class="num">10</span><span class="fam">within / without / beside / beyond</span><span class="rm">within = with+in「紧贴里面」；without = with+out「紧贴外面」；beside = be+side；beyond = be+geond「那边」</span></div>
+  <span class="etym"><span class="lab">本义</span>：这一组都是"小介词 + 方向词"拼出来的双胞胎。<b>within</b> = with（紧挨着）+ in → "在…之内"；<b>without</b> = with + out → "在…之外"；<b>beside</b> = be + side「在…旁边」；<b>beyond</b> = be + geond「在更远处」。</span>
+  <span class="why">🤔 <b>为什么 without 会表"没有"？</b>东西"在我之外"= 不在我身边 = 没有：without money = 钱"在身外"= 身无分文。一个词用空间图景讲清了"缺乏"的意思。<b>为什么 within 表"不超出"？</b>within a week = 不越过一周这条"边界线"。</span>
+  <span class="usage"><b>例句</b> <span class="zh">Call me <u>within</u> an hour. 一小时内给我电话。／ He left <u>without</u> saying goodbye. 他不辞而别。／ Sit <u>beside</u> me. 坐我旁边。／ The view is <u>beyond</u> beautiful. 景色美得无法形容（美"越出"了词的边界）。</span></span>
+  <div class="confuse"><span class="confuse-title">⚠️ 辨析</span><b>within 之内 / without 之外（无）</b>正好一对；<b>beside 旁边 / besides 此外</b>只差一个 s，意思不同。beyond 表"超出"：beyond doubt（毋庸置疑=超出于怀疑之外）。</div>
+</div>
+
+<h2 class="section">三、四大"颠覆认知"的本义故事</h2>
+
+<div class="story">
+  <div class="head"><span class="num">①</span><span class="t">of 就是 off</span></div>
+  <p>山顶<b>of</b> 山 = 从山体上<b>分出来</b>的那一块。理解 of 的全部用法（所有格 the key <u>of</u> the door、部分格 a slice <u>of</u> pizza、来源格 made <u>of</u> wood），只需要这一个画面：<b>从整体中取出来</b>。of 和 off 在古英语里本来就是同一个词。</p>
+</div>
+
+<div class="story">
+  <div class="head"><span class="num">②</span><span class="t">with 本是"对抗"</span></div>
+  <p>with 的本义是<b>"相对、对抗"</b>，所以 <b>withstand</b>（顶住）与 <b>withdraw</b>（撤回）至今保留古义。"一起"的意思来自另一个词 mid（德语 mit 的兄弟）的合流。于是现代 with 一身三任：<b>相伴</b>（with me）、<b>工具</b>（with a knife）、<b>对立</b>（fight with）。</p>
+</div>
+
+<div class="story">
+  <div class="head"><span class="num">③</span><span class="t">on 本是"in"</span></div>
+  <p>in 与 on 同出印欧语 *h₁en「在内」，本是同一个词。所以 <b>on fire</b> 的本义是"在火<b>中</b>"、<b>on holiday</b>"在假期<b>中</b>"。on 的"接触"义后来才占据主流，但"在内"的痕迹一直留到今天。</p>
+</div>
+
+<div class="story">
+  <div class="head"><span class="num">④</span><span class="t">down 本是"下山"</span></div>
+  <p>down 来自古英语 <b>adūne「从山丘（下来）」</b>（dūn=山丘）。向下、减少、记下、崩溃、情绪低落——全部从"从山坡上走下来"这一幅图展开。上古人对"上"和"下"的感知，就是爬山下山的身体记忆。</p>
+</div>
+
+<h2 class="section">四、空间本义 → 引申 推演总表</h2>
+
+<table>
+  <thead>
+    <tr><th style="width:10%">介词</th><th style="width:16%">本义空间</th><th style="width:20%">→ 时间</th><th style="width:18%">→ 状态 / 情绪</th><th style="width:16%">→ 数量 / 程度</th><th>→ 高频动词短语</th></tr>
+  </thead>
+  <tbody>
+    <tr><td><b>at</b></td><td>点</td><td>at 3 pm（时刻=一个点）</td><td>at ease（在"轻松"点上）</td><td>at least（至少=停在最低点）</td><td>look at（目光投向那一点）、laugh at</td></tr>
+    <tr><td><b>in</b></td><td>容器内</td><td>in May（月份=容器）</td><td>in love（泡在爱里）</td><td>in a hurry（匆忙态）</td><td>give in（递进去=屈服）、check in</td></tr>
+    <tr><td><b>on</b></td><td>表面接触</td><td>on Monday（日期线上的一天）</td><td>on fire / on duty（贴着状态）</td><td>on time（准时=落在点上）</td><td>turn on（贴上=接通）、carry on</td></tr>
+    <tr><td><b>out</b></td><td>由内向外</td><td>out of date（走出时代=过时）</td><td>out of control（失控）</td><td>out of work（失业=被"推出"岗位）</td><td>find out（知识"走出来"）、run out</td></tr>
+    <tr><td><b>off</b></td><td>分离</td><td>off season（淡季=离开旺季）</td><td>off duty（下岗=脱离职责）</td><td>off-key（跑调=离开音准）</td><td>take off（离开地面）、turn off</td></tr>
+    <tr><td><b>up</b></td><td>向上</td><td>up to now（爬到此刻为止）</td><td>up in the air（悬在半空）</td><td>prices go up（上涨）</td><td>give up（举手=放弃）、show up（冒出）</td></tr>
+    <tr><td><b>down</b></td><td>下山</td><td>down the years（年复一年）</td><td>feel down（情绪低落）</td><td>cut down（削减）</td><td>break down（倒下=坏）、write down</td></tr>
+    <tr><td><b>over</b></td><td>上方越过</td><td>over the years（跨过岁月）</td><td>over the moon（乐翻了）</td><td>over 100（超过）</td><td>get over（翻过去=恢复）、go over</td></tr>
+    <tr><td><b>under</b></td><td>正下方</td><td>—</td><td>under pressure（压力之下）</td><td>under 18（不到）</td><td>under construction（进行中）</td></tr>
+    <tr><td><b>through</b></td><td>穿透</td><td>through the night（穿了一夜）</td><td>—</td><td>—</td><td>get through（走完=办成）、see through（看穿）</td></tr>
+    <tr><td><b>by</b></td><td>旁边经过</td><td>by Friday（靠到周五）</td><td>by oneself（独自=靠自身）</td><td>by 10%（多出 10%）</td><td>stand by（站旁边=支持/待命）、drop by</td></tr>
+    <tr><td><b>with</b></td><td>相伴／相对</td><td>—</td><td>with care（带着细心）</td><td>with ease（轻易）</td><td>agree with（站同一边）、deal with</td></tr>
+    <tr><td><b>to</b></td><td>朝、达</td><td>to date（至今）</td><td>to my surprise（让我惊讶到）</td><td>up to 100（多达）</td><td>turn to（转向）、add to</td></tr>
+    <tr><td><b>for</b></td><td>在前（支持）</td><td>for 3 hours（时间铺在面前）</td><td>for fun（图个乐）</td><td>—</td><td>look for（向前找）、wait for</td></tr>
+    <tr><td><b>from</b></td><td>向前离开</td><td>from Monday（从周一起）</td><td>far from（远离…）</td><td>suffer from（受…之苦）</td><td>come from（来自）、hear from</td></tr>
+  </tbody>
+</table>
+
+<h2 class="section">五、自测（追根溯源）</h2>
+
+<div class="quiz">
+  <div class="qhead">练习一 · 介词 → 空间本义<span class="hint">把左列介词连到它的空间画面</span></div>
+  <table class="match">
+    <tr><td>1. at</td><td>a. 穿越隧道（从一端到另一端）</td></tr>
+    <tr><td>2. in</td><td>b. 箭射中靶心（一个点）</td></tr>
+    <tr><td>3. off</td><td>c. 果子从枝头掉落（分离）</td></tr>
+    <tr><td>4. through</td><td>d. 东西装进箱子（包围）</td></tr>
+    <tr><td>5. down</td><td>e. 站在某人面前挡护（在前支持）</td></tr>
+    <tr><td>6. for</td><td>f. 从山丘上走下来（下山）</td></tr>
+    <tr><td>7. by</td><td>g. 路过车站（旁边经过）</td></tr>
+    <tr><td>8. among</td><td>h. 混在人群里（群体之中）</td></tr>
+  </table>
+</div>
+
+<div class="quiz">
+  <div class="qhead">练习二 · 词源家族配对<span class="hint">介词 → 词源本义</span></div>
+  <table class="match">
+    <tr><td>1. in / on</td><td>a. PIE *apo「离开、取出」（和 off 同源）</td></tr>
+    <tr><td>2. of / out</td><td>b. PIE *pro「向前、在前」（和 fore 同源）</td></tr>
+    <tr><td>3. up / over</td><td>c. PIE *h₁en「在内、在上」（本是同一个词）</td></tr>
+    <tr><td>4. through</td><td>d. PIE *upo / *upéri（与拉丁 sub / super 同源）</td></tr>
+    <tr><td>5. for / from</td><td>e. PIE *terh₂「穿越」（与拉丁 trans 同源）</td></tr>
+    <tr><td>6. with</td><td>f. be + dūn「山丘」（本义"下山"）</td></tr>
+    <tr><td>7. between</td><td>g. PIE *wi「分开、相对」（原义"对抗"）</td></tr>
+    <tr><td>8. down</td><td>h. be + twēon「二」（在两者之间）</td></tr>
+  </table>
+</div>
+
+<div class="quiz">
+  <div class="qhead">练习三 · 判断对错<span class="hint">凭本义推断，说出为什么</span></div>
+  <ol class="fill">
+    <li>"the top <b data-say="words-audio/8bf8854bebe108183caeb845c7676ae4.mp3">of</b> the mountain" 的逻辑本义是"从山上取下来的那部分"。</li>
+    <li>with 的古义是"对抗"，"一起"义来自另一个词 mid 的合流。</li>
+    <li>on 的本义与 in 同源，所以 on fire 可理解为"在火中"。</li>
+    <li>up 与拉丁语 sub（下面）同源。</li>
+    <li>over 与希腊语 hyper、拉丁语 super 同源。</li>
+    <li>toward 里的 -ward 意思是"方向、转身"。</li>
+  </ol>
+</div>
+
+<h2 class="section">六、答案</h2>
+
+<div class="answers">
+  <span class="atitle">练习一</span>　1-b ｜ 2-d ｜ 3-c ｜ 4-a ｜ 5-f ｜ 6-e ｜ 7-g ｜ 8-h<br>
+  <span class="atitle">练习二</span>　1-c ｜ 2-a ｜ 3-d ｜ 4-e ｜ 5-b ｜ 6-g ｜ 7-h ｜ 8-f<br>
+  <span class="atitle">练习三</span>　1 ✓（of=off，"取出"画面）｜ 2 ✓（withstand / withdraw 保留古义）｜ 3 ✓（PIE *h₁en）｜ 4 ✓（*upo 同时给了 up 与拉丁 sub）｜ 5 ✓（*upéri → over / hyper / super）｜ 6 ✓（-ward ← PIE *wert「转」）
+</div>
+
+<div class="footer">介词本义词源 · 空间本义 → 引申逻辑 ｜ 抓住一幅图，推出一片用法 👋</div>
+</body>
+<script>
+/* ---------- 单词发音 ---------- */
+(function () {
+  var synth = ("speechSynthesis" in window) ? window.speechSynthesis : null;
+  var audio = new Audio();
+  audio.preload = "auto";
+  audio.playbackRate = 0.95;
+  var curBtn = null;
+
+  function pickVoice() {
+    if (!synth) return null;
+    var vs = synth.getVoices() || [];
+    return vs.filter(function (v) { return /en[-_]US/i.test(v.lang); })[0] ||
+           vs.filter(function (v) { return /^en/i.test(v.lang); })[0] || null;
+  }
+  function tts(text) {
+    if (!synth) return;
+    var u = new SpeechSynthesisUtterance(text);
+    u.lang = "en-US";
+    var v = pickVoice(); if (v) u.voice = v;
+    try { synth.cancel(); } catch (e) {}
+    synth.speak(u);
+  }
+  function clear() { if (curBtn) { curBtn.classList.remove("playing"); curBtn = null; } }
+  function play(el, btn) {
+    var src = el.getAttribute("data-say");
+    var text = el.textContent.replace(/\s+/g, " ").trim();
+    clear();
+    if (btn) { btn.classList.add("playing"); curBtn = btn; }
+    if (src) {
+      audio.src = src;
+      audio.onended = function () { if (curBtn === btn) clear(); };
+      audio.onerror = function () { if (curBtn === btn) clear(); tts(text); };
+      var p = audio.play();
+      if (p && p.catch) { p.catch(function () { clear(); tts(text); }); }
+    } else {
+      tts(text);
+      setTimeout(function () { if (curBtn === btn) clear(); }, 1500);
+    }
+  }
+
+  document.querySelectorAll("[data-say]").forEach(function (el) {
+    var prev = el.previousElementSibling;
+    if (prev && prev.classList && prev.classList.contains("psay")) return;
+    var b = document.createElement("button");
+    b.type = "button"; b.className = "psay"; b.textContent = "\uD83D\uDD0A"; b.title = "发音";
+    b.setAttribute("aria-label", "发音");
+    b.addEventListener("click", function (e) {
+      e.stopPropagation(); e.preventDefault();
+      if (curBtn === b) {
+        try { audio.pause(); } catch (err) {}
+        if (synth) { try { synth.cancel(); } catch (err) {} }
+        clear(); return;
+      }
+      play(el, b);
+    });
+    el.parentNode.insertBefore(b, el);
+  });
+
+  /* 点任意英文词发音 */
+  var on = false;
+  var tg = document.createElement("button");
+  tg.id = "pron-toggle"; tg.type = "button"; tg.textContent = "\uD83D\uDD24 点词发音";
+  document.body.appendChild(tg);
+  tg.addEventListener("click", function () {
+    on = !on; tg.classList.toggle("on", on);
+    tg.textContent = on ? "\uD83D\uDD24 点词发音：开" : "\uD83D\uDD24 点词发音";
+  });
+  function wordAt(x, y) {
+    var node, offset;
+    if (document.caretRangeFromPoint) {
+      var r = document.caretRangeFromPoint(x, y);
+      if (!r) return null; node = r.startContainer; offset = r.startOffset;
+    } else if (document.caretPositionFromPoint) {
+      var p = document.caretPositionFromPoint(x, y);
+      if (!p) return null; node = p.offsetNode; offset = p.offset;
+    } else { return null; }
+    if (!node || node.nodeType !== 3) return null;
+    var t = node.textContent, re = /[A-Za-z][A-Za-z'\u2019\-]*/g, m;
+    while ((m = re.exec(t))) {
+      if (offset >= m.index && offset <= m.index + m[0].length) return m[0];
+    }
+    return null;
+  }
+  document.addEventListener("click", function (e) {
+    if (!on) return;
+    if (e.target.closest && (e.target.closest(".psay") || e.target.closest("#pron-toggle"))) return;
+    var w = wordAt(e.clientX, e.clientY);
+    if (w) tts(w);
+  }, true);
+})();
+
+</script>
+</html>

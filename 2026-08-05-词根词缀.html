@@ -103,6 +103,31 @@
     border-top: 1px solid #e5e7eb;
     padding-top: 6px;
   }
+/* ---------- 单词发音（神经网络 MP3，缺失回退系统语音） ---------- */
+.psay{
+  display:inline-flex; align-items:center; justify-content:center;
+  width:18px; height:18px; margin:0 5px 0 0; padding:0;
+  border:1px solid #cbd5e1; border-radius:50%; background:#f8fafc;
+  color:#2563eb; font-size:9px; line-height:1; cursor:pointer;
+  vertical-align:1px; -webkit-tap-highlight-color:transparent;
+  transition:background .15s,border-color .15s;
+}
+.psay:hover{ background:#dbeafe; border-color:#93c5fd; }
+.psay.playing{ background:#2563eb; border-color:#2563eb; color:#fff; animation:psay-pulse 1s infinite; }
+@keyframes psay-pulse{ 0%,100%{opacity:1;} 50%{opacity:.5;} }
+
+#pron-toggle{
+  position:fixed; left:12px; bottom:calc(16px + env(safe-area-inset-bottom));
+  z-index:950; border:none; border-radius:999px; padding:8px 14px;
+  background:rgba(37,99,235,.95); color:#fff; font-size:13px; cursor:pointer;
+  box-shadow:0 4px 14px rgba(0,0,0,.25);
+  font-family:'Noto Sans CJK SC','Droid Sans Fallback',sans-serif;
+  -webkit-tap-highlight-color:transparent;
+}
+#pron-toggle.on{ background:#047857; }
+
+@media print{ .psay, #pron-toggle{ display:none !important; } }
+
 </style>
 </head>
 <body>
@@ -118,14 +143,14 @@
   <span class="etym"><span class="lab">词源</span>：拉丁语 <b>facere</b>「做、制作」，分词形式 <b>factum</b>「做出来的事」；源自印欧语 *dhe-「放、放置」，英语 do、deed、希腊语 theme 同源。</span>
   <span class="evo"><span class="lab">演化</span>：<b>本义「做」</b> → factor 做的人/因素、manufacture 亲手制作 ｜ <b>「做出来的东西」</b> → fact 事实、factory 工厂、effect 效果 ｜ <b>「外力作用于」</b> → affect 影响 ｜ <b>「完全做好」</b> → perfect 完美</span>
   <ul>
-    <li><b>fact</b> 事实；真相 <span class="note">（factum 做出来的事 → 已成事实）</span></li>
-    <li><b>factory</b> 工厂 <span class="note">（fact 做 + -ory 场所 → 制作东西的地方）</span></li>
-    <li><b>manufacture</b> 制造，生产 <span class="note">（manu 手 + fact 做 + -ure → 手工制作→工厂生产）</span></li>
-    <li><b>affect</b> 影响；使感动 <span class="note">（af- 朝向 + fect 做 → 作用于）</span></li>
-    <li><b>effect</b> 效果，影响 <span class="note">（ef- 出 + fect 做 → 做出来的结果）</span></li>
-    <li><b>perfect</b> 完美的 <span class="note">（per- 完全 + fect 做 → 做得完满）</span></li>
+    <li><b data-say="words-audio/b82c91e2103d0a495c099f0a12f66363.mp3">fact</b> 事实；真相 <span class="note">（factum 做出来的事 → 已成事实）</span></li>
+    <li><b data-say="words-audio/9549dd6065d019211460c59a86dd6536.mp3">factory</b> 工厂 <span class="note">（fact 做 + -ory 场所 → 制作东西的地方）</span></li>
+    <li><b data-say="words-audio/ef44050de8fe66e4558936413a5226a1.mp3">manufacture</b> 制造，生产 <span class="note">（manu 手 + fact 做 + -ure → 手工制作→工厂生产）</span></li>
+    <li><b data-say="words-audio/2a9302012902df506914730ca304078d.mp3">affect</b> 影响；使感动 <span class="note">（af- 朝向 + fect 做 → 作用于）</span></li>
+    <li><b data-say="words-audio/bf5b17fac5c60d745a593b5920372235.mp3">effect</b> 效果，影响 <span class="note">（ef- 出 + fect 做 → 做出来的结果）</span></li>
+    <li><b data-say="words-audio/826ad6b0338304c40b42644b5144f80a.mp3">perfect</b> 完美的 <span class="note">（per- 完全 + fect 做 → 做得完满）</span></li>
   </ul>
-  <div class="usage">口语/生活用：<b>The factory manufactures thousands of phones a day.</b> 这家工厂每天生产数千部手机。</div>
+  <div class="usage">口语/生活用：<b data-say="words-audio/11d85e7653a1e0c8c177d734d75f578c.mp3">The factory manufactures thousands of phones a day.</b> 这家工厂每天生产数千部手机。</div>
 </div>
 
 <div class="card">
@@ -134,14 +159,14 @@
   <span class="etym"><span class="lab">词源</span>：拉丁语 <b>scribere</b>「写」，过去分词 <b>scriptus</b>；源自印欧语 *skribh-「划、刻」（最初是用尖笔在蜡板上刻画字形）。</span>
   <span class="evo"><span class="lab">演化</span>：<b>本义「刻写」</b> → describe 描下来=描述、transcript 转写 ｜ <b>「预先写(处方)」</b> → prescribe 开处方 ｜ <b>「在下面签名」</b> → subscribe 订阅、签字同意</span>
   <ul>
-    <li><b>describe</b> 描述 <span class="note">（de- 向下 + scribe 写 → 把所见写下来）</span></li>
-    <li><b>subscribe</b> 订阅；赞同 <span class="note">（sub- 在下面 + scribe 写 → 在文件下方署名→订阅）</span></li>
-    <li><b>manuscript</b> 手稿；原稿 <span class="note">（manu 手 + script 写 → 手写的稿子）</span></li>
-    <li><b>prescribe</b> 开处方；规定 <span class="note">（pre- 预先 + scribe 写 → 预先写好的医嘱）</span></li>
-    <li><b>transcript</b> 成绩单；文字记录 <span class="note">（trans- 转 + script → 转写下来的记录）</span></li>
-    <li><b>script</b> 剧本；脚本 <span class="note">（刻写的内容 → 写好的台本）</span></li>
+    <li><b data-say="words-audio/0d16430e9f0aa8879ba9dac2540543fc.mp3">describe</b> 描述 <span class="note">（de- 向下 + scribe 写 → 把所见写下来）</span></li>
+    <li><b data-say="words-audio/4f893ee24950069dd823e083338a456d.mp3">subscribe</b> 订阅；赞同 <span class="note">（sub- 在下面 + scribe 写 → 在文件下方署名→订阅）</span></li>
+    <li><b data-say="words-audio/74718de3f55d6813c77165af2c6412d5.mp3">manuscript</b> 手稿；原稿 <span class="note">（manu 手 + script 写 → 手写的稿子）</span></li>
+    <li><b data-say="words-audio/8f7f88bea169013dd9b3058ef3a2cfc3.mp3">prescribe</b> 开处方；规定 <span class="note">（pre- 预先 + scribe 写 → 预先写好的医嘱）</span></li>
+    <li><b data-say="words-audio/8bb2c52065103f481c3bd812964a1d0c.mp3">transcript</b> 成绩单；文字记录 <span class="note">（trans- 转 + script → 转写下来的记录）</span></li>
+    <li><b data-say="words-audio/3205c0ded576131ea255ad2bd38b0fb2.mp3">script</b> 剧本；脚本 <span class="note">（刻写的内容 → 写好的台本）</span></li>
   </ul>
-  <div class="usage">口语/生活用：<b>I subscribed to the streaming service to watch the new show.</b> 我订阅了流媒体服务来追那部新剧。</div>
+  <div class="usage">口语/生活用：<b data-say="words-audio/4df60b772651f4b686a72ed29ceffed2.mp3">I subscribed to the streaming service to watch the new show.</b> 我订阅了流媒体服务来追那部新剧。</div>
 </div>
 
 <div class="card">
@@ -150,14 +175,14 @@
   <span class="etym"><span class="lab">词源</span>：拉丁语 <b>mittere</b>「送、发出」，过去分词 <b>missus</b>；印欧语来源一般归于 *meith-「交换、送」。同源词 mission、message。</span>
   <span class="evo"><span class="lab">演化</span>：<b>本义「送」</b> → transmit 传送、emit 发出 ｜ <b>「被送出去的任务」</b> → mission 使命 ｜ <b>「把…送走」</b> → dismiss 解散 ｜ <b>「放进来」</b> → admit 承认/准入</span>
   <ul>
-    <li><b>mission</b> 使命；任务 <span class="note">（miss 送 + -ion → 被派送出去的差事）</span></li>
-    <li><b>transmit</b> 传送；发射 <span class="note">（trans- 穿过 + mit → 送过去）</span></li>
-    <li><b>submit</b> 提交；屈服 <span class="note">（sub- 从下 + mit → 送上去；甘拜下风）</span></li>
-    <li><b>admit</b> 承认；准许进入 <span class="note">（ad- 向里 + mit → 放进→允许）</span></li>
-    <li><b>dismiss</b> 解散；不予理会 <span class="note">（dis- 分开 + miss → 打发走）</span></li>
-    <li><b>permission</b> 许可 <span class="note">（per- 通过 + miss + -ion → 放行）</span></li>
+    <li><b data-say="words-audio/6c654debfa4cef1de4995df5feb61889.mp3">mission</b> 使命；任务 <span class="note">（miss 送 + -ion → 被派送出去的差事）</span></li>
+    <li><b data-say="words-audio/f477de506a932b4c64020556d2d4b40b.mp3">transmit</b> 传送；发射 <span class="note">（trans- 穿过 + mit → 送过去）</span></li>
+    <li><b data-say="words-audio/c79bdf421714f5087fc34b7c538b6807.mp3">submit</b> 提交；屈服 <span class="note">（sub- 从下 + mit → 送上去；甘拜下风）</span></li>
+    <li><b data-say="words-audio/8d8bfbd10b5f6d48eb9691bb4871de62.mp3">admit</b> 承认；准许进入 <span class="note">（ad- 向里 + mit → 放进→允许）</span></li>
+    <li><b data-say="words-audio/2b899981cd65625d08f85c4940182694.mp3">dismiss</b> 解散；不予理会 <span class="note">（dis- 分开 + miss → 打发走）</span></li>
+    <li><b data-say="words-audio/4b65ca0f8b76e7181a12bf1fabc48532.mp3">permission</b> 许可 <span class="note">（per- 通过 + miss + -ion → 放行）</span></li>
   </ul>
-  <div class="usage">口语/生活用：<b>You have to submit your assignment before midnight.</b> 你必须在午夜前提交作业。</div>
+  <div class="usage">口语/生活用：<b data-say="words-audio/2d7c398bd73ff0b00666f2331c6b14bb.mp3">You have to submit your assignment before midnight.</b> 你必须在午夜前提交作业。</div>
 </div>
 
 <div class="card">
@@ -166,14 +191,14 @@
   <span class="etym"><span class="lab">词源</span>：拉丁语 <b>struere</b>「堆叠、建造」，过去分词 <b>structus</b>；源自印欧语 *stere-「铺开、摊开」（英语 streak、straw 同源）。</span>
   <span class="evo"><span class="lab">演化</span>：<b>本义「堆叠建造」</b> → construct 一起搭建、structure 结构 ｜ <b>「往头脑里搭建」</b> → instruct 教导 ｜ <b>「拆掉搭建」</b> → destroy 摧毁 ｜ <b>「挡住建造」</b> → obstruct 妨碍</span>
   <ul>
-    <li><b>construct</b> 建造；构建 <span class="note">（con- 一起 + struct → 搭到一起）</span></li>
-    <li><b>structure</b> 结构；建筑物 <span class="note">（struct + -ure → 搭出来的东西）</span></li>
-    <li><b>instruct</b> 教导；指示 <span class="note">（in- 往里 + struct → 往里搭知识）</span></li>
-    <li><b>destroy</b> 摧毁 <span class="note">（de- 拆除 + stroy/struct → 拆掉搭建物）</span></li>
-    <li><b>obstruct</b> 妨碍，阻挡 <span class="note">（ob- 迎面 + struct → 挡在前面）</span></li>
-    <li><b>infrastructure</b> 基础设施 <span class="note">（infra- 下面 + structure → 下面的建造）</span></li>
+    <li><b data-say="words-audio/e62068a633874d298459a25f8868d306.mp3">construct</b> 建造；构建 <span class="note">（con- 一起 + struct → 搭到一起）</span></li>
+    <li><b data-say="words-audio/07414f4e15ca943e6cde032dec85d92f.mp3">structure</b> 结构；建筑物 <span class="note">（struct + -ure → 搭出来的东西）</span></li>
+    <li><b data-say="words-audio/ea16611247e55e5fd94deb54a9465fb5.mp3">instruct</b> 教导；指示 <span class="note">（in- 往里 + struct → 往里搭知识）</span></li>
+    <li><b data-say="words-audio/fb14982288108e1fbd6207ef55f05027.mp3">destroy</b> 摧毁 <span class="note">（de- 拆除 + stroy/struct → 拆掉搭建物）</span></li>
+    <li><b data-say="words-audio/eb38112a28eed27c20410b7d9a82a50f.mp3">obstruct</b> 妨碍，阻挡 <span class="note">（ob- 迎面 + struct → 挡在前面）</span></li>
+    <li><b data-say="words-audio/6e3301c94e4de897ec67fa9735a848d5.mp3">infrastructure</b> 基础设施 <span class="note">（infra- 下面 + structure → 下面的建造）</span></li>
   </ul>
-  <div class="usage">口语/生活用：<b>They're constructing a new subway line near my place.</b> 他们正在我家附近修一条新地铁线。</div>
+  <div class="usage">口语/生活用：<b data-say="words-audio/fb66b154baa81551fe394cc61328f572.mp3">They're constructing a new subway line near my place.</b> 他们正在我家附近修一条新地铁线。</div>
 </div>
 
 <div class="card">
@@ -182,14 +207,14 @@
   <span class="etym"><span class="lab">词源</span>：拉丁语 <b>vocare</b>「喊、呼唤」，名词 <b>vox</b>（vocis）「声音」；源自印欧语 *wekw-「说话」（英语 voice、vowel 同源）。</span>
   <span class="evo"><span class="lab">演化</span>：<b>本义「喊」</b> → vocal 嗓子的、vocabulary 词汇 ｜ <b>「替人喊话」</b> → advocate 提倡者 ｜ <b>「喊出来」</b> → evoke 唤起 ｜ <b>「叫到面前来」</b> → provoke 激起/挑衅</span>
   <ul>
-    <li><b>vocal</b> 嗓音的；直言不讳的 <span class="note">（voc 声音 + -al 形容词）</span></li>
-    <li><b>vocabulary</b> 词汇；词汇量 <span class="note">（vocabulum 词 + -ary → 喊出来的词的总和）</span></li>
-    <li><b>advocate</b> 提倡者；辩护 <span class="note">（ad- 朝向 + voc 喊 → 替人喊话）</span></li>
-    <li><b>provoke</b> 激怒；激起 <span class="note">（pro- 前 + voke → 喊到面前来挑事）</span></li>
-    <li><b>evoke</b> 唤起，引起 <span class="note">（e- 出 + voke → 把记忆喊出来）</span></li>
-    <li><b>voice</b> 声音；嗓音 <span class="note">（vox 的变体，直接进入英语）</span></li>
+    <li><b data-say="words-audio/b9d314234237a33b6c212d4c9d58b567.mp3">vocal</b> 嗓音的；直言不讳的 <span class="note">（voc 声音 + -al 形容词）</span></li>
+    <li><b data-say="words-audio/09f06963f502addfeab2a7c87f38802e.mp3">vocabulary</b> 词汇；词汇量 <span class="note">（vocabulum 词 + -ary → 喊出来的词的总和）</span></li>
+    <li><b data-say="words-audio/b3a7cc7edf249f3c914b7e0c1a6a4f16.mp3">advocate</b> 提倡者；辩护 <span class="note">（ad- 朝向 + voc 喊 → 替人喊话）</span></li>
+    <li><b data-say="words-audio/b98b13e0dde93476c472601976edb489.mp3">provoke</b> 激怒；激起 <span class="note">（pro- 前 + voke → 喊到面前来挑事）</span></li>
+    <li><b data-say="words-audio/0761e4002a0a72244233402b090a8899.mp3">evoke</b> 唤起，引起 <span class="note">（e- 出 + voke → 把记忆喊出来）</span></li>
+    <li><b data-say="words-audio/b95677216e439d96ec4fba1240a3c1f8.mp3">voice</b> 声音；嗓音 <span class="note">（vox 的变体，直接进入英语）</span></li>
   </ul>
-  <div class="usage">口语/生活用：<b>The loud music provoked complaints from the neighbors.</b> 那震天响的音乐惹来了邻居们的投诉。</div>
+  <div class="usage">口语/生活用：<b data-say="words-audio/5aa86a9a87fd8eb02f6bf6ab33c5aa04.mp3">The loud music provoked complaints from the neighbors.</b> 那震天响的音乐惹来了邻居们的投诉。</div>
 </div>
 
 <div class="card">
@@ -198,14 +223,14 @@
   <span class="etym"><span class="lab">词源</span>：希腊语 <b>graphein</b>「写、刻画」；源自印欧语 *gerebh-「刮、刻」（英语 carve 同源，本义都是在石头上刻划）。</span>
   <span class="evo"><span class="lab">演化</span>：<b>本义「刻画」</b> → autograph 亲笔签名、graphic 图像的 ｜ <b>「用光刻画」</b> → photograph 照片 ｜ <b>「写人生」</b> → biography 传记 ｜ <b>「文字的记号」</b> → paragraph 段落</span>
   <ul>
-    <li><b>photograph</b> 照片；拍照 <span class="note">（photo 光 + graph → 用光来刻画）</span></li>
-    <li><b>autograph</b> 亲笔签名 <span class="note">（auto 自己 + graph → 自己写）</span></li>
-    <li><b>paragraph</b> 段落 <span class="note">（para 旁边 + graph → 段旁的刻痕标记）</span></li>
-    <li><b>biography</b> 传记 <span class="note">（bio 生命 + graphy → 书写人生）</span></li>
-    <li><b>graphic</b> 图画的；生动的 <span class="note">（graph + -ic → 像刻出来一样形象）</span></li>
-    <li><b>telegraph</b> 电报 <span class="note">（tele 远 + graph → 远处传来刻写的字）</span></li>
+    <li><b data-say="words-audio/0611f76084233d9a2a8da1d515846886.mp3">photograph</b> 照片；拍照 <span class="note">（photo 光 + graph → 用光来刻画）</span></li>
+    <li><b data-say="words-audio/22107ea42da9573b7b2132872f5c4d31.mp3">autograph</b> 亲笔签名 <span class="note">（auto 自己 + graph → 自己写）</span></li>
+    <li><b data-say="words-audio/32a97fa20c7928bbe37dea5aec0ebdbd.mp3">paragraph</b> 段落 <span class="note">（para 旁边 + graph → 段旁的刻痕标记）</span></li>
+    <li><b data-say="words-audio/5e79a4a0be0fdf8d91ce0dbd64466ea7.mp3">biography</b> 传记 <span class="note">（bio 生命 + graphy → 书写人生）</span></li>
+    <li><b data-say="words-audio/b99da6afb822d9160a302091df4a7629.mp3">graphic</b> 图画的；生动的 <span class="note">（graph + -ic → 像刻出来一样形象）</span></li>
+    <li><b data-say="words-audio/2905151162c329295fdcb053ac4a95cb.mp3">telegraph</b> 电报 <span class="note">（tele 远 + graph → 远处传来刻写的字）</span></li>
   </ul>
-  <div class="usage">口语/生活用：<b>Can I get your autograph?</b> 能给我签个名吗？</div>
+  <div class="usage">口语/生活用：<b data-say="words-audio/6137c1163b0b53deeac8aea96ee11011.mp3">Can I get your autograph?</b> 能给我签个名吗？</div>
 </div>
 
 <div class="card">
@@ -214,14 +239,14 @@
   <span class="etym"><span class="lab">词源</span>：希腊语 <b>chronos</b>「时间」，也是希腊神话中时间之神的名字；无确证的印欧语来源，为希腊语专有词根。</span>
   <span class="evo"><span class="lab">演化</span>：<b>本义「时间」</b> → chronic 慢性的、chronological 按时间顺序的 ｜ <b>「把时间对起来」</b> → synchronize 使同步 ｜ <b>「量时间的工具」</b> → chronometer 精密计时器 ｜ <b>「把时间记下来」</b> → chronicle 编年史</span>
   <ul>
-    <li><b>chronic</b> 慢性的；长期的 <span class="note">（chron 时间 + -ic → 拖很久的）</span></li>
-    <li><b>chronological</b> 按时间顺序的 <span class="note">（chronology 编年 + -al）</span></li>
-    <li><b>synchronize</b> 使同步 <span class="note">（syn- 一起 + chron → 时间调到一起）</span></li>
-    <li><b>chronicle</b> 编年史 <span class="note">（chron 时间 + -icle → 按时记下的史）</span></li>
-    <li><b>anachronism</b> 时代错误 <span class="note">（ana- 回 + chron + -ism → 放错时间的东西）</span></li>
-    <li><b>chronometer</b> 精密计时器 <span class="note">（chrono 时间 + meter 测量 → 量时间的仪器）</span></li>
+    <li><b data-say="words-audio/955fb354f3074f3505620d725ca95acb.mp3">chronic</b> 慢性的；长期的 <span class="note">（chron 时间 + -ic → 拖很久的）</span></li>
+    <li><b data-say="words-audio/fddc8cacad45ab774921044f98bebad9.mp3">chronological</b> 按时间顺序的 <span class="note">（chronology 编年 + -al）</span></li>
+    <li><b data-say="words-audio/ce11eea7db08945dca5cf3f4a94c7d82.mp3">synchronize</b> 使同步 <span class="note">（syn- 一起 + chron → 时间调到一起）</span></li>
+    <li><b data-say="words-audio/1c01beb85fc82faba37ecec9d809bc6e.mp3">chronicle</b> 编年史 <span class="note">（chron 时间 + -icle → 按时记下的史）</span></li>
+    <li><b data-say="words-audio/75f5782e6b209b4cba82f7df022fd366.mp3">anachronism</b> 时代错误 <span class="note">（ana- 回 + chron + -ism → 放错时间的东西）</span></li>
+    <li><b data-say="words-audio/9ba8bb840174a7f157f4029e2a209775.mp3">chronometer</b> 精密计时器 <span class="note">（chrono 时间 + meter 测量 → 量时间的仪器）</span></li>
   </ul>
-  <div class="usage">口语/生活用：<b>The historical photos are arranged in chronological order.</b> 这些历史照片是按时间顺序排列的。</div>
+  <div class="usage">口语/生活用：<b data-say="words-audio/5ffe8c69405b758f7fd62efb6dbada3d.mp3">The historical photos are arranged in chronological order.</b> 这些历史照片是按时间顺序排列的。</div>
 </div>
 
 <div class="card affix">
@@ -230,14 +255,14 @@
   <span class="etym"><span class="lab">词源</span>：拉丁语前缀 <b>prae</b>「在前面、提前」；源自印欧语 *per-「向前、在…之前」（英语 for、fore 同源）。</span>
   <span class="evo"><span class="lab">演化</span>：<b>本义「前面」</b> → prefix 前缀、preschool 学前班 ｜ <b>「提前做」</b> → prepare 准备、preheat 预热 ｜ <b>「提前说」</b> → predict 预测 ｜ <b>「提前看」</b> → preview 预告片</span>
   <ul>
-    <li><b>prepare</b> 准备 <span class="note">（pre- 先 + pare 弄好 → 提前弄好）</span></li>
-    <li><b>predict</b> 预测 <span class="note">（pre- 先 + dict 说 → 提前说出来）</span></li>
-    <li><b>preview</b> 预告片；预览 <span class="note">（pre- 先 + view 看 → 先睹为快）</span></li>
-    <li><b>prefix</b> 前缀 <span class="note">（pre- 前 + fix 固定 → 固定在前的部分）</span></li>
-    <li><b>preheat</b> 预热 <span class="note">（pre- 先 + heat 加热 → 先加热）</span></li>
-    <li><b>preschool</b> 学龄前（教育） <span class="note">（pre- 前 + school 学校 → 上学之前）</span></li>
+    <li><b data-say="words-audio/0ee63ccea22773b7b711a299adc32792.mp3">prepare</b> 准备 <span class="note">（pre- 先 + pare 弄好 → 提前弄好）</span></li>
+    <li><b data-say="words-audio/59a9f87755ec523b0db73207fc8362df.mp3">predict</b> 预测 <span class="note">（pre- 先 + dict 说 → 提前说出来）</span></li>
+    <li><b data-say="words-audio/5ebeb6065f64f2346dbb00ab789cf001.mp3">preview</b> 预告片；预览 <span class="note">（pre- 先 + view 看 → 先睹为快）</span></li>
+    <li><b data-say="words-audio/851f5ac9941d720844d143ed9cfcf60a.mp3">prefix</b> 前缀 <span class="note">（pre- 前 + fix 固定 → 固定在前的部分）</span></li>
+    <li><b data-say="words-audio/f7bd46dd8591d9b19648886ddbbd6b1b.mp3">preheat</b> 预热 <span class="note">（pre- 先 + heat 加热 → 先加热）</span></li>
+    <li><b data-say="words-audio/c3bc5e3abecaafaec783e01408ecb6b5.mp3">preschool</b> 学龄前（教育） <span class="note">（pre- 前 + school 学校 → 上学之前）</span></li>
   </ul>
-  <div class="usage">口语/生活用：<b>Make sure you preheat the oven to 200 degrees before baking.</b> 烤东西前一定要把烤箱预热到 200 度。</div>
+  <div class="usage">口语/生活用：<b data-say="words-audio/0484d90ecf3f11cfb3f2113bba1d5065.mp3">Make sure you preheat the oven to 200 degrees before baking.</b> 烤东西前一定要把烤箱预热到 200 度。</div>
 </div>
 
 <div class="card affix">
@@ -246,14 +271,14 @@
   <span class="etym"><span class="lab">词源</span>：拉丁语前缀 <b>dis-</b>「分开、朝不同方向、否定」；源自印欧语 *dwis-「两次、分开」（与 duo「二」有关）。</span>
   <span class="evo"><span class="lab">演化</span>：<b>本义「分开」</b> → disconnect 断开、discount 打折 ｜ <b>「取反」</b> → disappear 消失、dislike 不喜欢 ｜ <b>「去掉遮盖」</b> → discover 发现</span>
   <ul>
-    <li><b>disagree</b> 不同意 <span class="note">（dis- 否定 + agree 同意）</span></li>
-    <li><b>disappear</b> 消失 <span class="note">（dis- 反 + appear 出现 → 出现的反面）</span></li>
-    <li><b>disconnect</b> 断开连接 <span class="note">（dis- 分开 + connect 连接）</span></li>
-    <li><b>discount</b> 打折；折扣 <span class="note">（dis- 减去 + count 数 → 从价格里扣掉）</span></li>
-    <li><b>discover</b> 发现 <span class="note">（dis- 去掉 + cover 遮盖 → 掀开盖子看到）</span></li>
-    <li><b>dislike</b> 不喜欢 <span class="note">（dis- 否定 + like 喜欢）</span></li>
+    <li><b data-say="words-audio/2b52ac64a552e4e54d440f49fcb5a58c.mp3">disagree</b> 不同意 <span class="note">（dis- 否定 + agree 同意）</span></li>
+    <li><b data-say="words-audio/eb17b0496bd600be4f3a203a62e2654d.mp3">disappear</b> 消失 <span class="note">（dis- 反 + appear 出现 → 出现的反面）</span></li>
+    <li><b data-say="words-audio/9d634e1a156dc0c1611eb4c3cff57276.mp3">disconnect</b> 断开连接 <span class="note">（dis- 分开 + connect 连接）</span></li>
+    <li><b data-say="words-audio/e2dc6c48c56de466f6d13781796abf3d.mp3">discount</b> 打折；折扣 <span class="note">（dis- 减去 + count 数 → 从价格里扣掉）</span></li>
+    <li><b data-say="words-audio/79bd2b6b389ee211aaf26e9ea3a1292e.mp3">discover</b> 发现 <span class="note">（dis- 去掉 + cover 遮盖 → 掀开盖子看到）</span></li>
+    <li><b data-say="words-audio/bc8b79025e4595298669fd21da814941.mp3">dislike</b> 不喜欢 <span class="note">（dis- 否定 + like 喜欢）</span></li>
   </ul>
-  <div class="usage">口语/生活用：<b>I really dislike waking up early on weekends.</b> 我真的很讨厌周末早起。</div>
+  <div class="usage">口语/生活用：<b data-say="words-audio/de0c19f40f44c8d861a5d2defb06e5c5.mp3">I really dislike waking up early on weekends.</b> 我真的很讨厌周末早起。</div>
 </div>
 
 <div class="card affix">
@@ -262,17 +287,110 @@
   <span class="etym"><span class="lab">词源</span>：古英语 <b>-lic</b> / <b>-lice</b>，源自名词 <b>līc</b>「身体、形态」（同源英语 like，德语 -lich）；意为"具有…样子的"。</span>
   <span class="evo"><span class="lab">演化</span>：<b>līc「身体」</b> → 古英语 -lic「像…样子的」 → 形容词后缀 friendly 友好的 ｜ <b>再由形容词加 -ly</b> → 副词后缀 quickly 快速地、daily 每天地</span>
   <ul>
-    <li><b>friendly</b> 友好的 <span class="note">（friend 朋友 + -ly 像…样 → 像朋友的）</span></li>
-    <li><b>quickly</b> 快速地 <span class="note">（quick 快 + -ly → 副词化）</span></li>
-    <li><b>daily</b> 每日的；每天 <span class="note">（day 日 + -ly → 一天天的）</span></li>
-    <li><b>lovely</b> 可爱的；美好的 <span class="note">（love 爱 + -ly → 让人爱的）</span></li>
-    <li><b>lonely</b> 孤独的 <span class="note">（lone 独自 + -ly → 独自一人的）</span></li>
-    <li><b>monthly</b> 每月（的） <span class="note">（month 月 + -ly → 一月一次）</span></li>
+    <li><b data-say="words-audio/be68582f77aecadc0389a785aefd64e9.mp3">friendly</b> 友好的 <span class="note">（friend 朋友 + -ly 像…样 → 像朋友的）</span></li>
+    <li><b data-say="words-audio/558c9244a6d2425f25b7b002780910d2.mp3">quickly</b> 快速地 <span class="note">（quick 快 + -ly → 副词化）</span></li>
+    <li><b data-say="words-audio/bea79186fd7af2da67e59b4b15df5a26.mp3">daily</b> 每日的；每天 <span class="note">（day 日 + -ly → 一天天的）</span></li>
+    <li><b data-say="words-audio/061fba5bdfc076bb7362616668de87c8.mp3">lovely</b> 可爱的；美好的 <span class="note">（love 爱 + -ly → 让人爱的）</span></li>
+    <li><b data-say="words-audio/7e49f5a0a99ac099b460e85139819e2f.mp3">lonely</b> 孤独的 <span class="note">（lone 独自 + -ly → 独自一人的）</span></li>
+    <li><b data-say="words-audio/708638881f3bac9d9c8c742c79502811.mp3">monthly</b> 每月（的） <span class="note">（month 月 + -ly → 一月一次）</span></li>
   </ul>
-  <div class="usage">口语/生活用：<b>She spoke so quickly that I couldn't follow.</b> 她说得太快，我跟不上。</div>
+  <div class="usage">口语/生活用：<b data-say="words-audio/50452e9263a0f864ea9927a5f5398be8.mp3">She spoke so quickly that I couldn't follow.</b> 她说得太快，我跟不上。</div>
 </div>
 
 <div class="footer">词根词缀每日积累 · 每天 10 个 · 明天见 👋</div>
 
 </body>
+<script>
+/* ---------- 单词发音 ---------- */
+(function () {
+  var synth = ("speechSynthesis" in window) ? window.speechSynthesis : null;
+  var audio = new Audio();
+  audio.preload = "auto";
+  audio.playbackRate = 0.95;
+  var curBtn = null;
+
+  function pickVoice() {
+    if (!synth) return null;
+    var vs = synth.getVoices() || [];
+    return vs.filter(function (v) { return /en[-_]US/i.test(v.lang); })[0] ||
+           vs.filter(function (v) { return /^en/i.test(v.lang); })[0] || null;
+  }
+  function tts(text) {
+    if (!synth) return;
+    var u = new SpeechSynthesisUtterance(text);
+    u.lang = "en-US";
+    var v = pickVoice(); if (v) u.voice = v;
+    try { synth.cancel(); } catch (e) {}
+    synth.speak(u);
+  }
+  function clear() { if (curBtn) { curBtn.classList.remove("playing"); curBtn = null; } }
+  function play(el, btn) {
+    var src = el.getAttribute("data-say");
+    var text = el.textContent.replace(/\s+/g, " ").trim();
+    clear();
+    if (btn) { btn.classList.add("playing"); curBtn = btn; }
+    if (src) {
+      audio.src = src;
+      audio.onended = function () { if (curBtn === btn) clear(); };
+      audio.onerror = function () { if (curBtn === btn) clear(); tts(text); };
+      var p = audio.play();
+      if (p && p.catch) { p.catch(function () { clear(); tts(text); }); }
+    } else {
+      tts(text);
+      setTimeout(function () { if (curBtn === btn) clear(); }, 1500);
+    }
+  }
+
+  document.querySelectorAll("[data-say]").forEach(function (el) {
+    var prev = el.previousElementSibling;
+    if (prev && prev.classList && prev.classList.contains("psay")) return;
+    var b = document.createElement("button");
+    b.type = "button"; b.className = "psay"; b.textContent = "\uD83D\uDD0A"; b.title = "发音";
+    b.setAttribute("aria-label", "发音");
+    b.addEventListener("click", function (e) {
+      e.stopPropagation(); e.preventDefault();
+      if (curBtn === b) {
+        try { audio.pause(); } catch (err) {}
+        if (synth) { try { synth.cancel(); } catch (err) {} }
+        clear(); return;
+      }
+      play(el, b);
+    });
+    el.parentNode.insertBefore(b, el);
+  });
+
+  /* 点任意英文词发音 */
+  var on = false;
+  var tg = document.createElement("button");
+  tg.id = "pron-toggle"; tg.type = "button"; tg.textContent = "\uD83D\uDD24 点词发音";
+  document.body.appendChild(tg);
+  tg.addEventListener("click", function () {
+    on = !on; tg.classList.toggle("on", on);
+    tg.textContent = on ? "\uD83D\uDD24 点词发音：开" : "\uD83D\uDD24 点词发音";
+  });
+  function wordAt(x, y) {
+    var node, offset;
+    if (document.caretRangeFromPoint) {
+      var r = document.caretRangeFromPoint(x, y);
+      if (!r) return null; node = r.startContainer; offset = r.startOffset;
+    } else if (document.caretPositionFromPoint) {
+      var p = document.caretPositionFromPoint(x, y);
+      if (!p) return null; node = p.offsetNode; offset = p.offset;
+    } else { return null; }
+    if (!node || node.nodeType !== 3) return null;
+    var t = node.textContent, re = /[A-Za-z][A-Za-z'\u2019\-]*/g, m;
+    while ((m = re.exec(t))) {
+      if (offset >= m.index && offset <= m.index + m[0].length) return m[0];
+    }
+    return null;
+  }
+  document.addEventListener("click", function (e) {
+    if (!on) return;
+    if (e.target.closest && (e.target.closest(".psay") || e.target.closest("#pron-toggle"))) return;
+    var w = wordAt(e.clientX, e.clientY);
+    if (w) tts(w);
+  }, true);
+})();
+
+</script>
 </html>

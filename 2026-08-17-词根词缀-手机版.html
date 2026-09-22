@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>词根词缀每日积累 · 补（8月17日）</title>
+<style>
+  @page { size: A4; margin: 16mm 15mm; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Noto Sans CJK SC', 'Droid Sans Fallback', 'WenQuanYi Zen Hei', sans-serif;
+    font-size: 10.5pt;
+    color: #1f2937;
+    line-height: 1.65;
+  }
+  .header {
+    border-bottom: 3px solid #2563eb;
+    padding-bottom: 10px;
+    margin-bottom: 6px;
+  }
+  .header h1 { font-size: 19pt; color: #1e3a8a; letter-spacing: 1px; }
+  .header .meta { color: #6b7280; font-size: 9.5pt; margin-top: 2px; }
+  .header .meta b { color: #2563eb; }
+  h2.section {
+    font-size: 12.5pt;
+    color: #1e3a8a;
+    margin: 14px 0 8px 0;
+    padding-left: 8px;
+    border-left: 4px solid #2563eb;
+  }
+  .card {
+    border: 1px solid #e5e7eb;
+    border-left: 4px solid #2563eb;
+    border-radius: 6px;
+    padding: 8px 12px 9px 12px;
+    margin-bottom: 9px;
+    page-break-inside: avoid;
+  }
+  .card .root-head { margin-bottom: 4px; }
+  .card .num {
+    display: inline-block;
+    width: 17px; height: 17px;
+    background: #2563eb; color: #fff;
+    border-radius: 50%;
+    text-align: center; line-height: 17px;
+    font-size: 9pt; font-weight: bold;
+    margin-right: 6px;
+  }
+  .card .root { font-size: 12.5pt; font-weight: bold; color: #1e3a8a; font-family: 'DejaVu Sans', sans-serif; }
+  .card .meaning { color: #4b5563; }
+  .card .trick {
+    display: block;
+    color: #047857;
+    font-size: 9pt;
+    margin-top: 1px;
+  }
+  .card .etym {
+    display: block;
+    margin-top: 3px;
+    font-size: 9pt;
+    color: #6d28d9;
+  }
+  .card .etym .lab, .card .evo .lab { font-weight: bold; }
+  .card .evo {
+    display: block;
+    margin-top: 1px;
+    font-size: 9pt;
+    color: #b45309;
+  }
+  .card ul { list-style: none; padding: 0; }
+  .card li {
+    padding: 1px 0;
+    font-size: 10.5pt;
+  }
+  .card li b { color: #111827; }
+  .card .note { color: #9ca3af; font-size: 9pt; }
+  .card .usage {
+    margin-top: 4px;
+    background: #eff6ff;
+    border-radius: 4px;
+    padding: 3px 8px;
+    font-size: 9.5pt;
+    color: #1e40af;
+  }
+  .card .usage b { color: #1e3a8a; }
+  .card .confuse {
+    margin-top: 5px;
+    background: #fefce8;
+    border: 1px solid #fde047;
+    border-radius: 5px;
+    padding: 5px 9px;
+    font-size: 9pt;
+    color: #854d0e;
+    line-height: 1.6;
+  }
+  .card .confuse .confuse-title {
+    display: block;
+    font-weight: bold;
+    font-size: 9.5pt;
+    color: #92400e;
+    margin-bottom: 3px;
+  }
+  .card .confuse b { color: #78350f; }
+  .card .confuse .sub { color: #a16207; font-weight: bold; }
+  .card .variant {
+    margin-top: 5px;
+    background: #f5f3ff;
+    border: 1px solid #c4b5fd;
+    border-radius: 5px;
+    padding: 5px 9px;
+    font-size: 9pt;
+    color: #5b21b6;
+    line-height: 1.6;
+  }
+  .card .variant .var-title {
+    display: block;
+    font-weight: bold;
+    font-size: 9.5pt;
+    color: #6d28d9;
+    margin-bottom: 3px;
+  }
+  .card .variant b { color: #5b21b6; }
+  .card .cognate {
+    margin-top: 5px;
+    background: #fffbeb;
+    border: 1px solid #fcd34d;
+    border-radius: 5px;
+    padding: 5px 9px;
+    font-size: 9pt;
+    color: #92400e;
+    line-height: 1.6;
+  }
+  .card .cognate .cog-title {
+    display: block;
+    font-weight: bold;
+    font-size: 9.5pt;
+    color: #b45309;
+    margin-bottom: 3px;
+  }
+  .card .cognate b { color: #78350f; }
+  .card.affix { border-left-color: #059669; }
+  .card.affix .num { background: #059669; }
+  .card.affix .root { color: #065f46; }
+  .card.affix .usage { background: #ecfdf5; color: #065f46; }
+  .footer {
+    margin-top: 14px;
+    text-align: center;
+    color: #9ca3af;
+    font-size: 8.5pt;
+    border-top: 1px solid #e5e7eb;
+    padding-top: 6px;
+  }
+/* ---------- 单词发音（神经网络 MP3，缺失回退系统语音） ---------- */
+.psay{
+  display:inline-flex; align-items:center; justify-content:center;
+  width:18px; height:18px; margin:0 5px 0 0; padding:0;
+  border:1px solid #cbd5e1; border-radius:50%; background:#f8fafc;
+  color:#2563eb; font-size:9px; line-height:1; cursor:pointer;
+  vertical-align:1px; -webkit-tap-highlight-color:transparent;
+  transition:background .15s,border-color .15s;
+}
+.psay:hover{ background:#dbeafe; border-color:#93c5fd; }
+.psay.playing{ background:#2563eb; border-color:#2563eb; color:#fff; animation:psay-pulse 1s infinite; }
+@keyframes psay-pulse{ 0%,100%{opacity:1;} 50%{opacity:.5;} }
+
+#pron-toggle{
+  position:fixed; left:12px; bottom:calc(16px + env(safe-area-inset-bottom));
+  z-index:950; border:none; border-radius:999px; padding:8px 14px;
+  background:rgba(37,99,235,.95); color:#fff; font-size:13px; cursor:pointer;
+  box-shadow:0 4px 14px rgba(0,0,0,.25);
+  font-family:'Noto Sans CJK SC','Droid Sans Fallback',sans-serif;
+  -webkit-tap-highlight-color:transparent;
+}
+#pron-toggle.on{ background:#047857; }
+
+@media print{ .psay, #pron-toggle{ display:none !important; } }
+
+/* mobile-generic */
+  html { -webkit-text-size-adjust: 100%; }
+  body { overflow-wrap: break-word; }
+  @media (max-width: 640px) {
+    body { font-size: 16px !important; line-height: 1.8;
+           padding: 14px 12px calc(34px + env(safe-area-inset-bottom)); }
+    .header h1 { font-size: 1.5rem; }
+    .header .meta { font-size: .82rem; }
+    h2.section { font-size: 1.12rem; }
+    .card { padding: 11px 13px; border-radius: 10px; }
+    .card .root { font-size: 1.18rem; }
+    .card li { font-size: 1rem; padding: 3px 0; }
+    .card .usage { font-size: .95rem; }
+    .card .etym, .card .evo, .card .trick,
+    .card .confuse, .card .variant, .card .cognate { font-size: .86rem; }
+    table { display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    .flow { font-size: .9rem; }
+  }
+
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>词根词缀每日积累 · 补（8月17日）</h1>
+  <div class="meta">2026 年 8 月 17 日 ｜ <b>词根 7 个 · 词缀 3 个</b> ｜ 附词源与演化</div>
+</div>
+
+<h2 class="section">词根（7 个）</h2>
+
+<div class="card">
+  <div class="root-head"><span class="num">1</span><span class="root">greg</span> <span class="meaning">= flock 群、聚集</span></div>
+  <span class="trick">💡 记法：gregarious = 爱扎"群"的（爱社交）；segregate = 隔离开"群"</span>
+  <span class="etym"><span class="lab">词源</span>：拉丁语 <b>grex</b>「群、兽群」，源自印欧语 <b>*ger-</b>「聚集」</span>
+  <span class="evo"><span class="lab">演化</span>：<b>群</b> → 聚集=aggregate ｜ 合群=gregarious ｜ 分隔出群=segregate</span>
+  <ul>
+    <li><b data-say="words-audio/39adbeb6bc21a3133e5fdcf1ec05d1a0.mp3">aggregate</b> 聚集、总计 <span class="note">（ag- 朝 + greg + -ate，"聚到一起"）</span></li>
+    <li><b data-say="words-audio/91e23faa5e4cbd7fb8900dfd3d73ba97.mp3">congregate</b> 聚集 <span class="note">（con- 一起 + greg + -ate，"汇成群"）</span></li>
+    <li><b data-say="words-audio/99c8ecd7579fd68964da6ad2f3188955.mp3">gregarious</b> 爱交际的 <span class="note">（greg + -arious，"喜欢成群结伴的"）</span></li>
+    <li><b data-say="words-audio/8849af26904bbd64af7a32080d3160ee.mp3">segregate</b> 隔离 <span class="note">（se- 分开 + greg + -ate，"从群中分开"）</span></li>
+    <li><b data-say="words-audio/62c8a93b124812c863d45f34a96d5ec5.mp3">segregation</b> 隔离 <span class="note">（segregat + -ion）</span></li>
+    <li><b data-say="words-audio/069b04deb49279cfb3b13d3632e51622.mp3">egregious</b> 极其糟糕的 <span class="note">（e- 出 + greg + -ious，"出群、过分"）</span></li>
+  </ul>
+  <div class="usage">口语/生活用：<b data-say="words-audio/c4cf8f1f477d3a6b5ca2c7fa9c2ac796.mp3">Birds often congregate near the lake in the evening.</b> 傍晚时分，鸟常常聚集在湖边。</div>
+</div>
+
+<div class="card">
+  <div class="root-head"><span class="num">2</span><span class="root">labor</span> <span class="meaning">= work 劳动、工作</span></div>
+  <span class="trick">💡 记法：laboratory = 做"实验工作"的地方（实验室）；collaborate = 一起"干活"（合作）</span>
+  <span class="etym"><span class="lab">词源</span>：拉丁语 <b>labor</b>「劳动、辛苦」</span>
+  <span class="evo"><span class="lab">演化</span>：<b>劳动</b> → 劳动力=labor ｜ 一起干=collaborate ｜ 精心制作=elaborate</span>
+  <ul>
+    <li><b data-say="words-audio/d552cecbaf1a5a64066b42e5d25d282a.mp3">labor</b> 劳动、劳工 <span class="note">（labor 直借）</span></li>
+    <li><b data-say="words-audio/799ad83c247e4b997891c10762d12728.mp3">laboratory</b> 实验室 <span class="note">（labor + -atory，"干活的地方"）</span></li>
+    <li><b data-say="words-audio/d5d70f7d70ea05d4315923b446ffc581.mp3">collaborate</b> 合作 <span class="note">（col- 一起 + labor + -ate，"一起工作"）</span></li>
+    <li><b data-say="words-audio/7f54f85ddc496d9ad8bf01eaaf962b1d.mp3">elaborate</b> 精心制作的；详述 <span class="note">（e- 出 + labor + -ate，"做得非常细致"）</span></li>
+    <li><b data-say="words-audio/eaa1b2b0f41e7f1dd596aa3a8f9fa33e.mp3">laborious</b> 费力的 <span class="note">（labor + -ious，"要花很多力气的"）</span></li>
+    <li><b data-say="words-audio/99060a7b59707de7aa329100a4978506.mp3">laborer</b> 劳动者 <span class="note">（labor + -er）</span></li>
+  </ul>
+  <div class="usage">口语/生活用：<b data-say="words-audio/6280e3ede038fb589c1f492b47a6a80e.mp3">The two teams collaborated on the new design.</b> 两个团队合作完成了新设计。</div>
+</div>
+
+<div class="card">
+  <div class="root-head"><span class="num">3</span><span class="root">magn / maj / max</span> <span class="meaning">= great 大</span></div>
+  <span class="trick">💡 记法：magnify = 放大；major = "大"的（主要的）；maximum = 最"大"值</span>
+  <span class="etym"><span class="lab">词源</span>：拉丁语 <b>magnus</b>「大的」，比较级 <b>maior</b>（更大），最高级 <b>maximus</b>（最大），源自印欧语 <b>*meg-</b>「大」</span>
+  <span class="evo"><span class="lab">演化</span>：<b>大</b> → 放大=magnify ｜ 主要的=major ｜ 最大值=maximum</span>
+  <ul>
+    <li><b data-say="words-audio/2a3c63519aadd9ea985b6654ac1be197.mp3">magnificent</b> 壮丽的 <span class="note">（magn + -ific 做，"做得非常大"）</span></li>
+    <li><b data-say="words-audio/ae34824a743b7330c0056b7609b66b5e.mp3">magnify</b> 放大 <span class="note">（magn + -ify 使大）</span></li>
+    <li><b data-say="words-audio/28c3d8f4b7e312af5e0d6b59a50efd1c.mp3">magnitude</b> 规模、震级 <span class="note">（magn + -itude，"大的程度"）</span></li>
+    <li><b data-say="words-audio/f1425da40a9f2d21ab702a1c7feae026.mp3">major</b> 主要的、专业 <span class="note">（maior 变体，"更大的"）</span></li>
+    <li><b data-say="words-audio/08b72efa9eb49c94cb0dcfa16dbdc14c.mp3">majority</b> 多数 <span class="note">（major + -ity）</span></li>
+    <li><b data-say="words-audio/65b0e2883c997f2bea5dd11c923b94cf.mp3">maximum</b> 最大值 <span class="note">（maximus 变体，"最大"）</span></li>
+  </ul>
+  <div class="variant">
+    <span class="var-title">🧩 变体家族</span>
+    <b>magn-</b> magnificent, magnify, magnitude, magnate「大亨」<br>
+    <b>maj-</b> major, majority, majesty「威严」<br>
+    <b>max-</b> maximum, maximize, climax「顶点」
+  </div>
+  <div class="cognate">
+    <span class="cog-title">🧬 同源对照</span>
+    <b>magnus</b>（拉丁）→ magnificent, major ｜ <b>megas</b>（希腊）→ megaphone, megastar ｜ 同为 PIE <b>*meg-</b>「大」
+  </div>
+  <div class="usage">口语/生活用：<b data-say="words-audio/96e2190ea3ad1f0316be8a8fce458b0b.mp3">The concert was absolutely magnificent.</b> 这场音乐会简直太壮观了。</div>
+</div>
+
+<div class="card">
+  <div class="root-head"><span class="num">4</span><span class="root">mut</span> <span class="meaning">= change 变化</span></div>
+  <span class="trick">💡 记法：mutate = 基因"变化"；mutual = 双方"互相"（互相给予变化）</span>
+  <span class="etym"><span class="lab">词源</span>：拉丁语 <b>mutare</b>「改变」，源自印欧语 <b>*mey-</b>「改变」</span>
+  <span class="evo"><span class="lab">演化</span>：<b>变化</b> → 基因突变=mutate ｜ 通勤=commute（换乘） ｜ 相互的=mutual</span>
+  <ul>
+    <li><b data-say="words-audio/e2d18c2b6d441771ac8144fdc14d4c90.mp3">mutate</b> 突变 <span class="note">（mut + -ate）</span></li>
+    <li><b data-say="words-audio/32a228ed0a1940b82b13321edb86288f.mp3">mutation</b> 突变 <span class="note">（mutat + -ion）</span></li>
+    <li><b data-say="words-audio/76da50ddf58127f120189dfbbe29ef5a.mp3">commute</b> 通勤 <span class="note">（com- + mute，"来回更换交通工具"）</span></li>
+    <li><b data-say="words-audio/661841eec099d5338efbfc94d9f17510.mp3">mutual</b> 相互的 <span class="note">（mut + -ual，"彼此交互变化"）</span></li>
+    <li><b data-say="words-audio/80d2e04b3050a67b9727357483610d63.mp3">immutable</b> 不可改变的 <span class="note">（im- 不 + mutable）</span></li>
+    <li><b data-say="words-audio/90d377b31e1ac26d0d10d5612ce33ccc.mp3">permutation</b> 排列组合 <span class="note">（per- 完全 + mut + -ation，"变换所有顺序"）</span></li>
+  </ul>
+  <div class="usage">口语/生活用：<b data-say="words-audio/dc36a3427b21110278189d024187f7c0.mp3">We have a mutual friend who recommended this restaurant.</b> 我们有个共同的朋友推荐了这家餐厅。</div>
+</div>
+
+<div class="card">
+  <div class="root-head"><span class="num">5</span><span class="root">volv / volu / volt</span> <span class="meaning">= roll, turn 滚、转</span></div>
+  <span class="trick">💡 记法：evolve = 一步步"滚"出来（演化）；revolve = 旋转；revolution = 天翻地覆的"翻转"</span>
+  <span class="etym"><span class="lab">词源</span>：拉丁语 <b>volvere</b>「滚动、旋转」，完成分词 <b>volutus</b>，源自印欧语 <b>*wel-</b>「滚、转」</span>
+  <span class="evo"><span class="lab">演化</span>：<b>滚/转</b> → 展开演化=evolve ｜ 卷入=involve ｜ 翻转=revolution ｜ 书卷=volume</span>
+  <ul>
+    <li><b data-say="words-audio/f3d5521814acf4f76db3a0bd01c985b7.mp3">evolve</b> 演化 <span class="note">（e- 出 + volv，"滚出来、逐渐展开"）</span></li>
+    <li><b data-say="words-audio/38b964d21807aa47d84d373699ed1c7b.mp3">involve</b> 涉及、卷入 <span class="note">（in- 入 + volv，"被卷进去"）</span></li>
+    <li><b data-say="words-audio/35d2fd9bd583c7dc3a1e4cf8ed21824c.mp3">revolve</b> 旋转 <span class="note">（re- 回 + volv，"绕圈转"）</span></li>
+    <li><b data-say="words-audio/ef09aed49ae4607583c942401e477845.mp3">revolution</b> 革命、旋转 <span class="note">（re- 回 + volu + -tion，"翻转过来"）</span></li>
+    <li><b data-say="words-audio/210ab9e731c9c36c2c38db15c28a8d1c.mp3">volume</b> 音量、卷 <span class="note">（volu + -me，"卷起来的书册"→引申为量）</span></li>
+    <li><b data-say="words-audio/190b46dbb12e4f67537fb76fc1ca4640.mp3">revolt</b> 反叛 <span class="note">（re- 反 + volt，"翻过来对抗"）</span></li>
+  </ul>
+  <div class="variant">
+    <span class="var-title">🧩 变体家族</span>
+    <b>volv-</b> evolve, involve, revolve<br>
+    <b>volu-</b> volume, voluble「滔滔不绝」<br>
+    <b>volt-</b> revolution, revolt, revolution
+  </div>
+  <div class="usage">口语/生活用：<b data-say="words-audio/e2712b80bd4c4a177678806892a67682.mp3">Technology evolves so fast that it's hard to keep up.</b> 技术演化太快，很难跟上。</div>
+</div>
+
+<div class="card">
+  <div class="root-head"><span class="num">6</span><span class="root">cycl</span> <span class="meaning">= circle 圆、环（希腊）</span></div>
+  <span class="trick">💡 记法：cycle = 一圈一圈的"循环"；bicycle = 两个"轮子"（bi- 二 + cycle）</span>
+  <span class="etym"><span class="lab">词源</span>：希腊语 <b>kyklos</b>「圆、环」，源自印欧语 <b>*kʷelkʷ-</b>「转」</span>
+  <span class="evo"><span class="lab">演化</span>：<b>圆/环</b> → 循环=cycle ｜ 两个轮子=bicycle ｜ 回收再利用=recycle</span>
+  <ul>
+    <li><b data-say="words-audio/9a4c07402cc2f3740fb5849a16920e13.mp3">cycle</b> 循环、周期 <span class="note">（kyklos 直借）</span></li>
+    <li><b data-say="words-audio/9e8e37aeb4449d579e9a58ce02e9f2fd.mp3">bicycle</b> 自行车 <span class="note">（bi- 二 + cycle，呼应昨日 bi-）</span></li>
+    <li><b data-say="words-audio/f914097ec216b1b65f6db6b0a13faa42.mp3">recycle</b> 回收利用 <span class="note">（re- 再 + cycle，"再循环"）</span></li>
+    <li><b data-say="words-audio/d46df44cfc456d22737f04166bb7ff01.mp3">cyclone</b> 气旋、旋风 <span class="note">（cycl + -one，"旋转的风暴"）</span></li>
+    <li><b data-say="words-audio/f2340a1d30f79f3b1c1d78ca4fadbd26.mp3">encyclopedia</b> 百科全书 <span class="note">（en- 内 + cycl + paideia 教育，"包罗万象的教育之环"）</span></li>
+    <li><b data-say="words-audio/9c7cd9fc9aa15fae1e37885314637c36.mp3">cylinder</b> 圆柱体 <span class="note">（cylindr + -er，"圆筒状"）</span></li>
+  </ul>
+  <div class="usage">口语/生活用：<b data-say="words-audio/5da4d4fb967a987e2122913a56efa525.mp3">Don't forget to recycle your bottles and cans.</b> 别忘了把瓶子和易拉罐回收。</div>
+</div>
+
+<div class="card">
+  <div class="root-head"><span class="num">7</span><span class="root">mono</span> <span class="meaning">= one 单、一（希腊）</span></div>
+  <span class="trick">💡 记法：monopoly = 只此"一家"的卖方（垄断）；monotonous = 一个"调"到底（单调）</span>
+  <span class="etym"><span class="lab">词源</span>：希腊语 <b>monos</b>「单独、唯一」</span>
+  <span class="evo"><span class="lab">演化</span>：<b>单</b> → 独白=monologue ｜ 垄断=monopoly ｜ 单调=monotonous</span>
+  <ul>
+    <li><b data-say="words-audio/4731be60a3f0bd742026096d4dd6f0d4.mp3">monopoly</b> 垄断 <span class="note">（mono + poly 卖，"独此一家卖"）</span></li>
+    <li><b data-say="words-audio/621aa1e47c84ab69fe4b4009dba4f991.mp3">monologue</b> 独白 <span class="note">（mono + logue 话，呼应 Day 5，"一人讲话"）</span></li>
+    <li><b data-say="words-audio/2197acf79658b405d21634630e1bd2cb.mp3">monotonous</b> 单调的 <span class="note">（mono + ton 音调，"一个调子到底"）</span></li>
+    <li><b data-say="words-audio/453a9b3bfdab6ea719b2a34f5d2340c6.mp3">monarch</b> 君主 <span class="note">（mon + arch 统治，"单一统治者"）</span></li>
+    <li><b data-say="words-audio/fed5e024dfc9a60dc636053bedd9d366.mp3">monastery</b> 修道院 <span class="note">（monast + -ery，"修士独处修行处"）</span></li>
+    <li><b data-say="words-audio/13639cf5050b5f01f9d9d83ea1533e59.mp3">monogamy</b> 一夫一妻制 <span class="note">（mono + gam 婚姻）</span></li>
+  </ul>
+  <div class="confuse">
+    <span class="confuse-title">💡 深度辨析：mono- vs uni- vs bi-</span>
+    <span class="sub">mono-</span>（希腊，"单一"）：monologue, monopoly<br>
+    <span class="sub">uni-</span>（拉丁，"一"，Day 8）：unique, union<br>
+    <span class="sub">bi-</span>（拉丁，"二"，昨日）：bicycle, bilingual<br>
+    例：<b>monopoly</b>（单家独市）vs <b>unify</b>（合一）vs <b>bilateral</b>（双边）——三个数字前缀齐活
+  </div>
+  <div class="usage">口语/生活用：<b data-say="words-audio/5bf7f673b8324f556440aba4b35b4621.mp3">The train journey was long and monotonous.</b> 这趟火车旅程又长又单调。</div>
+</div>
+
+<h2 class="section">词缀（3 个）</h2>
+
+<div class="card affix">
+  <div class="root-head"><span class="num">8</span><span class="root">-ess</span> <span class="meaning">= female 女性、雌性（法语）</span></div>
+  <span class="trick">💡 记法：actress = 女演员；waitress = 女服务员</span>
+  <span class="etym"><span class="lab">词源</span>：法语 <b>-esse</b>，源自拉丁语 <b>-issa</b>（希腊语），表阴性名词</span>
+  <span class="evo"><span class="lab">演化</span>：法语 <b>-esse</b> → 英语 <b>-ess</b>，"女性/雌性"</span>
+  <ul>
+    <li><b data-say="words-audio/d109f71f89b98e6f3990a0adbfaeb913.mp3">actress</b> 女演员 <span class="note">（actor + -ess）</span></li>
+    <li><b data-say="words-audio/9bc7a5c444110e35041eb91528d60a73.mp3">waitress</b> 女服务员 <span class="note">（waiter + -ess）</span></li>
+    <li><b data-say="words-audio/8afa847f50a716e64932d995c8e7435a.mp3">princess</b> 公主 <span class="note">（prince + -ess）</span></li>
+    <li><b data-say="words-audio/c2b2f076c396328a28f6c0bd5f6756af.mp3">hostess</b> 女主人 <span class="note">（host + -ess）</span></li>
+    <li><b data-say="words-audio/33ded59924765bea4f39ce5fff4418cf.mp3">lioness</b> 母狮 <span class="note">（lion + -ess）</span></li>
+    <li><b data-say="words-audio/5e37719b351ec7f65a4464da9b50cdeb.mp3">goddess</b> 女神 <span class="note">（god + -ess）</span></li>
+  </ul>
+  <div class="confuse">
+    <span class="confuse-title">💡 深度辨析：-ess 的现状</span>
+    <span class="sub">-ess</span> 多用于历史词、童话（princess, goddess, actress）<br>
+    现代英语倾向于**性别中性**：actor（演员不分男女）、waitperson / server<br>
+    例：老电影里说 waitress，现在餐厅多用 server——-ess 正在慢慢退出日常
+  </div>
+  <div class="usage">口语/生活用：<b data-say="words-audio/9927fcdbd9b7cf9cb62add2fcbc0ba4e.mp3">The waitress recommended today's special.</b> 那位女服务员推荐了今日特价菜。</div>
+</div>
+
+<div class="card affix">
+  <div class="root-head"><span class="num">9</span><span class="root">semi-</span> <span class="meaning">= half 半（拉丁）</span></div>
+  <span class="trick">💡 记法：semicircle = "半"圆；semifinal = 决赛前"半"场（半决赛）</span>
+  <span class="etym"><span class="lab">词源</span>：拉丁语 <b>semi</b>「一半」，源自印欧语 <b>*semi-</b>「半」</span>
+  <span class="evo"><span class="lab">演化</span>：<b>半</b> → 半圆=semicircle ｜ 分号=semicolon（半冒号） ｜ 半决赛=semifinal</span>
+  <ul>
+    <li><b data-say="words-audio/8f41c9b76112ee4fea95cbd553ee480d.mp3">semicircle</b> 半圆 <span class="note">（semi- + circle）</span></li>
+    <li><b data-say="words-audio/77b7e24bb3642a4b9d3081d393785273.mp3">semicolon</b> 分号 <span class="note">（semi- + colon，"半个冒号"；）</span></li>
+    <li><b data-say="words-audio/a554e9412d028bc605caa4eeb1c764d9.mp3">semifinal</b> 半决赛 <span class="note">（semi- + final）</span></li>
+    <li><b data-say="words-audio/459254a28866a4f22fa3b827844d8bb0.mp3">semiconductor</b> 半导体 <span class="note">（semi- + conductor 导体）</span></li>
+    <li><b data-say="words-audio/9ebea4df67376b30150bfc0ea01b5562.mp3">semitone</b> 半音 <span class="note">（semi- + tone 音调）</span></li>
+    <li><b data-say="words-audio/61a18c517586baf5a90a39d5e7d61a7d.mp3">semiautomatic</b> 半自动的 <span class="note">（semi- + automatic）</span></li>
+  </ul>
+  <div class="confuse">
+    <span class="confuse-title">💡 深度辨析：semi- vs bi-（经典陷阱）</span>
+    <span class="sub">semi-</span>（半）：semicircle, semiweekly「每周两次」<br>
+    <span class="sub">bi-</span>（二，昨日）：bicycle, biweekly「每两周一次」<br>
+    ⚠️ <b>biweekly</b> = 每两周（2 周 1 次）vs <b>semiweekly</b> = 每周两次（1 周 2 次）——千万别混
+  </div>
+  <div class="usage">口语/生活用：<b data-say="words-audio/5087939ecbe585d7b4f35b7ce778335b.mp3">The team made it to the semifinals.</b> 这支队伍打进了半决赛。</div>
+</div>
+
+<div class="card affix">
+  <div class="root-head"><span class="num">10</span><span class="root">under-</span> <span class="meaning">= below 在…之下（古英语）</span></div>
+  <span class="trick">💡 记法：underground = "地"下；understand = 站"在下面"听命→明白</span>
+  <span class="etym"><span class="lab">词源</span>：古英语 <b>under</b>「在下方」，源自印欧语 <b>*n̥dʰer-</b>「下」</span>
+  <span class="evo"><span class="lab">演化</span>：<b>在下</b> → 地下=underground ｜ 低估=underestimate ｜ 经历=undergo</span>
+  <ul>
+    <li><b data-say="words-audio/959c83618ab373ced30edb1d59bff135.mp3">underground</b> 地下的 <span class="note">（under- + ground 地面）</span></li>
+    <li><b data-say="words-audio/67b0d7c16929369c0ce38e0d9b65c0cc.mp3">understand</b> 理解 <span class="note">（under- + stand，"站在下面听从→明白"）</span></li>
+    <li><b data-say="words-audio/a5d26aacaa649fc70cf433c610bb7063.mp3">underestimate</b> 低估 <span class="note">（under- + estimate 估计）</span></li>
+    <li><b data-say="words-audio/6dc7b4483f8c2c701a48e42db552806d.mp3">underline</b> 下划线 <span class="note">（under- + line）</span></li>
+    <li><b data-say="words-audio/56e17e3990c9711564614aade970cd3f.mp3">undergo</b> 经历 <span class="note">（under- + go，"在…之下走过"）</span></li>
+    <li><b data-say="words-audio/4ab57483724829010c32e288b605d5e5.mp3">underlying</b> 潜在的 <span class="note">（under- + lying，"躺在下面的"）</span></li>
+  </ul>
+  <div class="confuse">
+    <span class="confuse-title">💡 深度辨析：under- vs sub-</span>
+    <span class="sub">under-</span>（日耳曼，"在下"）：underground, underestimate<br>
+    <span class="sub">sub-</span>（拉丁，"在下/次"，Day 5）：subway, submit<br>
+    例：<b>underground</b>（日常口语）vs <b>subterranean</b>（书面语）——同表"地下"，来源不同语域不同
+  </div>
+  <div class="usage">口语/生活用：<b data-say="words-audio/b8445f724a88daf40b4dc3af234246e2.mp3">Never underestimate the power of a good night's sleep.</b> 永远别低估一夜好觉的力量。</div>
+</div>
+
+<div class="footer">词根词缀每日积累 · 每天 10 个 · 明天见 👋</div>
+
+</body>
+<script>
+/* ---------- 单词发音 ---------- */
+(function () {
+  var synth = ("speechSynthesis" in window) ? window.speechSynthesis : null;
+  var audio = new Audio();
+  audio.preload = "auto";
+  audio.playbackRate = 0.95;
+  var curBtn = null;
+
+  function pickVoice() {
+    if (!synth) return null;
+    var vs = synth.getVoices() || [];
+    return vs.filter(function (v) { return /en[-_]US/i.test(v.lang); })[0] ||
+           vs.filter(function (v) { return /^en/i.test(v.lang); })[0] || null;
+  }
+  function tts(text) {
+    if (!synth) return;
+    var u = new SpeechSynthesisUtterance(text);
+    u.lang = "en-US";
+    var v = pickVoice(); if (v) u.voice = v;
+    try { synth.cancel(); } catch (e) {}
+    synth.speak(u);
+  }
+  function clear() { if (curBtn) { curBtn.classList.remove("playing"); curBtn = null; } }
+  function play(el, btn) {
+    var src = el.getAttribute("data-say");
+    var text = el.textContent.replace(/\s+/g, " ").trim();
+    clear();
+    if (btn) { btn.classList.add("playing"); curBtn = btn; }
+    if (src) {
+      audio.src = src;
+      audio.onended = function () { if (curBtn === btn) clear(); };
+      audio.onerror = function () { if (curBtn === btn) clear(); tts(text); };
+      var p = audio.play();
+      if (p && p.catch) { p.catch(function () { clear(); tts(text); }); }
+    } else {
+      tts(text);
+      setTimeout(function () { if (curBtn === btn) clear(); }, 1500);
+    }
+  }
+
+  document.querySelectorAll("[data-say]").forEach(function (el) {
+    var prev = el.previousElementSibling;
+    if (prev && prev.classList && prev.classList.contains("psay")) return;
+    var b = document.createElement("button");
+    b.type = "button"; b.className = "psay"; b.textContent = "\uD83D\uDD0A"; b.title = "发音";
+    b.setAttribute("aria-label", "发音");
+    b.addEventListener("click", function (e) {
+      e.stopPropagation(); e.preventDefault();
+      if (curBtn === b) {
+        try { audio.pause(); } catch (err) {}
+        if (synth) { try { synth.cancel(); } catch (err) {} }
+        clear(); return;
+      }
+      play(el, b);
+    });
+    el.parentNode.insertBefore(b, el);
+  });
+
+  /* 点任意英文词发音 */
+  var on = false;
+  var tg = document.createElement("button");
+  tg.id = "pron-toggle"; tg.type = "button"; tg.textContent = "\uD83D\uDD24 点词发音";
+  document.body.appendChild(tg);
+  tg.addEventListener("click", function () {
+    on = !on; tg.classList.toggle("on", on);
+    tg.textContent = on ? "\uD83D\uDD24 点词发音：开" : "\uD83D\uDD24 点词发音";
+  });
+  function wordAt(x, y) {
+    var node, offset;
+    if (document.caretRangeFromPoint) {
+      var r = document.caretRangeFromPoint(x, y);
+      if (!r) return null; node = r.startContainer; offset = r.startOffset;
+    } else if (document.caretPositionFromPoint) {
+      var p = document.caretPositionFromPoint(x, y);
+      if (!p) return null; node = p.offsetNode; offset = p.offset;
+    } else { return null; }
+    if (!node || node.nodeType !== 3) return null;
+    var t = node.textContent, re = /[A-Za-z][A-Za-z'\u2019\-]*/g, m;
+    while ((m = re.exec(t))) {
+      if (offset >= m.index && offset <= m.index + m[0].length) return m[0];
+    }
+    return null;
+  }
+  document.addEventListener("click", function (e) {
+    if (!on) return;
+    if (e.target.closest && (e.target.closest(".psay") || e.target.closest("#pron-toggle"))) return;
+    var w = wordAt(e.clientX, e.clientY);
+    if (w) tts(w);
+  }, true);
+})();
+
+</script>
+</html>

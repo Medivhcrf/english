@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>词根词缀每日积累 · 补（8月19日）</title>
+<style>
+  @page { size: A4; margin: 16mm 15mm; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Noto Sans CJK SC', 'Droid Sans Fallback', 'WenQuanYi Zen Hei', sans-serif;
+    font-size: 10.5pt;
+    color: #1f2937;
+    line-height: 1.65;
+  }
+  .header {
+    border-bottom: 3px solid #2563eb;
+    padding-bottom: 10px;
+    margin-bottom: 6px;
+  }
+  .header h1 { font-size: 19pt; color: #1e3a8a; letter-spacing: 1px; }
+  .header .meta { color: #6b7280; font-size: 9.5pt; margin-top: 2px; }
+  .header .meta b { color: #2563eb; }
+  h2.section {
+    font-size: 12.5pt;
+    color: #1e3a8a;
+    margin: 14px 0 8px 0;
+    padding-left: 8px;
+    border-left: 4px solid #2563eb;
+  }
+  .card {
+    border: 1px solid #e5e7eb;
+    border-left: 4px solid #2563eb;
+    border-radius: 6px;
+    padding: 8px 12px 9px 12px;
+    margin-bottom: 9px;
+    page-break-inside: avoid;
+  }
+  .card .root-head { margin-bottom: 4px; }
+  .card .num {
+    display: inline-block;
+    width: 17px; height: 17px;
+    background: #2563eb; color: #fff;
+    border-radius: 50%;
+    text-align: center; line-height: 17px;
+    font-size: 9pt; font-weight: bold;
+    margin-right: 6px;
+  }
+  .card .root { font-size: 12.5pt; font-weight: bold; color: #1e3a8a; font-family: 'DejaVu Sans', sans-serif; }
+  .card .meaning { color: #4b5563; }
+  .card .trick {
+    display: block;
+    color: #047857;
+    font-size: 9pt;
+    margin-top: 1px;
+  }
+  .card .etym {
+    display: block;
+    margin-top: 3px;
+    font-size: 9pt;
+    color: #6d28d9;
+  }
+  .card .etym .lab, .card .evo .lab { font-weight: bold; }
+  .card .evo {
+    display: block;
+    margin-top: 1px;
+    font-size: 9pt;
+    color: #b45309;
+  }
+  .card ul { list-style: none; padding: 0; }
+  .card li {
+    padding: 1px 0;
+    font-size: 10.5pt;
+  }
+  .card li b { color: #111827; }
+  .card .note { color: #9ca3af; font-size: 9pt; }
+  .card .usage {
+    margin-top: 4px;
+    background: #eff6ff;
+    border-radius: 4px;
+    padding: 3px 8px;
+    font-size: 9.5pt;
+    color: #1e40af;
+  }
+  .card .usage b { color: #1e3a8a; }
+  .card .confuse {
+    margin-top: 5px;
+    background: #fefce8;
+    border: 1px solid #fde047;
+    border-radius: 5px;
+    padding: 5px 9px;
+    font-size: 9pt;
+    color: #854d0e;
+    line-height: 1.6;
+  }
+  .card .confuse .confuse-title {
+    display: block;
+    font-weight: bold;
+    font-size: 9.5pt;
+    color: #92400e;
+    margin-bottom: 3px;
+  }
+  .card .confuse b { color: #78350f; }
+  .card .confuse .sub { color: #a16207; font-weight: bold; }
+  .card .variant {
+    margin-top: 5px;
+    background: #f5f3ff;
+    border: 1px solid #c4b5fd;
+    border-radius: 5px;
+    padding: 5px 9px;
+    font-size: 9pt;
+    color: #5b21b6;
+    line-height: 1.6;
+  }
+  .card .variant .var-title {
+    display: block;
+    font-weight: bold;
+    font-size: 9.5pt;
+    color: #6d28d9;
+    margin-bottom: 3px;
+  }
+  .card .variant b { color: #5b21b6; }
+  .card .cognate {
+    margin-top: 5px;
+    background: #fffbeb;
+    border: 1px solid #fcd34d;
+    border-radius: 5px;
+    padding: 5px 9px;
+    font-size: 9pt;
+    color: #92400e;
+    line-height: 1.6;
+  }
+  .card .cognate .cog-title {
+    display: block;
+    font-weight: bold;
+    font-size: 9.5pt;
+    color: #b45309;
+    margin-bottom: 3px;
+  }
+  .card .cognate b { color: #78350f; }
+  .card.affix { border-left-color: #059669; }
+  .card.affix .num { background: #059669; }
+  .card.affix .root { color: #065f46; }
+  .card.affix .usage { background: #ecfdf5; color: #065f46; }
+  .footer {
+    margin-top: 14px;
+    text-align: center;
+    color: #9ca3af;
+    font-size: 8.5pt;
+    border-top: 1px solid #e5e7eb;
+    padding-top: 6px;
+  }
+/* ---------- 单词发音（神经网络 MP3，缺失回退系统语音） ---------- */
+.psay{
+  display:inline-flex; align-items:center; justify-content:center;
+  width:18px; height:18px; margin:0 5px 0 0; padding:0;
+  border:1px solid #cbd5e1; border-radius:50%; background:#f8fafc;
+  color:#2563eb; font-size:9px; line-height:1; cursor:pointer;
+  vertical-align:1px; -webkit-tap-highlight-color:transparent;
+  transition:background .15s,border-color .15s;
+}
+.psay:hover{ background:#dbeafe; border-color:#93c5fd; }
+.psay.playing{ background:#2563eb; border-color:#2563eb; color:#fff; animation:psay-pulse 1s infinite; }
+@keyframes psay-pulse{ 0%,100%{opacity:1;} 50%{opacity:.5;} }
+
+#pron-toggle{
+  position:fixed; left:12px; bottom:calc(16px + env(safe-area-inset-bottom));
+  z-index:950; border:none; border-radius:999px; padding:8px 14px;
+  background:rgba(37,99,235,.95); color:#fff; font-size:13px; cursor:pointer;
+  box-shadow:0 4px 14px rgba(0,0,0,.25);
+  font-family:'Noto Sans CJK SC','Droid Sans Fallback',sans-serif;
+  -webkit-tap-highlight-color:transparent;
+}
+#pron-toggle.on{ background:#047857; }
+
+@media print{ .psay, #pron-toggle{ display:none !important; } }
+
+/* mobile-generic */
+  html { -webkit-text-size-adjust: 100%; }
+  body { overflow-wrap: break-word; }
+  @media (max-width: 640px) {
+    body { font-size: 16px !important; line-height: 1.8;
+           padding: 14px 12px calc(34px + env(safe-area-inset-bottom)); }
+    .header h1 { font-size: 1.5rem; }
+    .header .meta { font-size: .82rem; }
+    h2.section { font-size: 1.12rem; }
+    .card { padding: 11px 13px; border-radius: 10px; }
+    .card .root { font-size: 1.18rem; }
+    .card li { font-size: 1rem; padding: 3px 0; }
+    .card .usage { font-size: .95rem; }
+    .card .etym, .card .evo, .card .trick,
+    .card .confuse, .card .variant, .card .cognate { font-size: .86rem; }
+    table { display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    .flow { font-size: .9rem; }
+  }
+
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>词根词缀每日积累 · 补（8月19日）</h1>
+  <div class="meta">2026 年 8 月 19 日 ｜ <b>词根 7 个 · 词缀 3 个</b> ｜ 附词源与演化</div>
+</div>
+
+<h2 class="section">词根（7 个）</h2>
+
+<div class="card">
+  <div class="root-head"><span class="num">1</span><span class="root">neg</span> <span class="meaning">= deny 否认、否定</span></div>
+  <span class="trick">💡 记法：negative = 否定的（消极的）；negotiate = 反复"否定"推敲→谈判</span>
+  <span class="etym"><span class="lab">词源</span>：拉丁语 <b>negare</b>「否认」= ne（不）+ agere（做），"说不、反对"</span>
+  <span class="evo"><span class="lab">演化</span>：<b>否认</b> → 否定的=negative ｜ 谈判=negotiate ｜ 不去理=neglect</span>
+  <ul>
+    <li><b data-say="words-audio/228d6a97a9838dc800e58b3c74ba7b11.mp3">negative</b> 否定的、消极的 <span class="note">（neg + -ative，"说不的"）</span></li>
+    <li><b data-say="words-audio/372962051d3ce9a0e8d060bcb5574eae.mp3">negotiate</b> 谈判 <span class="note">（neg + otium 空闲，"让双方都不闲着→磋商"）</span></li>
+    <li><b data-say="words-audio/53b2a33ab901efc1324930e9e3a96833.mp3">neglect</b> 忽视 <span class="note">（neg + lect 选，"不去选它、置之不理"，呼应 Day 8）</span></li>
+    <li><b data-say="words-audio/3082f2392f01b91cd854c855be5c8ddb.mp3">negligible</b> 微不足道的 <span class="note">（neglect 变 + -ible，"小到可忽略"）</span></li>
+    <li><b data-say="words-audio/90e76642b5ab45e07b01760d623422a7.mp3">renegade</b> 叛徒 <span class="note">（re- + neg + -ade，"违背誓言者"）</span></li>
+    <li><b data-say="words-audio/5a12847d9b6e756c1ed20d8e70b880d6.mp3">negation</b> 否定 <span class="note">（neg + -ation）</span></li>
+  </ul>
+  <div class="usage">口语/生活用：<b data-say="words-audio/c380950a31f6e2df7af09516b81463ee.mp3">A negative attitude will hold you back.</b> 消极的态度会让你裹足不前。</div>
+</div>
+
+<div class="card">
+  <div class="root-head"><span class="num">2</span><span class="root">numer</span> <span class="meaning">= number 数字、数量</span></div>
+  <span class="trick">💡 记法：numerous = "数"不清的（众多的）；enumerate = 一一"数"出来（列举）</span>
+  <span class="etym"><span class="lab">词源</span>：拉丁语 <b>numerus</b>「数字、数量」，源自印欧语 <b>*nem-</b>「分配」（分配即计数）</span>
+  <span class="evo"><span class="lab">演化</span>：<b>数字</b> → 数字的=numeral ｜ 众多的=numerous ｜ 列举=enumerate</span>
+  <ul>
+    <li><b data-say="words-audio/b1bc248a7ff2b2e95569f56de68615df.mp3">number</b> 数字 <span class="note">（numerus 的法语变体）</span></li>
+    <li><b data-say="words-audio/3d6fd2cef854facfd6e2fe7845482c24.mp3">numeral</b> 数字（词） <span class="note">（numer + -al，如 Roman numerals 罗马数字）</span></li>
+    <li><b data-say="words-audio/c8478375866c65c9fea751bc4cb1188c.mp3">numerous</b> 众多的 <span class="note">（numer + -ous，"数不过来的"）</span></li>
+    <li><b data-say="words-audio/2a45a91d039693c9fb96a16030a13c5e.mp3">enumerate</b> 列举 <span class="note">（e- 出 + numer + -ate，"一一数出来"）</span></li>
+    <li><b data-say="words-audio/0b5670f80da5eefe891e2ef863953612.mp3">numerator</b> （分数的）分子 <span class="note">（numer + -ator，"被数的那部分"）</span></li>
+    <li><b data-say="words-audio/4dbb8d06bad5c6105ac559dc413a2aa6.mp3">innumerable</b> 数不清的 <span class="note">（in- 不 + numerable）</span></li>
+  </ul>
+  <div class="usage">口语/生活用：<b data-say="words-audio/a8b2c81cb4e652e93f5cc1f705b12d7a.mp3">There were numerous reasons for canceling the event.</b> 取消这次活动有众多原因。</div>
+</div>
+
+<div class="card">
+  <div class="root-head"><span class="num">3</span><span class="root">test</span> <span class="meaning">= witness 见证、证明</span></div>
+  <span class="trick">💡 记法：testify = 出庭作"证"；contest = 双方"见证"比试（竞赛）</span>
+  <span class="etym"><span class="lab">词源</span>：拉丁语 <b>testis</b>「证人」，源自印欧语 <b>*trei-</b>「三」（第三方在场作证）</span>
+  <span class="evo"><span class="lab">演化</span>：<b>见证</b> → 作证=testify ｜ 竞赛=contest ｜ 公开抗议=protest</span>
+  <ul>
+    <li><b data-say="words-audio/8355c84905bb1a3b6fd4338cbd65dc7e.mp3">testify</b> 作证 <span class="note">（test + -ify，"成为证言"）</span></li>
+    <li><b data-say="words-audio/c3ff7c66b5c6127379fd297c76ffeccd.mp3">contest</b> 竞赛、质疑 <span class="note">（con- 一起 + test，"双方见证比试"）</span></li>
+    <li><b data-say="words-audio/7b1c1e3a9f1fe497452aa3f345ae0b2e.mp3">protest</b> 抗议 <span class="note">（pro- 前 + test，"公开声明反对"）</span></li>
+    <li><b data-say="words-audio/098f6bcd4621d373cade4e832627b4f6.mp3">test</b> 测试 <span class="note">（"检验"——考验的场合）</span></li>
+    <li><b data-say="words-audio/3fb0abedbe734897ccf1cfd797df9855.mp3">attest</b> 证明 <span class="note">（at- 朝 + test，"向…作证"）</span></li>
+    <li><b data-say="words-audio/89e4975b08f59acad865c91b63275dd7.mp3">testimony</b> 证词 <span class="note">（test + -imony，"见证之词"）</span></li>
+  </ul>
+  <div class="usage">口语/生活用：<b data-say="words-audio/66d6572ce31e43b3dd2f2cd7a74fea76.mp3">The workers protested against the pay cut.</b> 工人们抗议减薪。</div>
+</div>
+
+<div class="card">
+  <div class="root-head"><span class="num">4</span><span class="root">us / uti</span> <span class="meaning">= use 使用</span></div>
+  <span class="trick">💡 记法：useful = 可"用"的；abuse = "用"错（滥用）</span>
+  <span class="etym"><span class="lab">词源</span>：拉丁语 <b>uti</b>「使用」，完成分词 <b>usus</b></span>
+  <span class="evo"><span class="lab">演化</span>：<b>使用</b> → 有用=useful ｜ 效用=utility ｜ 用错=abuse</span>
+  <ul>
+    <li><b data-say="words-audio/5ef76d30bf9232902687324b5bfa0bd2.mp3">use</b> 使用 <span class="note">（usus 变体）</span></li>
+    <li><b data-say="words-audio/5e8a2485fe1afd338ff571da7e846cd3.mp3">useful</b> 有用的 <span class="note">（use + -ful）</span></li>
+    <li><b data-say="words-audio/67b732dc42aaffa9056d34cc477c863c.mp3">utility</b> 效用、公用事业 <span class="note">（uti + -lity，"有用性"）</span></li>
+    <li><b data-say="words-audio/3afa60bc8941f838f1d2aff21b5d89f8.mp3">abuse</b> 滥用 <span class="note">（ab- 偏离 + use，"用偏了"）</span></li>
+    <li><b data-say="words-audio/9366282e11c151558bdfaab4a264aa1b.mp3">usage</b> 用法 <span class="note">（us + -age，"使用的方式"）</span></li>
+    <li><b data-say="words-audio/57fd5861b6bc64c77ea6986bcd086348.mp3">utensil</b> 器具 <span class="note">（uti + -ensil，"被使用的工具"）</span></li>
+  </ul>
+  <div class="usage">口语/生活用：<b data-say="words-audio/c828c041af824ce2c55ee0005d2d5471.mp3">Don't abuse your power while you have it.</b> 有权在手，别滥用。</div>
+</div>
+
+<div class="card">
+  <div class="root-head"><span class="num">5</span><span class="root">vad / vas</span> <span class="meaning">= go 走</span></div>
+  <span class="trick">💡 记法：invade = 走"进"去（侵略）；evade = 溜"走"开（逃避）</span>
+  <span class="etym"><span class="lab">词源</span>：拉丁语 <b>vadere</b>「走、去」，完成分词 <b>vasus</b>，源自印欧语 <b>*wedh-</b>「走」</span>
+  <span class="evo"><span class="lab">演化</span>：<b>走</b> → 走进=invade ｜ 走开=evade ｜ 走到各处=pervade</span>
+  <ul>
+    <li><b data-say="words-audio/6f35324ba747805dfd8a8eeac7638f85.mp3">invade</b> 侵略 <span class="note">（in- 进 + vade，"走进去强占"）</span></li>
+    <li><b data-say="words-audio/137e516ff7c0d86dd62510cce8f6e2e2.mp3">evade</b> 逃避 <span class="note">（e- 出 + vade，"溜走躲开"）</span></li>
+    <li><b data-say="words-audio/4732d46cc95417cea029673f3d569a63.mp3">pervade</b> 弥漫 <span class="note">（per- 贯穿 + vade，"走到各处"）</span></li>
+    <li><b data-say="words-audio/9a72158e6be51a1f95787c64d653f3f7.mp3">invasion</b> 入侵 <span class="note">（invad 变 + -sion）</span></li>
+    <li><b data-say="words-audio/1f7952bfa08af55daaa824e789bad2d1.mp3">evasive</b> 回避的 <span class="note">（evad 变 + -sive）</span></li>
+    <li><b data-say="words-audio/7b9fd1a5e5cdde54016b78b1925da40d.mp3">wade</b> 涉水 <span class="note">（同源词，"在水中走"）</span></li>
+  </ul>
+  <div class="cognate">
+    <span class="cog-title">🧬 同源对照</span>
+    <b>vadere</b>（拉丁）→ invade, evade, pervade ｜ <b>wade</b>（英语"涉水行走"）——同为 PIE <b>*wedh-</b>「走」（v/w 对应）
+  </div>
+  <div class="usage">口语/生活用：<b data-say="words-audio/773bc9fd8d23d06fb63ac975f53c108d.mp3">Soldiers invaded the city at dawn.</b> 黎明时分，士兵侵入了这座城市。</div>
+</div>
+
+<div class="card">
+  <div class="root-head"><span class="num">6</span><span class="root">auto</span> <span class="meaning">= self 自己（希腊）</span></div>
+  <span class="trick">💡 记法：automatic = "自己"会动；automobile = "自己"会走的车</span>
+  <span class="etym"><span class="lab">词源</span>：希腊语 <b>autos</b>「自己、自身」</span>
+  <span class="evo"><span class="lab">演化</span>：<b>自己</b> → 自动=automatic ｜ 汽车=automobile ｜ 亲笔签名=autograph</span>
+  <ul>
+    <li><b data-say="words-audio/2bd9c0ed00116be1258e0cc66617d7c8.mp3">automatic</b> 自动的 <span class="note">（auto + mat 动 + -ic，"自己会动"）</span></li>
+    <li><b data-say="words-audio/33a168b4db52b1d2b46855104d883be6.mp3">automobile</b> 汽车 <span class="note">（auto + mobil 移动，呼应 Day 6，"自己会走"）</span></li>
+    <li><b data-say="words-audio/22107ea42da9573b7b2132872f5c4d31.mp3">autograph</b> 亲笔签名 <span class="note">（auto + graph 写，"自己写的字"，呼应 Day 2）</span></li>
+    <li><b data-say="words-audio/63b020beb1a57d7792c3d38cf022979c.mp3">autobiography</b> 自传 <span class="note">（auto + bio 生命 + graphy，"自己写一生"）</span></li>
+    <li><b data-say="words-audio/272e0d38ac308d0249f6841532c99ae3.mp3">autonomous</b> 自主的 <span class="note">（auto + nomos 法则，"自己定规矩"）</span></li>
+    <li><b data-say="words-audio/df52c0f92d87c042e033badac3590bda.mp3">autopilot</b> 自动驾驶 <span class="note">（auto + pilot 领航）</span></li>
+  </ul>
+  <div class="usage">口语/生活用：<b data-say="words-audio/d6f83bbecff9132576e869a280bda9b9.mp3">The car has an automatic transmission.</b> 这辆车是自动挡的。</div>
+</div>
+
+<div class="card">
+  <div class="root-head"><span class="num">7</span><span class="root">morph</span> <span class="meaning">= form 形状、形态（希腊）</span></div>
+  <span class="trick">💡 记法：metamorphosis = 形态彻底"变"化（蜕变）；amorphous = 没有"形"的</span>
+  <span class="etym"><span class="lab">词源</span>：希腊语 <b>morphe</b>「形状、形态」</span>
+  <span class="evo"><span class="lab">演化</span>：<b>形状</b> → 变形=metamorphosis ｜ 无定形=amorphous ｜ 形态学=morphology</span>
+  <ul>
+    <li><b data-say="words-audio/b4667fe4ce5204a7543e66c2683855ba.mp3">metamorphosis</b> 蜕变 <span class="note">（meta 变 + morph + -osis，"形态大变"）</span></li>
+    <li><b data-say="words-audio/e7cd53788fa8cdf79ddcb9d65faf86c8.mp3">amorphous</b> 无定形的 <span class="note">（a- 无 + morph + -ous，"没有固定形状"）</span></li>
+    <li><b data-say="words-audio/577a1465968361030576df2419f0a0e6.mp3">morphology</b> 形态学 <span class="note">（morph + -ology 学问）</span></li>
+    <li><b data-say="words-audio/a2d70adcfca22a9eec4518b7ac5a9422.mp3">anthropomorphic</b> 拟人化的 <span class="note">（anthrop 人 + morph，赋予人形）</span></li>
+    <li><b data-say="words-audio/5696e4b381bd5151da8337f3c5ce643b.mp3">morph</b> （图像）渐变 <span class="note">（计算机术语，"从一形变到另一形"）</span></li>
+    <li><b data-say="words-audio/42d750d448306224a4547474a9ea1284.mp3">morpheme</b> 语素 <span class="note">（morph + -eme，"语言的最小形态"）</span></li>
+  </ul>
+  <div class="usage">口语/生活用：<b data-say="words-audio/c7e978f205ead2665287c1b1ca80bcfc.mp3">Caterpillars undergo metamorphosis to become butterflies.</b> 毛毛虫经过蜕变变成蝴蝶。</div>
+</div>
+
+<h2 class="section">词缀（3 个）</h2>
+
+<div class="card affix">
+  <div class="root-head"><span class="num">8</span><span class="root">-ette</span> <span class="meaning">= small, female 小、女性（法语）</span></div>
+  <span class="trick">💡 记法：cigarette = "小"雪茄（香烟）；kitchenette = 小厨房</span>
+  <span class="etym"><span class="lab">词源</span>：法语 <b>-ette</b>，表"小"或"女性"</span>
+  <span class="evo"><span class="lab">演化</span>：法语 <b>-ette</b> → 英语 <b>-ette</b>，表小号 / 女性 / 仿制品</span>
+  <ul>
+    <li><b data-say="words-audio/c5908e6da2b29bfc0895472e3cd1abb0.mp3">cigarette</b> 香烟 <span class="note">（cigar 雪茄 + -ette，"小雪茄"）</span></li>
+    <li><b data-say="words-audio/3ef47afcc2be99bad752f212d177903a.mp3">kitchenette</b> 小厨房 <span class="note">（kitchen + -ette）</span></li>
+    <li><b data-say="words-audio/9af7989d439b652992bb3bc9d01ef6f0.mp3">diskette</b> 软盘 <span class="note">（disk + -ette，"小磁盘"）</span></li>
+    <li><b data-say="words-audio/32f350307fc644c3ae29110114c77694.mp3">etiquette</b> 礼仪 <span class="note">（étiquette，"小标签→行为规范"）</span></li>
+    <li><b data-say="words-audio/be3cb0fad3f3c039f280b3214fd4f483.mp3">marionette</b> 提线木偶 <span class="note">（Marion + -ette，"小玛利亚人偶"）</span></li>
+    <li><b data-say="words-audio/2f2c40bc2adc45cf75f33b33169170b9.mp3">coquette</b> 卖俏女子 <span class="note">（coquet 卖俏 + -ette，女性形）</span></li>
+  </ul>
+  <div class="usage">口语/生活用：<b data-say="words-audio/1fab87816e0e9dee5e13c37488626b46.mp3">Our hotel room has a small kitchenette.</b> 我们的酒店房间带一个小厨房。</div>
+</div>
+
+<div class="card affix">
+  <div class="root-head"><span class="num">9</span><span class="root">out-</span> <span class="meaning">= beyond, outside 向外、超（古英语）</span></div>
+  <span class="trick">💡 记法：output = 产"出"；outstanding = "站"出人群的（杰出）</span>
+  <span class="etym"><span class="lab">词源</span>：古英语 <b>ut</b>「向外」，日耳曼来源</span>
+  <span class="evo"><span class="lab">演化</span>：<b>向外</b> → 产出=output ｜ 出色的=outstanding ｜ 超越=outdo</span>
+  <ul>
+    <li><b data-say="words-audio/78e6221f6393d1356681db398f14ce6d.mp3">output</b> 产出、输出 <span class="note">（out- + put）</span></li>
+    <li><b data-say="words-audio/1a18f19535b3b1edd5de7f535141f476.mp3">outline</b> 大纲、轮廓 <span class="note">（out- + line，"外圈线条"）</span></li>
+    <li><b data-say="words-audio/cd0fbb7849b9b9d84c4f8e48e7301ecf.mp3">outlook</b> 前景、观点 <span class="note">（out- + look，"向外看的视角"）</span></li>
+    <li><b data-say="words-audio/2f94a90ca788e63de2cd3b8d2bf558c0.mp3">outdoor</b> 户外的 <span class="note">（out- + door，"门外"）</span></li>
+    <li><b data-say="words-audio/c552473b4b58e3b52111f4e6900a0076.mp3">outstanding</b> 杰出的 <span class="note">（out- + standing，"站出人群之上"）</span></li>
+    <li><b data-say="words-audio/6836af1d57e50cdeae219b66afcdb231.mp3">outbreak</b> 爆发 <span class="note">（out- + break，"冲出来"）</span></li>
+  </ul>
+  <div class="confuse">
+    <span class="confuse-title">💡 深度辨析：out- vs ex-</span>
+    <span class="sub">out-</span>（日耳曼，"向外"）：output, outstanding<br>
+    <span class="sub">ex-</span>（拉丁，"向外"，Day 6）：export, exit, exclude<br>
+    例：<b>outbreak</b>（口语，爆发）vs <b>explode</b>（书面，爆炸）——同表"冲出"，来源语域不同
+  </div>
+  <div class="usage">口语/生活用：<b data-say="words-audio/9bd2f70b547bc3c922ca530029fe8e6f.mp3">She's an outstanding student who always helps others.</b> 她是一位总是帮助他人的优秀学生。</div>
+</div>
+
+<div class="card affix">
+  <div class="root-head"><span class="num">10</span><span class="root">over-</span> <span class="meaning">= above, excessive 在上、过度（古英语）</span></div>
+  <span class="trick">💡 记法：overtime = 超"过"规定时间（加班）；overdue = 超过应还日期（逾期）</span>
+  <span class="etym"><span class="lab">词源</span>：古英语 <b>ofer</b>「在上、超过」，源自印欧语 <b>*uper</b>「上方」；与拉丁 super、希腊 hyper 同源</span>
+  <span class="evo"><span class="lab">演化</span>：<b>上/过</b> → 超过时间=overtime ｜ 逾期=overdue ｜ 俯瞰=overlook</span>
+  <ul>
+    <li><b data-say="words-audio/8121a5714f1efddff61793ebf3ffa371.mp3">overdue</b> 逾期的 <span class="note">（over- + due，"过了该还的期限"）</span></li>
+    <li><b data-say="words-audio/85fd79b503cff26bde8b609152453b0f.mp3">overtime</b> 加班 <span class="note">（over- + time，"超过规定工时"）</span></li>
+    <li><b data-say="words-audio/10ce6750b68ac56d8fbaecca86b528b5.mp3">overlook</b> 忽视、俯瞰 <span class="note">（over- + look，"从上方看→漏看"）</span></li>
+    <li><b data-say="words-audio/337fa670d792bc082303c334e20a1b26.mp3">overwork</b> 过度工作 <span class="note">（over- + work）</span></li>
+    <li><b data-say="words-audio/8259951b2c09d9f68f4da406d4dbced2.mp3">overwhelm</b> 压垮 <span class="note">（over- + whelm 覆，"盖过头顶"）</span></li>
+    <li><b data-say="words-audio/adb9f8b618195e195c90b09815a94842.mp3">overseas</b> 海外的 <span class="note">（over- + seas，"跨过海洋"）</span></li>
+  </ul>
+  <div class="cognate">
+    <span class="cog-title">🧬 同源对照</span>
+    <b>over</b>（英语） ｜ <b>super</b>（拉丁，Day 9） ｜ <b>hyper</b>（希腊） ｜ 三兄弟同出 PIE <b>*uper</b>「上方」
+  </div>
+  <div class="confuse">
+    <span class="confuse-title">💡 深度辨析：over- vs super- vs hyper-</span>
+    <span class="sub">over-</span>（日耳曼，"过度"）：overwork, overtime<br>
+    <span class="sub">super-</span>（拉丁，"超/上"，Day 9）：supermarket, supernatural<br>
+    <span class="sub">hyper-</span>（希腊，"超"，正式）：hyperactive「过度活跃」<br>
+    例：<b>overweight</b>（口语，超重）vs <b>superior</b>（书面，优越）vs <b>hypertension</b>（医学术语，高血压）
+  </div>
+  <div class="usage">口语/生活用：<b data-say="words-audio/061cad7569797d0b2ac4a4830d621d89.mp3">The library books are overdue — you'll owe a fine.</b> 图书馆的书逾期了——你要交罚款。</div>
+</div>
+
+<div class="footer">词根词缀每日积累 · 每天 10 个 · 明天见 👋</div>
+
+</body>
+<script>
+/* ---------- 单词发音 ---------- */
+(function () {
+  var synth = ("speechSynthesis" in window) ? window.speechSynthesis : null;
+  var audio = new Audio();
+  audio.preload = "auto";
+  audio.playbackRate = 0.95;
+  var curBtn = null;
+
+  function pickVoice() {
+    if (!synth) return null;
+    var vs = synth.getVoices() || [];
+    return vs.filter(function (v) { return /en[-_]US/i.test(v.lang); })[0] ||
+           vs.filter(function (v) { return /^en/i.test(v.lang); })[0] || null;
+  }
+  function tts(text) {
+    if (!synth) return;
+    var u = new SpeechSynthesisUtterance(text);
+    u.lang = "en-US";
+    var v = pickVoice(); if (v) u.voice = v;
+    try { synth.cancel(); } catch (e) {}
+    synth.speak(u);
+  }
+  function clear() { if (curBtn) { curBtn.classList.remove("playing"); curBtn = null; } }
+  function play(el, btn) {
+    var src = el.getAttribute("data-say");
+    var text = el.textContent.replace(/\s+/g, " ").trim();
+    clear();
+    if (btn) { btn.classList.add("playing"); curBtn = btn; }
+    if (src) {
+      audio.src = src;
+      audio.onended = function () { if (curBtn === btn) clear(); };
+      audio.onerror = function () { if (curBtn === btn) clear(); tts(text); };
+      var p = audio.play();
+      if (p && p.catch) { p.catch(function () { clear(); tts(text); }); }
+    } else {
+      tts(text);
+      setTimeout(function () { if (curBtn === btn) clear(); }, 1500);
+    }
+  }
+
+  document.querySelectorAll("[data-say]").forEach(function (el) {
+    var prev = el.previousElementSibling;
+    if (prev && prev.classList && prev.classList.contains("psay")) return;
+    var b = document.createElement("button");
+    b.type = "button"; b.className = "psay"; b.textContent = "\uD83D\uDD0A"; b.title = "发音";
+    b.setAttribute("aria-label", "发音");
+    b.addEventListener("click", function (e) {
+      e.stopPropagation(); e.preventDefault();
+      if (curBtn === b) {
+        try { audio.pause(); } catch (err) {}
+        if (synth) { try { synth.cancel(); } catch (err) {} }
+        clear(); return;
+      }
+      play(el, b);
+    });
+    el.parentNode.insertBefore(b, el);
+  });
+
+  /* 点任意英文词发音 */
+  var on = false;
+  var tg = document.createElement("button");
+  tg.id = "pron-toggle"; tg.type = "button"; tg.textContent = "\uD83D\uDD24 点词发音";
+  document.body.appendChild(tg);
+  tg.addEventListener("click", function () {
+    on = !on; tg.classList.toggle("on", on);
+    tg.textContent = on ? "\uD83D\uDD24 点词发音：开" : "\uD83D\uDD24 点词发音";
+  });
+  function wordAt(x, y) {
+    var node, offset;
+    if (document.caretRangeFromPoint) {
+      var r = document.caretRangeFromPoint(x, y);
+      if (!r) return null; node = r.startContainer; offset = r.startOffset;
+    } else if (document.caretPositionFromPoint) {
+      var p = document.caretPositionFromPoint(x, y);
+      if (!p) return null; node = p.offsetNode; offset = p.offset;
+    } else { return null; }
+    if (!node || node.nodeType !== 3) return null;
+    var t = node.textContent, re = /[A-Za-z][A-Za-z'\u2019\-]*/g, m;
+    while ((m = re.exec(t))) {
+      if (offset >= m.index && offset <= m.index + m[0].length) return m[0];
+    }
+    return null;
+  }
+  document.addEventListener("click", function (e) {
+    if (!on) return;
+    if (e.target.closest && (e.target.closest(".psay") || e.target.closest("#pron-toggle"))) return;
+    var w = wordAt(e.clientX, e.clientY);
+    if (w) tts(w);
+  }, true);
+})();
+
+</script>
+</html>

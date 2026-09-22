@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<!--
+  root-affix-review 技能模板（复习用）
+  用法：build_review.py 替换【】占位符 → 写入 /home/crf/english/<日期>-词根词缀复习.html → chrome headless 转 PDF
+  保持 CSS 不变；四个练习分区 + 答案区通过【】占位符注入。
+-->
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>词根词缀复习 · 覆盖 Day 1–2</title>
+<style>
+  @page { size: A4; margin: 15mm 14mm; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Noto Sans CJK SC', 'Droid Sans Fallback', 'WenQuanYi Zen Hei', sans-serif;
+    font-size: 10.5pt;
+    color: #1f2937;
+    line-height: 1.6;
+  }
+  /* 页眉 */
+  .header {
+    border-bottom: 3px solid #7c3aed;
+    padding-bottom: 9px;
+    margin-bottom: 6px;
+  }
+  .header h1 { font-size: 18pt; color: #5b21b6; letter-spacing: 1px; }
+  .header .meta { color: #6b7280; font-size: 9pt; margin-top: 2px; }
+  .header .meta b { color: #7c3aed; }
+
+  /* 大分区标题 */
+  h2.section {
+    font-size: 12.5pt;
+    color: #5b21b6;
+    margin: 12px 0 7px 0;
+    padding-left: 8px;
+    border-left: 4px solid #7c3aed;
+  }
+  h3.sub {
+    font-size: 11pt;
+    color: #5b21b6;
+    margin: 10px 0 5px 0;
+  }
+
+  /* 每日分组头 */
+  .day-head {
+    background: #f5f3ff;
+    border-radius: 4px;
+    padding: 2px 8px;
+    margin: 8px 0 5px 0;
+    font-size: 10pt;
+    font-weight: bold;
+    color: #5b21b6;
+  }
+
+  /* 清单卡片（复习配色：紫） */
+  .card {
+    border: 1px solid #e5e7eb;
+    border-left: 4px solid #7c3aed;
+    border-radius: 6px;
+    padding: 6px 10px 7px 10px;
+    margin-bottom: 7px;
+    page-break-inside: avoid;
+  }
+  .card .rh { margin-bottom: 3px; }
+  .card .num {
+    display: inline-block;
+    width: 16px; height: 16px;
+    background: #7c3aed; color: #fff;
+    border-radius: 50%;
+    text-align: center; line-height: 16px;
+    font-size: 9pt; font-weight: bold;
+    margin-right: 5px;
+  }
+  .card .root { font-size: 12pt; font-weight: bold; color: #5b21b6; font-family: 'DejaVu Sans', sans-serif; }
+  .card .mean { color: #4b5563; }
+  .card .words { font-size: 9.5pt; }
+  .card .words b { color: #111827; }
+  .card .evo2 { font-size: 8.5pt; color: #b45309; margin-top: 2px; }
+  .card .u {
+    margin-top: 3px;
+    background: #f5f3ff;
+    border-radius: 4px;
+    padding: 2px 7px;
+    font-size: 9pt;
+    color: #5b21b6;
+  }
+  .card .u b { color: #4c1d95; }
+
+  /* 词缀卡片（绿色区分） */
+  .card.affix { border-left-color: #059669; }
+  .card.affix .num { background: #059669; }
+  .card.affix .root { color: #065f46; }
+  .card.affix .u { background: #ecfdf5; color: #065f46; }
+  .card.affix .u b { color: #065f46; }
+
+  /* 练习题 */
+  .q, .a {
+    font-size: 10pt;
+    padding: 2px 0 2px 22px;
+    position: relative;
+  }
+  .q .qn, .a .qn {
+    position: absolute; left: 0;
+    display: inline-block;
+    width: 16px; height: 16px;
+    background: #e0e7ff; color: #4338ca;
+    border-radius: 50%;
+    text-align: center; line-height: 16px;
+    font-size: 8.5pt; font-weight: bold;
+  }
+  .qt { font-size: 8.5pt; color: #9ca3af; margin-left: 6px; display: inline; }
+
+  /* 答案区 */
+  .a .qn { background: #d1fae5; color: #047857; }
+  .a-key {
+    font-size: 10pt;
+    background: #f0fdf4;
+    border: 1px dashed #059669;
+    border-radius: 5px;
+    padding: 5px 9px;
+    color: #065f46;
+  }
+
+  /* 配对 */
+  .match { display: flex; gap: 24px; page-break-inside: avoid; }
+  .mcol { flex: 1; }
+  .m-row { font-size: 10pt; padding: 1.5px 0; }
+  .mno {
+    display: inline-block;
+    min-width: 18px; height: 16px;
+    background: #ede9fe; color: #5b21b6;
+    border-radius: 4px;
+    text-align: center; line-height: 16px;
+    font-size: 8.5pt; font-weight: bold;
+    margin-right: 6px;
+    padding: 0 3px;
+  }
+
+  .footer {
+    margin-top: 14px;
+    text-align: center;
+    color: #9ca3af;
+    font-size: 8.5pt;
+    border-top: 1px solid #e5e7eb;
+    padding-top: 6px;
+  }
+/* ---------- 单词发音（神经网络 MP3，缺失回退系统语音） ---------- */
+.psay{
+  display:inline-flex; align-items:center; justify-content:center;
+  width:18px; height:18px; margin:0 5px 0 0; padding:0;
+  border:1px solid #cbd5e1; border-radius:50%; background:#f8fafc;
+  color:#2563eb; font-size:9px; line-height:1; cursor:pointer;
+  vertical-align:1px; -webkit-tap-highlight-color:transparent;
+  transition:background .15s,border-color .15s;
+}
+.psay:hover{ background:#dbeafe; border-color:#93c5fd; }
+.psay.playing{ background:#2563eb; border-color:#2563eb; color:#fff; animation:psay-pulse 1s infinite; }
+@keyframes psay-pulse{ 0%,100%{opacity:1;} 50%{opacity:.5;} }
+
+#pron-toggle{
+  position:fixed; left:12px; bottom:calc(16px + env(safe-area-inset-bottom));
+  z-index:950; border:none; border-radius:999px; padding:8px 14px;
+  background:rgba(37,99,235,.95); color:#fff; font-size:13px; cursor:pointer;
+  box-shadow:0 4px 14px rgba(0,0,0,.25);
+  font-family:'Noto Sans CJK SC','Droid Sans Fallback',sans-serif;
+  -webkit-tap-highlight-color:transparent;
+}
+#pron-toggle.on{ background:#047857; }
+
+@media print{ .psay, #pron-toggle{ display:none !important; } }
+
+/* mobile-generic */
+  html { -webkit-text-size-adjust: 100%; }
+  body { overflow-wrap: break-word; }
+  @media (max-width: 640px) {
+    body { font-size: 16px !important; line-height: 1.8;
+           padding: 14px 12px calc(34px + env(safe-area-inset-bottom)); }
+    .header h1 { font-size: 1.5rem; }
+    .header .meta { font-size: .82rem; }
+    h2.section { font-size: 1.12rem; }
+    .card { padding: 11px 13px; border-radius: 10px; }
+    .card .root { font-size: 1.18rem; }
+    .card li { font-size: 1rem; padding: 3px 0; }
+    .card .usage { font-size: .95rem; }
+    .card .etym, .card .evo, .card .trick,
+    .card .confuse, .card .variant, .card .cognate { font-size: .86rem; }
+    table { display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    .flow { font-size: .9rem; }
+  }
+
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>词根词缀复习 · 覆盖 Day 1–2</h1>
+  <div class="meta">2026 年 8 月 5 日 ｜ 覆盖 2 天 · 词根 14 个 · 词缀 6 个 ｜ 单词 105 个 · 例句 20 句 ｜ 复习 · 查漏补缺</div>
+</div>
+
+<h2 class="section">一、知识清单回顾</h2>
+<div class="day-head">Day 1 ｜ 2026 年 8 月 4 日（1 天前） ｜ 词根 7 个 · 词缀 3 个</div><div class="card"><div class="rh"><span class="num">1</span><span class="root">spect</span> <span class="mean">= 看（look）</span></div><div class="words"><b>expect</b> 期待，预料 （向外看 → 望向未来） ・ <b>respect</b> 尊重 （反复看 → 仰视） ・ <b>suspect</b> 怀疑；嫌疑犯 （向下看 → 心里犯嘀咕） ・ <b>inspect</b> 检查，视察 （往里看） ・ <b>spectator</b> 观众</div><div class="evo2">向前看 → expect 期待 ｜ 反复看 → respect 尊重 ｜ 向下看 → suspect 怀疑 ｜ 往里看 → inspect 检查</div><div class="u">口语：<b>I expect you to be on time.</b> 我希望你准时到。</div></div><div class="card"><div class="rh"><span class="num">2</span><span class="root">port</span> <span class="mean">= 搬运（carry）</span></div><div class="words"><b>report</b> 报告 （搬回来 → 汇报） ・ <b>support</b> 支持 （从下面托着） ・ <b>transport</b> 运输 （从这里搬到那里） ・ <b>import / export</b> 进口 / 出口 ・ <b>portable</b> 便携的</div><div class="evo2">搬回 → report 报告 ｜ 从下面托住 → support 支持 ｜ 搬到别处 → transport 运输 ｜ 带进去/带出去 → import / export</div><div class="u">生活用：<b>portable charger</b> 充电宝</div></div><div class="card"><div class="rh"><span class="num">3</span><span class="root">dict</span> <span class="mean">= 说（say）</span></div><div class="words"><b>predict</b> 预测 （提前说） ・ <b>dictionary</b> 词典 （说出来的词） ・ <b>dictate</b> 口述；支配 （"我说了算"） ・ <b>contradict</b> 反驳 （对着说）</div><div class="evo2">提前说 → predict 预测 ｜ 对着说 → contradict 反驳 ｜ 一遍遍说 → dictate 口述、支配</div><div class="u">口语：<b>Don't dictate to me.</b> 别对我指手画脚。</div></div><div class="card"><div class="rh"><span class="num">4</span><span class="root">cred</span> <span class="mean">= 相信（believe）</span></div><div class="words"><b>credit</b> 信用；学分；贷款 ・ <b>incredible</b> 难以置信的 （口语里 = 超赞） ・ <b>credible</b> 可信的 ・ <b>credentials</b> 学历 / 资质证明</div><div class="evo2">交心 → 信任 → credit 信用 ｜ 加 in-（不）→ incredible 难以置信 ｜ 加 -ible → credible 可信的</div><div class="u">生活用：<b>credit card</b> 信用卡（几乎天天见）</div></div><div class="card"><div class="rh"><span class="num">5</span><span class="root">vis / vid</span> <span class="mean">= 看（see）</span></div><div class="words"><b>visit</b> 参观，拜访 ・ <b>visible</b> 看得见的 ・ <b>vision</b> 视力；愿景 ・ <b>revise</b> 复习；修改 （再看一遍） ・ <b>evidence</b> 证据 （看得见的事实）</div><div class="evo2">再看一遍 → revise 复习 ｜ 看得见 → visible ｜ 看得见的事实 → evidence 证据</div><div class="u">词组：<b>revise for the exam</b> 复习备考</div></div><div class="card"><div class="rh"><span class="num">6</span><span class="root">tele</span> <span class="mean">= 远（far）</span></div><div class="words"><b>telephone</b> 电话 （远方传来的声音） ・ <b>television</b> 电视 ・ <b>telescope</b> 望远镜 ・ <b>telework / telecommute</b> 远程办公 ・ <b>telemedicine</b> 远程医疗</div><div class="evo2">19 世纪起科学新词大量用它构词：远+声 → telephone 电话 ｜ 远+视 → television 电视 ｜ 远+看 → telescope 望远镜；现代又造出 telework、telemedicine</div><div class="u">生活用：现在很多人：<b>work from home</b> （在家办公）</div></div><div class="card"><div class="rh"><span class="num">7</span><span class="root">bio</span> <span class="mean">= 生命（life）</span></div><div class="words"><b>biology</b> 生物学 ・ <b>biography</b> 传记 （写一生） ・ <b>biodegradable</b> 可生物降解的 ・ <b>biofuel</b> 生物燃料</div><div class="evo2">17–19 世纪出现 biology 生物学、biography 传记 → 20 世纪造出 biofuel、biodegradable；如今 bio- 成了环保标识的常见前缀</div><div class="u">生活用：<b>biodegradable plastic</b> 可降解塑料（超市购物袋上常见）</div></div><div class="card affix"><div class="rh"><span class="num">8</span><span class="root">re-</span> <span class="mean">= 再、又、回（again / back）</span></div><div class="words"><b>return</b> 返回；归还 ・ <b>review</b> 复习；评论 （再看一遍） ・ <b>recycle</b> 回收利用 ・ <b>refund</b> 退款 （把钱退回来）</div><div class="evo2">转回去 → return 返回、refund 退款 ｜ 转回起点 → recycle 回收、reuse 再利用 ｜ 再看一遍 → review 复习</div><div class="u">生活用：<b>I'd like a refund.</b> 我要退款。—— 购物退换货最常用的一句！</div></div><div class="card affix"><div class="rh"><span class="num">9</span><span class="root">-able / -ible</span> <span class="mean">= 可…的（able to be）</span></div><div class="words"><b>comfortable</b> 舒服的 ・ <b>available</b> 有空的；可获得的 ・ <b>reliable</b> 可靠的 ・ <b>affordable</b> 买得起的</div><div class="evo2">最初只接拉丁语动词（visible、credible）→ 后来"本土化"可接任何动词：washable、breakable——构词能力极强</div><div class="u">口语：<b>Are you available tomorrow?</b> 你明天有空吗？—— 几乎天天用</div></div><div class="card affix"><div class="rh"><span class="num">10</span><span class="root">-less</span> <span class="mean">= 无…的（without）</span></div><div class="words"><b>helpless</b> 无助的 ・ <b>careless</b> 粗心的 ・ <b>useless</b> 没用的 ・ <b>wireless</b> 无线的 ・ <b>endless</b> 无尽的</div><div class="evo2">古英语时期就开始大量构词（homeless 早在 12 世纪）→ 现代无线时代又造出 wireless</div><div class="u">生活用：<b>wireless charging</b> 无线充电</div></div><div class="day-head">Day 2 ｜ 2026 年 8 月 5 日（0 天前） ｜ 词根 7 个 · 词缀 3 个</div><div class="card"><div class="rh"><span class="num">1</span><span class="root">fac / fact / fect</span> <span class="mean">= do, make（做，制作）【拉丁】</span></div><div class="words"><b>fact</b> 事实；真相 （factum 做出来的事 → 已成事实） ・ <b>factory</b> 工厂 （fact 做 + -ory 场所 → 制作东西的地方） ・ <b>manufacture</b> 制造，生产 （manu 手 + fact 做 + -ure → 手工制作→工厂生产） ・ <b>affect</b> 影响；使感动 （af- 朝向 + fect 做 → 作用于） ・ <b>effect</b> 效果，影响 （ef- 出 + fect 做 → 做出来的结果） ・ <b>perfect</b> 完美的 （per- 完全 + fect 做 → 做得完满）</div><div class="evo2">本义「做」 → factor 做的人/因素、manufacture 亲手制作 ｜ 「做出来的东西」 → fact 事实、factory 工厂、effect 效果 ｜ 「外力作用于」 → affect 影响 ｜ 「完全做好」 → perfect 完美</div><div class="u">口语/生活用：<b>The factory manufactures thousands of phones a day.</b> 这家工厂每天生产数千部手机。</div></div><div class="card"><div class="rh"><span class="num">2</span><span class="root">scrib / script</span> <span class="mean">= write（写）【拉丁】</span></div><div class="words"><b>describe</b> 描述 （de- 向下 + scribe 写 → 把所见写下来） ・ <b>subscribe</b> 订阅；赞同 （sub- 在下面 + scribe 写 → 在文件下方署名→订阅） ・ <b>manuscript</b> 手稿；原稿 （manu 手 + script 写 → 手写的稿子） ・ <b>prescribe</b> 开处方；规定 （pre- 预先 + scribe 写 → 预先写好的医嘱） ・ <b>transcript</b> 成绩单；文字记录 （trans- 转 + script → 转写下来的记录） ・ <b>script</b> 剧本；脚本 （刻写的内容 → 写好的台本）</div><div class="evo2">本义「刻写」 → describe 描下来=描述、transcript 转写 ｜ 「预先写(处方)」 → prescribe 开处方 ｜ 「在下面签名」 → subscribe 订阅、签字同意</div><div class="u">口语/生活用：<b>I subscribed to the streaming service to watch the new show.</b> 我订阅了流媒体服务来追那部新剧。</div></div><div class="card"><div class="rh"><span class="num">3</span><span class="root">mit / miss</span> <span class="mean">= send, let go（送，放出）【拉丁】</span></div><div class="words"><b>mission</b> 使命；任务 （miss 送 + -ion → 被派送出去的差事） ・ <b>transmit</b> 传送；发射 （trans- 穿过 + mit → 送过去） ・ <b>submit</b> 提交；屈服 （sub- 从下 + mit → 送上去；甘拜下风） ・ <b>admit</b> 承认；准许进入 （ad- 向里 + mit → 放进→允许） ・ <b>dismiss</b> 解散；不予理会 （dis- 分开 + miss → 打发走） ・ <b>permission</b> 许可 （per- 通过 + miss + -ion → 放行）</div><div class="evo2">本义「送」 → transmit 传送、emit 发出 ｜ 「被送出去的任务」 → mission 使命 ｜ 「把…送走」 → dismiss 解散 ｜ 「放进来」 → admit 承认/准入</div><div class="u">口语/生活用：<b>You have to submit your assignment before midnight.</b> 你必须在午夜前提交作业。</div></div><div class="card"><div class="rh"><span class="num">4</span><span class="root">struct</span> <span class="mean">= build（建造）【拉丁】</span></div><div class="words"><b>construct</b> 建造；构建 （con- 一起 + struct → 搭到一起） ・ <b>structure</b> 结构；建筑物 （struct + -ure → 搭出来的东西） ・ <b>instruct</b> 教导；指示 （in- 往里 + struct → 往里搭知识） ・ <b>destroy</b> 摧毁 （de- 拆除 + stroy/struct → 拆掉搭建物） ・ <b>obstruct</b> 妨碍，阻挡 （ob- 迎面 + struct → 挡在前面） ・ <b>infrastructure</b> 基础设施 （infra- 下面 + structure → 下面的建造）</div><div class="evo2">本义「堆叠建造」 → construct 一起搭建、structure 结构 ｜ 「往头脑里搭建」 → instruct 教导 ｜ 「拆掉搭建」 → destroy 摧毁 ｜ 「挡住建造」 → obstruct 妨碍</div><div class="u">口语/生活用：<b>They're constructing a new subway line near my place.</b> 他们正在我家附近修一条新地铁线。</div></div><div class="card"><div class="rh"><span class="num">5</span><span class="root">voc / vok</span> <span class="mean">= call, voice（喊，声音）【拉丁】</span></div><div class="words"><b>vocal</b> 嗓音的；直言不讳的 （voc 声音 + -al 形容词） ・ <b>vocabulary</b> 词汇；词汇量 （vocabulum 词 + -ary → 喊出来的词的总和） ・ <b>advocate</b> 提倡者；辩护 （ad- 朝向 + voc 喊 → 替人喊话） ・ <b>provoke</b> 激怒；激起 （pro- 前 + voke → 喊到面前来挑事） ・ <b>evoke</b> 唤起，引起 （e- 出 + voke → 把记忆喊出来） ・ <b>voice</b> 声音；嗓音 （vox 的变体，直接进入英语）</div><div class="evo2">本义「喊」 → vocal 嗓子的、vocabulary 词汇 ｜ 「替人喊话」 → advocate 提倡者 ｜ 「喊出来」 → evoke 唤起 ｜ 「叫到面前来」 → provoke 激起/挑衅</div><div class="u">口语/生活用：<b>The loud music provoked complaints from the neighbors.</b> 那震天响的音乐惹来了邻居们的投诉。</div></div><div class="card"><div class="rh"><span class="num">6</span><span class="root">graph</span> <span class="mean">= write, draw（写，画）【希腊】</span></div><div class="words"><b>photograph</b> 照片；拍照 （photo 光 + graph → 用光来刻画） ・ <b>autograph</b> 亲笔签名 （auto 自己 + graph → 自己写） ・ <b>paragraph</b> 段落 （para 旁边 + graph → 段旁的刻痕标记） ・ <b>biography</b> 传记 （bio 生命 + graphy → 书写人生） ・ <b>graphic</b> 图画的；生动的 （graph + -ic → 像刻出来一样形象） ・ <b>telegraph</b> 电报 （tele 远 + graph → 远处传来刻写的字）</div><div class="evo2">本义「刻画」 → autograph 亲笔签名、graphic 图像的 ｜ 「用光刻画」 → photograph 照片 ｜ 「写人生」 → biography 传记 ｜ 「文字的记号」 → paragraph 段落</div><div class="u">口语/生活用：<b>Can I get your autograph?</b> 能给我签个名吗？</div></div><div class="card"><div class="rh"><span class="num">7</span><span class="root">chron</span> <span class="mean">= time（时间）【希腊】</span></div><div class="words"><b>chronic</b> 慢性的；长期的 （chron 时间 + -ic → 拖很久的） ・ <b>chronological</b> 按时间顺序的 （chronology 编年 + -al） ・ <b>synchronize</b> 使同步 （syn- 一起 + chron → 时间调到一起） ・ <b>chronicle</b> 编年史 （chron 时间 + -icle → 按时记下的史） ・ <b>anachronism</b> 时代错误 （ana- 回 + chron + -ism → 放错时间的东西） ・ <b>chronometer</b> 精密计时器 （chrono 时间 + meter 测量 → 量时间的仪器）</div><div class="evo2">本义「时间」 → chronic 慢性的、chronological 按时间顺序的 ｜ 「把时间对起来」 → synchronize 使同步 ｜ 「量时间的工具」 → chronometer 精密计时器 ｜ 「把时间记下来」 → chronicle 编年史</div><div class="u">口语/生活用：<b>The historical photos are arranged in chronological order.</b> 这些历史照片是按时间顺序排列的。</div></div><div class="card affix"><div class="rh"><span class="num">8</span><span class="root">pre-</span> <span class="mean">= before（在前，预先）【拉丁】</span></div><div class="words"><b>prepare</b> 准备 （pre- 先 + pare 弄好 → 提前弄好） ・ <b>predict</b> 预测 （pre- 先 + dict 说 → 提前说出来） ・ <b>preview</b> 预告片；预览 （pre- 先 + view 看 → 先睹为快） ・ <b>prefix</b> 前缀 （pre- 前 + fix 固定 → 固定在前的部分） ・ <b>preheat</b> 预热 （pre- 先 + heat 加热 → 先加热） ・ <b>preschool</b> 学龄前（教育） （pre- 前 + school 学校 → 上学之前）</div><div class="evo2">本义「前面」 → prefix 前缀、preschool 学前班 ｜ 「提前做」 → prepare 准备、preheat 预热 ｜ 「提前说」 → predict 预测 ｜ 「提前看」 → preview 预告片</div><div class="u">口语/生活用：<b>Make sure you preheat the oven to 200 degrees before baking.</b> 烤东西前一定要把烤箱预热到 200 度。</div></div><div class="card affix"><div class="rh"><span class="num">9</span><span class="root">dis-</span> <span class="mean">= apart, not（分离，否定）【拉丁】</span></div><div class="words"><b>disagree</b> 不同意 （dis- 否定 + agree 同意） ・ <b>disappear</b> 消失 （dis- 反 + appear 出现 → 出现的反面） ・ <b>disconnect</b> 断开连接 （dis- 分开 + connect 连接） ・ <b>discount</b> 打折；折扣 （dis- 减去 + count 数 → 从价格里扣掉） ・ <b>discover</b> 发现 （dis- 去掉 + cover 遮盖 → 掀开盖子看到） ・ <b>dislike</b> 不喜欢 （dis- 否定 + like 喜欢）</div><div class="evo2">本义「分开」 → disconnect 断开、discount 打折 ｜ 「取反」 → disappear 消失、dislike 不喜欢 ｜ 「去掉遮盖」 → discover 发现</div><div class="u">口语/生活用：<b>I really dislike waking up early on weekends.</b> 我真的很讨厌周末早起。</div></div><div class="card affix"><div class="rh"><span class="num">10</span><span class="root">-ly</span> <span class="mean">= …的 / …地（形容词·副词后缀）【古英语】</span></div><div class="words"><b>friendly</b> 友好的 （friend 朋友 + -ly 像…样 → 像朋友的） ・ <b>quickly</b> 快速地 （quick 快 + -ly → 副词化） ・ <b>daily</b> 每日的；每天 （day 日 + -ly → 一天天的） ・ <b>lovely</b> 可爱的；美好的 （love 爱 + -ly → 让人爱的） ・ <b>lonely</b> 孤独的 （lone 独自 + -ly → 独自一人的） ・ <b>monthly</b> 每月（的） （month 月 + -ly → 一月一次）</div><div class="evo2">līc「身体」 → 古英语 -lic「像…样子的」 → 形容词后缀 friendly 友好的 ｜ 再由形容词加 -ly → 副词后缀 quickly 快速地、daily 每天地</div><div class="u">口语/生活用：<b>She spoke so quickly that I couldn't follow.</b> 她说得太快，我跟不上。</div></div>
+
+<h2 class="section">二、填词练习（根据词根与释义写单词）</h2>
+<div class="q"><span class="qn">1</span>【spect】期待，预料 → ＿＿＿＿＿＿</div><div class="q"><span class="qn">2</span>【spect】尊重 → ＿＿＿＿＿＿＿</div><div class="q"><span class="qn">3</span>【spect】怀疑；嫌疑犯 → ＿＿＿＿＿＿＿</div><div class="q"><span class="qn">4</span>【port】报告 → ＿＿＿＿＿＿</div><div class="q"><span class="qn">5</span>【port】支持 → ＿＿＿＿＿＿＿</div><div class="q"><span class="qn">6</span>【port】运输 → ＿＿＿＿＿＿＿＿＿</div><div class="q"><span class="qn">7</span>【dict】预测 → ＿＿＿＿＿＿＿</div><div class="q"><span class="qn">8</span>【dict】词典 → ＿＿＿＿＿＿＿＿＿＿</div><div class="q"><span class="qn">9</span>【dict】口述；支配 → ＿＿＿＿＿＿＿</div><div class="q"><span class="qn">10</span>【cred】信用；学分；贷款 → ＿＿＿＿＿＿</div><div class="q"><span class="qn">11</span>【cred】难以置信的 → ＿＿＿＿＿＿＿＿＿＿</div><div class="q"><span class="qn">12</span>【cred】可信的 → ＿＿＿＿＿＿＿＿</div><div class="q"><span class="qn">13</span>【vis / vid】参观，拜访 → ＿＿＿＿＿</div><div class="q"><span class="qn">14</span>【vis / vid】看得见的 → ＿＿＿＿＿＿＿</div><div class="q"><span class="qn">15</span>【vis / vid】视力；愿景 → ＿＿＿＿＿＿</div><div class="q"><span class="qn">16</span>【tele】电话 → ＿＿＿＿＿＿＿＿＿</div><div class="q"><span class="qn">17</span>【tele】电视 → ＿＿＿＿＿＿＿＿＿＿</div><div class="q"><span class="qn">18</span>【tele】望远镜 → ＿＿＿＿＿＿＿＿＿</div><div class="q"><span class="qn">19</span>【bio】生物学 → ＿＿＿＿＿＿＿</div><div class="q"><span class="qn">20</span>【bio】传记 → ＿＿＿＿＿＿＿＿＿</div><div class="q"><span class="qn">21</span>【bio】可生物降解的 → ＿＿＿＿＿＿＿＿＿＿＿＿＿</div><div class="q"><span class="qn">22</span>【re-】返回；归还 → ＿＿＿＿＿＿</div><div class="q"><span class="qn">23</span>【re-】复习；评论 → ＿＿＿＿＿＿</div><div class="q"><span class="qn">24</span>【re-】回收利用 → ＿＿＿＿＿＿＿</div><div class="q"><span class="qn">25</span>【-able / -ible】舒服的 → ＿＿＿＿＿＿＿＿＿＿＿</div><div class="q"><span class="qn">26</span>【-able / -ible】有空的；可获得的 → ＿＿＿＿＿＿＿＿＿</div><div class="q"><span class="qn">27</span>【-able / -ible】可靠的 → ＿＿＿＿＿＿＿＿</div><div class="q"><span class="qn">28</span>【-less】无助的 → ＿＿＿＿＿＿＿＿</div><div class="q"><span class="qn">29</span>【-less】粗心的 → ＿＿＿＿＿＿＿＿</div><div class="q"><span class="qn">30</span>【-less】没用的 → ＿＿＿＿＿＿＿</div><div class="q"><span class="qn">31</span>【fac / fact / fect】事实；真相 → ＿＿＿＿＿</div><div class="q"><span class="qn">32</span>【fac / fact / fect】工厂 → ＿＿＿＿＿＿＿</div><div class="q"><span class="qn">33</span>【fac / fact / fect】制造，生产 → ＿＿＿＿＿＿＿＿＿＿＿</div><div class="q"><span class="qn">34</span>【scrib / script】描述 → ＿＿＿＿＿＿＿＿</div><div class="q"><span class="qn">35</span>【scrib / script】订阅；赞同 → ＿＿＿＿＿＿＿＿＿</div><div class="q"><span class="qn">36</span>【scrib / script】手稿；原稿 → ＿＿＿＿＿＿＿＿＿＿</div><div class="q"><span class="qn">37</span>【mit / miss】使命；任务 → ＿＿＿＿＿＿＿</div><div class="q"><span class="qn">38</span>【mit / miss】传送；发射 → ＿＿＿＿＿＿＿＿</div><div class="q"><span class="qn">39</span>【mit / miss】提交；屈服 → ＿＿＿＿＿＿</div><div class="q"><span class="qn">40</span>【struct】建造；构建 → ＿＿＿＿＿＿＿＿＿</div><div class="q"><span class="qn">41</span>【struct】结构；建筑物 → ＿＿＿＿＿＿＿＿＿</div><div class="q"><span class="qn">42</span>【struct】教导；指示 → ＿＿＿＿＿＿＿＿</div><div class="q"><span class="qn">43</span>【voc / vok】嗓音的；直言不讳的 → ＿＿＿＿＿</div><div class="q"><span class="qn">44</span>【voc / vok】词汇；词汇量 → ＿＿＿＿＿＿＿＿＿＿</div><div class="q"><span class="qn">45</span>【voc / vok】提倡者；辩护 → ＿＿＿＿＿＿＿＿</div><div class="q"><span class="qn">46</span>【graph】照片；拍照 → ＿＿＿＿＿＿＿＿＿＿</div><div class="q"><span class="qn">47</span>【graph】亲笔签名 → ＿＿＿＿＿＿＿＿＿</div><div class="q"><span class="qn">48</span>【graph】段落 → ＿＿＿＿＿＿＿＿＿</div><div class="q"><span class="qn">49</span>【chron】慢性的；长期的 → ＿＿＿＿＿＿＿</div><div class="q"><span class="qn">50</span>【chron】按时间顺序的 → ＿＿＿＿＿＿＿＿＿＿＿＿＿</div><div class="q"><span class="qn">51</span>【chron】使同步 → ＿＿＿＿＿＿＿＿＿＿＿</div><div class="q"><span class="qn">52</span>【pre-】准备 → ＿＿＿＿＿＿＿</div><div class="q"><span class="qn">53</span>【pre-】预告片；预览 → ＿＿＿＿＿＿＿</div><div class="q"><span class="qn">54</span>【pre-】前缀 → ＿＿＿＿＿＿</div><div class="q"><span class="qn">55</span>【dis-】不同意 → ＿＿＿＿＿＿＿＿</div><div class="q"><span class="qn">56</span>【dis-】消失 → ＿＿＿＿＿＿＿＿＿</div><div class="q"><span class="qn">57</span>【dis-】断开连接 → ＿＿＿＿＿＿＿＿＿＿</div><div class="q"><span class="qn">58</span>【-ly】友好的 → ＿＿＿＿＿＿＿＿</div><div class="q"><span class="qn">59</span>【-ly】快速地 → ＿＿＿＿＿＿＿</div><div class="q"><span class="qn">60</span>【-ly】每日的；每天 → ＿＿＿＿＿</div>
+
+<h2 class="section">三、例句挖空（填出例句中被挖掉的单词）</h2>
+<div class="q"><span class="qn">1</span>I ＿＿＿＿＿＿ you to be on time.<div class="qt">我希望你准时到。（词根 spect，共 6 个字母）</div></div><div class="q"><span class="qn">2</span>＿＿＿＿＿＿＿＿ charger<div class="qt">充电宝（词根 port，共 8 个字母）</div></div><div class="q"><span class="qn">3</span>Don't ＿＿＿＿＿＿＿ to me.<div class="qt">别对我指手画脚。（词根 dict，共 7 个字母）</div></div><div class="q"><span class="qn">4</span>＿＿＿＿＿＿ card<div class="qt">信用卡（几乎天天见）（词根 cred，共 6 个字母）</div></div><div class="q"><span class="qn">5</span>＿＿＿＿＿＿ for the exam<div class="qt">复习备考（词根 vis / vid，共 6 个字母）</div></div><div class="q"><span class="qn">6</span>＿＿＿＿＿ from home<div class="qt">（在家办公）（词根 tele，共 4 个字母）</div></div><div class="q"><span class="qn">7</span>＿＿＿＿＿＿＿＿＿＿＿＿＿ plastic<div class="qt">可降解塑料（超市购物袋上常见）（词根 bio，共 13 个字母）</div></div><div class="q"><span class="qn">8</span>I'd like a ＿＿＿＿＿＿.<div class="qt">我要退款。—— 购物退换货最常用的一句！（词根 re-，共 6 个字母）</div></div><div class="q"><span class="qn">9</span>Are you ＿＿＿＿＿＿＿＿＿ tomorrow?<div class="qt">你明天有空吗？—— 几乎天天用（词根 -able / -ible，共 9 个字母）</div></div><div class="q"><span class="qn">10</span>＿＿＿＿＿＿＿＿ charging<div class="qt">无线充电（词根 -less，共 8 个字母）</div></div><div class="q"><span class="qn">11</span>The ＿＿＿＿＿＿＿ manufactures thousands of phones a day.<div class="qt">这家工厂每天生产数千部手机。（词根 fac / fact / fect，共 7 个字母）</div></div><div class="q"><span class="qn">12</span>I ＿＿＿＿＿＿＿＿＿＿ to the streaming service to watch the new show.<div class="qt">我订阅了流媒体服务来追那部新剧。（词根 scrib / script，共 10 个字母）</div></div><div class="q"><span class="qn">13</span>You have to ＿＿＿＿＿＿ your assignment before midnight.<div class="qt">你必须在午夜前提交作业。（词根 mit / miss，共 6 个字母）</div></div><div class="q"><span class="qn">14</span>They're ＿＿＿＿＿＿＿＿＿＿＿＿ a new subway line near my place.<div class="qt">他们正在我家附近修一条新地铁线。（词根 struct，共 12 个字母）</div></div><div class="q"><span class="qn">15</span>The loud music provoked ＿＿＿＿＿＿＿＿＿＿ from the neighbors.<div class="qt">那震天响的音乐惹来了邻居们的投诉。（词根 voc / vok，共 10 个字母）</div></div><div class="q"><span class="qn">16</span>Can I get your ＿＿＿＿＿＿＿＿＿?<div class="qt">能给我签个名吗？（词根 graph，共 9 个字母）</div></div><div class="q"><span class="qn">17</span>The historical photos are arranged in ＿＿＿＿＿＿＿＿＿＿＿＿＿ order.<div class="qt">这些历史照片是按时间顺序排列的。（词根 chron，共 13 个字母）</div></div><div class="q"><span class="qn">18</span>Make sure you ＿＿＿＿＿＿＿ the oven to 200 degrees before baking.<div class="qt">烤东西前一定要把烤箱预热到 200 度。（词根 pre-，共 7 个字母）</div></div><div class="q"><span class="qn">19</span>I really ＿＿＿＿＿＿＿ waking up early on weekends.<div class="qt">我真的很讨厌周末早起。（词根 dis-，共 7 个字母）</div></div><div class="q"><span class="qn">20</span>She spoke so ＿＿＿＿＿＿＿ that I couldn't follow.<div class="qt">她说得太快，我跟不上。（词根 -ly，共 7 个字母）</div></div>
+
+<h2 class="section">四、配对练习（把词根与释义连起来）</h2>
+<div class="match"><div class="mcol"><div class="m-row"><span class="mno">1</span>spect</div><div class="m-row"><span class="mno">2</span>port</div><div class="m-row"><span class="mno">3</span>dict</div><div class="m-row"><span class="mno">4</span>cred</div><div class="m-row"><span class="mno">5</span>vis / vid</div><div class="m-row"><span class="mno">6</span>tele</div><div class="m-row"><span class="mno">7</span>bio</div><div class="m-row"><span class="mno">8</span>re-</div><div class="m-row"><span class="mno">9</span>-able / -ible</div><div class="m-row"><span class="mno">10</span>-less</div><div class="m-row"><span class="mno">11</span>fac / fact / fect</div><div class="m-row"><span class="mno">12</span>scrib / script</div><div class="m-row"><span class="mno">13</span>mit / miss</div><div class="m-row"><span class="mno">14</span>struct</div><div class="m-row"><span class="mno">15</span>voc / vok</div><div class="m-row"><span class="mno">16</span>graph</div><div class="m-row"><span class="mno">17</span>chron</div><div class="m-row"><span class="mno">18</span>pre-</div><div class="m-row"><span class="mno">19</span>dis-</div><div class="m-row"><span class="mno">20</span>-ly</div></div><div class="mcol"><div class="m-row"><span class="mno">A</span>= send, let go（送，放出）【拉丁】</div><div class="m-row"><span class="mno">B</span>= do, make（做，制作）【拉丁】</div><div class="m-row"><span class="mno">C</span>= 生命（life）</div><div class="m-row"><span class="mno">D</span>= 看（look）</div><div class="m-row"><span class="mno">E</span>= 相信（believe）</div><div class="m-row"><span class="mno">F</span>= 可…的（able to be）</div><div class="m-row"><span class="mno">G</span>= apart, not（分离，否定）【拉丁】</div><div class="m-row"><span class="mno">H</span>= before（在前，预先）【拉丁】</div><div class="m-row"><span class="mno">I</span>= 再、又、回（again / back）</div><div class="m-row"><span class="mno">J</span>= write, draw（写，画）【希腊】</div><div class="m-row"><span class="mno">K</span>= 搬运（carry）</div><div class="m-row"><span class="mno">L</span>= …的 / …地（形容词·副词后缀）【古英语】</div><div class="m-row"><span class="mno">M</span>= 说（say）</div><div class="m-row"><span class="mno">N</span>= build（建造）【拉丁】</div><div class="m-row"><span class="mno">O</span>= write（写）【拉丁】</div><div class="m-row"><span class="mno">P</span>= 无…的（without）</div><div class="m-row"><span class="mno">Q</span>= call, voice（喊，声音）【拉丁】</div><div class="m-row"><span class="mno">R</span>= 远（far）</div><div class="m-row"><span class="mno">S</span>= 看（see）</div><div class="m-row"><span class="mno">T</span>= time（时间）【希腊】</div></div></div>
+
+<h2 class="section">答案区</h2>
+<h3 class="sub">一、填词练习答案</h3><div class="a"><span class="qn">1</span>expect</div><div class="a"><span class="qn">2</span>respect</div><div class="a"><span class="qn">3</span>suspect</div><div class="a"><span class="qn">4</span>report</div><div class="a"><span class="qn">5</span>support</div><div class="a"><span class="qn">6</span>transport</div><div class="a"><span class="qn">7</span>predict</div><div class="a"><span class="qn">8</span>dictionary</div><div class="a"><span class="qn">9</span>dictate</div><div class="a"><span class="qn">10</span>credit</div><div class="a"><span class="qn">11</span>incredible</div><div class="a"><span class="qn">12</span>credible</div><div class="a"><span class="qn">13</span>visit</div><div class="a"><span class="qn">14</span>visible</div><div class="a"><span class="qn">15</span>vision</div><div class="a"><span class="qn">16</span>telephone</div><div class="a"><span class="qn">17</span>television</div><div class="a"><span class="qn">18</span>telescope</div><div class="a"><span class="qn">19</span>biology</div><div class="a"><span class="qn">20</span>biography</div><div class="a"><span class="qn">21</span>biodegradable</div><div class="a"><span class="qn">22</span>return</div><div class="a"><span class="qn">23</span>review</div><div class="a"><span class="qn">24</span>recycle</div><div class="a"><span class="qn">25</span>comfortable</div><div class="a"><span class="qn">26</span>available</div><div class="a"><span class="qn">27</span>reliable</div><div class="a"><span class="qn">28</span>helpless</div><div class="a"><span class="qn">29</span>careless</div><div class="a"><span class="qn">30</span>useless</div><div class="a"><span class="qn">31</span>fact</div><div class="a"><span class="qn">32</span>factory</div><div class="a"><span class="qn">33</span>manufacture</div><div class="a"><span class="qn">34</span>describe</div><div class="a"><span class="qn">35</span>subscribe</div><div class="a"><span class="qn">36</span>manuscript</div><div class="a"><span class="qn">37</span>mission</div><div class="a"><span class="qn">38</span>transmit</div><div class="a"><span class="qn">39</span>submit</div><div class="a"><span class="qn">40</span>construct</div><div class="a"><span class="qn">41</span>structure</div><div class="a"><span class="qn">42</span>instruct</div><div class="a"><span class="qn">43</span>vocal</div><div class="a"><span class="qn">44</span>vocabulary</div><div class="a"><span class="qn">45</span>advocate</div><div class="a"><span class="qn">46</span>photograph</div><div class="a"><span class="qn">47</span>autograph</div><div class="a"><span class="qn">48</span>paragraph</div><div class="a"><span class="qn">49</span>chronic</div><div class="a"><span class="qn">50</span>chronological</div><div class="a"><span class="qn">51</span>synchronize</div><div class="a"><span class="qn">52</span>prepare</div><div class="a"><span class="qn">53</span>preview</div><div class="a"><span class="qn">54</span>prefix</div><div class="a"><span class="qn">55</span>disagree</div><div class="a"><span class="qn">56</span>disappear</div><div class="a"><span class="qn">57</span>disconnect</div><div class="a"><span class="qn">58</span>friendly</div><div class="a"><span class="qn">59</span>quickly</div><div class="a"><span class="qn">60</span>daily</div><h3 class="sub">二、例句挖空答案</h3><div class="a"><span class="qn">1</span>I expect you to be on time.</div><div class="a"><span class="qn">2</span>portable charger</div><div class="a"><span class="qn">3</span>Don't dictate to me.</div><div class="a"><span class="qn">4</span>credit card</div><div class="a"><span class="qn">5</span>revise for the exam</div><div class="a"><span class="qn">6</span>work from home</div><div class="a"><span class="qn">7</span>biodegradable plastic</div><div class="a"><span class="qn">8</span>I'd like a refund.</div><div class="a"><span class="qn">9</span>Are you available tomorrow?</div><div class="a"><span class="qn">10</span>wireless charging</div><div class="a"><span class="qn">11</span>The factory manufactures thousands of phones a day.</div><div class="a"><span class="qn">12</span>I subscribed to the streaming service to watch the new show.</div><div class="a"><span class="qn">13</span>You have to submit your assignment before midnight.</div><div class="a"><span class="qn">14</span>They're constructing a new subway line near my place.</div><div class="a"><span class="qn">15</span>The loud music provoked complaints from the neighbors.</div><div class="a"><span class="qn">16</span>Can I get your autograph?</div><div class="a"><span class="qn">17</span>The historical photos are arranged in chronological order.</div><div class="a"><span class="qn">18</span>Make sure you preheat the oven to 200 degrees before baking.</div><div class="a"><span class="qn">19</span>I really dislike waking up early on weekends.</div><div class="a"><span class="qn">20</span>She spoke so quickly that I couldn't follow.</div><h3 class="sub">三、配对练习答案</h3><div class="a-key">1-D ・ 2-K ・ 3-M ・ 4-E ・ 5-S ・ 6-R ・ 7-C ・ 8-I ・ 9-F ・ 10-P ・ 11-B ・ 12-O ・ 13-A ・ 14-N ・ 15-Q ・ 16-J ・ 17-T ・ 18-H ・ 19-G ・ 20-L</div>
+
+<div class="footer">词根词缀复习 · 学而时习之 · 不亦说乎 👋</div>
+
+</body>
+<script>
+/* ---------- 单词发音 ---------- */
+(function () {
+  var synth = ("speechSynthesis" in window) ? window.speechSynthesis : null;
+  var audio = new Audio();
+  audio.preload = "auto";
+  audio.playbackRate = 0.95;
+  var curBtn = null;
+
+  function pickVoice() {
+    if (!synth) return null;
+    var vs = synth.getVoices() || [];
+    return vs.filter(function (v) { return /en[-_]US/i.test(v.lang); })[0] ||
+           vs.filter(function (v) { return /^en/i.test(v.lang); })[0] || null;
+  }
+  function tts(text) {
+    if (!synth) return;
+    var u = new SpeechSynthesisUtterance(text);
+    u.lang = "en-US";
+    var v = pickVoice(); if (v) u.voice = v;
+    try { synth.cancel(); } catch (e) {}
+    synth.speak(u);
+  }
+  function clear() { if (curBtn) { curBtn.classList.remove("playing"); curBtn = null; } }
+  function play(el, btn) {
+    var src = el.getAttribute("data-say");
+    var text = el.textContent.replace(/\s+/g, " ").trim();
+    clear();
+    if (btn) { btn.classList.add("playing"); curBtn = btn; }
+    if (src) {
+      audio.src = src;
+      audio.onended = function () { if (curBtn === btn) clear(); };
+      audio.onerror = function () { if (curBtn === btn) clear(); tts(text); };
+      var p = audio.play();
+      if (p && p.catch) { p.catch(function () { clear(); tts(text); }); }
+    } else {
+      tts(text);
+      setTimeout(function () { if (curBtn === btn) clear(); }, 1500);
+    }
+  }
+
+  document.querySelectorAll("[data-say]").forEach(function (el) {
+    var prev = el.previousElementSibling;
+    if (prev && prev.classList && prev.classList.contains("psay")) return;
+    var b = document.createElement("button");
+    b.type = "button"; b.className = "psay"; b.textContent = "\uD83D\uDD0A"; b.title = "发音";
+    b.setAttribute("aria-label", "发音");
+    b.addEventListener("click", function (e) {
+      e.stopPropagation(); e.preventDefault();
+      if (curBtn === b) {
+        try { audio.pause(); } catch (err) {}
+        if (synth) { try { synth.cancel(); } catch (err) {} }
+        clear(); return;
+      }
+      play(el, b);
+    });
+    el.parentNode.insertBefore(b, el);
+  });
+
+  /* 点任意英文词发音 */
+  var on = false;
+  var tg = document.createElement("button");
+  tg.id = "pron-toggle"; tg.type = "button"; tg.textContent = "\uD83D\uDD24 点词发音";
+  document.body.appendChild(tg);
+  tg.addEventListener("click", function () {
+    on = !on; tg.classList.toggle("on", on);
+    tg.textContent = on ? "\uD83D\uDD24 点词发音：开" : "\uD83D\uDD24 点词发音";
+  });
+  function wordAt(x, y) {
+    var node, offset;
+    if (document.caretRangeFromPoint) {
+      var r = document.caretRangeFromPoint(x, y);
+      if (!r) return null; node = r.startContainer; offset = r.startOffset;
+    } else if (document.caretPositionFromPoint) {
+      var p = document.caretPositionFromPoint(x, y);
+      if (!p) return null; node = p.offsetNode; offset = p.offset;
+    } else { return null; }
+    if (!node || node.nodeType !== 3) return null;
+    var t = node.textContent, re = /[A-Za-z][A-Za-z'\u2019\-]*/g, m;
+    while ((m = re.exec(t))) {
+      if (offset >= m.index && offset <= m.index + m[0].length) return m[0];
+    }
+    return null;
+  }
+  document.addEventListener("click", function (e) {
+    if (!on) return;
+    if (e.target.closest && (e.target.closest(".psay") || e.target.closest("#pron-toggle"))) return;
+    var w = wordAt(e.clientX, e.clientY);
+    if (w) tts(w);
+  }, true);
+})();
+
+</script>
+</html>

@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>词根词缀每日积累 · Day 4</title>
+<style>
+  @page { size: A4; margin: 16mm 15mm; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Noto Sans CJK SC', 'Droid Sans Fallback', 'WenQuanYi Zen Hei', sans-serif;
+    font-size: 10.5pt;
+    color: #1f2937;
+    line-height: 1.65;
+  }
+  /* 页眉 */
+  .header {
+    border-bottom: 3px solid #2563eb;
+    padding-bottom: 10px;
+    margin-bottom: 6px;
+  }
+  .header h1 { font-size: 19pt; color: #1e3a8a; letter-spacing: 1px; }
+  .header .meta { color: #6b7280; font-size: 9.5pt; margin-top: 2px; }
+  .header .meta b { color: #2563eb; }
+
+  /* 分区标题 */
+  h2.section {
+    font-size: 12.5pt;
+    color: #1e3a8a;
+    margin: 14px 0 8px 0;
+    padding-left: 8px;
+    border-left: 4px solid #2563eb;
+  }
+
+  /* 词根卡片 */
+  .card {
+    border: 1px solid #e5e7eb;
+    border-left: 4px solid #2563eb;
+    border-radius: 6px;
+    padding: 8px 12px 9px 12px;
+    margin-bottom: 9px;
+    page-break-inside: avoid;
+  }
+  .card .root-head { margin-bottom: 4px; }
+  .card .num {
+    display: inline-block;
+    width: 17px; height: 17px;
+    background: #2563eb; color: #fff;
+    border-radius: 50%;
+    text-align: center; line-height: 17px;
+    font-size: 9pt; font-weight: bold;
+    margin-right: 6px;
+  }
+  .card .root { font-size: 12.5pt; font-weight: bold; color: #1e3a8a; font-family: 'DejaVu Sans', sans-serif; }
+  .card .meaning { color: #4b5563; }
+  .card .trick {
+    display: block;
+    color: #047857;
+    font-size: 9pt;
+    margin-top: 1px;
+  }
+  /* 词源与演化 */
+  .card .etym {
+    display: block;
+    margin-top: 3px;
+    font-size: 9pt;
+    color: #6d28d9;
+  }
+  .card .etym .lab, .card .evo .lab { font-weight: bold; }
+  .card .evo {
+    display: block;
+    margin-top: 1px;
+    font-size: 9pt;
+    color: #b45309;
+  }
+  .card ul { list-style: none; padding: 0; }
+  .card li {
+    padding: 1px 0;
+    font-size: 10.5pt;
+  }
+  .card li b { color: #111827; }
+  .card .note { color: #9ca3af; font-size: 9pt; }
+  .card .usage {
+    margin-top: 4px;
+    background: #eff6ff;
+    border-radius: 4px;
+    padding: 3px 8px;
+    font-size: 9.5pt;
+    color: #1e40af;
+  }
+  .card .usage b { color: #1e3a8a; }
+
+  /* 词缀卡片（不同色区分） */
+  .card.affix { border-left-color: #059669; }
+  .card.affix .num { background: #059669; }
+  .card.affix .root { color: #065f46; }
+  .card.affix .usage { background: #ecfdf5; color: #065f46; }
+
+  .footer {
+    margin-top: 14px;
+    text-align: center;
+    color: #9ca3af;
+    font-size: 8.5pt;
+    border-top: 1px solid #e5e7eb;
+    padding-top: 6px;
+  }
+/* ---------- 单词发音（神经网络 MP3，缺失回退系统语音） ---------- */
+.psay{
+  display:inline-flex; align-items:center; justify-content:center;
+  width:18px; height:18px; margin:0 5px 0 0; padding:0;
+  border:1px solid #cbd5e1; border-radius:50%; background:#f8fafc;
+  color:#2563eb; font-size:9px; line-height:1; cursor:pointer;
+  vertical-align:1px; -webkit-tap-highlight-color:transparent;
+  transition:background .15s,border-color .15s;
+}
+.psay:hover{ background:#dbeafe; border-color:#93c5fd; }
+.psay.playing{ background:#2563eb; border-color:#2563eb; color:#fff; animation:psay-pulse 1s infinite; }
+@keyframes psay-pulse{ 0%,100%{opacity:1;} 50%{opacity:.5;} }
+
+#pron-toggle{
+  position:fixed; left:12px; bottom:calc(16px + env(safe-area-inset-bottom));
+  z-index:950; border:none; border-radius:999px; padding:8px 14px;
+  background:rgba(37,99,235,.95); color:#fff; font-size:13px; cursor:pointer;
+  box-shadow:0 4px 14px rgba(0,0,0,.25);
+  font-family:'Noto Sans CJK SC','Droid Sans Fallback',sans-serif;
+  -webkit-tap-highlight-color:transparent;
+}
+#pron-toggle.on{ background:#047857; }
+
+@media print{ .psay, #pron-toggle{ display:none !important; } }
+
+/* mobile-generic */
+  html { -webkit-text-size-adjust: 100%; }
+  body { overflow-wrap: break-word; }
+  @media (max-width: 640px) {
+    body { font-size: 16px !important; line-height: 1.8;
+           padding: 14px 12px calc(34px + env(safe-area-inset-bottom)); }
+    .header h1 { font-size: 1.5rem; }
+    .header .meta { font-size: .82rem; }
+    h2.section { font-size: 1.12rem; }
+    .card { padding: 11px 13px; border-radius: 10px; }
+    .card .root { font-size: 1.18rem; }
+    .card li { font-size: 1rem; padding: 3px 0; }
+    .card .usage { font-size: .95rem; }
+    .card .etym, .card .evo, .card .trick,
+    .card .confuse, .card .variant, .card .cognate { font-size: .86rem; }
+    table { display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    .flow { font-size: .9rem; }
+  }
+
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>词根词缀每日积累 · Day 4</h1>
+  <div class="meta">2026 年 8 月 7 日 ｜ 词根 7 个 · 词缀 3 个 ｜ 附词源与演化</div>
+</div>
+
+<div class="card">
+  <div class="root-head"><span class="num">1</span><span class="root">ven / vent</span> <span class="meaning">= come（来）【拉丁】</span></div>
+  <span class="trick">💡 记法：event 事件就是"发生(来了)的事"；adventure 冒险 = 将来未知的事。</span>
+  <span class="etym"><span class="lab">词源</span>：拉丁语 <b>venire</b>「来、到达」；源自印欧语 *gwa-「来、去」（英语 come 同源）。</span>
+  <span class="evo"><span class="lab">演化</span>：<b>本义「来」</b> → event 发生的事=事件、avenue 通向的地方=大街 ｜ <b>「一起来」</b> → convention 大会 ｜ <b>「先到一步」</b> → prevent 阻止 ｜ <b>「找到(脑子里来的)」</b> → invent 发明</span>
+  <ul>
+    <li><b data-say="words-audio/4119639092e62c55ea8be348e4d9260d.mp3">event</b> 事件；活动 <span class="note">（e- 出 + vent → 冒出来的事）</span></li>
+    <li><b data-say="words-audio/9b0c41a084ce77bc23b6d8c06c77d953.mp3">prevent</b> 阻止；预防 <span class="note">（pre- 先 + vent → 先到挡住）</span></li>
+    <li><b data-say="words-audio/1b9dc195c72d59c6d9ac7c1eb5bb681c.mp3">invent</b> 发明 <span class="note">（in- 里 + vent → 从脑子里"来"出来）</span></li>
+    <li><b data-say="words-audio/3de887773a05862104ed852d8439d649.mp3">convention</b> 大会；惯例 <span class="note">（con- 一起 + vent → 聚到一起）</span></li>
+    <li><b data-say="words-audio/7cb4872d414053539d11f7c1270eafdc.mp3">adventure</b> 冒险 <span class="note">（ad- 朝 + vent → 朝着要来的事去）</span></li>
+    <li><b data-say="words-audio/2c7bb8666276179cf13d90a329086642.mp3">avenue</b> 大街；大道 <span class="note">（通向某处的路）</span></li>
+  </ul>
+  <div class="usage">口语/生活用：<b data-say="words-audio/b9fe6d3e3dbcddd4799e5aa1e2d0a5b2.mp3">What time does the event start tonight?</b> 今晚的活动几点开始？</div>
+</div>
+
+<div class="card">
+  <div class="root-head"><span class="num">2</span><span class="root">fer</span> <span class="meaning">= carry, bring（携带，带来）【拉丁】</span></div>
+  <span class="trick">💡 记法：transfer 转车 = 从一处"带"到另一处，fer 就是"搬"。</span>
+  <span class="etym"><span class="lab">词源</span>：拉丁语 <b>ferre</b>「携带、带来、承受」；源自印欧语 *bher-「携带」（英语 bear 同源，birth 出生也来自"被带来"）。</span>
+  <span class="evo"><span class="lab">演化</span>：<b>本义「带」</b> → transfer 转移、offer 呈上 ｜ <b>「带到前面」</b> → prefer 更喜欢 ｜ <b>「带到一起商量」</b> → confer 商议 ｜ <b>「带(回)来参照」</b> → refer 参考 ｜ <b>「在下面承受」</b> → suffer 受苦</span>
+  <ul>
+    <li><b data-say="words-audio/84a0f3455dcca894ace136be62efa292.mp3">transfer</b> 转移；换乘 <span class="note">（trans- 跨越 + fer → 带过去）</span></li>
+    <li><b data-say="words-audio/02a048690ba283e399247f7fad7710d3.mp3">prefer</b> 更喜欢 <span class="note">（pre- 前 + fer → 把某个放到前面）</span></li>
+    <li><b data-say="words-audio/d60db28d94d538bbb249dcc7f2273ab1.mp3">offer</b> 提供；提议 <span class="note">（of- 向前 + fer → 呈上）</span></li>
+    <li><b data-say="words-audio/29585c700c8d0be16c6b0a24d8c9d0bc.mp3">refer</b> 参考；提及 <span class="note">（re- 回 + fer → 带回来对照）</span></li>
+    <li><b data-say="words-audio/61e7591821af51b4d8338be540911608.mp3">suffer</b> 遭受；受苦 <span class="note">（suf- 在下 + fer → 在下面承担）</span></li>
+    <li><b data-say="words-audio/ab3049da9a0cd8d6e8b7c62586752472.mp3">conference</b> 会议 <span class="note">（con- 一起 + fer → 把想法带到一起）</span></li>
+  </ul>
+  <div class="usage">口语/生活用：<b data-say="words-audio/d3b3125f3e0b6d006e5d806c92a59fa5.mp3">Can you help me transfer the photos to my new phone?</b> 你能帮我把照片转到新手机吗？</div>
+</div>
+
+<div class="card">
+  <div class="root-head"><span class="num">3</span><span class="root">ceed / cess</span> <span class="meaning">= go（走）【拉丁】</span></div>
+  <span class="trick">💡 记法：succeed 成功 = 紧跟在后"往前走"；exceed 超过 = 走出去超出。</span>
+  <span class="etym"><span class="lab">词源</span>：拉丁语 <b>cedere</b>「走、前进、退让」，过去分词 <b>cessus</b>；源自印欧语 *ked-「走」。</span>
+  <span class="evo"><span class="lab">演化</span>：<b>本义「走」</b> → proceed 继续前进、process 过程 ｜ <b>「跟上去走」</b> → succeed 成功 ｜ <b>「走出去」</b> → exceed 超过 ｜ <b>「往回走」</b> → recede 后退 ｜ <b>「走过去」</b> → access 进入</span>
+  <ul>
+    <li><b data-say="words-audio/c0dfc2c94bd5e3e0e48e9084ef8cc0e2.mp3">proceed</b> 继续进行 <span class="note">（pro- 向前 + ceed → 往前走）</span></li>
+    <li><b data-say="words-audio/5075140835d0bc504791c76b04c33d2b.mp3">process</b> 过程；流程 <span class="note">（一直往前走的步骤）</span></li>
+    <li><b data-say="words-audio/e7fed1944be880f14a7335eac65e2cc2.mp3">succeed</b> 成功 <span class="note">（suc- 跟随 + ceed → 跟着走到底）</span></li>
+    <li><b data-say="words-audio/74af29db4c516126ae604e5624c8b02f.mp3">exceed</b> 超过 <span class="note">（ex- 出 + ceed → 走出界限）</span></li>
+    <li><b data-say="words-audio/9df3b01c60df20d13843841ff0d4482c.mp3">access</b> 进入；使用权 <span class="note">（ac- 向 + cess → 走过去）</span></li>
+    <li><b data-say="words-audio/802024b279b2158800d75b4725bc77ba.mp3">successful</b> 成功的 <span class="note">（succeed 的形容词）</span></li>
+  </ul>
+  <div class="usage">口语/生活用：<b data-say="words-audio/824837e0f735c67e2fd721293e2a9db0.mp3">Please proceed to the boarding gate.</b> 请前往登机口。（机场广播超常见）</div>
+</div>
+
+<div class="card">
+  <div class="root-head"><span class="num">4</span><span class="root">pend / pens</span> <span class="meaning">= hang; weigh（悬挂；称量）【拉丁】</span></div>
+  <span class="trick">💡 记法：depend 依赖 = "挂"在别人身上；expensive 贵 = "称"出来的重量重。</span>
+  <span class="etym"><span class="lab">词源</span>：拉丁语 <b>pendere</b>「悬挂；称量」——同一词根两个相关义：东西挂着必然下垂、用秤"挂"起来称重；过去分词 <b>pensus</b>。</span>
+  <span class="evo"><span class="lab">演化</span>：<b>「悬挂」义</b> → depend 挂在上面=依赖、suspend 悬挂/暂停、pendulum 钟摆 ｜ <b>「称量」义</b> → expense 花费、spend 花钱（把钱"称"出去）</span>
+  <ul>
+    <li><b data-say="words-audio/6334ae0f062c466145cf2dc022e0359a.mp3">depend</b> 依赖；取决于 <span class="note">（de- 向下 + pend → 挂在下面）</span></li>
+    <li><b data-say="words-audio/497927fb538c4a1572d3b3a98313cab1.mp3">suspend</b> 暂停；悬挂 <span class="note">（sus- 在下 + pend → 挂起来→悬着）</span></li>
+    <li><b data-say="words-audio/e2580777557122a236c803c1ccad7fa4.mp3">independent</b> 独立的 <span class="note">（in- 不 + depend 依赖 + -ent）</span></li>
+    <li><b data-say="words-audio/f384d48efac7ae57d8385ac922f391c5.mp3">expensive</b> 昂贵的 <span class="note">（ex- 出 + pens → 称出去的钱多）</span></li>
+    <li><b data-say="words-audio/d998ff3a339f9318bd7b6e98912e4043.mp3">spend</b> 花费 <span class="note">（把钱称出去）</span></li>
+    <li><b data-say="words-audio/bb8b3b51eb16a9a78b8d3e57cdc30e62.mp3">pendulum</b> 钟摆 <span class="note">（挂着摆动的装置）</span></li>
+  </ul>
+  <div class="usage">口语/生活用：<b data-say="words-audio/0ffc4ba63968f91d31f4da3461e98c63.mp3">The meeting is suspended until further notice.</b> 会议暂停，另行通知。</div>
+</div>
+
+<div class="card">
+  <div class="root-head"><span class="num">5</span><span class="root">jur / jus</span> <span class="meaning">= law, right（法律，权利）【拉丁】</span></div>
+  <span class="trick">💡 记法：just 公正 = 符合"法"；injure 伤害 = 侵犯"权利"。</span>
+  <span class="etym"><span class="lab">词源</span>：拉丁语 <b>jus</b>（属格 juris）「法律、权利」，派生动词 <b>jurare</b>「发誓」；与英语 justice、judge 同源。</span>
+  <span class="evo"><span class="lab">演化</span>：<b>本义「法/权利」</b> → justice 正义、just 公正的 ｜ <b>「无权利」</b> → injure 伤害 ｜ <b>「说法之人」</b> → judge 法官 ｜ <b>「宣布法」</b> → jury 陪审团、jurisdiction 司法权 ｜ <b>「证明合法」</b> → justify 证明正当</span>
+  <ul>
+    <li><b data-say="words-audio/9345b4e983973212313e4c809b94f75d.mp3">justice</b> 正义；司法 <span class="note">（jus 法 + -ice 名词）</span></li>
+    <li><b data-say="words-audio/1562eb3f6d9c5ac7e159c04a96ff4dfe.mp3">judge</b> 法官；评判 <span class="note">（jus + dicere 说 → 说法之人，d 脱落）</span></li>
+    <li><b data-say="words-audio/a47ddab7eecb364d7ddfd5ac2beeeed4.mp3">jury</b> 陪审团 <span class="note">（jurare 发誓 → 宣誓的人）</span></li>
+    <li><b data-say="words-audio/a59270819dd92f2c7c041ad5f1483f71.mp3">injure</b> 伤害 <span class="note">（in- 不 + jur → 不尊重权利）</span></li>
+    <li><b data-say="words-audio/9e7ace81eb5d8c8e66d15edcaf439d42.mp3">justify</b> 证明…正当 <span class="note">（just 公正 + -ify 使）</span></li>
+    <li><b data-say="words-audio/0c0f7464c6ba4063e913855a1d4041df.mp3">jurisdiction</b> 司法权；管辖权 <span class="note">（juris 法 + diction 说 → 说了算的范围）</span></li>
+  </ul>
+  <div class="usage">口语/生活用：<b data-say="words-audio/004e828d4bab2201c960c01ed65dd834.mp3">The jury took three days to reach a verdict.</b> 陪审团花了三天作出裁决。</div>
+</div>
+
+<div class="card">
+  <div class="root-head"><span class="num">6</span><span class="root">path</span> <span class="meaning">= feel, suffer（感受，承受）【希腊】</span></div>
+  <span class="trick">💡 记法：patient 病人 = "承受病痛的人"；sympathy 同情 = 一起"感受"。</span>
+  <span class="etym"><span class="lab">词源</span>：希腊语 <b>pathos</b>「受苦、感受、情感」；源自印欧语 *kwent(h)-「受苦」。</span>
+  <span class="evo"><span class="lab">演化</span>：<b>本义「感受」</b> → sympathy 一起感受=同情、empathy 共情 ｜ <b>「无感受」</b> → apathy 冷漠 ｜ <b>「承受病痛的人」</b> → patient 病人/耐心的 ｜ <b>「惹人怜」</b> → pathetic 可怜的</span>
+  <ul>
+    <li><b data-say="words-audio/85405d3eb20315155b9d09982f54da9d.mp3">sympathy</b> 同情 <span class="note">（sym- 一起 + path → 感同身受）</span></li>
+    <li><b data-say="words-audio/68dd29a955226662d8b08a504656ff6d.mp3">empathy</b> 共情 <span class="note">（em- 在内 + path → 设身处地体会）</span></li>
+    <li><b data-say="words-audio/24d1ed0241486b37e9bb7dc4ba277d56.mp3">apathy</b> 冷漠；无动于衷 <span class="note">（a- 无 + path → 没有感受）</span></li>
+    <li><b data-say="words-audio/b39024efbc6de61976f585c8421c6bba.mp3">patient</b> 病人；有耐心的 <span class="note">（承受苦痛的人→能忍受的）</span></li>
+    <li><b data-say="words-audio/4c8476db197a1039153ca724674f7e13.mp3">patience</b> 耐心 <span class="note">（能承受等待）</span></li>
+    <li><b data-say="words-audio/22762f9d41c83e1be0e57beeacb5c060.mp3">pathetic</b> 可怜的；可悲的 <span class="note">（让人心里难受的）</span></li>
+  </ul>
+  <div class="usage">口语/生活用：<b data-say="words-audio/b957e5760b28eab1b829fa7292a69656.mp3">I have a lot of sympathy for people who work two jobs.</b> 我非常同情做两份工作的人。</div>
+</div>
+
+<div class="card">
+  <div class="root-head"><span class="num">7</span><span class="root">therm</span> <span class="meaning">= heat（热）【希腊】</span></div>
+  <span class="trick">💡 记法：保温瓶 thermos 就是"热"瓶；thermometer 温度计 = 测"热"的仪器。</span>
+  <span class="etym"><span class="lab">词源</span>：希腊语 <b>thermē</b>「热」、<b>thermos</b>「热的」；印欧语词根 *ghwer-「热、暖」（英语 warm 同源）。</span>
+  <span class="evo"><span class="lab">演化</span>：<b>本义「热」</b> → thermal 热的、thermometer 温度计 ｜ <b>「控温装置」</b> → thermostat 恒温器 ｜ <b>「热+电」</b> → geothermal 地热 ｜ <b>「低于正常体温」</b> → hypothermia 失温</span>
+  <ul>
+    <li><b data-say="words-audio/26a27f04d02b653b4b5b77b5d11d7bb9.mp3">thermal</b> 热的；保暖的 <span class="note">（therm + -al 形容词）</span></li>
+    <li><b data-say="words-audio/b6a657fe9f0e8ae3a4377666fee0c870.mp3">thermometer</b> 温度计 <span class="note">（thermo 热 + meter 测量 → 测温度）</span></li>
+    <li><b data-say="words-audio/c449865fb987c76030e269beaf83b953.mp3">thermostat</b> 恒温器 <span class="note">（thermo + stat 固定 → 固定温度）</span></li>
+    <li><b data-say="words-audio/fb4dc27e689cb920847327c467eec2e4.mp3">geothermal</b> 地热的 <span class="note">（geo 地 + thermal 热的）</span></li>
+    <li><b data-say="words-audio/f8e71aa5258db2f7d2c40ca6295638e1.mp3">thermos</b> 保温瓶 <span class="note">（希腊语"热的"，品牌名通用化）</span></li>
+    <li><b data-say="words-audio/31054e4092aa10402020d2158d733ef5.mp3">hypothermia</b> 体温过低 <span class="note">（hypo- 低于 + therm → 失温）</span></li>
+  </ul>
+  <div class="usage">口语/生活用：<b data-say="words-audio/6d626a2798e353133daabe68b2dc7c7f.mp3">The water temperature feels perfect for swimming.</b> 水温正适合游泳。</div>
+</div>
+
+<div class="card affix">
+  <div class="root-head"><span class="num">8</span><span class="root">-ment</span> <span class="meaning">= 名词后缀（…的行为 / 结果 / 状态）【拉丁】</span></div>
+  <span class="trick">💡 记法：动词 + -ment = 名词：develop→development，agree→agreement，非常能产。</span>
+  <span class="etym"><span class="lab">词源</span>：拉丁语名词后缀 <b>-mentum</b>，经古法语 <b>-ment</b> 进入英语；加在动词后表行为、结果、工具或状态。</span>
+  <span class="evo"><span class="lab">演化</span>：拉丁语 -mentum（表"行为的手段/结果"）→ 法语 -ment → 英语大量沿用，现代英语也可直接给英语本族动词加：enjoy→enjoyment、settle→settlement</span>
+  <ul>
+    <li><b data-say="words-audio/759b74ce43947f5f4c91aeddc3e5bad3.mp3">development</b> 发展；开发 <span class="note">（develop 发展 + -ment）</span></li>
+    <li><b data-say="words-audio/5ba3205251522e793017b3af03c607ce.mp3">agreement</b> 协议；同意 <span class="note">（agree 同意 + -ment）</span></li>
+    <li><b data-say="words-audio/e900e40bc91d3f9f7f0a99fed68a2e96.mp3">environment</b> 环境 <span class="note">（environ 环绕 + -ment）</span></li>
+    <li><b data-say="words-audio/f83c2a85d972a89238f31296c63f0dbc.mp3">payment</b> 付款；报酬 <span class="note">（pay 支付 + -ment）</span></li>
+    <li><b data-say="words-audio/4245bf56d28f22197a4b30b46c809626.mp3">statement</b> 陈述；声明 <span class="note">（state 陈述 + -ment）</span></li>
+    <li><b data-say="words-audio/cd2158f023ff0ff278df92a54a26b131.mp3">apartment</b> 公寓 <span class="note">（意大利语 apartamento，房间分开的住所）</span></li>
+  </ul>
+  <div class="usage">口语/生活用：<b data-say="words-audio/761529d31cb9a31d30aab1d49e218249.mp3">We signed the agreement yesterday.</b> 我们昨天签了协议。</div>
+</div>
+
+<div class="card affix">
+  <div class="root-head"><span class="num">9</span><span class="root">-ness</span> <span class="meaning">= 名词后缀（…的状态 / 性质）【古英语】</span></div>
+  <span class="trick">💡 记法：形容词 + -ness = 名词：happy→happiness，kind→kindness。英语最本士的后缀之一。</span>
+  <span class="etym"><span class="lab">词源</span>：古英语 <b>-nes(s)</b>，源自日耳曼语 *-inassus-；与德语 -nis、荷兰语 -nis 同源，是英语土生土长的名词后缀。</span>
+  <span class="evo"><span class="lab">演化</span>：古英语时期就把形容词变成"状态名词"：beorhtnes 光亮（今 brightness）→ 现代几乎能给任何形容词加：darkness、weakness、carelessness</span>
+  <ul>
+    <li><b data-say="words-audio/695e06655143c0d6c31e47e356558132.mp3">happiness</b> 幸福 <span class="note">（happy 幸福 + -ness，y→i）</span></li>
+    <li><b data-say="words-audio/e9d6bfefbe0f6e457a00f031ad45d3c6.mp3">kindness</b> 善良；好意 <span class="note">（kind 善良 + -ness）</span></li>
+    <li><b data-say="words-audio/9b7d722b58370498cd39104b2d971978.mp3">darkness</b> 黑暗 <span class="note">（dark 黑暗 + -ness）</span></li>
+    <li><b data-say="words-audio/0171fbf1a4eee6519915b09a47598aa8.mp3">weakness</b> 弱点；虚弱 <span class="note">（weak 弱 + -ness）</span></li>
+    <li><b data-say="words-audio/f5d7e2532cc9ad16bc2a41222d76f269.mp3">business</b> 商业；生意 <span class="note">（busy 忙碌 → 忙的事）</span></li>
+    <li><b data-say="words-audio/eaae71a4b1a25e475724eadb9f271a99.mp3">awareness</b> 意识；觉察 <span class="note">（aware 察觉 + -ness）</span></li>
+  </ul>
+  <div class="usage">口语/生活用：<b data-say="words-audio/6222e1d033bb2e262c2a7635ce35b4d2.mp3">I appreciate your kindness.</b> 我很感激你的好意。</div>
+</div>
+
+<div class="card affix">
+  <div class="root-head"><span class="num">10</span><span class="root">inter-</span> <span class="meaning">= between（在…之间）【拉丁】</span></div>
+  <span class="trick">💡 记法：internet 互联网 = 各国网络"之间"相连；interview 面试 = 互相"看"。</span>
+  <span class="etym"><span class="lab">词源</span>：拉丁语 <b>inter</b>「在…之间、在…之中」；源自印欧语 *en-tero-（比较级，= 在里面的），与 in、enter 同源。</span>
+  <span class="evo"><span class="lab">演化</span>：<b>本义「之间」</b> → international 国际的、internet 互联网 ｜ <b>「从中间切断」</b> → interrupt 打断 ｜ <b>「互相看」</b> → interview 面试 ｜ <b>「掺进中间」</b> → interfere 干涉 ｜ <b>「互相作用」</b> → interact 互动</span>
+  <ul>
+    <li><b data-say="words-audio/15d7000797a33d7af16c9b052f852768.mp3">international</b> 国际的 <span class="note">（inter- 之间 + nation 国家 + -al）</span></li>
+    <li><b data-say="words-audio/c3581516868fb3b71746931cac66390e.mp3">internet</b> 互联网 <span class="note">（inter- 之间 + net 网络 → 网络相连）</span></li>
+    <li><b data-say="words-audio/2414c252176310b2c04547257948c7b7.mp3">interrupt</b> 打断 <span class="note">（inter- 中间 + rupt 断 → 从中断开）</span></li>
+    <li><b data-say="words-audio/04980744f74f4ec36ad5a9d5fec8876f.mp3">interview</b> 面试；访谈 <span class="note">（inter- 互相 + view 看 → 互相对看）</span></li>
+    <li><b data-say="words-audio/ceff088dfeb78b82780f12c4f2b08b48.mp3">interfere</b> 干涉；妨碍 <span class="note">（inter- + fere 打 → 打进中间）</span></li>
+    <li><b data-say="words-audio/65fa1578166773cd108a4a25e10cd55f.mp3">interact</b> 互动 <span class="note">（inter- 互相 + act 行动）</span></li>
+  </ul>
+  <div class="usage">口语/生活用：<b data-say="words-audio/0db7d2e67a632e7dc7c2d3f633a02830.mp3">Sorry to interrupt you for a second.</b> 抱歉打断你一下。</div>
+</div>
+
+<div class="footer">词根词缀每日积累 · 每天 10 个 · 明天见 👋</div>
+
+</body>
+<script>
+/* ---------- 单词发音 ---------- */
+(function () {
+  var synth = ("speechSynthesis" in window) ? window.speechSynthesis : null;
+  var audio = new Audio();
+  audio.preload = "auto";
+  audio.playbackRate = 0.95;
+  var curBtn = null;
+
+  function pickVoice() {
+    if (!synth) return null;
+    var vs = synth.getVoices() || [];
+    return vs.filter(function (v) { return /en[-_]US/i.test(v.lang); })[0] ||
+           vs.filter(function (v) { return /^en/i.test(v.lang); })[0] || null;
+  }
+  function tts(text) {
+    if (!synth) return;
+    var u = new SpeechSynthesisUtterance(text);
+    u.lang = "en-US";
+    var v = pickVoice(); if (v) u.voice = v;
+    try { synth.cancel(); } catch (e) {}
+    synth.speak(u);
+  }
+  function clear() { if (curBtn) { curBtn.classList.remove("playing"); curBtn = null; } }
+  function play(el, btn) {
+    var src = el.getAttribute("data-say");
+    var text = el.textContent.replace(/\s+/g, " ").trim();
+    clear();
+    if (btn) { btn.classList.add("playing"); curBtn = btn; }
+    if (src) {
+      audio.src = src;
+      audio.onended = function () { if (curBtn === btn) clear(); };
+      audio.onerror = function () { if (curBtn === btn) clear(); tts(text); };
+      var p = audio.play();
+      if (p && p.catch) { p.catch(function () { clear(); tts(text); }); }
+    } else {
+      tts(text);
+      setTimeout(function () { if (curBtn === btn) clear(); }, 1500);
+    }
+  }
+
+  document.querySelectorAll("[data-say]").forEach(function (el) {
+    var prev = el.previousElementSibling;
+    if (prev && prev.classList && prev.classList.contains("psay")) return;
+    var b = document.createElement("button");
+    b.type = "button"; b.className = "psay"; b.textContent = "\uD83D\uDD0A"; b.title = "发音";
+    b.setAttribute("aria-label", "发音");
+    b.addEventListener("click", function (e) {
+      e.stopPropagation(); e.preventDefault();
+      if (curBtn === b) {
+        try { audio.pause(); } catch (err) {}
+        if (synth) { try { synth.cancel(); } catch (err) {} }
+        clear(); return;
+      }
+      play(el, b);
+    });
+    el.parentNode.insertBefore(b, el);
+  });
+
+  /* 点任意英文词发音 */
+  var on = false;
+  var tg = document.createElement("button");
+  tg.id = "pron-toggle"; tg.type = "button"; tg.textContent = "\uD83D\uDD24 点词发音";
+  document.body.appendChild(tg);
+  tg.addEventListener("click", function () {
+    on = !on; tg.classList.toggle("on", on);
+    tg.textContent = on ? "\uD83D\uDD24 点词发音：开" : "\uD83D\uDD24 点词发音";
+  });
+  function wordAt(x, y) {
+    var node, offset;
+    if (document.caretRangeFromPoint) {
+      var r = document.caretRangeFromPoint(x, y);
+      if (!r) return null; node = r.startContainer; offset = r.startOffset;
+    } else if (document.caretPositionFromPoint) {
+      var p = document.caretPositionFromPoint(x, y);
+      if (!p) return null; node = p.offsetNode; offset = p.offset;
+    } else { return null; }
+    if (!node || node.nodeType !== 3) return null;
+    var t = node.textContent, re = /[A-Za-z][A-Za-z'\u2019\-]*/g, m;
+    while ((m = re.exec(t))) {
+      if (offset >= m.index && offset <= m.index + m[0].length) return m[0];
+    }
+    return null;
+  }
+  document.addEventListener("click", function (e) {
+    if (!on) return;
+    if (e.target.closest && (e.target.closest(".psay") || e.target.closest("#pron-toggle"))) return;
+    var w = wordAt(e.clientX, e.clientY);
+    if (w) tts(w);
+  }, true);
+})();
+
+</script>
+</html>

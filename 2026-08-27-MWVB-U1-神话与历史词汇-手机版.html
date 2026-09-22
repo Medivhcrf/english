@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Merriam-Webster's Vocabulary Builder · Unit 1 Words from Mythology and History</title>
+<style>
+  @page { size: A4; margin: 16mm 15mm; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Noto Sans CJK SC', 'Droid Sans Fallback', 'WenQuanYi Zen Hei', sans-serif;
+    font-size: 10.5pt;
+    color: #1f2937;
+    line-height: 1.65;
+  }
+  .header {
+    border-bottom: 3px solid #7c3aed;
+    padding-bottom: 10px;
+    margin-bottom: 6px;
+  }
+  .header h1 { font-size: 18pt; color: #4c1d95; letter-spacing: 1px; }
+  .header .sub { font-size: 11pt; color: #6d28d9; margin-top: 2px; }
+  .header .meta { color: #6b7280; font-size: 9.5pt; margin-top: 2px; }
+  .header .meta b { color: #7c3aed; }
+
+  h2.section {
+    font-size: 12.5pt;
+    color: #4c1d95;
+    margin: 14px 0 8px 0;
+    padding-left: 8px;
+    border-left: 4px solid #7c3aed;
+  }
+
+  .intro {
+    background: #f5f3ff;
+    border: 1px solid #ddd6fe;
+    border-radius: 6px;
+    padding: 8px 12px;
+    margin-bottom: 10px;
+    font-size: 9.5pt;
+    color: #4c1d95;
+  }
+  .intro b { color: #6d28d9; }
+
+  .card {
+    border: 1px solid #e5e7eb;
+    border-left: 4px solid #7c3aed;
+    border-radius: 6px;
+    padding: 8px 12px 9px 12px;
+    margin-bottom: 9px;
+    page-break-inside: avoid;
+  }
+  .card .head { margin-bottom: 4px; }
+  .card .num {
+    display: inline-block;
+    width: 17px; height: 17px;
+    background: #7c3aed; color: #fff;
+    border-radius: 50%;
+    text-align: center; line-height: 17px;
+    font-size: 9pt; font-weight: bold;
+    margin-right: 6px;
+    vertical-align: 1px;
+  }
+  .card .word { font-size: 12.5pt; font-weight: bold; color: #4c1d95; font-family: 'DejaVu Sans', sans-serif; }
+  .card .ipa { color: #9ca3af; font-size: 9.5pt; margin-left: 4px; font-family: 'DejaVu Sans', sans-serif; }
+  .card .pos { color: #059669; font-size: 8.5pt; font-weight: bold; margin-left: 4px; }
+  .card .meaning { color: #4b5563; }
+  .card .trick {
+    display: block;
+    color: #047857;
+    font-size: 9pt;
+    margin-top: 1px;
+  }
+  .card .etym {
+    display: block;
+    margin-top: 3px;
+    font-size: 9pt;
+    color: #6d28d9;
+  }
+  .card .etym .lab, .card .evo .lab, .card .rel .lab { font-weight: bold; }
+  .card .evo {
+    display: block;
+    margin-top: 1px;
+    font-size: 9pt;
+    color: #b45309;
+  }
+  .card .rel {
+    display: block;
+    margin-top: 1px;
+    font-size: 9pt;
+    color: #0f766e;
+  }
+  .card .usage {
+    margin-top: 4px;
+    background: #f5f3ff;
+    border-radius: 4px;
+    padding: 3px 8px;
+    font-size: 9.5pt;
+    color: #4c1d95;
+  }
+  .card .usage b { color: #5b21b6; }
+  .card .usage .en { color: #1e1b4b; }
+
+  .card .confuse {
+    margin-top: 5px;
+    background: #fefce8;
+    border: 1px solid #fde047;
+    border-radius: 5px;
+    padding: 5px 9px;
+    font-size: 9pt;
+    color: #854d0e;
+    line-height: 1.6;
+  }
+  .card .confuse .confuse-title {
+    display: block;
+    font-weight: bold;
+    font-size: 9.5pt;
+    color: #92400e;
+    margin-bottom: 2px;
+  }
+  .card .confuse b { color: #78350f; }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 8.8pt;
+    margin: 6px 0 10px 0;
+    page-break-inside: avoid;
+  }
+  th {
+    background: #7c3aed;
+    color: #fff;
+    border: 1px solid #7c3aed;
+    padding: 3px 6px;
+    text-align: left;
+  }
+  td {
+    border: 1px solid #e5e7eb;
+    padding: 3px 6px;
+    vertical-align: top;
+  }
+  tr:nth-child(even) td { background: #faf5ff; }
+  td b { color: #6d28d9; }
+
+  .quiz { page-break-inside: avoid; }
+  .quiz li { margin: 2px 0 2px 20px; font-size: 10pt; }
+  .quiz li b { color: #4c1d95; }
+
+  .answers {
+    margin-top: 6px;
+    background: #ecfdf5;
+    border: 1px dashed #34d399;
+    border-radius: 5px;
+    padding: 6px 10px;
+    font-size: 9.5pt;
+    color: #065f46;
+  }
+  .answers b { color: #047857; }
+
+  .footer {
+    margin-top: 14px;
+    text-align: center;
+    color: #9ca3af;
+    font-size: 8.5pt;
+    border-top: 1px solid #e5e7eb;
+    padding-top: 6px;
+  }
+/* ---------- 单词发音（神经网络 MP3，缺失回退系统语音） ---------- */
+.psay{
+  display:inline-flex; align-items:center; justify-content:center;
+  width:18px; height:18px; margin:0 5px 0 0; padding:0;
+  border:1px solid #cbd5e1; border-radius:50%; background:#f8fafc;
+  color:#2563eb; font-size:9px; line-height:1; cursor:pointer;
+  vertical-align:1px; -webkit-tap-highlight-color:transparent;
+  transition:background .15s,border-color .15s;
+}
+.psay:hover{ background:#dbeafe; border-color:#93c5fd; }
+.psay.playing{ background:#2563eb; border-color:#2563eb; color:#fff; animation:psay-pulse 1s infinite; }
+@keyframes psay-pulse{ 0%,100%{opacity:1;} 50%{opacity:.5;} }
+
+#pron-toggle{
+  position:fixed; left:12px; bottom:calc(16px + env(safe-area-inset-bottom));
+  z-index:950; border:none; border-radius:999px; padding:8px 14px;
+  background:rgba(37,99,235,.95); color:#fff; font-size:13px; cursor:pointer;
+  box-shadow:0 4px 14px rgba(0,0,0,.25);
+  font-family:'Noto Sans CJK SC','Droid Sans Fallback',sans-serif;
+  -webkit-tap-highlight-color:transparent;
+}
+#pron-toggle.on{ background:#047857; }
+
+@media print{ .psay, #pron-toggle{ display:none !important; } }
+
+/* mobile-generic */
+  html { -webkit-text-size-adjust: 100%; }
+  body { overflow-wrap: break-word; }
+  @media (max-width: 640px) {
+    body { font-size: 16px !important; line-height: 1.8;
+           padding: 14px 12px calc(34px + env(safe-area-inset-bottom)); }
+    .header h1 { font-size: 1.5rem; }
+    .header .meta { font-size: .82rem; }
+    h2.section { font-size: 1.12rem; }
+    .card { padding: 11px 13px; border-radius: 10px; }
+    .card .root { font-size: 1.18rem; }
+    .card li { font-size: 1rem; padding: 3px 0; }
+    .card .usage { font-size: .95rem; }
+    .card .etym, .card .evo, .card .trick,
+    .card .confuse, .card .variant, .card .cognate { font-size: .86rem; }
+    table { display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    .flow { font-size: .9rem; }
+  }
+
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>Merriam-Webster's Vocabulary Builder · Unit 1</h1>
+  <div class="sub">Words from Mythology and History · 来自神话与历史的词汇</div>
+  <div class="meta">2026 年 8 月 27 日 ｜ <b>本单元收录 8 词</b> ｜ 内容忠实原书 2nd Ed.（Mary Wood Cornog）</div>
+</div>
+
+<div class="intro">
+<b>本节是什么？</b> 本书每 5 组词汇就插入一个特殊章节（special section），Unit 1 结尾的这组叫 <b>Words from Mythology and History</b>——单词由神话人物、历史人物、地名或哲学流派的名字演变而来（英文称 eponym「名源词」）。记忆关键：<b>先记背后的名字和故事，字面义自然浮现。</b>本组 8 词中，4 个来自人名（cicerone / hector / nestor / stentorian），2 个来自地名（spartan / sybaritic），2 个来自哲学流派（hedonism / stoic）。
+</div>
+
+<h2 class="section">核心词汇（Unit 1 · 8 个）</h2>
+
+<div class="card">
+  <div class="head"><span class="num">1</span><span class="word">cicerone</span><span class="ipa">/ˌtʃɪtʃəˈroʊni/</span><span class="pos">n.</span></div>
+  <span class="meaning">导游、讲解员——尤指带游客参观博物馆、古迹、建筑并逐一讲解的人 <span class="pos" style="color:#059669">(a guide who explains what is being seen)</span></span>
+  <span class="trick">💡 记法：Cicero 西塞罗 = 古罗马最雄辩的政治家、演说家 → 讲解时像西塞罗那样博学善谈的人 = cicerone</span>
+  <span class="etym"><span class="lab">词源</span>：罗马政治家、演说家 <b>Cicero（西塞罗）</b> 以文辞优雅、学识渊博著称（偶尔也话痨）。18 世纪的意大利人于是用 cicerone 称呼那些带受过良好教育的外国游客参观古罗马文化遗址的向导——他们讲解时力求像西塞罗一样雄辩博学</span>
+  <div class="usage"><b>例句</b> <span class="en">On Crete they sought out a highly recommended cicerone, hoping to receive the best possible introduction to the noteworthy historical sites.</span><br>（在克里特岛，他们特意找了一位口碑极佳的讲解员，希望有人能最全面地讲解那些值得一看的历史遗迹。）</div>
+  <span class="rel"><span class="lab">关联</span>：<b>Cicero</b> 西塞罗 ｜ <b>orator</b> 演说家 ｜ <b>eloquence</b> 雄辩 — cicerone 强调「边走边讲」的文化导览，比泛泛的 guide 更专业</span>
+</div>
+
+<div class="card">
+  <div class="head"><span class="num">2</span><span class="word">hector</span><span class="ipa">/ˈhektər/</span><span class="pos">v.</span></div>
+  <span class="meaning">威吓、欺凌、虚张声势地恫吓 <span class="pos" style="color:#059669">(to bully or harass by bluster or personal pressure)</span></span>
+  <span class="trick">💡 记法：赫克托耳本是《伊利亚特》里的英雄，但 17 世纪伦敦一支地痞团伙自称「Hectors」到处欺压市民 → hector = 欺负人</span>
+  <span class="etym"><span class="lab">词源</span>：荷马《伊利亚特》中，<b>Hector（赫克托耳）</b> 是特洛伊军队统帅、高贵与荣誉的化身，后被阿喀琉斯杀死。词义转变发生在英国内战结束后：17 世纪晚期伦敦街头出现一批由退役士兵组成的流氓团伙，专门滋扰市民，其中最出名的一伙自称 <b>the Hectors</b>（另一伙叫 the Blades），因为他们常像赫克托耳和阿喀琉斯一样舞刀弄枪。此后 hector 便成了「欺凌、威吓」</span>
+  <div class="usage"><b>例句</b> <span class="en">He would swagger around the apartment entrance with his friends and hector the terrified inhabitants going in and out.</span><br>（他和狐朋狗友在公寓门口耀武扬威，恐吓进进出出的住户。）</div>
+  <div class="confuse">
+    <span class="confuse-title">🔎 辨析：hector / bully / intimidate</span>
+    <b>hector</b>：强调「虚张声势地吓唬、纠缠」<br>
+    <b>bully</b>：最常用，「仗势欺人」（名词、动词通用）<br>
+    <b>intimidate</b>：正式，「以威吓使人屈服」<br>
+    注意 hector 大写 Hector 时是人名「赫克托耳」，小写 hector 才指「欺凌」。
+  </div>
+</div>
+
+<div class="card">
+  <div class="head"><span class="num">3</span><span class="word">hedonism</span><span class="ipa">/ˈhiːdənɪzəm/</span><span class="pos">n.</span></div>
+  <span class="meaning">享乐主义——以快乐（幸福）为人生首要目标的态度或生活方式 <span class="pos" style="color:#059669">(a way of life based on the idea that pleasure should be the chief goal)</span></span>
+  <span class="trick">💡 记法：希腊语 hēdonē = 快乐 → 一切为了快乐 = hedonism；形容词 hedonistic，人 hednonist（享乐主义者）</span>
+  <span class="etym"><span class="lab">词源</span>：源自希腊语 <b>hēdonē「快乐」</b>。历史上它是多套哲学的基础：古希腊的<b>伊壁鸠鲁学派（Epicureans）</b>与 19 世纪的<b>功利主义者（Utilitarians）</b>都奉行享乐主义原则。不过今天这个词通常指感官的即时享乐；而哲学家所说的享乐主义，往往指不求自私、平静而长远的愉悦</span>
+  <div class="usage"><b>例句</b> <span class="en">In her new spirit of hedonism, she went out for a massage, picked up champagne and chocolate truffles, and made a date that evening.</span><br>（在崭新的享乐主义精神驱使下，她出门做了按摩、买了香槟和松露巧克力，当晚还与旧情人约了会。）</div>
+  <span class="rel"><span class="lab">关联</span>：<b>hedonic</b> 快乐的 ｜ <b>hedonistic</b> 享乐主义的 ｜ 近义词 <b>epicurean</b>（讲究吃喝的享乐）— 反义词见下文的 <b>stoic / stoicism</b></span>
+</div>
+
+<div class="card">
+  <div class="head"><span class="num">4</span><span class="word">nestor</span><span class="ipa">/ˈnestɔːr/</span><span class="pos">n.</span></div>
+  <span class="meaning">（某领域的）前辈、元老、德高望重的领袖 <span class="pos" style="color:#059669">(a senior figure or leader in one's field)</span></span>
+  <span class="trick">💡 记法：涅斯托尔 = 特洛伊战争中希腊联军最年长的老将，以睿智、乐于提点后辈闻名 → 业界老前辈 = nestor</span>
+  <span class="etym"><span class="lab">词源</span>：《伊利亚特》中的 <b>Nestor（涅斯托尔）</b> 是特洛伊战争中希腊方面最年长的将领。年轻时他是伟大的战士，上了年纪后则以<b>智慧</b>和<b>健谈</b>著称（两者都随年龄增长而增加）。如今 a nestor 不一定啰嗦，只指睿智、乐于分享建议的长者</span>
+  <div class="usage"><b>例句</b> <span class="en">The guest of honor was a nestor among journalists, and after dinner he shared some of his wisdom with the audience.</span><br>（贵宾是记者圈的老前辈，晚宴后他向大家分享了自己的智慧。）</div>
+  <div class="confuse">
+    <span class="confuse-title">🔎 辨析：nestor / mentor / elder</span>
+    <b>nestor</b>：「德高望重的元老」，侧重地位与阅历，不一定要亲自指导你<br>
+    <b>mentor</b>：「导师」，直接辅导、栽培后辈（源自奥德修斯的良师 Mentor）<br>
+    <b>elder</b>：「长辈、年长者」，最普通<br>
+    例句：The company's nestor mentored three young engineers himself.
+  </div>
+</div>
+
+<div class="card">
+  <div class="head"><span class="num">5</span><span class="word">spartan</span><span class="ipa">/ˈspɑːrtən/</span><span class="pos">adj.</span></div>
+  <span class="meaning">简朴的、清苦的、严格自律的（回避奢华）<span class="pos" style="color:#059669">(marked by simplicity, avoidance of luxury, and strict self-discipline)</span></span>
+  <span class="trick">💡 记法：斯巴达城邦全民皆兵、克己奉公、生活简朴 → 清苦简朴 = spartan</span>
+  <span class="etym"><span class="lab">词源</span>：古希腊城邦 <b>Sparta（斯巴达）</b> 以严酷自律的生活方式闻名，为的是让公民随时备战：男女都要接受体能训练，男孩 7 岁开始军事训练，此后大半生住在军营——即使结了婚也不例外。如今游轮或偏远度假村打出「spartan accommodations」（简朴住宿）的招牌，反而有人抢着去图个清静，也没人担心会被凌晨拉起来操练</span>
+  <div class="usage"><b>例句</b> <span class="en">When he was single, he had lived a spartan life in a tiny, undecorated apartment with one chair, a table, and a bed.</span><br>（单身时，他过着清苦的生活：一间毫无装饰的小公寓，只有一把椅子、一张桌子和一张床。）</div>
+  <div class="confuse">
+    <span class="confuse-title">🔎 辨析：spartan / austere / ascetic</span>
+    <b>spartan</b>：清苦简朴，重在「无奢侈品」<br>
+    <b>austere</b>：严苛冷峻，重在「艰苦、克制」<br>
+    <b>ascetic</b>：禁欲苦行，重在「宗教/精神修炼」<br>
+    反义词：<b>sybaritic</b>（骄奢淫逸）、<b>luxurious</b>（奢华）。
+  </div>
+</div>
+
+<div class="card">
+  <div class="head"><span class="num">6</span><span class="word">stentorian</span><span class="ipa">/stenˈtɔːriən/</span><span class="pos">adj.</span></div>
+  <span class="meaning">（声音）极其洪亮的，且常带浑厚的低沉音色 <span class="pos" style="color:#059669">(extremely loud, often with especially deep richness of sound)</span></span>
+  <span class="trick">💡 记法：斯滕托尔 = 《伊利亚特》中嗓门如「铜锣」的希腊传令官 → 大嗓门 = stentorian</span>
+  <span class="etym"><span class="lab">词源</span>：与赫克托耳一样，<b>Stentor（斯滕托尔）</b> 也是《伊利亚特》中的战士，站在希腊一方。他嗓音异常洪亮——荷马称他「brazen-voiced（声如铜制乐器）」——在那个没有扩音设备的年代，他自然是向希腊大军宣读命令、发布公告的不二人选</span>
+  <div class="usage"><b>例句</b> <span class="en">Even without a microphone, his stentorian voice was clearly audible in the last rows of the auditorium.</span><br>（即使没有麦克风，他洪亮的嗓音在礼堂最后一排也清晰可闻。）</div>
+  <div class="confuse">
+    <span class="confuse-title">🔎 辨析：stentorian / strident / raucous</span>
+    <b>stentorian</b>：洪亮浑厚、穿透力强（中性偏褒）<br>
+    <b>strident</b>：尖利刺耳（贬义）<br>
+    <b>raucous</b>：沙哑嘈杂（形容人群、派对）<br>
+    His <u>stentorian</u> announcement was followed by <u>strident</u> whistles from a <u>raucous</u> crowd.
+  </div>
+</div>
+
+<div class="card">
+  <div class="head"><span class="num">7</span><span class="word">stoic</span><span class="ipa">/ˈstoʊɪk/</span><span class="pos">adj. / n.</span></div>
+  <span class="meaning">坚忍克己的、对苦乐泰然处之的；斯多葛主义者 <span class="pos" style="color:#059669">(seemingly indifferent to pleasure or pain)</span></span>
+  <span class="trick">💡 记法：斯多葛学派主张「不动心」——摆脱喜怒悲欢以获智慧 → 对痛苦毫不在意 = stoic</span>
+  <span class="etym"><span class="lab">词源</span>：<b>Stoics（斯多葛学派）</b> 最早出现于古希腊，一直延续到罗马时代。斯多葛主义教导人们摆脱欢乐、悲伤等一切激情以获得智慧，与佛教颇有相通之处。著名斯多葛哲学家包括政治家<b>西塞罗</b>、剧作家<b>塞涅卡</b>，以及以《沉思录》闻名的皇帝<b>马可·奥勒留</b>。今天我们欣赏那些「即使没听过马可·奥勒留，也能默默忍受身心痛苦」的 stoicism</span>
+  <div class="usage"><b>例句</b> <span class="en">She bore the pain of her broken leg with such stoic patience that most of us had no idea she was suffering.</span><br>（她以惊人的坚忍默默承受骨折之痛，我们大多数人根本不知道她在受苦。）</div>
+  <span class="rel"><span class="lab">关联</span>：<b>stoicism</b> 斯多葛主义、坚忍 ｜ <b>stoical</b> 同义形容词 ｜ 反义词 <b>hedonism</b>（享乐主义）— stoic 做名词指「坚忍的人」，首字母大写 Stoic 指学派成员</span>
+</div>
+
+<div class="card">
+  <div class="head"><span class="num">8</span><span class="word">sybaritic</span><span class="ipa">/ˌsɪbəˈrɪtɪk/</span><span class="pos">adj.</span></div>
+  <span class="meaning">骄奢淫逸的、贪图享乐的 <span class="pos" style="color:#059669">(marked by a luxurious or sensual way of life)</span></span>
+  <span class="trick">💡 记法：锡巴里斯 = 古希腊以「富豪云集、穷奢极欲」闻名之城 → 骄奢淫逸 = sybaritic</span>
+  <span class="etym"><span class="lab">词源</span>：<b>Sybaris（锡巴里斯）</b> 是古希腊人在意大利「靴子」脚趾处建立的殖民城邦（靠近今 Terranova di Sibari），公元前 6 世纪以市民的富庶奢华闻名。但财富让他们过度自信，与邻城开战时竟败给一支小得多的军队；获胜的敌人甚至<b>改道河流</b>，让流经锡巴里斯的河水把整座城永远夷为平地</span>
+  <div class="usage"><b>例句</b> <span class="en">When I knew them they were living a sybaritic existence—hopping from resort to resort, each more splendid than the last—but a year later the money ran out.</span><br>（我认识他们那会儿，他们过着骄奢淫逸的生活——从一个度假胜地跳到另一个，一个比一个奢华——可一年后钱就花光了。）</div>
+  <div class="confuse">
+    <span class="confuse-title">🔎 辨析：sybaritic / hedonistic / epicurean</span>
+    <b>sybaritic</b>：骄奢享乐，重在「奢华、感官享受」<br>
+    <b>hedonistic</b>：享乐主义的，重在「把快乐当人生目标」（哲学味）<br>
+    <b>epicurean</b>：讲究饮食的享乐，重在「吃好喝好」<br>
+    反义词：<b>spartan</b>（清苦简朴）、<b>ascetic</b>（禁欲）。
+  </div>
+</div>
+
+<h2 class="section">单元小结 · 速记表</h2>
+
+<table>
+  <thead>
+    <tr><th>单词</th><th>词性</th><th>来源</th><th>故事关键词</th><th>今日含义</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>cicerone</td><td>n.</td><td>Cicero 西塞罗（演说家）</td><td>讲解如西塞罗般博学雄辩</td><td>讲解员、文化导游</td></tr>
+    <tr><td>hector</td><td>v.</td><td>Hector 赫克托耳</td><td>伦敦地痞团伙自称 the Hectors</td><td>威吓、欺凌</td></tr>
+    <tr><td>hedonism</td><td>n.</td><td>希腊语 hēdonē（快乐）</td><td>伊壁鸠鲁学派 / 功利主义</td><td>享乐主义</td></tr>
+    <tr><td>nestor</td><td>n.</td><td>Nestor 涅斯托尔（老将）</td><td>特洛伊战争中最年长的睿智领袖</td><td>前辈、元老</td></tr>
+    <tr><td>spartan</td><td>adj.</td><td>Sparta 斯巴达（城邦）</td><td>全民皆兵、严酷自律、生活简朴</td><td>简朴清苦的、自律的</td></tr>
+    <tr><td>stentorian</td><td>adj.</td><td>Stentor 斯滕托尔</td><td>声如铜锣的希腊传令官</td><td>（嗓音）洪亮浑厚的</td></tr>
+    <tr><td>stoic</td><td>adj./n.</td><td>Stoics 斯多葛学派</td><td>不动心、摆脱激情以求智慧</td><td>坚忍克己的；坚忍的人</td></tr>
+    <tr><td>sybaritic</td><td>adj.</td><td>Sybaris 锡巴里斯（古城）</td><td>富豪奢靡、后被河水淹没</td><td>骄奢淫逸的</td></tr>
+  </tbody>
+</table>
+
+<div class="intro"><b>记单词小窍门</b>：本组天然组成 4 对「对子」——<b>spartan ↔ sybaritic</b>（清苦 ↔ 奢靡）、<b>stoic ↔ hedonism</b>（克制 ↔ 享乐）、人名系四词（cicerone / hector / nestor / stentorian）都在《伊利亚特》/罗马历史里，故事可串成一条时间线背。</div>
+
+<h2 class="section">自测 · 原书 Quiz 1-5</h2>
+
+<div class="quiz">
+  <p style="font-size:9.5pt;color:#4c1d95;">选出最接近的定义：</p>
+  <ol>
+    <li><b data-say="words-audio/861b9d827417dec985dc32462f579f10.mp3">hedonism</b> a. 偏好男性 b. 送礼物习惯 c. 隐藏感情的倾向 d. 爱好享乐</li>
+    <li><b data-say="words-audio/3ab9071536d62f29aa8b3fd39141f6ad.mp3">hector</b> a. 鼓励 b. 欺凌 c. 欺骗 d. 咒骂</li>
+    <li><b data-say="words-audio/d6ec0aeb8c528f6455722c73b27c0a6b.mp3">cicerone</b> a. 导游 b. 卡通角色 c. 演说家 d. 律师</li>
+    <li><b data-say="words-audio/4c9be8ab4cdca31f373f02e5bc9d815a.mp3">spartan</b> a. 便宜的 b. 希腊的 c. 严峻的 d. 奢侈的</li>
+    <li><b data-say="words-audio/5f0bd8ea4a350a5c8e6fc99183946f7f.mp3">nestor</b> a. 记者 b. 啰嗦的长者 c. 家禽母鸡 d. 法官</li>
+    <li><b data-say="words-audio/f09bbf27631e1f4b842dc934c893f786.mp3">stoic</b> a. 寻欢作乐的 b. 欺凌的 c. 压抑的 d. 不为疼痛所动</li>
+    <li><b data-say="words-audio/5c13c645acefe538a836667182c0cd61.mp3">sybaritic</b> a. 寻欢作乐的 b. 无奢华的 c. 姐妹般的 d. 冰冷的</li>
+    <li><b data-say="words-audio/84eab85987731c67c9d279bba378d593.mp3">stentorian</b> a. 令人反感的 b. 低沉的 c. 洪亮的 d. 听写的</li>
+  </ol>
+</div>
+
+<div class="answers">
+  <b>答案</b>：1-d ｜ 2-b ｜ 3-a ｜ 4-c ｜ 5-b ｜ 6-d ｜ 7-a ｜ 8-c
+</div>
+
+<div class="footer">Merriam-Webster's Vocabulary Builder (2nd Ed.) · Unit 1 Words from Mythology and History · 词源 · 演化 · 辨析 · 学而时习之 👋</div>
+</body>
+<script>
+/* ---------- 单词发音 ---------- */
+(function () {
+  var synth = ("speechSynthesis" in window) ? window.speechSynthesis : null;
+  var audio = new Audio();
+  audio.preload = "auto";
+  audio.playbackRate = 0.95;
+  var curBtn = null;
+
+  function pickVoice() {
+    if (!synth) return null;
+    var vs = synth.getVoices() || [];
+    return vs.filter(function (v) { return /en[-_]US/i.test(v.lang); })[0] ||
+           vs.filter(function (v) { return /^en/i.test(v.lang); })[0] || null;
+  }
+  function tts(text) {
+    if (!synth) return;
+    var u = new SpeechSynthesisUtterance(text);
+    u.lang = "en-US";
+    var v = pickVoice(); if (v) u.voice = v;
+    try { synth.cancel(); } catch (e) {}
+    synth.speak(u);
+  }
+  function clear() { if (curBtn) { curBtn.classList.remove("playing"); curBtn = null; } }
+  function play(el, btn) {
+    var src = el.getAttribute("data-say");
+    var text = el.textContent.replace(/\s+/g, " ").trim();
+    clear();
+    if (btn) { btn.classList.add("playing"); curBtn = btn; }
+    if (src) {
+      audio.src = src;
+      audio.onended = function () { if (curBtn === btn) clear(); };
+      audio.onerror = function () { if (curBtn === btn) clear(); tts(text); };
+      var p = audio.play();
+      if (p && p.catch) { p.catch(function () { clear(); tts(text); }); }
+    } else {
+      tts(text);
+      setTimeout(function () { if (curBtn === btn) clear(); }, 1500);
+    }
+  }
+
+  document.querySelectorAll("[data-say]").forEach(function (el) {
+    var prev = el.previousElementSibling;
+    if (prev && prev.classList && prev.classList.contains("psay")) return;
+    var b = document.createElement("button");
+    b.type = "button"; b.className = "psay"; b.textContent = "\uD83D\uDD0A"; b.title = "发音";
+    b.setAttribute("aria-label", "发音");
+    b.addEventListener("click", function (e) {
+      e.stopPropagation(); e.preventDefault();
+      if (curBtn === b) {
+        try { audio.pause(); } catch (err) {}
+        if (synth) { try { synth.cancel(); } catch (err) {} }
+        clear(); return;
+      }
+      play(el, b);
+    });
+    el.parentNode.insertBefore(b, el);
+  });
+
+  /* 点任意英文词发音 */
+  var on = false;
+  var tg = document.createElement("button");
+  tg.id = "pron-toggle"; tg.type = "button"; tg.textContent = "\uD83D\uDD24 点词发音";
+  document.body.appendChild(tg);
+  tg.addEventListener("click", function () {
+    on = !on; tg.classList.toggle("on", on);
+    tg.textContent = on ? "\uD83D\uDD24 点词发音：开" : "\uD83D\uDD24 点词发音";
+  });
+  function wordAt(x, y) {
+    var node, offset;
+    if (document.caretRangeFromPoint) {
+      var r = document.caretRangeFromPoint(x, y);
+      if (!r) return null; node = r.startContainer; offset = r.startOffset;
+    } else if (document.caretPositionFromPoint) {
+      var p = document.caretPositionFromPoint(x, y);
+      if (!p) return null; node = p.offsetNode; offset = p.offset;
+    } else { return null; }
+    if (!node || node.nodeType !== 3) return null;
+    var t = node.textContent, re = /[A-Za-z][A-Za-z'\u2019\-]*/g, m;
+    while ((m = re.exec(t))) {
+      if (offset >= m.index && offset <= m.index + m[0].length) return m[0];
+    }
+    return null;
+  }
+  document.addEventListener("click", function (e) {
+    if (!on) return;
+    if (e.target.closest && (e.target.closest(".psay") || e.target.closest("#pron-toggle"))) return;
+    var w = wordAt(e.clientX, e.clientY);
+    if (w) tts(w);
+  }, true);
+})();
+
+</script>
+</html>
