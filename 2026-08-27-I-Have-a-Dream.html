@@ -1,0 +1,938 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>I Have a Dream · 马丁·路德·金 演讲精读</title>
+<style>
+  @page { size: A4; margin: 15mm 14mm; }
+  * { box-sizing: border-box; margin: 0; padding: 0; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  body {
+    font-family: 'Noto Sans CJK SC', 'Droid Sans Fallback', 'WenQuanYi Zen Hei', sans-serif;
+    font-size: 9.8pt;
+    color: #1f2937;
+    line-height: 1.62;
+  }
+  .header {
+    border-bottom: 3px solid #b91c1c;
+    padding-bottom: 8px;
+    margin-bottom: 6px;
+  }
+  .header h1 { font-size: 18pt; color: #7f1d1d; letter-spacing: 1px; }
+  .header .sub { font-size: 11pt; color: #b91c1c; margin-top: 2px; font-family: 'DejaVu Sans', sans-serif; }
+  .header .meta { color: #6b7280; font-size: 9pt; margin-top: 2px; }
+  .header .meta b { color: #b91c1c; }
+
+  h2.section {
+    font-size: 12pt;
+    color: #1e3a8a;
+    margin: 13px 0 7px 0;
+    padding-left: 8px;
+    border-left: 4px solid #1e3a8a;
+    page-break-after: avoid;
+  }
+
+  .intro {
+    background: #fef2f2;
+    border: 1px solid #fecaca;
+    border-radius: 6px;
+    padding: 7px 11px;
+    margin-bottom: 9px;
+    font-size: 9pt;
+    color: #7f1d1d;
+  }
+  .intro b { color: #b91c1c; }
+
+  .speech {
+    background: #fff;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    padding: 10px 14px;
+    margin-bottom: 9px;
+  }
+  .speech p { margin: 6px 0; font-family: 'DejaVu Sans', 'Noto Sans CJK SC', sans-serif; }
+  .speech .sline { margin: 4px 0; }
+  .speech .brk {
+    margin: 3px 0 6px 0; padding: 3px 8px 4px 8px;
+    border-left: 3px solid #93c5fd; background: #f8fafc;
+    border-radius: 0 4px 4px 0; font-size: 8.4pt; color: #334155;
+  }
+  .speech .brk .bhead { font-weight: bold; color: #1d4ed8; font-size: 8.2pt; margin-bottom: 2px; }
+  .speech .brk .ly { line-height: 1.55; }
+  .speech .brk .n { color: #94a3b8; font-weight: bold; font-family: 'DejaVu Sans', monospace; margin-right: 3px; }
+  .speech .brk .tg { color: #b91c1c; font-weight: bold; font-size: 8pt; margin-right: 5px; }
+  .speech .brk .sg { color: #111827; font-family: 'DejaVu Sans', sans-serif; margin-right: 5px; }
+  .speech .brk .note { color: #64748b; }
+  .speech .brk .sg u { text-decoration-color: #f87171; }
+
+  .speech .para { margin: 8px 0; }
+  .speech .sent { margin: 3px 0; }
+  .speech .ck { border-radius: 2px; padding: 0 1px; }
+  .speech .sup { font-size: 62%; vertical-align: super; color: #b91c1c; cursor: help; }
+  .speech .chip {
+    display: inline-block; min-width: 12px; height: 12px; line-height: 12px;
+    text-align: center; color: #fff; font-size: 8pt; font-weight: bold;
+    border-radius: 3px; margin-right: 5px; padding: 0 1px; font-family: 'DejaVu Sans', sans-serif;
+  }
+
+  .speech .pnum {
+    color: #9ca3af; font-size: 8pt; font-weight: bold; margin-right: 4px;
+  }
+  .speech .kw {
+    color: #b91c1c; font-weight: bold;
+    border-bottom: 1px dotted #fca5a5;
+  }
+  .speech .sup { color: #b91c1c; font-size: 7.5pt; font-weight: bold; vertical-align: super; }
+
+  .refrain { font-weight: bold; border-radius: 3px; padding: 0 2px; }
+  .refrain.dream { background: #fde68a; color: #78350f; }
+  .refrain.hundred { background: #bae6fd; color: #075985; }
+  .refrain.now { background: #bbf7d0; color: #14532d; }
+  .refrain.satisfied { background: #fbcfe8; color: #831843; }
+  .refrain.goback { background: #fed7aa; color: #7c2d12; }
+  .refrain.ring { background: #ddd6fe; color: #4c1d95; }
+  .refrain.free { background: #fecaca; color: #7f1d1d; }
+  .legend {
+    display: flex; flex-wrap: wrap; gap: 4px 10px;
+    background: #fff7ed; border: 1px solid #fed7aa; border-radius: 6px;
+    padding: 5px 9px; margin-bottom: 7px; font-size: 8.5pt; color: #7c2d12;
+  }
+  .legend .item { padding: 1px 7px; border-radius: 3px; font-weight: bold; }
+
+  .speech .kw { cursor: help; }
+  #tips {
+    position: fixed; display: none; z-index: 999; max-width: 360px;
+    background: #ffffff; border: 1px solid #e2e8f0; border-left: 4px solid #b91c1c;
+    border-radius: 6px; box-shadow: 0 6px 18px rgba(0,0,0,.18);
+    padding: 6px 9px; font-size: 8.8pt; line-height: 1.5; color: #1f2937;
+    pointer-events: none;
+  }
+  #tips .tw { font-weight: bold; color: #7f1d1d; font-size: 9.5pt; }
+  #tips .tipa { color: #475569; font-family: 'DejaVu Sans', sans-serif; font-weight: normal; margin-left: 4px; }
+  #tips .te { color: #6d28d9; display: block; margin-top: 2px; }
+  #tips .tm { color: #1e3a8a; display: block; margin-top: 2px; }
+  table#vocab td .ipa { color: #6b7280; font-size: 8pt; font-family: 'DejaVu Sans', sans-serif; }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 8.6pt;
+    margin: 5px 0 9px 0;
+    page-break-inside: avoid;
+  }
+  th {
+    background: #1e3a8a; color: #fff;
+    border: 1px solid #1e3a8a;
+    padding: 3px 6px; text-align: left;
+  }
+  td {
+    border: 1px solid #e5e7eb;
+    padding: 3px 6px; vertical-align: top;
+  }
+  tr:nth-child(even) td { background: #f0f4ff; }
+  td b { color: #1e40af; }
+  td .e { color: #6b7280; font-size: 8pt; }
+  td .n { color: #b91c1c; font-weight: bold; }
+
+  .card {
+    border: 1px solid #e5e7eb;
+    border-left: 4px solid #b91c1c;
+    border-radius: 6px;
+    padding: 7px 11px 8px 11px;
+    margin-bottom: 8px;
+    page-break-inside: avoid;
+  }
+  .card .head { margin-bottom: 3px; }
+  .card .num {
+    display: inline-block;
+    width: 17px; height: 17px;
+    background: #b91c1c; color: #fff;
+    border-radius: 50%;
+    text-align: center; line-height: 17px;
+    font-size: 9pt; font-weight: bold;
+    margin-right: 6px; vertical-align: 1px;
+  }
+  .card .t { font-size: 11pt; font-weight: bold; color: #7f1d1d; font-family: 'DejaVu Sans', sans-serif; }
+  .card .why {
+    display: block;
+    margin-top: 3px;
+    font-size: 8.8pt;
+    color: #6d28d9;
+    background: #f5f3ff;
+    border-left: 3px solid #a78bfa;
+    border-radius: 3px;
+    padding: 3px 8px;
+  }
+  .card .why b { color: #5b21b6; }
+  .card .usage {
+    margin-top: 4px;
+    background: #eff6ff;
+    border-radius: 4px;
+    padding: 3px 8px;
+    font-size: 9.2pt;
+    color: #1e3a8a;
+  }
+  .card .usage b { color: #1e40af; }
+
+  .quiz table.match td:nth-child(1) { width: 55%; }
+  .quiz .qhead {
+    background: #e0e7ff;
+    border-radius: 4px;
+    padding: 3px 9px;
+    font-size: 9.5pt;
+    font-weight: bold;
+    color: #1e3a8a;
+    margin-bottom: 4px;
+  }
+  .quiz .qhead .hint { font-weight: normal; color: #6b7280; font-size: 8.5pt; margin-left: 6px; }
+  .quiz ol.fill { list-style: decimal; padding-left: 22px; }
+  .quiz ol.fill li { margin: 2px 0; font-size: 9.2pt; }
+  .quiz ol.fill li b { color: #b91c1c; }
+  .quiz .bank {
+    background: #f0fdf4;
+    border: 1px dashed #86efac;
+    border-radius: 5px;
+    padding: 4px 9px;
+    font-size: 8.8pt;
+    color: #065f46;
+    margin-bottom: 4px;
+  }
+  .quiz .bank b { color: #047857; }
+
+  .answers {
+    margin-top: 5px;
+    background: #ecfdf5;
+    border: 1px dashed #34d399;
+    border-radius: 5px;
+    padding: 7px 11px;
+    font-size: 9pt;
+    color: #065f46;
+    line-height: 1.8;
+  }
+  .answers .atitle { font-weight: bold; color: #047857; }
+  .answers b { color: #047857; }
+
+  .footer {
+    margin-top: 12px;
+    text-align: center;
+    color: #9ca3af;
+    font-size: 8.3pt;
+    border-top: 1px solid #e5e7eb;
+    padding-top: 5px;
+  }
+/* ---------- 朗读（Web Speech API） ---------- */
+.say{
+  display:inline-flex; align-items:center; justify-content:center;
+  width:22px; height:22px; margin:0 6px 0 0; padding:0;
+  border:1px solid #cbd5e1; border-radius:50%; background:#f8fafc;
+  color:#1e3a8a; font-size:11px; line-height:1; cursor:pointer;
+  vertical-align:1px; -webkit-tap-highlight-color:transparent;
+  transition:background .15s,border-color .15s;
+}
+.say:hover{ background:#dbeafe; border-color:#93c5fd; }
+.say.speaking{ background:#b91c1c; border-color:#b91c1c; color:#fff; animation:say-pulse 1s infinite; }
+@keyframes say-pulse{ 0%,100%{opacity:1;} 50%{opacity:.5;} }
+
+#tts-bar{
+  position:fixed; right:16px; bottom:16px; z-index:950;
+  display:flex; align-items:center; gap:4px;
+  background:rgba(30,58,138,.95); color:#fff; border-radius:999px;
+  padding:5px 8px; box-shadow:0 6px 20px rgba(0,0,0,.28);
+  font-size:13px; font-family:'Noto Sans CJK SC','Droid Sans Fallback',sans-serif;
+}
+#tts-bar button{
+  border:none; background:rgba(255,255,255,.16); color:#fff;
+  border-radius:999px; padding:5px 11px; font-size:13px; cursor:pointer;
+  white-space:nowrap; -webkit-tap-highlight-color:transparent;
+}
+#tts-bar button:hover{ background:rgba(255,255,255,.32); }
+#tts-bar .rate{ color:#dbeafe; font-family:'DejaVu Sans',sans-serif; }
+
+@media (max-width:600px){
+  #tts-bar{ left:12px; right:auto; bottom:calc(16px + env(safe-area-inset-bottom)); }
+}
+
+/* 打印 / PDF 时不显示朗读控件 */
+@media print{
+  .say, #tts-bar{ display:none !important; }
+}
+
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>I Have a Dream</h1>
+  <div class="sub">Martin Luther King, Jr. · 1963.8.28 · 华盛顿林肯纪念堂</div>
+  <div class="meta">2026 年 8 月 27 日 ｜ 全文精读 · 重点词源 · 修辞分析 · 跟读要点 · 自测</div>
+</div>
+
+<h2 class="section">一、背景（为什么要学这篇）</h2>
+
+<div class="intro">
+1963 年 8 月 28 日，马丁·路德·金在「向华盛顿进军」民权大游行终点——林肯纪念堂前，面对约 <b>25 万人</b>发表此演讲。它是英语史上修辞密度最高的演讲之一：<b>排比（anaphora）</b>驱动全文节奏，<b>银行/支票、光明/黑暗、高山/巨石</b>三大隐喻系统贯穿始终，并大量引喻<b>《圣经》</b>（以赛亚书、阿摩司书）与<b>美国立国文献</b>（独立宣言、宪法）。有趣的是：最著名的「<span class="refrain dream">I have a dream</span>」段落并非预先写好的稿子，而是金在福音歌手 Mahalia Jackson 高喊「Tell them about the dream, Martin!」的鼓励下即兴道出的。
+</div>
+
+<h2 class="section">二、演讲全文（重点词已标注①，见词汇表）</h2>
+
+<div class="legend"><span class="item" style="background:#dbeafe;color:#1e3a8a">🧱 色块拆解</span>正文按句子成分分色上色；每句下方拆解框里，<b>色块编号 ↔ 拆解行 ↔ 汉语解释</b>一一对应。</div>
+
+
+
+<div class="speech">
+<div class="para">
+<div class="sent" data-audio="2026-08-27-I-Have-a-Dream.audio/s001.mp3"><span class="pnum">P1</span><span class="ck" style="background:#dbeafe;color:#1e3a8a">I am happy</span> <span class="ck" style="background:#bbf7d0;color:#14532d">to join with you</span> <span class="ck" style="background:#fde68a;color:#78350f">today</span> <span class="ck" style="background:#fbcfe8;color:#831843">in what will go down in history as</span> <span class="ck" style="background:#ddd6fe;color:#4c1d95">the greatest demonstration<span class="sup">①</span> for freedom</span> <span class="ck" style="background:#fed7aa;color:#7c2d12">in the history of our nation</span>.
+<div class="brk"><div class="ly"><span class="chip" style="background:#dbeafe">1</span><span class="tg">骨架</span><span class="sg" style="color:#1e3a8a">I am happy</span><span class="note">先亮情绪：我很高兴——说话人开门见山给心情</span></div>
+<div class="ly"><span class="chip" style="background:#bbf7d0">2</span><span class="tg">做什么</span><span class="sg" style="color:#14532d">to join with you</span><span class="note">高兴去做的事。注意是 join with you 而不是 join you：强调“与你们并肩/站在一起”，with 表共同</span></div>
+<div class="ly"><span class="chip" style="background:#fde68a">3</span><span class="tg">时间</span><span class="sg" style="color:#78350f">today</span><span class="note">再叠时间点：就在今天</span></div>
+<div class="ly"><span class="chip" style="background:#fbcfe8">4</span><span class="tg">占位</span><span class="sg" style="color:#831843">in what will go down in history as</span><span class="note">in 后接“这件事”；先说它“将载入史册”占位，还没点名它是什么</span></div>
+<div class="ly"><span class="chip" style="background:#ddd6fe">5</span><span class="tg">揭晓</span><span class="sg" style="color:#4c1d95">the greatest demonstration① for freedom</span><span class="note">最后揭晓：最大规模、为自由而举行的示威集会</span></div>
+<div class="ly"><span class="chip" style="background:#fed7aa">6</span><span class="tg">收窄比较</span><span class="sg" style="color:#7c2d12">in the history of our nation</span><span class="note">句末再收范围：是我国史上最伟大，而非随便哪段历史</span></div></div></div>
+</div>
+<div class="para">
+<div class="sent" data-audio="2026-08-27-I-Have-a-Dream.audio/s002.mp3"><span class="pnum">P2</span><span class="ck" style="background:#dbeafe;color:#1e3a8a">Five score years ago</span>, <span class="ck" style="background:#bbf7d0;color:#14532d">a great American, in whose symbolic shadow we stand today</span>, <span class="ck" style="background:#fde68a;color:#78350f">signed the Emancipation<span class="sup">②</span> Proclamation</span>.
+<div class="brk"><div class="ly"><span class="chip" style="background:#dbeafe">1</span><span class="tg">时间</span><span class="sg" style="color:#1e3a8a">Five score years ago</span><span class="note">先说时间：一百年前（score=二十）——林肯签署《解放宣言》是 1863，与演讲同年相隔百年</span></div>
+<div class="ly"><span class="chip" style="background:#bbf7d0">2</span><span class="tg">主语+同位</span><span class="sg" style="color:#14532d">a great American, in whose symbolic shadow we stand today</span><span class="note">再引“伟人”，顺势嵌入定语从句：我们此刻正站在他象征性的身影下（林肯纪念堂）</span></div>
+<div class="ly"><span class="chip" style="background:#fde68a">3</span><span class="tg">谓语</span><span class="sg" style="color:#78350f">signed the Emancipation② Proclamation</span><span class="note">最后才落到动作：他签署了《解放黑人奴隶宣言》</span></div></div></div>
+<div class="sent" data-audio="2026-08-27-I-Have-a-Dream.audio/s003.mp3"><span class="ck" style="background:#dbeafe;color:#1e3a8a">This momentous decree came as a great beacon light of hope</span> <span class="ck" style="background:#bbf7d0;color:#14532d">to millions of Negro slaves</span> <span class="ck" style="background:#fde68a;color:#78350f">who had been seared<span class="sup">③</span> in the flames of withering<span class="sup">④</span> injustice</span>.
+<div class="brk"><div class="ly"><span class="chip" style="background:#dbeafe">1</span><span class="tg">核心</span><span class="sg" style="color:#1e3a8a">This momentous decree came as a great beacon light of hope</span><span class="note">先说这份划时代的法令“到来”，如同希望的巨大灯塔（came as = 以…身份出现）</span></div>
+<div class="ly"><span class="chip" style="background:#bbf7d0">2</span><span class="tg">给谁</span><span class="sg" style="color:#14532d">to millions of Negro slaves</span><span class="note">灯塔照向谁：数百万黑奴</span></div>
+<div class="ly"><span class="chip" style="background:#fde68a">3</span><span class="tg">定语从句</span><span class="sg" style="color:#78350f">who had been seared③ in the flames of withering④ injustice</span><span class="note">他们经历了什么：在不公的烈焰中被灼烧（seared 呼应火焰）</span></div></div></div>
+<div class="sent" data-audio="2026-08-27-I-Have-a-Dream.audio/s004.mp3"><span class="ck" style="background:#dbeafe;color:#1e3a8a">It came as a joyous daybreak</span> <span class="ck" style="background:#bbf7d0;color:#14532d">to end the long night of their captivity</span>.
+<div class="brk"><div class="ly"><span class="chip" style="background:#dbeafe">1</span><span class="tg">指代</span><span class="sg" style="color:#1e3a8a">It came as a joyous daybreak</span><span class="note">再补一句写它带来的改变：又如欢乐的黎明降临</span></div>
+<div class="ly"><span class="chip" style="background:#bbf7d0">2</span><span class="tg">目的</span><span class="sg" style="color:#14532d">to end the long night of their captivity</span><span class="note">为什么是黎明：为了结束他们被囚禁的漫漫长夜（长夜 ↔ 黎明）</span></div></div></div>
+</div>
+<div class="para">
+<div class="sent" data-audio="2026-08-27-I-Have-a-Dream.audio/s005.mp3"><span class="pnum">P3</span><span class="ck" style="background:#dbeafe;color:#1e3a8a">But one hundred years later</span>, <span class="ck" style="background:#bbf7d0;color:#14532d">the Negro still is not free</span>.
+<div class="brk"><div class="ly"><span class="chip" style="background:#dbeafe">1</span><span class="tg">转折+时间</span><span class="sg" style="color:#1e3a8a">But one hundred years later</span><span class="note">But 一转、时间跳到百年后——开始四连排比</span></div>
+<div class="ly"><span class="chip" style="background:#bbf7d0">2</span><span class="tg">核心</span><span class="sg" style="color:#14532d">the Negro still is not free</span><span class="note">最硬的一句断言：黑人仍未获自由</span></div></div></div>
+<div class="sent" data-audio="2026-08-27-I-Have-a-Dream.audio/s006.mp3"><span class="ck" style="background:#dbeafe;color:#1e3a8a">One hundred years later</span>, <span class="ck" style="background:#bbf7d0;color:#14532d">the life of the Negro is still sadly crippled</span> <span class="ck" style="background:#fde68a;color:#78350f">by the manacles<span class="sup">⑤</span> of segregation<span class="sup">⑥</span> and the chains of discrimination</span><span class="sup">⑦</span>.
+<div class="brk"><div class="ly"><span class="chip" style="background:#dbeafe">1</span><span class="tg">排比</span><span class="sg" style="color:#1e3a8a">One hundred years later</span><span class="note">排比第一击</span></div>
+<div class="ly"><span class="chip" style="background:#bbf7d0">2</span><span class="tg">核心</span><span class="sg" style="color:#14532d">the life of the Negro is still sadly crippled</span><span class="note">主句：黑人的生活仍惨遭摧折</span></div>
+<div class="ly"><span class="chip" style="background:#fde68a">3</span><span class="tg">方式</span><span class="sg" style="color:#78350f">by the manacles⑤ of segregation⑥ and the chains of discrimination</span><span class="note">被什么摧折：隔离的“手铐”、歧视的“锁链”（双重比喻）</span></div></div></div>
+<div class="sent" data-audio="2026-08-27-I-Have-a-Dream.audio/s007.mp3"><span class="ck" style="background:#dbeafe;color:#1e3a8a">One hundred years later</span>, <span class="ck" style="background:#bbf7d0;color:#14532d">the Negro lives on a lonely island of poverty</span> <span class="ck" style="background:#fde68a;color:#78350f">in the midst of a vast ocean of material prosperity</span>.
+<div class="brk"><div class="ly"><span class="chip" style="background:#dbeafe">1</span><span class="tg">排比</span><span class="sg" style="color:#1e3a8a">One hundred years later</span><span class="note">排比第二击</span></div>
+<div class="ly"><span class="chip" style="background:#bbf7d0">2</span><span class="tg">核心</span><span class="sg" style="color:#14532d">the Negro lives on a lonely island of poverty</span><span class="note">黑人住在贫困的孤岛上（岛 = 孤立无援）</span></div>
+<div class="ly"><span class="chip" style="background:#fde68a">3</span><span class="tg">位置</span><span class="sg" style="color:#78350f">in the midst of a vast ocean of material prosperity</span><span class="note">孤岛嵌在哪：物质繁荣的汪洋之中（孤岛 ↔ 大海，反差）</span></div></div></div>
+<div class="sent" data-audio="2026-08-27-I-Have-a-Dream.audio/s008.mp3"><span class="ck" style="background:#dbeafe;color:#1e3a8a">One hundred years later</span>, the Negro <span class="ck" style="background:#bbf7d0;color:#14532d">is still languished</span> <span class="ck" style="background:#fde68a;color:#78350f">in the corners of American society</span> <span class="ck" style="background:#bbf7d0;color:#14532d">and finds himself an exile</span><span class="sup">⑧</span> <span class="ck" style="background:#fde68a;color:#78350f">in his own land</span>.
+<div class="brk"><div class="ly"><span class="chip" style="background:#dbeafe">1</span><span class="tg">排比</span><span class="sg" style="color:#1e3a8a">One hundred years later</span><span class="note">排比第三击</span></div>
+<div class="ly"><span class="chip" style="background:#bbf7d0">2</span><span class="tg">并列谓语</span><span class="sg" style="color:#14532d">is still languished…and finds himself an exile</span><span class="note">双谓语递进：在角落憔悴，且成了流亡者</span></div>
+<div class="ly"><span class="chip" style="background:#fde68a">3</span><span class="tg">地点/补语</span><span class="sg" style="color:#78350f">in the corners of American society…in his own land</span><span class="note">蜷在美国社会的角落 / 在自己国土上流亡（“自己土地”之反差最痛）</span></div></div></div>
+<div class="sent" data-audio="2026-08-27-I-Have-a-Dream.audio/s009.mp3"><span class="ck" style="background:#dbeafe;color:#1e3a8a">And so we've come here today</span> <span class="ck" style="background:#bbf7d0;color:#14532d">to dramatize a shameful condition</span>.
+<div class="brk"><div class="ly"><span class="chip" style="background:#dbeafe">1</span><span class="tg">收束</span><span class="sg" style="color:#1e3a8a">And so we've come here today</span><span class="note">排比收束：所以今天我们来到这里——把前面堆出的问题推向行动</span></div>
+<div class="ly"><span class="chip" style="background:#bbf7d0">2</span><span class="tg">目的</span><span class="sg" style="color:#14532d">to dramatize a shameful condition</span><span class="note">目的：把这种可耻处境“演出来给全国看”（dramatize 呼应开篇 demonstration）</span></div></div></div>
+</div>
+<div class="para">
+<div class="sent" data-audio="2026-08-27-I-Have-a-Dream.audio/s010.mp3"><span class="pnum">P4</span><span class="ck" style="background:#dbeafe;color:#1e3a8a">In a sense</span> <span class="ck" style="background:#bbf7d0;color:#14532d">we've come to our nation's capital</span> <span class="ck" style="background:#fde68a;color:#78350f">to cash a check</span>.
+<div class="brk"><div class="ly"><span class="chip" style="background:#dbeafe">1</span><span class="tg">软化</span><span class="sg" style="color:#1e3a8a">In a sense</span><span class="note">先把话说软、留余地：在某种意义上</span></div>
+<div class="ly"><span class="chip" style="background:#bbf7d0">2</span><span class="tg">核心+地点</span><span class="sg" style="color:#14532d">we've come to our nation's capital</span><span class="note">我们来到国都</span></div>
+<div class="ly"><span class="chip" style="background:#fde68a">3</span><span class="tg">目的</span><span class="sg" style="color:#78350f">to cash a check</span><span class="note">目的：来兑现一张支票（抛出全篇核心隐喻“银行/支票”）</span></div></div></div>
+<div class="sent" data-audio="2026-08-27-I-Have-a-Dream.audio/s011.mp3"><span class="ck" style="background:#dbeafe;color:#1e3a8a">When the architects of our republic wrote the magnificent words of</span> the Constitution and the Declaration of Independence, <span class="ck" style="background:#bbf7d0;color:#14532d">they were signing a promissory note</span> <span class="ck" style="background:#fde68a;color:#78350f">to which every American was to fall heir</span>.
+<div class="brk"><div class="ly"><span class="chip" style="background:#dbeafe">1</span><span class="tg">时间从句</span><span class="sg" style="color:#1e3a8a">When the architects of our republic wrote the magnificent words of</span><span class="note">先铺背景：当国父们写下宪法与独立宣言的庄严文字时</span></div>
+<div class="ly"><span class="chip" style="background:#bbf7d0">2</span><span class="tg">主句</span><span class="sg" style="color:#14532d">they were signing a promissory note</span><span class="note">主句揭示同等动作：他们等于签下一张“期票”（把立国承诺比作票据）</span></div>
+<div class="ly"><span class="chip" style="background:#fde68a">3</span><span class="tg">定语从句</span><span class="sg" style="color:#78350f">to which every American was to fall heir</span><span class="note">每位美国人都“顺位继承”这张期票（be to = 注定要）</span></div></div></div>
+<div class="sent" data-audio="2026-08-27-I-Have-a-Dream.audio/s012.mp3"><span class="ck" style="background:#dbeafe;color:#1e3a8a">This note was a promise</span> <span class="ck" style="background:#bbf7d0;color:#14532d">that all men — yes, black men as well as white men —</span> <span class="ck" style="background:#fde68a;color:#78350f">would be guaranteed the unalienable<span class="sup">⑨</span> rights of life, liberty, and the pursuit of happiness</span>.
+<div class="brk"><div class="ly"><span class="chip" style="background:#dbeafe">1</span><span class="tg">核心</span><span class="sg" style="color:#1e3a8a">This note was a promise</span><span class="note">点题：这张票就是一份承诺</span></div>
+<div class="ly"><span class="chip" style="background:#bbf7d0">2</span><span class="tg">同位插入</span><span class="sg" style="color:#14532d">that all men — yes, black men as well as white men —</span><span class="note">that 从句展开承诺内容，中间插入“是的，包括黑人白人”，照顾在场听众</span></div>
+<div class="ly"><span class="chip" style="background:#fde68a">3</span><span class="tg">从句谓语</span><span class="sg" style="color:#78350f">would be guaranteed the unalienable⑨ rights of life, liberty, and the pursuit of happiness</span><span class="note">人人必得保障：生命、自由、追求幸福之不可剥夺权（引独立宣言）</span></div></div></div>
+</div>
+<div class="para">
+<div class="sent" data-audio="2026-08-27-I-Have-a-Dream.audio/s013.mp3"><span class="pnum">P5</span><span class="ck" style="background:#dbeafe;color:#1e3a8a">It is obvious today</span> <span class="ck" style="background:#bbf7d0;color:#14532d">that America has defaulted<span class="sup">⑩</span> on this promissory note</span> <span class="ck" style="background:#fde68a;color:#78350f">insofar as her citizens of color are concerned</span>.
+<div class="brk"><div class="ly"><span class="chip" style="background:#dbeafe">1</span><span class="tg">判断</span><span class="sg" style="color:#1e3a8a">It is obvious today</span><span class="note">先下判断：今天已经一目了然（It 占位，真主事后置）</span></div>
+<div class="ly"><span class="chip" style="background:#bbf7d0">2</span><span class="tg">内容从句</span><span class="sg" style="color:#14532d">that America has defaulted⑩ on this promissory note</span><span class="note">清楚的是什么：美国在这张期票上违约了（隐喻延续）</span></div>
+<div class="ly"><span class="chip" style="background:#fde68a">3</span><span class="tg">限范围</span><span class="sg" style="color:#78350f">insofar as her citizens of color are concerned</span><span class="note">范围限定：就她的有色人种公民而言（先留退路的严谨）</span></div></div></div>
+<div class="sent" data-audio="2026-08-27-I-Have-a-Dream.audio/s014.mp3"><span class="ck" style="background:#dbeafe;color:#1e3a8a">Instead of honoring this sacred obligation</span>, <span class="ck" style="background:#bbf7d0;color:#14532d">America has given the Negro people a bad check</span>, <span class="ck" style="background:#fde68a;color:#78350f">a check which has come back marked 'insufficient funds.'</span> <span class="ck" style="background:#fbcfe8;color:#831843">But we refuse to believe that the bank of justice is bankrupt</span><span class="sup">⑪</span>.
+<div class="brk"><div class="ly"><span class="chip" style="background:#dbeafe">1</span><span class="tg">反面状语</span><span class="sg" style="color:#1e3a8a">Instead of honoring this sacred obligation</span><span class="note">句首先摆“本应做而未做”的选项：本应履行这神圣义务</span></div>
+<div class="ly"><span class="chip" style="background:#bbf7d0">2</span><span class="tg">主句</span><span class="sg" style="color:#14532d">America has given the Negro people a bad check</span><span class="note">主句给出实际行为：美国反而开给黑人一张坏支票</span></div>
+<div class="ly"><span class="chip" style="background:#fde68a">3</span><span class="tg">同位</span><span class="sg" style="color:#78350f">a check which has come back marked 'insufficient funds.'</span><span class="note">补充支票下场：被盖上“余额不足”退回</span></div>
+<div class="ly"><span class="chip" style="background:#fbcfe8">4</span><span class="tg">转折+主句</span><span class="sg" style="color:#831843">But we refuse to believe that the bank of justice is bankrupt</span><span class="note">But 一挺起身：但我们拒不相信“正义银行”会破产（bank 双关）</span></div></div></div>
+<div class="sent" data-audio="2026-08-27-I-Have-a-Dream.audio/s015.mp3"><span class="ck" style="background:#dbeafe;color:#1e3a8a">We refuse to believe</span> <span class="ck" style="background:#bbf7d0;color:#14532d">that there are insufficient funds in the great vaults of opportunity of this nation</span>.
+<div class="brk"><div class="ly"><span class="chip" style="background:#dbeafe">1</span><span class="tg">核心</span><span class="sg" style="color:#1e3a8a">We refuse to believe</span><span class="note">我们拒不相信（重复上句开头，攒力量）</span></div>
+<div class="ly"><span class="chip" style="background:#bbf7d0">2</span><span class="tg">内容从句</span><span class="sg" style="color:#14532d">that there are insufficient funds in the great vaults of opportunity of this nation</span><span class="note">不信什么：这个国家的“机遇金库”会资金不足（隐喻延续）</span></div></div></div>
+<div class="sent" data-audio="2026-08-27-I-Have-a-Dream.audio/s016.mp3"><span class="ck" style="background:#dbeafe;color:#1e3a8a">And so we've come to cash this check</span>, <span class="ck" style="background:#bbf7d0;color:#14532d">a check that will give us upon demand the riches of freedom and the security of justice</span>.
+<div class="brk"><div class="ly"><span class="chip" style="background:#dbeafe">1</span><span class="tg">收束</span><span class="sg" style="color:#1e3a8a">And so we've come to cash this check</span><span class="note">所以我们来兑现这张支票（回到本段开头，首尾环抱）</span></div>
+<div class="ly"><span class="chip" style="background:#bbf7d0">2</span><span class="tg">同位</span><span class="sg" style="color:#14532d">a check that will give us upon demand the riches of freedom and the security of justice</span><span class="note">定义这张票：随取随兑，给我们自由之财富与正义之保障</span></div></div></div>
+</div>
+<div class="para">
+<div class="sent" data-audio="2026-08-27-I-Have-a-Dream.audio/s017.mp3"><span class="pnum">P6</span><span class="ck" style="background:#dbeafe;color:#1e3a8a">We have also come to this hallowed<span class="sup">⑫</span> spot</span> <span class="ck" style="background:#bbf7d0;color:#14532d">to remind America of the fierce urgency<span class="sup">⑬</span> of now</span>.
+<div class="brk"><div class="ly"><span class="chip" style="background:#dbeafe">1</span><span class="tg">承接+地点</span><span class="sg" style="color:#1e3a8a">We have also come to this hallowed⑫ spot</span><span class="note">also 接上一段：我们也来到这“圣地”（林肯纪念堂；hallowed 神圣）</span></div>
+<div class="ly"><span class="chip" style="background:#bbf7d0">2</span><span class="tg">目的</span><span class="sg" style="color:#14532d">to remind America of the fierce urgency⑬ of now</span><span class="note">目的：提醒美国“此刻”的紧迫（now 点题，为下方 Now is the time 蓄势）</span></div></div></div>
+<div class="sent" data-audio="2026-08-27-I-Have-a-Dream.audio/s018.mp3"><span class="ck" style="background:#dbeafe;color:#1e3a8a">This is no time</span> <span class="ck" style="background:#bbf7d0;color:#14532d">to engage in the luxury of cooling off or to take the tranquilizing drug of gradualism</span><span class="sup">⑭</span>.
+<div class="brk"><div class="ly"><span class="chip" style="background:#dbeafe">1</span><span class="tg">判断</span><span class="sg" style="color:#1e3a8a">This is no time</span><span class="note">断语：现在不是（贪图）…的时候</span></div>
+<div class="ly"><span class="chip" style="background:#bbf7d0">2</span><span class="tg">内容</span><span class="sg" style="color:#14532d">to engage in the luxury of cooling off or to take the tranquilizing drug of gradualism</span><span class="note">不该做什么：享受“冷却”的奢侈、吞下“渐进主义”的麻醉剂（并列双比喻）</span></div></div></div>
+<div class="sent" data-audio="2026-08-27-I-Have-a-Dream.audio/s019.mp3"><span class="ck" style="background:#dbeafe;color:#1e3a8a">Now is the time</span> <span class="ck" style="background:#bbf7d0;color:#14532d">to make real the promises of democracy</span>.
+<div class="brk"><div class="ly"><span class="chip" style="background:#dbeafe">1</span><span class="tg">倒装核心</span><span class="sg" style="color:#1e3a8a">Now is the time</span><span class="note">主语后置、时间提前：现在正是时候（排比启动，每句同形）</span></div>
+<div class="ly"><span class="chip" style="background:#bbf7d0">2</span><span class="tg">内容</span><span class="sg" style="color:#14532d">to make real the promises of democracy</span><span class="note">做什么：让民主的承诺成真（make real + 宾语后置）</span></div></div></div>
+<div class="sent" data-audio="2026-08-27-I-Have-a-Dream.audio/s020.mp3"><span class="ck" style="background:#dbeafe;color:#1e3a8a">Now is the time</span> <span class="ck" style="background:#bbf7d0;color:#14532d">to rise from the dark and desolate<span class="sup">⑮</span> valley of segregation to the sunlit path of racial justice</span>.
+<div class="brk"><div class="ly"><span class="chip" style="background:#dbeafe">1</span><span class="tg">倒装核心</span><span class="sg" style="color:#1e3a8a">Now is the time</span><span class="note">排比之二</span></div>
+<div class="ly"><span class="chip" style="background:#bbf7d0">2</span><span class="tg">路径</span><span class="sg" style="color:#14532d">to rise from the dark and desolate⑮ valley of segregation to the sunlit path of racial justice</span><span class="note">从黑暗荒谷“升起”，走向阳光大道（from…to…一条位移线：黑暗↔阳光）</span></div></div></div>
+<div class="sent" data-audio="2026-08-27-I-Have-a-Dream.audio/s021.mp3"><span class="ck" style="background:#dbeafe;color:#1e3a8a">Now is the time</span> <span class="ck" style="background:#bbf7d0;color:#14532d">to lift our nation from the quicksands of racial injustice to the solid rock of brotherhood</span>.
+<div class="brk"><div class="ly"><span class="chip" style="background:#dbeafe">1</span><span class="tg">倒装核心</span><span class="sg" style="color:#1e3a8a">Now is the time</span><span class="note">排比之三</span></div>
+<div class="ly"><span class="chip" style="background:#bbf7d0">2</span><span class="tg">路径</span><span class="sg" style="color:#14532d">to lift our nation from the quicksands of racial injustice to the solid rock of brotherhood</span><span class="note">把国家从流沙中“举起”，放到磐石上（流沙↔磐石：不稳↔牢固）</span></div></div></div>
+<div class="sent" data-audio="2026-08-27-I-Have-a-Dream.audio/s022.mp3"><span class="ck" style="background:#dbeafe;color:#1e3a8a">Now is the time</span> <span class="ck" style="background:#bbf7d0;color:#14532d">to make justice a reality for all of God's children</span>.
+<div class="brk"><div class="ly"><span class="chip" style="background:#dbeafe">1</span><span class="tg">倒装核心</span><span class="sg" style="color:#1e3a8a">Now is the time</span><span class="note">排比之四收束</span></div>
+<div class="ly"><span class="chip" style="background:#bbf7d0">2</span><span class="tg">内容</span><span class="sg" style="color:#14532d">to make justice a reality for all of God's children</span><span class="note">让正义成为上帝每个孩子的现实（收进宗教话语，扩大共同体）</span></div></div></div>
+</div>
+<div class="para">
+<div class="sent" data-audio="2026-08-27-I-Have-a-Dream.audio/s023.mp3"><span class="pnum">P7</span><span class="ck" style="background:#dbeafe;color:#1e3a8a">It would be fatal for the nation</span> <span class="ck" style="background:#bbf7d0;color:#14532d">to overlook the urgency of the moment</span>.
+<div class="brk"><div class="ly"><span class="chip" style="background:#dbeafe">1</span><span class="tg">形式主语句</span><span class="sg" style="color:#1e3a8a">It would be fatal for the nation</span><span class="note">It 先占位：这对国家将是致命的</span></div>
+<div class="ly"><span class="chip" style="background:#bbf7d0">2</span><span class="tg">真主语</span><span class="sg" style="color:#14532d">to overlook the urgency of the moment</span><span class="note">致命的是什么：忽视此刻的紧迫（回扣上一段 now）</span></div></div></div>
+<div class="sent" data-audio="2026-08-27-I-Have-a-Dream.audio/s024.mp3"><span class="ck" style="background:#dbeafe;color:#1e3a8a">This sweltering summer of the Negro's legitimate discontent will not pass</span> <span class="ck" style="background:#bbf7d0;color:#14532d">until there is an invigorating<span class="sup">⑯</span> autumn of freedom and equality</span>.
+<div class="brk"><div class="ly"><span class="chip" style="background:#dbeafe">1</span><span class="tg">主句</span><span class="sg" style="color:#1e3a8a">This sweltering summer of the Negro's legitimate discontent will not pass</span><span class="note">主句：黑人正当不满的闷热之夏不会过去</span></div>
+<div class="ly"><span class="chip" style="background:#bbf7d0">2</span><span class="tg">时间从句</span><span class="sg" style="color:#14532d">until there is an invigorating⑯ autumn of freedom and equality</span><span class="note">直到自由平等的爽秋来临（用季节写进程：夏 → 秋）</span></div></div></div>
+<div class="sent" data-audio="2026-08-27-I-Have-a-Dream.audio/s025.mp3"><span class="ck" style="background:#dbeafe;color:#1e3a8a">Nineteen sixty-three is not an end, but a beginning</span>.
+<div class="brk"><div class="ly"><span class="chip" style="background:#dbeafe">1</span><span class="tg">判断</span><span class="sg" style="color:#1e3a8a">Nineteen sixty-three is not an end, but a beginning</span><span class="note">一九六三不是终点，而是起点（not…but 对举，一句话定位时代）</span></div></div></div>
+<div class="sent" data-audio="2026-08-27-I-Have-a-Dream.audio/s026.mp3"><span class="ck" style="background:#dbeafe;color:#1e3a8a">And those who hope that the Negro needed to blow off steam and will now be content will have a rude awakening</span> <span class="ck" style="background:#bbf7d0;color:#14532d">if the nation returns to business as usual</span>.
+<div class="brk"><div class="ly"><span class="chip" style="background:#dbeafe">1</span><span class="tg">主句(含who定语)</span><span class="sg" style="color:#1e3a8a">And those who hope that the Negro needed to blow off steam and will now be content will have a rude awakening</span><span class="note">先端出一类人：指望黑人“泄泄气就知足”的人——他们将来会猛然醒悟（长定语把主谓撑开）</span></div>
+<div class="ly"><span class="chip" style="background:#bbf7d0">2</span><span class="tg">条件</span><span class="sg" style="color:#14532d">if the nation returns to business as usual</span><span class="note">在何种情况下：若国家回到照旧的老路</span></div></div></div>
+<div class="sent" data-audio="2026-08-27-I-Have-a-Dream.audio/s027.mp3"><span class="ck" style="background:#dbeafe;color:#1e3a8a">And there will be neither rest nor tranquility in America</span> <span class="ck" style="background:#bbf7d0;color:#14532d">until the Negro is granted his citizenship rights</span>.
+<div class="brk"><div class="ly"><span class="chip" style="background:#dbeafe">1</span><span class="tg">主句</span><span class="sg" style="color:#1e3a8a">And there will be neither rest nor tranquility in America</span><span class="note">美国不会有安宁（neither…nor 双重否定，语气极强）</span></div>
+<div class="ly"><span class="chip" style="background:#bbf7d0">2</span><span class="tg">时间从句</span><span class="sg" style="color:#14532d">until the Negro is granted his citizenship rights</span><span class="note">除非黑人获授公民权（until = 在那之前不会）</span></div></div></div>
+<div class="sent" data-audio="2026-08-27-I-Have-a-Dream.audio/s028.mp3"><span class="ck" style="background:#dbeafe;color:#1e3a8a">The whirlwinds of revolt<span class="sup">⑰</span> will continue to shake the foundations of our nation</span> <span class="ck" style="background:#bbf7d0;color:#14532d">until the bright day of justice emerges</span>.
+<div class="brk"><div class="ly"><span class="chip" style="background:#dbeafe">1</span><span class="tg">主句</span><span class="sg" style="color:#1e3a8a">The whirlwinds of revolt⑰ will continue to shake the foundations of our nation</span><span class="note">反抗的旋风将继续撼动国基（把暴动写成“风”）</span></div>
+<div class="ly"><span class="chip" style="background:#bbf7d0">2</span><span class="tg">时间从句</span><span class="sg" style="color:#14532d">until the bright day of justice emerges</span><span class="note">直到正义的晴天浮现（把正义写成“天”；风↔晴 呼应）</span></div></div></div>
+</div>
+<div class="para">
+<div class="sent" data-audio="2026-08-27-I-Have-a-Dream.audio/s029.mp3"><span class="pnum">P8</span><span class="ck" style="background:#dbeafe;color:#1e3a8a">But there is something that I must say to my people</span> <span class="ck" style="background:#bbf7d0;color:#14532d">who stand on the warm threshold which leads into the palace of justice</span>.
+<div class="brk"><div class="ly"><span class="chip" style="background:#dbeafe">1</span><span class="tg">转折+存在句</span><span class="sg" style="color:#1e3a8a">But there is something that I must say to my people</span><span class="note">But 转对象：有句话我必须对我的人民说</span></div>
+<div class="ly"><span class="chip" style="background:#bbf7d0">2</span><span class="tg">套叠定语</span><span class="sg" style="color:#14532d">who stand on the warm threshold which leads into the palace of justice</span><span class="note">对谁说：站在通向正义宫殿门槛上的人（people ← who stand… ← which leads… 两级定语层层后补）</span></div></div></div>
+<div class="sent" data-audio="2026-08-27-I-Have-a-Dream.audio/s030.mp3"><span class="ck" style="background:#dbeafe;color:#1e3a8a">In the process of gaining our rightful place</span> <span class="ck" style="background:#bbf7d0;color:#14532d">we must not be guilty of wrongful deeds</span>.
+<div class="brk"><div class="ly"><span class="chip" style="background:#dbeafe">1</span><span class="tg">状语</span><span class="sg" style="color:#1e3a8a">In the process of gaining our rightful place</span><span class="note">在争取应有地位的过程中</span></div>
+<div class="ly"><span class="chip" style="background:#bbf7d0">2</span><span class="tg">主句</span><span class="sg" style="color:#14532d">we must not be guilty of wrongful deeds</span><span class="note">我们不可做出不当行径（rightful ↔ wrongful 头尾押韵反义）</span></div></div></div>
+<div class="sent" data-audio="2026-08-27-I-Have-a-Dream.audio/s031.mp3"><span class="ck" style="background:#dbeafe;color:#1e3a8a">Let us not seek to satisfy our thirst for freedom</span> <span class="ck" style="background:#bbf7d0;color:#14532d">by drinking from the cup of bitterness and hatred</span>.
+<div class="brk"><div class="ly"><span class="chip" style="background:#dbeafe">1</span><span class="tg">劝告</span><span class="sg" style="color:#1e3a8a">Let us not seek to satisfy our thirst for freedom</span><span class="note">我们不可去满足对自由的渴望</span></div>
+<div class="ly"><span class="chip" style="background:#bbf7d0">2</span><span class="tg">方式</span><span class="sg" style="color:#14532d">by drinking from the cup of bitterness and hatred</span><span class="note">以痛饮“苦杯与仇恨”的方式（the cup of… 比喻定型）</span></div></div></div>
+<div class="sent" data-audio="2026-08-27-I-Have-a-Dream.audio/s032.mp3"><span class="ck" style="background:#dbeafe;color:#1e3a8a">We must forever conduct our struggle on the high plane of dignity and discipline</span>.
+<div class="brk"><div class="ly"><span class="chip" style="background:#dbeafe">1</span><span class="tg">主句</span><span class="sg" style="color:#1e3a8a">We must forever conduct our struggle on the high plane of dignity and discipline</span><span class="note">我们要永远在“尊严与纪律”的高地上进行斗争（把抽象斗争放到高平面）</span></div></div></div>
+<div class="sent" data-audio="2026-08-27-I-Have-a-Dream.audio/s033.mp3"><span class="ck" style="background:#dbeafe;color:#1e3a8a">We must not allow our creative protest to degenerate<span class="sup">⑱</span> into physical violence</span>.
+<div class="brk"><div class="ly"><span class="chip" style="background:#dbeafe">1</span><span class="tg">主句</span><span class="sg" style="color:#1e3a8a">We must not allow our creative protest to degenerate⑱ into physical violence</span><span class="note">不可让创造性的抗议退化为肢体暴力（degenerate = 偏离本族/本性）</span></div></div></div>
+<div class="sent" data-audio="2026-08-27-I-Have-a-Dream.audio/s034.mp3"><span class="ck" style="background:#dbeafe;color:#1e3a8a">Again and again we must rise</span> <span class="ck" style="background:#bbf7d0;color:#14532d">to the majestic heights of meeting physical force with soul force</span>.
+<div class="brk"><div class="ly"><span class="chip" style="background:#dbeafe">1</span><span class="tg">频率状语</span><span class="sg" style="color:#1e3a8a">Again and again we must rise</span><span class="note">我们要一次次奋起</span></div>
+<div class="ly"><span class="chip" style="background:#bbf7d0">2</span><span class="tg">目标</span><span class="sg" style="color:#14532d">to the majestic heights of meeting physical force with soul force</span><span class="note">升到以“灵魂之力”迎对“肉身之力”的崇高之境（meet A with B）</span></div></div></div>
+</div>
+<div class="para">
+<div class="sent" data-audio="2026-08-27-I-Have-a-Dream.audio/s035.mp3"><span class="pnum">P9</span><span class="ck" style="background:#dbeafe;color:#1e3a8a">The marvelous new militancy</span> <span class="ck" style="background:#bbf7d0;color:#14532d">which has engulfed the Negro community</span> <span class="ck" style="background:#dbeafe;color:#1e3a8a">must not lead us to a distrust of all white people</span>, <span class="ck" style="background:#fde68a;color:#78350f">for many of our white brothers</span>, as evidenced by their presence here today, <span class="ck" style="background:#fde68a;color:#78350f">have come to realize that their destiny is tied up with our destiny</span>.
+<div class="brk"><div class="ly"><span class="chip" style="background:#dbeafe">1</span><span class="tg">主句(被隔开)</span><span class="sg" style="color:#1e3a8a">The marvelous new militancy…must not lead us to a distrust of all white people</span><span class="note">这种新的斗争精神不可使我们不信任所有白人（主语与谓语被定语从句隔开）</span></div>
+<div class="ly"><span class="chip" style="background:#bbf7d0">2</span><span class="tg">定语从句</span><span class="sg" style="color:#14532d">which has engulfed the Negro community</span><span class="note">哪种精神：已席卷黑人社区的那种（militancy = 战士般的斗志）</span></div>
+<div class="ly"><span class="chip" style="background:#fde68a">3</span><span class="tg">原因从句</span><span class="sg" style="color:#78350f">for many of our white brothers…have come to realize that their destiny is tied up with our destiny</span><span class="note">给理由：许多白人兄弟已明白命运与我们相连（中间插入 as evidenced by their presence here today 现场证据）</span></div></div></div>
+<div class="sent" data-audio="2026-08-27-I-Have-a-Dream.audio/s036.mp3"><span class="ck" style="background:#dbeafe;color:#1e3a8a">And they have come to realize</span> <span class="ck" style="background:#bbf7d0;color:#14532d">that their freedom is inextricably<span class="sup">⑲</span> bound to our freedom</span>.
+<div class="brk"><div class="ly"><span class="chip" style="background:#dbeafe">1</span><span class="tg">主句</span><span class="sg" style="color:#1e3a8a">And they have come to realize</span><span class="note">他们也已明白</span></div>
+<div class="ly"><span class="chip" style="background:#bbf7d0">2</span><span class="tg">内容从句</span><span class="sg" style="color:#14532d">that their freedom is inextricably⑲ bound to our freedom</span><span class="note">我们的自由已“解不开地”缠在一起（inextricably = 乱麻解不开）</span></div></div></div>
+<div class="sent" data-audio="2026-08-27-I-Have-a-Dream.audio/s037.mp3"><span class="ck" style="background:#dbeafe;color:#1e3a8a">We cannot walk alone</span>.
+<div class="brk"><div class="ly"><span class="chip" style="background:#dbeafe">1</span><span class="tg">核心短句</span><span class="sg" style="color:#1e3a8a">We cannot walk alone</span><span class="note">我们不能独行（三个词独立成句收束，力量悬空）</span></div></div></div>
+</div>
+<div class="para">
+<div class="sent" data-audio="2026-08-27-I-Have-a-Dream.audio/s038.mp3"><span class="pnum">P10</span><span class="ck" style="background:#dbeafe;color:#1e3a8a">And as we walk</span>, <span class="ck" style="background:#bbf7d0;color:#14532d">we must make the pledge that we shall always march ahead</span>.
+<div class="brk"><div class="ly"><span class="chip" style="background:#dbeafe">1</span><span class="tg">时间从句</span><span class="sg" style="color:#1e3a8a">And as we walk</span><span class="note">承接上一句的 walk：当我们前行时</span></div>
+<div class="ly"><span class="chip" style="background:#bbf7d0">2</span><span class="tg">主句</span><span class="sg" style="color:#14532d">we must make the pledge that we shall always march ahead</span><span class="note">我们必须立下誓言：永远向前（march 迈着行军步）</span></div></div></div>
+<div class="sent" data-audio="2026-08-27-I-Have-a-Dream.audio/s039.mp3"><span class="ck" style="background:#dbeafe;color:#1e3a8a">We cannot turn back</span>.
+<div class="brk"><div class="ly"><span class="chip" style="background:#dbeafe">1</span><span class="tg">核心短句</span><span class="sg" style="color:#1e3a8a">We cannot turn back</span><span class="note">我们不能回头（与上一句对答成两个短促鼓点）</span></div></div></div>
+<div class="sent" data-audio="2026-08-27-I-Have-a-Dream.audio/s040.mp3"><span class="ck" style="background:#dbeafe;color:#1e3a8a">There are those who are asking the devotees of civil rights, 'When will you be satisfied?'</span> <span class="ck" style="background:#bbf7d0;color:#14532d">We can never be satisfied as long as the Negro is the victim of the unspeakable horrors of police brutality</span>.
+<div class="brk"><div class="ly"><span class="chip" style="background:#dbeafe">1</span><span class="tg">转述</span><span class="sg" style="color:#1e3a8a">There are those who are asking the devotees of civil rights, 'When will you be satisfied?'</span><span class="note">先摆出质疑者：有人在问民权斗士“你们何时才满足？”</span></div>
+<div class="ly"><span class="chip" style="background:#bbf7d0">2</span><span class="tg">正面回答</span><span class="sg" style="color:#14532d">We can never be satisfied as long as the Negro is the victim of the unspeakable horrors of police brutality</span><span class="note">回答开始：只要黑人仍是警察暴行那“不可言说恐怖”的受害者，就永不满足（as long as = 只要…就一直）</span></div></div></div>
+<div class="sent" data-audio="2026-08-27-I-Have-a-Dream.audio/s041.mp3"><span class="ck" style="background:#dbeafe;color:#1e3a8a">We can never be satisfied as long as our bodies</span>, <span class="ck" style="background:#bbf7d0;color:#14532d">heavy with the fatigue of travel</span>, <span class="ck" style="background:#dbeafe;color:#1e3a8a">cannot gain lodging</span> <span class="ck" style="background:#fde68a;color:#78350f">in the motels of the highways and the hotels of the cities</span>.
+<div class="brk"><div class="ly"><span class="chip" style="background:#dbeafe">1</span><span class="tg">主句</span><span class="sg" style="color:#1e3a8a">We can never be satisfied as long as our bodies…cannot gain lodging</span><span class="note">只要我们的身体找不到投宿之处（旅馆拒黑人）</span></div>
+<div class="ly"><span class="chip" style="background:#bbf7d0">2</span><span class="tg">插入定语</span><span class="sg" style="color:#14532d">heavy with the fatigue of travel</span><span class="note">带着旅途的疲惫（形容词短语插在 body 后补状态）</span></div>
+<div class="ly"><span class="chip" style="background:#fde68a">3</span><span class="tg">地点</span><span class="sg" style="color:#78350f">in the motels of the highways and the hotels of the cities</span><span class="note">在公路边的汽车旅馆、城里的旅店</span></div></div></div>
+<div class="sent" data-audio="2026-08-27-I-Have-a-Dream.audio/s042.mp3"><span class="ck" style="background:#dbeafe;color:#1e3a8a">We cannot be satisfied as long as the Negro's basic mobility is from a smaller ghetto to a larger one</span>.
+<div class="brk"><div class="ly"><span class="chip" style="background:#dbeafe">1</span><span class="tg">主句</span><span class="sg" style="color:#1e3a8a">We cannot be satisfied as long as the Negro's basic mobility is from a smaller ghetto to a larger one</span><span class="note">只要黑人的“流动性”不过是从小隔离区搬进大隔离区（mobility 反讽：无真正的移动自由）</span></div></div></div>
+<div class="sent" data-audio="2026-08-27-I-Have-a-Dream.audio/s043.mp3"><span class="ck" style="background:#dbeafe;color:#1e3a8a">We can never be satisfied as long as our children are stripped of their selfhood and robbed of their dignity by signs stating 'For Whites Only.'</span> <span class="ck" style="background:#bbf7d0;color:#14532d">We cannot be satisfied as long as a Negro in Mississippi cannot vote and a Negro in New York believes he has nothing for which to vote</span>.
+<div class="brk"><div class="ly"><span class="chip" style="background:#dbeafe">1</span><span class="tg">主句①</span><span class="sg" style="color:#1e3a8a">We can never be satisfied as long as our children are stripped of their selfhood and robbed of their dignity by signs stating 'For Whites Only.'</span><span class="note">只要孩子们被“仅供白人”的牌子剥去自我、夺走尊严（stripped/robbed 双动词）</span></div>
+<div class="ly"><span class="chip" style="background:#bbf7d0">2</span><span class="tg">主句②</span><span class="sg" style="color:#14532d">We cannot be satisfied as long as a Negro in Mississippi cannot vote and a Negro in New York believes he has nothing for which to vote</span><span class="note">只要密西西比的黑人不能投票、纽约的黑人觉得“无可投之人”（南方↔北方对仗）</span></div></div></div>
+<div class="sent" data-audio="2026-08-27-I-Have-a-Dream.audio/s044.mp3"><span class="ck" style="background:#dbeafe;color:#1e3a8a">No, no, we are not satisfied</span>, <span class="ck" style="background:#bbf7d0;color:#14532d">and we will not be satisfied until justice rolls down like waters and righteousness like a mighty stream</span>.
+<div class="brk"><div class="ly"><span class="chip" style="background:#dbeafe">1</span><span class="tg">回应</span><span class="sg" style="color:#1e3a8a">No, no, we are not satisfied</span><span class="note">连说两个 No 回应质疑：不，我们不满足</span></div>
+<div class="ly"><span class="chip" style="background:#bbf7d0">2</span><span class="tg">转折</span><span class="sg" style="color:#14532d">and we will not be satisfied until justice rolls down like waters and righteousness like a mighty stream</span><span class="note">直到正义如大水滚滚、公义如滔滔江河（引《阿摩司书》5:24，排比收束整段）</span></div></div></div>
+</div>
+<div class="para">
+<div class="sent" data-audio="2026-08-27-I-Have-a-Dream.audio/s045.mp3"><span class="pnum">P11</span><span class="ck" style="background:#dbeafe;color:#1e3a8a">I am not unmindful that</span> <span class="ck" style="background:#bbf7d0;color:#14532d">some of you have come here out of great trials and tribulations</span><span class="sup">⑳</span>.
+<div class="brk"><div class="ly"><span class="chip" style="background:#dbeafe">1</span><span class="tg">双重否定</span><span class="sg" style="color:#1e3a8a">I am not unmindful that</span><span class="note">我并非不知道（双重否定 = 我深知）</span></div>
+<div class="ly"><span class="chip" style="background:#bbf7d0">2</span><span class="tg">内容从句</span><span class="sg" style="color:#14532d">some of you have come here out of great trials and tribulations</span><span class="note">你们中有人经历巨大磨难才来到这里（out of = 从…中来）</span></div></div></div>
+<div class="sent" data-audio="2026-08-27-I-Have-a-Dream.audio/s046.mp3"><span class="ck" style="background:#dbeafe;color:#1e3a8a">Some of you have come fresh from narrow jail cells</span>.
+<div class="brk"><div class="ly"><span class="chip" style="background:#dbeafe">1</span><span class="tg">主句</span><span class="sg" style="color:#1e3a8a">Some of you have come fresh from narrow jail cells</span><span class="note">你们中有人刚从窄小的牢房出来（fresh from = 刚从…离开）</span></div></div></div>
+<div class="sent" data-audio="2026-08-27-I-Have-a-Dream.audio/s047.mp3"><span class="ck" style="background:#dbeafe;color:#1e3a8a">And some of you have come from areas</span> <span class="ck" style="background:#bbf7d0;color:#14532d">where your quest for freedom left you battered by the storms of persecution<span class="sup">㉑</span> and staggered by the winds of police brutality</span>.
+<div class="brk"><div class="ly"><span class="chip" style="background:#dbeafe">1</span><span class="tg">主句</span><span class="sg" style="color:#1e3a8a">And some of you have come from areas</span><span class="note">还有人来自这些地方</span></div>
+<div class="ly"><span class="chip" style="background:#bbf7d0">2</span><span class="tg">定语从句</span><span class="sg" style="color:#14532d">where your quest for freedom left you battered by the storms of persecution㉑ and staggered by the winds of police brutality</span><span class="note">在那里，求自由的你们被“迫害风暴”打伤、被“警察暴行之风”击得踉跄（storms↔winds 对仗）</span></div></div></div>
+<div class="sent" data-audio="2026-08-27-I-Have-a-Dream.audio/s048.mp3"><span class="ck" style="background:#dbeafe;color:#1e3a8a">You have been the veterans of creative suffering</span>.
+<div class="brk"><div class="ly"><span class="chip" style="background:#dbeafe">1</span><span class="tg">判断</span><span class="sg" style="color:#1e3a8a">You have been the veterans of creative suffering</span><span class="note">你们是“创造性苦难”的老兵（veteran 老兵——把受难比作战斗）</span></div></div></div>
+<div class="sent" data-audio="2026-08-27-I-Have-a-Dream.audio/s049.mp3"><span class="ck" style="background:#dbeafe;color:#1e3a8a">Continue to work with the faith</span> <span class="ck" style="background:#bbf7d0;color:#14532d">that unearned suffering is redemptive</span><span class="sup">㉒</span>.
+<div class="brk"><div class="ly"><span class="chip" style="background:#dbeafe">1</span><span class="tg">祈使</span><span class="sg" style="color:#1e3a8a">Continue to work with the faith</span><span class="note">带着这信念继续奋斗</span></div>
+<div class="ly"><span class="chip" style="background:#bbf7d0">2</span><span class="tg">同位</span><span class="sg" style="color:#14532d">that unearned suffering is redemptive</span><span class="note">什么信念：无辜受难具有救赎力量（redemptive = 赎买回来）</span></div></div></div>
+<div class="sent" data-audio="2026-08-27-I-Have-a-Dream.audio/s050.mp3"><span class="ck" style="background:#dbeafe;color:#1e3a8a">Go back to Mississippi,</span> go back to Alabama, go back to South Carolina, go back to Georgia, go back to Louisiana, go back <span class="ck" style="background:#dbeafe;color:#1e3a8a">to the slums and ghettos of our northern cities</span>, <span class="ck" style="background:#bbf7d0;color:#14532d">knowing that somehow this situation can and will be changed</span>.
+<div class="brk"><div class="ly"><span class="chip" style="background:#dbeafe">1</span><span class="tg">排比祈使</span><span class="sg" style="color:#1e3a8a">Go back to Mississippi,…to the slums and ghettos of our northern cities</span><span class="note">回南方各州去、回北方贫民区去（地名一路排比，送人回乡继续战斗）</span></div>
+<div class="ly"><span class="chip" style="background:#bbf7d0">2</span><span class="tg">伴随</span><span class="sg" style="color:#14532d">knowing that somehow this situation can and will be changed</span><span class="note">心中带着确信：这局面终究能改、必定会改（can and will 双情态加力）</span></div></div></div>
+<div class="sent" data-audio="2026-08-27-I-Have-a-Dream.audio/s051.mp3"><span class="ck" style="background:#dbeafe;color:#1e3a8a">Let us not wallow in the valley of despair</span>.
+<div class="brk"><div class="ly"><span class="chip" style="background:#dbeafe">1</span><span class="tg">劝告</span><span class="sg" style="color:#1e3a8a">Let us not wallow in the valley of despair</span><span class="note">我们不要沉溺于“绝望之谷”（wallow = 在泥里打滚，为下文“希望之石”反铺垫）</span></div></div></div>
+</div>
+<div class="para">
+<div class="sent" data-audio="2026-08-27-I-Have-a-Dream.audio/s052.mp3"><span class="pnum">P12</span><span class="ck" style="background:#dbeafe;color:#1e3a8a">I say to you today, my friends</span>, <span class="ck" style="background:#bbf7d0;color:#14532d">so even though we face the difficulties of today and tomorrow</span>, <span class="ck" style="background:#fde68a;color:#78350f">I still have a dream</span>.
+<div class="brk"><div class="ly"><span class="chip" style="background:#dbeafe">1</span><span class="tg">主句+呼语</span><span class="sg" style="color:#1e3a8a">I say to you today, my friends</span><span class="note">今天我要对你们说——朋友们（直呼听众，制造亲近）</span></div>
+<div class="ly"><span class="chip" style="background:#bbf7d0">2</span><span class="tg">让步从句</span><span class="sg" style="color:#14532d">so even though we face the difficulties of today and tomorrow</span><span class="note">尽管我们面对今日与明日之难</span></div>
+<div class="ly"><span class="chip" style="background:#fde68a">3</span><span class="tg">主句</span><span class="sg" style="color:#78350f">I still have a dream</span><span class="note">我仍有一个梦（核心词 dream 首次登场）</span></div></div></div>
+<div class="sent" data-audio="2026-08-27-I-Have-a-Dream.audio/s053.mp3"><span class="ck" style="background:#dbeafe;color:#1e3a8a">It is a dream</span> <span class="ck" style="background:#bbf7d0;color:#14532d">deeply rooted in the American dream</span>.
+<div class="brk"><div class="ly"><span class="chip" style="background:#dbeafe">1</span><span class="tg">指代</span><span class="sg" style="color:#1e3a8a">It is a dream</span><span class="note">接着解释这个梦</span></div>
+<div class="ly"><span class="chip" style="background:#bbf7d0">2</span><span class="tg">补语</span><span class="sg" style="color:#14532d">deeply rooted in the American dream</span><span class="note">它深深扎根于“美国梦”之中（把黑人的梦接进国家的梦）</span></div></div></div>
+</div>
+<div class="para">
+<div class="sent" data-audio="2026-08-27-I-Have-a-Dream.audio/s054.mp3"><span class="pnum">P13</span><span class="ck" style="background:#dbeafe;color:#1e3a8a">I have a dream that one day this nation will rise up and live out the true meaning of its creed</span><span class="sup">㉓</span>: '<span class="ck" style="background:#bbf7d0;color:#14532d">We hold these truths to be self-evident, that all men are created equal.</span>'
+<div class="brk"><div class="ly"><span class="chip" style="background:#dbeafe">1</span><span class="tg">主句+宾语从句</span><span class="sg" style="color:#1e3a8a">I have a dream that one day this nation will rise up and live out the true meaning of its creed</span><span class="note">我有一个梦：有一天这个国家将奋起，活出它信条的真义（rise up + live out 两动词）</span></div>
+<div class="ly"><span class="chip" style="background:#bbf7d0">2</span><span class="tg">引文</span><span class="sg" style="color:#14532d">We hold these truths to be self-evident, that all men are created equal.</span><span class="note">引《独立宣言》原文，作为“信条”的内容</span></div></div></div>
+</div>
+<div class="para">
+<div class="sent" data-audio="2026-08-27-I-Have-a-Dream.audio/s055.mp3"><span class="pnum">P14</span><span class="ck" style="background:#dbeafe;color:#1e3a8a">I have a dream that one day</span> <span class="ck" style="background:#bbf7d0;color:#14532d">on the red hills of Georgia</span>, <span class="ck" style="background:#fde68a;color:#78350f">the sons of former slaves and the sons of former slave owners will be able to sit down together at the table of brotherhood</span>.
+<div class="brk"><div class="ly"><span class="chip" style="background:#dbeafe">1</span><span class="tg">主句</span><span class="sg" style="color:#1e3a8a">I have a dream that one day</span><span class="note">我有一个梦：有一天</span></div>
+<div class="ly"><span class="chip" style="background:#bbf7d0">2</span><span class="tg">地点</span><span class="sg" style="color:#14532d">on the red hills of Georgia</span><span class="note">在佐治亚的红土山丘上</span></div>
+<div class="ly"><span class="chip" style="background:#fde68a">3</span><span class="tg">主句展开</span><span class="sg" style="color:#78350f">the sons of former slaves and the sons of former slave owners will be able to sit down together at the table of brotherhood</span><span class="note">昔日奴隶之子与奴隶主之子同桌共坐于“兄弟之宴”（奴隶↔奴隶主并置）</span></div></div></div>
+</div>
+<div class="para">
+<div class="sent" data-audio="2026-08-27-I-Have-a-Dream.audio/s056.mp3"><span class="pnum">P15</span><span class="ck" style="background:#dbeafe;color:#1e3a8a">I have a dream that one day even the state of Mississippi</span>, <span class="ck" style="background:#bbf7d0;color:#14532d">a state sweltering with the heat of injustice, sweltering with the heat of oppression</span>, <span class="ck" style="background:#dbeafe;color:#1e3a8a">will be transformed into an oasis of freedom and justice</span>.
+<div class="brk"><div class="ly"><span class="chip" style="background:#dbeafe">1</span><span class="tg">主句</span><span class="sg" style="color:#1e3a8a">I have a dream that one day even the state of Mississippi…will be transformed into an oasis of freedom and justice</span><span class="note">有一天连密西西比都将变为自由正义的绿洲（连最顽固的州也点名）</span></div>
+<div class="ly"><span class="chip" style="background:#bbf7d0">2</span><span class="tg">插入同位</span><span class="sg" style="color:#14532d">a state sweltering with the heat of injustice, sweltering with the heat of oppression</span><span class="note">那个在“不公酷热”中煎熬的州（sweltering 连用两次加压，沙漠→绿洲的反差）</span></div></div></div>
+</div>
+<div class="para">
+<div class="sent" data-audio="2026-08-27-I-Have-a-Dream.audio/s057.mp3"><span class="pnum">P16</span><span class="ck" style="background:#dbeafe;color:#1e3a8a">I have a dream that my four little children will one day live in a nation</span> <span class="ck" style="background:#bbf7d0;color:#14532d">where they will not be judged by the color of their skin but by the content of their character</span>.
+<div class="brk"><div class="ly"><span class="chip" style="background:#dbeafe">1</span><span class="tg">主句</span><span class="sg" style="color:#1e3a8a">I have a dream that my four little children will one day live in a nation</span><span class="note">我的四个孩子将生活在一个国家（说到自己的孩子，情感最私人）</span></div>
+<div class="ly"><span class="chip" style="background:#bbf7d0">2</span><span class="tg">定语从句</span><span class="sg" style="color:#14532d">where they will not be judged by the color of their skin but by the content of their character</span><span class="note">在那里评判不看肤色、而看品格（not…but 金句：肤色↔品格）</span></div></div></div>
+</div>
+<div class="para">
+<div class="sent" data-audio="2026-08-27-I-Have-a-Dream.audio/s058.mp3"><span class="pnum">P17</span><span class="ck" style="background:#dbeafe;color:#1e3a8a">I have a dream today.</span>
+<div class="brk"><div class="ly"><span class="chip" style="background:#dbeafe">1</span><span class="tg">短句</span><span class="sg" style="color:#1e3a8a">I have a dream today.</span><span class="note">今天，我就怀有这样的梦（独立短句，给一串排比打一个节拍）</span></div></div></div>
+</div>
+<div class="para">
+<div class="sent" data-audio="2026-08-27-I-Have-a-Dream.audio/s059.mp3"><span class="pnum">P18</span>I have a dream that one day, <span class="ck" style="background:#dbeafe;color:#1e3a8a">down in Alabama, with its vicious racists, with its governor having his lips dripping with the words of interposition and nullification</span>, <span class="ck" style="background:#bbf7d0;color:#14532d">one day right there in Alabama little black boys and black girls will be able to join hands with little white boys and white girls as sisters and brothers</span>.
+<div class="brk"><div class="ly"><span class="chip" style="background:#dbeafe">1</span><span class="tg">前置地点</span><span class="sg" style="color:#1e3a8a">down in Alabama, with its vicious racists, with its governor having his lips dripping with the words of interposition and nullification</span><span class="note">先摆出最险恶的“阿拉巴马”：它恶毒的种族主义者、它那满口“联邦干涉/废止”辞令的州长（两个 with 叠加氛围）</span></div>
+<div class="ly"><span class="chip" style="background:#bbf7d0">2</span><span class="tg">主句</span><span class="sg" style="color:#14532d">one day right there in Alabama little black boys and black girls will be able to join hands with little white boys and white girls as sisters and brothers</span><span class="note">就在那里，黑白孩子终能手拉手，如兄弟姐妹（地点被前置长修饰后，主句姗姗来迟，形成张力）</span></div></div></div>
+</div>
+<div class="para">
+<div class="sent" data-audio="2026-08-27-I-Have-a-Dream.audio/s060.mp3"><span class="pnum">P19</span><span class="ck" style="background:#dbeafe;color:#1e3a8a">I have a dream today.</span>
+<div class="brk"><div class="ly"><span class="chip" style="background:#dbeafe">1</span><span class="tg">短句</span><span class="sg" style="color:#1e3a8a">I have a dream today.</span><span class="note">今天，我就怀有这样的梦（又一次拍点，节奏再收紧）</span></div></div></div>
+</div>
+<div class="para">
+<div class="sent" data-audio="2026-08-27-I-Have-a-Dream.audio/s061.mp3"><span class="pnum">P20</span><span class="ck" style="background:#dbeafe;color:#1e3a8a">I have a dream that one day every valley shall be exalted<span class="sup">㉔</span>,</span> every hill and mountain shall be made low, the rough places will be made plain, <span class="ck" style="background:#dbeafe;color:#1e3a8a">and the crooked places will be made straight</span>, <span class="ck" style="background:#bbf7d0;color:#14532d">and the glory of the Lord shall be revealed, and all flesh shall see it together</span>.
+<div class="brk"><div class="ly"><span class="chip" style="background:#dbeafe">1</span><span class="tg">主句</span><span class="sg" style="color:#1e3a8a">I have a dream that one day every valley shall be exalted㉔,…and the crooked places will be made straight</span><span class="note">引《以赛亚书》40:4：谷填高、山削平、崎岖成坦途、弯曲变笔直（四连对仗，物象排山倒海）</span></div>
+<div class="ly"><span class="chip" style="background:#bbf7d0">2</span><span class="tg">并列</span><span class="sg" style="color:#14532d">and the glory of the Lord shall be revealed, and all flesh shall see it together</span><span class="note">主的荣光显现，凡有血气的必一同看见（由地理意象升向神的荣耀）</span></div></div></div>
+</div>
+<div class="para">
+<div class="sent" data-audio="2026-08-27-I-Have-a-Dream.audio/s062.mp3"><span class="pnum">P21</span><span class="ck" style="background:#dbeafe;color:#1e3a8a">This is our hope.</span>
+<div class="brk"><div class="ly"><span class="chip" style="background:#dbeafe">1</span><span class="tg">指代</span><span class="sg" style="color:#1e3a8a">This is our hope.</span><span class="note">这就是我们的希望（回指上面整串梦想）</span></div></div></div>
+<div class="sent" data-audio="2026-08-27-I-Have-a-Dream.audio/s063.mp3"><span class="ck" style="background:#dbeafe;color:#1e3a8a">This is the faith</span> <span class="ck" style="background:#bbf7d0;color:#14532d">with which I return to the South</span>.
+<div class="brk"><div class="ly"><span class="chip" style="background:#dbeafe">1</span><span class="tg">核心</span><span class="sg" style="color:#1e3a8a">This is the faith</span><span class="note">这就是信念</span></div>
+<div class="ly"><span class="chip" style="background:#bbf7d0">2</span><span class="tg">定语从句</span><span class="sg" style="color:#14532d">with which I return to the South</span><span class="note">我将带着它返回南方（with which 把介词提到关系词前）</span></div></div></div>
+<div class="sent" data-audio="2026-08-27-I-Have-a-Dream.audio/s064.mp3"><span class="ck" style="background:#dbeafe;color:#1e3a8a">With this faith we will be able</span> <span class="ck" style="background:#bbf7d0;color:#14532d">to hew out of the mountain of despair a stone of hope</span>.
+<div class="brk"><div class="ly"><span class="chip" style="background:#dbeafe">1</span><span class="tg">工具状语</span><span class="sg" style="color:#1e3a8a">With this faith we will be able</span><span class="note">凭着这信念，我们就能……（以 with 开头 = 上句 faith 的延续）</span></div>
+<div class="ly"><span class="chip" style="background:#bbf7d0">2</span><span class="tg">宾语后置</span><span class="sg" style="color:#14532d">to hew out of the mountain of despair a stone of hope</span><span class="note">从“绝望之山”中凿出一块“希望之石”（动词+介词短语在前、真宾语在后，语序倒置）</span></div></div></div>
+<div class="sent" data-audio="2026-08-27-I-Have-a-Dream.audio/s065.mp3"><span class="ck" style="background:#dbeafe;color:#1e3a8a">With this faith we will be able</span> <span class="ck" style="background:#bbf7d0;color:#14532d">to transform the jangling discords<span class="sup">㉕</span> of our nation into a beautiful symphony<span class="sup">㉖</span> of brotherhood</span>.
+<div class="brk"><div class="ly"><span class="chip" style="background:#dbeafe">1</span><span class="tg">工具状语</span><span class="sg" style="color:#1e3a8a">With this faith we will be able</span><span class="note">凭着这信念，我们就能……</span></div>
+<div class="ly"><span class="chip" style="background:#bbf7d0">2</span><span class="tg">宾补结构</span><span class="sg" style="color:#14532d">to transform the jangling discords㉕ of our nation into a beautiful symphony㉖ of brotherhood</span><span class="note">把国家的刺耳杂音化作兄弟情谊的交响（transform A into B；discord↔symphony）</span></div></div></div>
+<div class="sent" data-audio="2026-08-27-I-Have-a-Dream.audio/s066.mp3"><span class="ck" style="background:#dbeafe;color:#1e3a8a">With this faith we will be able</span> <span class="ck" style="background:#bbf7d0;color:#14532d">to work together, to pray together, to struggle together, to go to jail together, to stand up for freedom together</span>, <span class="ck" style="background:#fde68a;color:#78350f">knowing that we will be free one day</span>.
+<div class="brk"><div class="ly"><span class="chip" style="background:#dbeafe">1</span><span class="tg">工具状语</span><span class="sg" style="color:#1e3a8a">With this faith we will be able</span><span class="note">凭着这信念，我们就能……</span></div>
+<div class="ly"><span class="chip" style="background:#bbf7d0">2</span><span class="tg">并列排比</span><span class="sg" style="color:#14532d">to work together, to pray together, to struggle together, to go to jail together, to stand up for freedom together</span><span class="note">一连五个 together：工作、祈祷、斗争、入狱、为自由而站（动词递增排比）</span></div>
+<div class="ly"><span class="chip" style="background:#fde68a">3</span><span class="tg">伴随</span><span class="sg" style="color:#78350f">knowing that we will be free one day</span><span class="note">心里知道：我们终有一天会自由</span></div></div></div>
+</div>
+<div class="para">
+<div class="sent" data-audio="2026-08-27-I-Have-a-Dream.audio/s067.mp3"><span class="pnum">P22</span><span class="ck" style="background:#dbeafe;color:#1e3a8a">And this will be the day</span> — <span class="ck" style="background:#bbf7d0;color:#14532d">this will be the day when all of God's children will be able to sing with new meaning</span>: '<span class="ck" style="background:#fde68a;color:#78350f">My country 'tis of thee, sweet land of liberty, of thee I sing</span>.
+<div class="brk"><div class="ly"><span class="chip" style="background:#dbeafe">1</span><span class="tg">主句</span><span class="sg" style="color:#1e3a8a">And this will be the day</span><span class="note">这将是大日子</span></div>
+<div class="ly"><span class="chip" style="background:#bbf7d0">2</span><span class="tg">重复+定语</span><span class="sg" style="color:#14532d">this will be the day when all of God's children will be able to sing with new meaning</span><span class="note">重复“那一天”蓄势，后接 when：上帝所有孩子都能唱出全新意义之歌</span></div>
+<div class="ly"><span class="chip" style="background:#fde68a">3</span><span class="tg">引文</span><span class="sg" style="color:#78350f">My country 'tis of thee, sweet land of liberty, of thee I sing</span><span class="note">引爱国歌曲《我的祖国》：甜美自由之邦，我为你歌唱（of thee I sing = 宾语提前）</span></div></div></div>
+<div class="sent" data-audio="2026-08-27-I-Have-a-Dream.audio/s068.mp3"><span class="ck" style="background:#dbeafe;color:#1e3a8a">Land where my fathers died, land of the Pilgrim's pride, from every mountainside, let freedom ring.</span>'
+<div class="brk"><div class="ly"><span class="chip" style="background:#dbeafe">1</span><span class="tg">引文续</span><span class="sg" style="color:#1e3a8a">Land where my fathers died, land of the Pilgrim's pride, from every mountainside, let freedom ring.</span><span class="note">父辈长眠之地、朝圣者的自豪之邦——让自由之钟在每个山边敲响（歌句以“山边”收，为下一段地名排比铺路）</span></div></div></div>
+</div>
+<div class="para">
+<div class="sent" data-audio="2026-08-27-I-Have-a-Dream.audio/s069.mp3"><span class="pnum">P23</span><span class="ck" style="background:#dbeafe;color:#1e3a8a">And if America is to be a great nation</span>, <span class="ck" style="background:#bbf7d0;color:#14532d">this must become true</span>.
+<div class="brk"><div class="ly"><span class="chip" style="background:#dbeafe">1</span><span class="tg">条件</span><span class="sg" style="color:#1e3a8a">And if America is to be a great nation</span><span class="note">若美国要成为伟大的国家</span></div>
+<div class="ly"><span class="chip" style="background:#bbf7d0">2</span><span class="tg">主句</span><span class="sg" style="color:#14532d">this must become true</span><span class="note">这一切就必须成真</span></div></div></div>
+<div class="sent" data-audio="2026-08-27-I-Have-a-Dream.audio/s070.mp3"><span class="ck" style="background:#dbeafe;color:#1e3a8a">And so let freedom ring</span> <span class="ck" style="background:#bbf7d0;color:#14532d">from the prodigious<span class="sup">㉗</span> hilltops of New Hampshire</span>.
+<div class="brk"><div class="ly"><span class="chip" style="background:#dbeafe">1</span><span class="tg">主句</span><span class="sg" style="color:#1e3a8a">And so let freedom ring</span><span class="note">那么就让自由之钟敲响（祈使排比开始）</span></div>
+<div class="ly"><span class="chip" style="background:#bbf7d0">2</span><span class="tg">地点</span><span class="sg" style="color:#14532d">from the prodigious㉗ hilltops of New Hampshire</span><span class="note">从新罕布什尔的巍峨山巅（地名由北而南列队）</span></div></div></div>
+<div class="sent" data-audio="2026-08-27-I-Have-a-Dream.audio/s071.mp3"><span class="ck" style="background:#dbeafe;color:#1e3a8a">Let freedom ring</span> <span class="ck" style="background:#bbf7d0;color:#14532d">from the mighty mountains of New York</span>.
+<div class="brk"><div class="ly"><span class="chip" style="background:#dbeafe">1</span><span class="tg">主句</span><span class="sg" style="color:#1e3a8a">Let freedom ring</span><span class="note">让自由之钟敲响</span></div>
+<div class="ly"><span class="chip" style="background:#bbf7d0">2</span><span class="tg">地点</span><span class="sg" style="color:#14532d">from the mighty mountains of New York</span><span class="note">从纽约的崇山峻岭</span></div></div></div>
+<div class="sent" data-audio="2026-08-27-I-Have-a-Dream.audio/s072.mp3"><span class="ck" style="background:#dbeafe;color:#1e3a8a">Let freedom ring</span> <span class="ck" style="background:#bbf7d0;color:#14532d">from the heightening Alleghenies of Pennsylvania</span>.
+<div class="brk"><div class="ly"><span class="chip" style="background:#dbeafe">1</span><span class="tg">主句</span><span class="sg" style="color:#1e3a8a">Let freedom ring</span><span class="note">让自由之钟敲响</span></div>
+<div class="ly"><span class="chip" style="background:#bbf7d0">2</span><span class="tg">地点</span><span class="sg" style="color:#14532d">from the heightening Alleghenies of Pennsylvania</span><span class="note">从宾夕法尼亚层叠的阿勒格尼山脉</span></div></div></div>
+<div class="sent" data-audio="2026-08-27-I-Have-a-Dream.audio/s073.mp3"><span class="ck" style="background:#dbeafe;color:#1e3a8a">Let freedom ring</span> <span class="ck" style="background:#bbf7d0;color:#14532d">from the snow-capped Rockies of Colorado</span>.
+<div class="brk"><div class="ly"><span class="chip" style="background:#dbeafe">1</span><span class="tg">主句</span><span class="sg" style="color:#1e3a8a">Let freedom ring</span><span class="note">让自由之钟敲响</span></div>
+<div class="ly"><span class="chip" style="background:#bbf7d0">2</span><span class="tg">地点</span><span class="sg" style="color:#14532d">from the snow-capped Rockies of Colorado</span><span class="note">从科罗拉多白雪覆顶的落基山脉</span></div></div></div>
+<div class="sent" data-audio="2026-08-27-I-Have-a-Dream.audio/s074.mp3"><span class="ck" style="background:#dbeafe;color:#1e3a8a">Let freedom ring</span> <span class="ck" style="background:#bbf7d0;color:#14532d">from the curvaceous slopes of California</span>.
+<div class="brk"><div class="ly"><span class="chip" style="background:#dbeafe">1</span><span class="tg">主句</span><span class="sg" style="color:#1e3a8a">Let freedom ring</span><span class="note">让自由之钟敲响</span></div>
+<div class="ly"><span class="chip" style="background:#bbf7d0">2</span><span class="tg">地点</span><span class="sg" style="color:#14532d">from the curvaceous slopes of California</span><span class="note">从加利福尼亚婉蜒起伏的山坡</span></div></div></div>
+<div class="sent" data-audio="2026-08-27-I-Have-a-Dream.audio/s075.mp3"><span class="ck" style="background:#dbeafe;color:#1e3a8a">But not only that:</span> <span class="ck" style="background:#bbf7d0;color:#14532d">Let freedom ring from Stone Mountain of Georgia</span>.
+<div class="brk"><div class="ly"><span class="chip" style="background:#dbeafe">1</span><span class="tg">转折</span><span class="sg" style="color:#1e3a8a">But not only that:</span><span class="note">但不止于此——话锋一转，从北方大山转向南方</span></div>
+<div class="ly"><span class="chip" style="background:#bbf7d0">2</span><span class="tg">主句</span><span class="sg" style="color:#14532d">Let freedom ring from Stone Mountain of Georgia</span><span class="note">让自由之钟也从佐治亚的“石山”敲响（石山是南方种族主义象征地，点名极具针对性）</span></div></div></div>
+<div class="sent" data-audio="2026-08-27-I-Have-a-Dream.audio/s076.mp3"><span class="ck" style="background:#dbeafe;color:#1e3a8a">Let freedom ring</span> <span class="ck" style="background:#bbf7d0;color:#14532d">from Lookout Mountain of Tennessee</span>.
+<div class="brk"><div class="ly"><span class="chip" style="background:#dbeafe">1</span><span class="tg">主句</span><span class="sg" style="color:#1e3a8a">Let freedom ring</span><span class="note">让自由之钟敲响</span></div>
+<div class="ly"><span class="chip" style="background:#bbf7d0">2</span><span class="tg">地点</span><span class="sg" style="color:#14532d">from Lookout Mountain of Tennessee</span><span class="note">从田纳西的瞭望山</span></div></div></div>
+<div class="sent" data-audio="2026-08-27-I-Have-a-Dream.audio/s077.mp3"><span class="ck" style="background:#dbeafe;color:#1e3a8a">Let freedom ring</span> <span class="ck" style="background:#bbf7d0;color:#14532d">from every hill and molehill of Mississippi</span>.
+<div class="brk"><div class="ly"><span class="chip" style="background:#dbeafe">1</span><span class="tg">主句</span><span class="sg" style="color:#1e3a8a">Let freedom ring</span><span class="note">让自由之钟敲响</span></div>
+<div class="ly"><span class="chip" style="background:#bbf7d0">2</span><span class="tg">地点</span><span class="sg" style="color:#14532d">from every hill and molehill of Mississippi</span><span class="note">从密西西比的每一座山丘、每一个土墩（由大山一路降到小土丘，覆盖到底层；呼应歌句“every mountainside”）</span></div></div></div>
+<div class="sent" data-audio="2026-08-27-I-Have-a-Dream.audio/s078.mp3"><span class="ck" style="background:#dbeafe;color:#1e3a8a">From every mountainside, let freedom ring.</span>
+<div class="brk"><div class="ly"><span class="chip" style="background:#dbeafe">1</span><span class="tg">倒装收束</span><span class="sg" style="color:#1e3a8a">From every mountainside, let freedom ring.</span><span class="note">倒装回到歌句：“从每一个山边，让自由之钟敲响”——地名排比在高潮中收束</span></div></div></div>
+</div>
+<div class="para">
+<div class="sent" data-audio="2026-08-27-I-Have-a-Dream.audio/s079.mp3"><span class="pnum">P24</span><span class="ck" style="background:#dbeafe;color:#1e3a8a">And when this happens, when we allow freedom to ring, when we have let it ring from every village and every hamlet<span class="sup">㉘</span>, from every state and every city</span>, <span class="ck" style="background:#bbf7d0;color:#14532d">we will be able to speed up that day</span> <span class="ck" style="background:#fde68a;color:#78350f">when all of God's children, black men and white men, Jews and Gentiles, Protestants and Catholics, will be able to join hands</span> <span class="ck" style="background:#fbcfe8;color:#831843">and sing in the words of the old Negro spiritual: 'Free at last!</span>
+<div class="brk"><div class="ly"><span class="chip" style="background:#dbeafe">1</span><span class="tg">三when条件</span><span class="sg" style="color:#1e3a8a">And when this happens, when we allow freedom to ring, when we have let it ring from every village and every hamlet㉘, from every state and every city</span><span class="note">三个 when 层层加码：当这一切发生、当我们任由自由之钟、当它响遍每个村镇州城</span></div>
+<div class="ly"><span class="chip" style="background:#bbf7d0">2</span><span class="tg">主句</span><span class="sg" style="color:#14532d">we will be able to speed up that day</span><span class="note">我们就能加速那一天到来</span></div>
+<div class="ly"><span class="chip" style="background:#fde68a">3</span><span class="tg">定语展开</span><span class="sg" style="color:#78350f">when all of God's children, black men and white men, Jews and Gentiles, Protestants and Catholics, will be able to join hands</span><span class="note">那一天里，上帝所有孩子——黑白人、犹太与外邦、新教与天主教——携手</span></div>
+<div class="ly"><span class="chip" style="background:#fbcfe8">4</span><span class="tg">引歌</span><span class="sg" style="color:#831843">and sing in the words of the old Negro spiritual: 'Free at last!</span><span class="note">齐声唱起古老的 Negro 灵歌：“终于自由了！”</span></div></div></div>
+<div class="sent" data-audio="2026-08-27-I-Have-a-Dream.audio/s080.mp3"><span class="ck" style="background:#dbeafe;color:#1e3a8a">Free at last!</span>
+<div class="brk"><div class="ly"><span class="chip" style="background:#dbeafe">1</span><span class="tg">灵歌副歌</span><span class="sg" style="color:#1e3a8a">Free at last!</span><span class="note">终于自由了！（灵歌副歌，两声反复如钟）</span></div></div></div>
+<div class="sent" data-audio="2026-08-27-I-Have-a-Dream.audio/s081.mp3"><span class="ck" style="background:#dbeafe;color:#1e3a8a">Thank God Almighty, we are free at last!'</span>
+<div class="brk"><div class="ly"><span class="chip" style="background:#dbeafe">1</span><span class="tg">灵歌收束</span><span class="sg" style="color:#1e3a8a">Thank God Almighty, we are free at last!'</span><span class="note">感谢全能的上帝，我们终于自由了！（全篇最高音收尾）</span></div></div></div>
+</div>
+</div>
+
+<h2 class="section">三、重点词汇词源（①—㉘ 对应正文上标，鼠标悬停正文的 ①②… 即可看词源与释义）</h2>
+
+<table id="vocab">
+  <thead>
+    <tr><th style="width:16%">单词</th><th style="width:44%">词源本义</th><th>在演讲中的含义</th></tr>
+  </thead>
+  <tbody>
+    <tr><td><span class="n">①</span><b>demonstration</b> <span class="ipa">/ˌdemənˈstreɪʃn/</span></td><td class="e">拉丁 <b>demonstrare</b>「指出、展示」（de- + monstrare「显示」）</td><td>示威游行——「把（不公）亮出来给大家看」</td></tr>
+    <tr><td><span class="n">②</span><b>emancipation</b> <span class="ipa">/ɪˌmænsɪˈpeɪʃn/</span></td><td class="e">拉丁 <b>emancipare</b>「宣告自由」= e-「出」+ manus「手」+ capere「抓」→「从掌权者手中放出」</td><td>解放；Emancipation Proclamation 解放黑人奴隶宣言（1863）</td></tr>
+    <tr><td><span class="n">③</span><b>seared</b> <span class="ipa">/sɪrd/</span></td><td class="e">古英语 <b>searian</b>「烤干、烧焦」</td><td>被灼烫的——在「不公的火焰」中备受煎熬</td></tr>
+    <tr><td><span class="n">④</span><b>withering</b> <span class="ipa">/ˈwɪðərɪŋ/</span></td><td class="e">中古英语 <b>widderen</b>，与 <b>weather（天气）</b>同族——「暴露在风雨中而干枯」</td><td>毁灭性的、摧枯拉朽的（形容不公）</td></tr>
+    <tr><td><span class="n">⑤</span><b>manacles</b> <span class="ipa">/ˈmænəkəlz/</span></td><td class="e">拉丁 <b>manicula</b>「小手」= manus「手」（双铐如「小手」钳住手腕）</td><td>手铐——喻「隔离制度」像手铐锁住黑人</td></tr>
+    <tr><td><span class="n">⑥</span><b>segregation</b> <span class="ipa">/ˌseɡrɪˈɡeɪʃn/</span></td><td class="e">拉丁 <b>segregare</b>「把羊群分开」= se-「分开」+ grex「羊群」</td><td>种族隔离——「把人群当羊群分开」</td></tr>
+    <tr><td><span class="n">⑦</span><b>discrimination</b> <span class="ipa">/dɪˌskrɪmɪˈneɪʃn/</span></td><td class="e">拉丁 <b>discriminare</b>「区分」，discrimen「区别」；discernere「筛分」（dis- 分开 + cernere 筛）</td><td>歧视——本义「分别对待」，故歧视=「把（肤色）区别对待」</td></tr>
+    <tr><td><span class="n">⑧</span><b>exile</b> <span class="ipa">/ˈeksaɪl/</span></td><td class="e">拉丁 <b>exsilium</b>，通常解作 ex-「出」+ salire「跳」→「被赶出去」</td><td>流亡者——「在自己的土地上被流放」</td></tr>
+    <tr><td><span class="n">⑨</span><b>unalienable</b> <span class="ipa">/ʌnˈeɪliənəbəl/</span></td><td class="e">un- + <b>alienare</b>「转让」= alienus「他人的」→「不可转让给他人」</td><td>不可剥夺的（生命、自由、追求幸福权，出自《独立宣言》）</td></tr>
+    <tr><td><span class="n">⑩</span><b>defaulted</b> <span class="ipa">/dɪˈfɔːltɪd/</span></td><td class="e">古法语 <b>deffaillir</b>「失约、辜负」= de- + faillir「失败」（拉丁 fallere「欺骗」）</td><td>违约——「美国在这张期票上违约了」</td></tr>
+    <tr><td><span class="n">⑪</span><b>bankrupt</b> <span class="ipa">/ˈbæŋkrʌpt/</span></td><td class="e">意大利语 <b>banca rotta</b>「破了的板凳」——中世纪放贷人的柜台被砸断即宣告破产</td><td>破产——「正义之银行不会破产」</td></tr>
+    <tr><td><span class="n">⑫</span><b>hallowed</b> <span class="ipa">/ˈhæloʊd/</span></td><td class="e">古英语 <b>halgian</b>「使神圣」，halig「神圣」（主祷文「Hallow be thy name」）</td><td>神圣的——林肯纪念堂=「圣地」</td></tr>
+    <tr><td><span class="n">⑬</span><b>urgency</b> <span class="ipa">/ˈɜːrdʒənsi/</span></td><td class="e">拉丁 <b>urgere</b>「逼迫、催促」</td><td>紧迫性——「现在之刻的紧迫」</td></tr>
+    <tr><td><span class="n">⑭</span><b>gradualism</b> <span class="ipa">/ˈɡrædʒuəlɪzəm/</span></td><td class="e">拉丁 <b>gradus</b>「台阶」→「一步一步来」</td><td>渐进主义——金斥其为「安神的麻醉剂」</td></tr>
+    <tr><td><span class="n">⑮</span><b>desolate</b> <span class="ipa">/ˈdesələt/</span></td><td class="e">拉丁 <b>desolatus</b>「被遗弃」= de- + solus「独自」→「彻底孤独」</td><td>荒凉的——「种族隔离的荒谷」</td></tr>
+    <tr><td><span class="n">⑯</span><b>invigorating</b> <span class="ipa">/ɪnˈvɪɡəreɪtɪŋ/</span></td><td class="e">拉丁 <b>vigor</b>「活力」，vigere「有生气」（与 vegetable「有生机的」同族）</td><td>令人振奋的——「自由平等的金秋」</td></tr>
+    <tr><td><span class="n">⑰</span><b>revolt</b> <span class="ipa">/rɪˈvoʊlt/</span></td><td class="e">拉丁 <b>revolvere</b>「滚回去、翻转」= re- + volvere「滚动」</td><td>反抗——「掀翻现状」</td></tr>
+    <tr><td><span class="n">⑱</span><b>degenerate</b> <span class="ipa">/dɪˈdʒenəreɪt/</span></td><td class="e">拉丁 <b>degenerare</b>「背离自己的族类」= de- + genus「种族、种类」</td><td>堕落——「抗议（一旦）退化成暴力」</td></tr>
+    <tr><td><span class="n">⑲</span><b>inextricably</b> <span class="ipa">/ˌɪnɪkˈstrɪkəbli/</span></td><td class="e">拉丁 <b>extricare</b>「解开」= ex- + tricae「乱麻」→「解不开地」</td><td>不可分割地——「两族自由缠在一起解不开」</td></tr>
+    <tr><td><span class="n">⑳</span><b>tribulations</b> <span class="ipa">/ˌtrɪbjuˈleɪʃnz/</span></td><td class="e">拉丁 <b>tribulum</b>「打谷板」（terere「碾磨」）——像打谷一样被反复碾压</td><td>苦难、磨难</td></tr>
+    <tr><td><span class="n">㉑</span><b>persecution</b> <span class="ipa">/ˌpɜːrsɪˈkjuːʃn/</span></td><td class="e">拉丁 <b>persequi</b>「穷追不舍」= per-「彻」+ sequi「跟随」</td><td>迫害——「被一路追杀」</td></tr>
+    <tr><td><span class="n">㉒</span><b>redemptive</b> <span class="ipa">/rɪˈdemptɪv/</span></td><td class="e">拉丁 <b>redimere</b>「买回、赎回」= red-「回」+ emere「买」</td><td>救赎的——「无辜受难具有救赎力量」</td></tr>
+    <tr><td><span class="n">㉓</span><b>creed</b> <span class="ipa">/kriːd/</span></td><td class="e">拉丁 <b>credo</b>「我信」（《使徒信经》首词）</td><td>信条——「人人平等」的美国信条</td></tr>
+    <tr><td><span class="n">㉔</span><b>exalted</b> <span class="ipa">/ɪɡˈzɔːltɪd/</span></td><td class="e">拉丁 <b>exaltare</b>「高举」= ex- + altus「高」（引《以赛亚书》40:4）</td><td>被抬高的——「幽谷将被填高」</td></tr>
+    <tr><td><span class="n">㉕</span><b>discords</b> <span class="ipa">/ˈdɪskɔːrdz/</span></td><td class="e">拉丁 <b>discordia</b>「不和」= dis-「分离」+ cor「心」→「心与心分开」</td><td>不和谐音——「国家的刺耳杂音」</td></tr>
+    <tr><td><span class="n">㉖</span><b>symphony</b> <span class="ipa">/ˈsɪmfəni/</span></td><td class="e">希腊 <b>symphonia</b>「众声齐鸣」= syn-「一起」+ phone「声音」（phonics 同根）</td><td>交响曲——「兄弟情谊的交响」</td></tr>
+    <tr><td><span class="n">㉗</span><b>prodigious</b> <span class="ipa">/prəˈdɪdʒəs/</span></td><td class="e">拉丁 <b>prodigium</b>「预兆、奇物」→「大得惊人」</td><td>巨大的——「新罕布什尔的巍峨山巅」</td></tr>
+    <tr><td><span class="n">㉘</span><b>hamlet</b> <span class="ipa">/ˈhæmlət/</span></td><td class="e">古法语 <b>hamel</b>「小村落」（ham「村庄」的指小词，与 home「家」同源）</td><td>小村庄——「每一个村庄每一条小巷」</td></tr>
+  </tbody>
+</table>
+
+<h2 class="section">四、修辞分析（这篇为什么这么动人）</h2>
+
+<div class="card">
+  <div class="head"><span class="num">1</span><span class="t">排比 Anaphora（句首重复）</span></div>
+  <div class="why">🗣 <b>这是全篇的"心跳"。</b>开篇 P3 连用 4 次「<span class="refrain hundred">One hundred years later</span>」（一百年过去了）；P6 连用 4 次「<span class="refrain now">Now is the time</span>」（现在是时候了）；P10 连用 5 次「<span class="refrain satisfied">We can never be satisfied as long as</span>…」（只要…我们就永远不会满足）；P13–P20 反复「<span class="refrain dream">I have a dream</span> that one day…」；P23 连用 9 次「<span class="refrain ring">Let freedom ring</span>」（让自由之钟敲响）。</div>
+  <span class="usage"><b>跟读妙用</b>：排比就是演讲的"呼吸节奏"——每重复一次，听众的期待就被拔高一层。模仿时把每次重复都念得比上一次更重、更慢。</span>
+</div>
+
+<div class="card">
+  <div class="head"><span class="num">2</span><span class="t">隐喻系统（三套贯穿全篇）</span></div>
+  <div class="why">🪙 <b>银行/支票</b>：P4–P5「cash a check（兑现支票）」「promissory note（期票）」「insufficient funds（余额不足）」「the bank of justice（正义银行）」——把美国的承诺比作一张银行期票，而黑人手持这张支票讨债。<br>
+  ☀️ <b>光明/黑暗</b>：beacon light（灯塔）、daybreak（破晓）、long night（长夜）、sunlit path（阳光大道）、valley of despair（绝望之谷）——把自由比作光明、压迫比作黑暗。<br>
+  ⛰️ <b>高山/巨石</b>：mountain of despair（绝望之山）→ hew a stone of hope（凿出希望之石）；every hill and mountain made low（高山削平）；molehill（土丘）——呼应《圣经》"填谷削山"的意象，也回应林肯纪念堂的地形。</div>
+  <span class="usage"><b>跟读妙用</b>：念到隐喻词（bank、light、mountain）时放慢、加重，让画面在听众脑中成型。</span>
+</div>
+
+<div class="card">
+  <div class="head"><span class="num">3</span><span class="t">引喻 Allusion（圣经 + 立国文献）</span></div>
+  <div class="why">📖 <b>《圣经》</b>：P20 整段出自《以赛亚书》40:4-5「每一山谷将被填高，山岳将被削平…主的荣光将显现」；P10 末句「justice rolls down like waters, and righteousness like a mighty stream」出自《阿摩司书》5:24。<br>
+  🇺🇸 <b>立国文献</b>：P4 引《独立宣言》「life, liberty, and the pursuit of happiness」；P13 引「all men are created equal」；P22 引美国爱国歌曲《My Country 'Tis of Thee》；P24 以黑人灵歌《Free at Last》收尾。</div>
+  <span class="usage"><b>学习要点</b>：金把"美国之梦"与"上帝之国"两套话语焊接在一起——这正是他打动白人与黑人双方的关键。</span>
+</div>
+
+<div class="card">
+  <div class="head"><span class="num">4</span><span class="t">对比与对偶 Antithesis</span></div>
+  <div class="why">⚖️ 全篇充满成对的反义词，张力拉满：<br>
+  · a lonely island of poverty <u>in the midst of</u> a vast ocean of material prosperity（贫困孤岛 vs 繁荣大海）<br>
+  · from the quicksands of racial injustice <u>to</u> the solid rock of brotherhood（流沙 vs 磐石）<br>
+  · meeting physical force <u>with</u> soul force（武力 vs 灵魂之力）<br>
+  · judged by the color of their skin <u>but by</u> the content of their character（肤色 vs 品格）——被无数人奉为金句的经典对偶</div>
+</div>
+
+<div class="card">
+  <div class="head"><span class="num">5</span><span class="t">递进 Climax（层层推向高潮）</span></div>
+  <div class="why">🚀 全篇是"问题 → 决心 → 梦想 → 祝福"的四幕结构：前半段剖析「还不自由」的现实（P3–P10），中段转向「仍要斗争」的誓言，第 P12 突然转向「我有一个梦想」，最后 P22–P24 以「让自由之钟响彻全美」的地名排比一路攀升，最终收束在灵歌「我们终于自由了」——由诉苦到抗争再到狂喜，情绪步步登顶。</div>
+  <span class="usage"><b>跟读妙用</b>：把最后一段「<span class="refrain free">Free at last</span>!」当作全篇的最高音，前面的所有段落都是在为它蓄势。</span>
+</div>
+
+<h2 class="section">五、跟读要点（模仿 8 分钟录音）</h2>
+
+<div class="intro">
+金的演讲有深厚的黑人布道（preaching）传统：<b>语速慢而稳</b>（约每分钟 90–110 词），长句靠<b>停顿</b>切开，重复句用<b>升调</b>蓄势、收束句用<b>降调</b>落定。建议按以下步骤练：
+</div>
+
+<table>
+  <thead>
+    <tr><th style="width:24%">要点</th><th>操作建议</th></tr>
+  </thead>
+  <tbody>
+    <tr><td><b>① 先听再跟</b></td><td>第一遍只听不动嘴，标出每段的高潮词（多为排比的收束句）。</td></tr>
+    <tr><td><b>② 排比句练节奏</b></td><td>把「<span class="refrain dream">I have a dream</span>…」「<span class="refrain ring">Let freedom ring</span>…」各反复念 5 遍，每次加重一档、放慢一档，训练升降调。</td></tr>
+    <tr><td><b>③ 长句切意群</b></td><td>如 P3 长句：<span class="refrain hundred">One hundred years later</span>, / the life of the Negro / is still sadly crippled / by the manacles of segregation / and the chains of discrimination. 按斜线停顿。</td></tr>
+    <tr><td><b>④ 对比词重读</b></td><td>「color of their skin <b>but</b> content of their character」「physical force <b>with</b> soul force」——对比连接词前后都加重。</td></tr>
+    <tr><td><b>⑤ 结尾飙高</b></td><td>「<span class="refrain free">Free at last</span>! <span class="refrain free">Free at last</span>! Thank God Almighty, we are free at last!」三连句逐句升高、放慢，体会布道式结尾。</td></tr>
+    <tr><td><b>⑥ 模仿语气词</b></td><td>金会说「<span class="refrain now">Now is the time</span>」「my friends」等口语呼语——这是布道传统里的「call and response（呼应与应答）」，跟着录音模仿这种"对话感"。</td></tr>
+  </tbody>
+</table>
+
+<h2 class="section">六、名言金句（建议背诵）</h2>
+
+<div class="card">
+  <div class="head"><span class="num">A</span><span class="t"><span class="refrain dream">I have a dream</span> that my four little children will one day live in a nation where they will not be judged by the color of their skin but by the content of their character.</span></div>
+  <div class="why">💎 全篇最著名对偶：肤色 vs 品格。背熟它，就背熟了"对偶"与"梦想"两大修辞。</div>
+</div>
+<div class="card">
+  <div class="head"><span class="num">B</span><span class="t"><span class="refrain now">Now is the time</span> to rise from the dark and desolate valley of segregation to the sunlit path of racial justice.</span></div>
+  <div class="why">💎 「现在」的力量 + 黑暗/光明隐喻。</div>
+</div>
+<div class="card">
+  <div class="head"><span class="num">C</span><span class="t">We refuse to believe that the bank of justice is bankrupt.</span></div>
+  <div class="why">💎 银行隐喻的单句浓缩版，双关精妙。</div>
+</div>
+<div class="card">
+  <div class="head"><span class="num">D</span><span class="t">With this faith we will be able to hew out of the mountain of despair a stone of hope.</span></div>
+  <div class="why">💎 绝望之山→希望之石，动词 hew（砍凿）极有力度。</div>
+</div>
+<div class="card">
+  <div class="head"><span class="num">E</span><span class="t"><span class="refrain free">Free at last</span>! <span class="refrain free">Free at last</span>! Thank God Almighty, we are free at last!</span></div>
+  <div class="why">💎 灵歌式收尾，英语演讲最经典的结尾之一。</div>
+</div>
+
+<h2 class="section">七、自测</h2>
+
+<div class="quiz">
+  <div class="qhead">练习一 · 词源连线<span class="hint">单词 → 词源本义</span></div>
+  <table class="match">
+    <tr><td>1. segregation</td><td>a. 拉丁「把羊群分开」（se- + grex 羊群）</td></tr>
+    <tr><td>2. emancipation</td><td>b. 意大利语「破了的板凳」（放贷人柜台被砸）</td></tr>
+    <tr><td>3. bankrupt</td><td>c. 拉丁「从手中放出」（e- + manus 手 + capere 抓）</td></tr>
+    <tr><td>4. tribulation</td><td>d. 拉丁「众声齐鸣」（syn- + phone 声音）</td></tr>
+    <tr><td>5. symphony</td><td>e. 拉丁「打谷板」——像碾谷一样受难</td></tr>
+    <tr><td>6. redemptive</td><td>f. 拉丁「买回」（red- + emere 买）</td></tr>
+    <tr><td>7. discrimination</td><td>g. 拉丁「把肤色区别对待」</td></tr>
+    <tr><td>8. exile</td><td>h. 拉丁「被赶出去」（ex- + salire 跳）</td></tr>
+  </table>
+</div>
+
+<div class="quiz">
+  <div class="qhead">练习二 · 修辞辨识<span class="hint">指出下列句子用了哪种修辞（可多选）</span></div>
+  <div class="bank"><b>选项</b>：A. 排比 anaphora ｜ B. 对偶 antithesis ｜ C. 隐喻 metaphor ｜ D. 圣经引喻 allusion</div>
+  <ol class="fill">
+    <li>「<span class="refrain dream">I have a dream</span> that one day…」× 8 —— <b>___</b></li>
+    <li>「the bank of justice is bankrupt」—— <b>___</b></li>
+    <li>「judged by the color of their skin but by the content of their character」—— <b>___</b></li>
+    <li>「every valley shall be exalted…」（出自《以赛亚书》）—— <b>___</b></li>
+    <li>「<span class="refrain ring">Let freedom ring</span> from the snow-capped Rockies of Colorado…from every mountainside」—— <b>___</b> + <b>___</b></li>
+  </ol>
+</div>
+
+<div class="quiz">
+  <div class="qhead">练习三 · 名言填空<span class="hint">凭记忆补全（先背再看答案）</span></div>
+  <ol class="fill">
+    <li><span class="refrain dream">I have a dream</span> that my four little children will one day live in a nation where they will not be judged by the <b>___</b> but by the <b>___</b>.</li>
+    <li><span class="refrain now">Now is the time</span> to rise from the dark and desolate valley of segregation to the sunlit path of <b>___</b>.</li>
+    <li>With this faith we will be able to hew out of the mountain of <b>___</b> a stone of <b>___</b>.</li>
+    <li><span class="refrain free">Free at last</span>! <span class="refrain free">Free at last</span>! Thank God Almighty, we are <b>___</b> at last!</li>
+  </ol>
+</div>
+
+<h2 class="section">八、答案</h2>
+
+<div class="answers">
+  <span class="atitle">练习一</span>　1-a ｜ 2-c ｜ 3-b ｜ 4-e ｜ 5-d ｜ 6-f ｜ 7-g ｜ 8-h<br>
+  <span class="atitle">练习二</span>　1 A ｜ 2 C ｜ 3 B ｜ 4 D ｜ 5 A + C（排比 + 隐喻"自由之钟"）<br>
+  <span class="atitle">练习三</span>　1 color / content of their character ｜ 2 racial justice ｜ 3 despair / hope ｜ 4 free
+</div>
+
+<div class="footer">I Have a Dream · Martin Luther King, Jr. ｜ 全文精读 + 词源 + 修辞 + 跟读 ｜ <span class="refrain free">Free at last</span> 👋</div>
+</body>
+<script>
+/* ---------- 朗读：优先播放预生成音频(data-audio)，否则用系统语音 ---------- */
+(function () {
+  var sents = Array.prototype.slice.call(document.querySelectorAll(".speech .sent"));
+  if (!sents.length) return;
+
+  var synth = ("speechSynthesis" in window) ? window.speechSynthesis : null;
+  var audio = new Audio();
+  audio.preload = "auto";
+
+  var rate = 0.95, playing = false, paused = false, idx = 0;
+  var currentBtn = null, mode = null;
+
+  function strip(sent) {
+    var c = sent.cloneNode(true);
+    c.querySelectorAll(".brk,.sup,.pnum,.say").forEach(function (n) {
+      n.parentNode.removeChild(n);
+    });
+    return c.textContent.replace(/\s+/g, " ").replace(/\s+([.,!?;:])/g, "$1").trim();
+  }
+  function pickVoice() {
+    if (!synth) return null;
+    var vs = synth.getVoices() || [];
+    var en = vs.filter(function (v) { return /^en/i.test(v.lang); });
+    var us = en.filter(function (v) { return /en[-_]US/i.test(v.lang); });
+    return (us[0] || en[0] || null);
+  }
+  function utter(text) {
+    var u = new SpeechSynthesisUtterance(text);
+    u.lang = "en-US"; u.rate = rate;
+    var v = pickVoice(); if (v) u.voice = v;
+    return u;
+  }
+  function mark(btn) { clearMark(); if (btn) { btn.classList.add("speaking"); currentBtn = btn; } }
+  function clearMark() { if (currentBtn) currentBtn.classList.remove("speaking"); currentBtn = null; }
+
+  function stopAll() {
+    playing = false; paused = false;
+    try { audio.pause(); } catch (e) {}
+    if (synth) { try { synth.cancel(); } catch (e) {} }
+    clearMark(); updateBar();
+  }
+  function speakTTS(sent, done) {
+    if (!synth) { done(); return; }
+    mode = "tts";
+    var u = utter(strip(sent));
+    u.onend = done; u.onerror = done;
+    synth.speak(u);
+  }
+  function speakSentence(sent, btn, done) {
+    mark(btn);
+    try { sent.scrollIntoView({ behavior: "smooth", block: "center" }); } catch (e) {}
+    var src = sent.getAttribute("data-audio");
+    if (src) {
+      mode = "audio";
+      audio.src = src;
+      audio.playbackRate = rate;
+      audio.onended = function () { audio.onended = null; audio.onerror = null; done(); };
+      audio.onerror = function () { audio.onerror = null; speakTTS(sent, done); };
+      var p = audio.play();
+      if (p && p.catch) { p.catch(function () { audio.onerror = null; speakTTS(sent, done); }); }
+    } else {
+      speakTTS(sent, done);
+    }
+  }
+
+  function playAll() {
+    stopAll();
+    playing = true; paused = false; idx = 0;
+    updateBar(); next();
+  }
+  function next() {
+    if (!playing) return;
+    if (idx >= sents.length) { stopAll(); return; }
+    var sent = sents[idx], btn = sent.querySelector(".say");
+    speakSentence(sent, btn, function () {
+      if (!playing) return;
+      clearMark(); idx++; next();
+    });
+  }
+
+  sents.forEach(function (sent) {
+    var b = document.createElement("button");
+    b.type = "button"; b.className = "say";
+    b.textContent = "\uD83D\uDD0A";
+    b.title = "朗读这句"; b.setAttribute("aria-label", "朗读这句");
+    b.addEventListener("click", function (e) {
+      e.stopPropagation(); e.preventDefault();
+      if (b.classList.contains("speaking")) { stopAll(); return; }
+      stopAll();
+      speakSentence(sent, b, function () { if (currentBtn === b) clearMark(); });
+    });
+    var p = sent.querySelector(".pnum");
+    if (p) p.parentNode.insertBefore(b, p.nextSibling);
+    else sent.insertBefore(b, sent.firstChild);
+  });
+
+  var bar = document.createElement("div");
+  bar.id = "tts-bar";
+  bar.innerHTML = '<button data-act="play">\u25B6 朗读全文</button>' +
+                  '<button data-act="stop">\u25A0 停止</button>' +
+                  '<button data-act="rate" class="rate">0.95\u00D7</button>';
+  document.body.appendChild(bar);
+  function updateBar() {
+    var pb = bar.querySelector('[data-act="play"]');
+    pb.textContent = (playing && !paused) ? "\u23F8 暂停" : (paused ? "\u25B6 继续" : "\u25B6 朗读全文");
+  }
+  bar.addEventListener("click", function (e) {
+    var t = e.target, act = t.getAttribute && t.getAttribute("data-act");
+    if (act === "play") {
+      if (playing && !paused) {
+        paused = true;
+        if (mode === "audio") { try { audio.pause(); } catch (err) {} }
+        if (synth && synth.speaking) { try { synth.pause(); } catch (err) {} }
+        updateBar();
+      } else if (playing && paused) {
+        paused = false;
+        if (mode === "audio") { try { audio.play(); } catch (err) {} }
+        if (synth && synth.paused) { try { synth.resume(); } catch (err) {} }
+        updateBar();
+      } else { playAll(); }
+    } else if (act === "stop") {
+      stopAll();
+    } else if (act === "rate") {
+      rate = rate >= 1.3 ? 0.8 : Math.round((rate + 0.1) * 100) / 100;
+      t.textContent = rate.toFixed(2) + "\u00D7";
+      audio.playbackRate = rate;
+    }
+  });
+
+  if (synth && synth.onvoiceschanged !== undefined) { synth.onvoiceschanged = function () {}; }
+})();
+
+</script>
+
+<script>
+(function () {
+  var esc = function (s) {
+    return String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+  };
+  var tip = document.createElement("div");
+  tip.id = "tips";
+  document.body.appendChild(tip);
+  var map = {};
+  var rows = document.querySelectorAll("#vocab tbody tr");
+  for (var i = 0; i < rows.length; i++) {
+    var n = rows[i].querySelector(".n");
+    var w = rows[i].querySelector("b");
+    var tds = rows[i].querySelectorAll("td");
+    if (!n || !w || tds.length < 3) continue;
+    map[n.textContent.trim()] = {
+      word: w.textContent.trim(),
+      ipa: rows[i].querySelector(".ipa") ? rows[i].querySelector(".ipa").textContent.trim() : "",
+      etym: tds[1].textContent.trim(),
+      mean: tds[2].textContent.trim()
+    };
+  }
+  function closestSup(el) {
+    while (el && el !== document.body) {
+      if (el.classList && el.classList.contains("sup")) return el;
+      el = el.parentNode;
+    }
+    return null;
+  }
+  document.addEventListener("mouseover", function (e) {
+    var sup = closestSup(e.target);
+    if (!sup) { tip.style.display = "none"; return; }
+    var d = map[sup.textContent.trim()];
+    if (!d) return;
+    tip.innerHTML = '<span class="tw">' + esc(sup.textContent.trim()) + " " + esc(d.word) +
+      '</span><span class="tipa">' + esc(d.ipa) + '</span>' +
+      '<span class="te">词源：' + esc(d.etym) +
+      '</span><span class="tm">在演讲中：' + esc(d.mean) + '</span>';
+    tip.style.display = "block";
+  });
+  document.addEventListener("mousemove", function (e) {
+    if (tip.style.display === "none") return;
+    var x = e.clientX + 14, y = e.clientY + 16;
+    var r = tip.getBoundingClientRect();
+    if (x + r.width > window.innerWidth - 6) x = e.clientX - r.width - 12;
+    if (y + r.height > window.innerHeight - 6) y = e.clientY - r.height - 12;
+    tip.style.left = x + "px";
+    tip.style.top = y + "px";
+  });
+  document.addEventListener("mouseout", function (e) {
+    if (!closestSup(e.target)) tip.style.display = "none";
+  });
+})();
+</script>
+</html>

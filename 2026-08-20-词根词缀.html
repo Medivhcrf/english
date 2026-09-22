@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>词根词缀每日积累 · Day 9</title>
+<style>
+  @page { size: A4; margin: 16mm 15mm; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Noto Sans CJK SC', 'Droid Sans Fallback', 'WenQuanYi Zen Hei', sans-serif;
+    font-size: 10.5pt;
+    color: #1f2937;
+    line-height: 1.65;
+  }
+  /* 页眉 */
+  .header {
+    border-bottom: 3px solid #2563eb;
+    padding-bottom: 10px;
+    margin-bottom: 6px;
+  }
+  .header h1 { font-size: 19pt; color: #1e3a8a; letter-spacing: 1px; }
+  .header .meta { color: #6b7280; font-size: 9.5pt; margin-top: 2px; }
+  .header .meta b { color: #2563eb; }
+
+  /* 分区标题 */
+  h2.section {
+    font-size: 12.5pt;
+    color: #1e3a8a;
+    margin: 14px 0 8px 0;
+    padding-left: 8px;
+    border-left: 4px solid #2563eb;
+  }
+
+  /* 词根卡片 */
+  .card {
+    border: 1px solid #e5e7eb;
+    border-left: 4px solid #2563eb;
+    border-radius: 6px;
+    padding: 8px 12px 9px 12px;
+    margin-bottom: 9px;
+    page-break-inside: avoid;
+  }
+  .card .root-head { margin-bottom: 4px; }
+  .card .num {
+    display: inline-block;
+    width: 17px; height: 17px;
+    background: #2563eb; color: #fff;
+    border-radius: 50%;
+    text-align: center; line-height: 17px;
+    font-size: 9pt; font-weight: bold;
+    margin-right: 6px;
+  }
+  .card .root { font-size: 12.5pt; font-weight: bold; color: #1e3a8a; font-family: 'DejaVu Sans', sans-serif; }
+  .card .meaning { color: #4b5563; }
+  .card .trick {
+    display: block;
+    color: #047857;
+    font-size: 9pt;
+    margin-top: 1px;
+  }
+  /* 词源与演化 */
+  .card .etym {
+    display: block;
+    margin-top: 3px;
+    font-size: 9pt;
+    color: #6d28d9;
+  }
+  .card .etym .lab, .card .evo .lab { font-weight: bold; }
+  .card .evo {
+    display: block;
+    margin-top: 1px;
+    font-size: 9pt;
+    color: #b45309;
+  }
+  .card ul { list-style: none; padding: 0; }
+  .card li {
+    padding: 1px 0;
+    font-size: 10.5pt;
+  }
+  .card li b { color: #111827; }
+  .card .note { color: #9ca3af; font-size: 9pt; }
+  .card .usage {
+    margin-top: 4px;
+    background: #eff6ff;
+    border-radius: 4px;
+    padding: 3px 8px;
+    font-size: 9.5pt;
+    color: #1e40af;
+  }
+  .card .usage b { color: #1e3a8a; }
+
+  /* 深度辨析块（词缀卡片内，浅黄背景） */
+  .card .confuse {
+    margin-top: 5px;
+    background: #fefce8;
+    border: 1px solid #fde047;
+    border-radius: 5px;
+    padding: 5px 9px;
+    font-size: 9pt;
+    color: #854d0e;
+    line-height: 1.6;
+  }
+  .card .confuse .confuse-title {
+    display: block;
+    font-weight: bold;
+    font-size: 9.5pt;
+    color: #92400e;
+    margin-bottom: 3px;
+  }
+  .card .confuse b { color: #78350f; }
+  .card .confuse .sub { color: #a16207; font-weight: bold; }
+
+  /* 多形词根变体块（紫色系） */
+  .card .variant {
+    margin-top: 5px;
+    background: #f5f3ff;
+    border: 1px solid #c4b5fd;
+    border-radius: 5px;
+    padding: 5px 9px;
+    font-size: 9pt;
+    color: #5b21b6;
+    line-height: 1.6;
+  }
+  .card .variant .var-title {
+    display: block;
+    font-weight: bold;
+    font-size: 9.5pt;
+    color: #6d28d9;
+    margin-bottom: 3px;
+  }
+  .card .variant b { color: #5b21b6; }
+
+  /* 同源对照块（琥珀系） */
+  .card .cognate {
+    margin-top: 5px;
+    background: #fffbeb;
+    border: 1px solid #fcd34d;
+    border-radius: 5px;
+    padding: 5px 9px;
+    font-size: 9pt;
+    color: #92400e;
+    line-height: 1.6;
+  }
+  .card .cognate .cog-title {
+    display: block;
+    font-weight: bold;
+    font-size: 9.5pt;
+    color: #b45309;
+    margin-bottom: 3px;
+  }
+  .card .cognate b { color: #78350f; }
+
+  /* 词缀卡片（不同色区分） */
+  .card.affix { border-left-color: #059669; }
+  .card.affix .num { background: #059669; }
+  .card.affix .root { color: #065f46; }
+  .card.affix .usage { background: #ecfdf5; color: #065f46; }
+
+  .footer {
+    margin-top: 14px;
+    text-align: center;
+    color: #9ca3af;
+    font-size: 8.5pt;
+    border-top: 1px solid #e5e7eb;
+    padding-top: 6px;
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>词根词缀每日积累 · Day 9</h1>
+  <div class="meta">2026 年 8 月 20 日 ｜ <b>词根 7 个 · 词缀 3 个</b> ｜ 附词源与演化</div>
+</div>
+
+<h2 class="section">词根（7 个）</h2>
+
+<div class="card">
+  <div class="root-head"><span class="num">1</span><span class="root">junct / join / joint</span> <span class="meaning">= join 连接</span></div>
+  <span class="trick">💡 记法：join = 把两个东西"接"起来；junction = 道路"交会"的地方</span>
+  <span class="etym"><span class="lab">词源</span>：拉丁语 <b>iungere</b>「连接」，完成分词 <b>iunctus</b>，源自印欧语 <b>*yeug-</b>「连接」；与英语 <b>yoke</b>（轭，套住两头牛的木架）同源</span>
+  <span class="evo"><span class="lab">演化</span>：<b>连接</b> → 连到一起=joint ｜ 道路交会=junction ｜ 一并到来=conjunction（连词）</span>
+  <ul>
+    <li><b>join</b> 连接、加入 <span class="note">（经法语 joindre 进入）</span></li>
+    <li><b>joint</b> 关节；共有的 <span class="note">（joint，骨头相接之处；joint effort 共同努力）</span></li>
+    <li><b>junction</b> 交汇点、枢纽 <span class="note">（junct + -ion，道路相连处）</span></li>
+    <li><b>conjunction</b> 连词；结合 <span class="note">（con- 一起 + junct + -ion，语法上"连接"词句的词）</span></li>
+    <li><b>adjoin</b> 毗邻 <span class="note">（ad- 靠近 + join，接在一起）</span></li>
+    <li><b>adjunct</b> 附属的；助理 <span class="note">（ad- 靠 + junct，"接在旁边的"）</span></li>
+  </ul>
+  <div class="variant">
+    <span class="var-title">🧩 变体家族</span>
+    <b>junct-</b> junction, conjunction, adjunct, juncture<br>
+    <b>join-</b> join, joint, adjoin, rejoin<br>
+    <b>joue-</b> （经法语）jointure, joust「比武（两骑相撞相接）」
+  </div>
+  <div class="cognate">
+    <span class="cog-title">🧬 同源对照</span>
+    <b>iungere</b>（拉丁）→ junction, join ｜ <b>yoke</b>（英语） ｜ 同为 PIE <b>*yeug-</b>「连接」（y 音对应，j/y 同源）
+  </div>
+  <div class="usage">口语/生活用：<b>Let's join forces and get this done together.</b> 我们齐心协力把这件事一起做完吧。</div>
+</div>
+
+<div class="card">
+  <div class="root-head"><span class="num">2</span><span class="root">nat / nasc</span> <span class="meaning">= born 出生</span></div>
+  <span class="trick">💡 记法：nation = 同"生"于一片土地的人；nature = 天生的、生来如此</span>
+  <span class="etym"><span class="lab">词源</span>：拉丁语 <b>nasci</b>「出生」，完成分词 <b>natus</b>；与补课 Day 的 <b>gen/gener</b>（出生）同源，都是印欧语 <b>*genh₁-</b>「出生、产生」</span>
+  <span class="evo"><span class="lab">演化</span>：<b>出生</b> → 出生地=国度(nation) ｜ 天生如此=nature ｜ 生来就有的=innate（先天的）</span>
+  <ul>
+    <li><b>nation</b> 国家、民族 <span class="note">（nat + -ion，同生一地之人）</span></li>
+    <li><b>native</b> 本土的、本地人 <span class="note">（nat + -ive，"出生在这里的"）</span></li>
+    <li><b>nature</b> 自然、本性 <span class="note">（nat + -ure，"天生的样子"）</span></li>
+    <li><b>innate</b> 先天的、天生的 <span class="note">（in- 在 + nate，"与生俱来的"）</span></li>
+    <li><b>natural</b> 自然的 <span class="note">（natur + -al）</span></li>
+    <li><b>international</b> 国际的 <span class="note">（inter- 之间 + nat + -ion + -al，国家之间的）</span></li>
+  </ul>
+  <div class="cognate">
+    <span class="cog-title">🧬 同源对照</span>
+    <b>nasci</b>（拉丁）→ nation, nature ｜ <b>gen/gener</b>（拉丁，补课已学）→ 同根 PIE <b>*genh₁-</b>「出生」—— nation 的 nat 和 generate 的 gen 是同一个祖先
+  </div>
+  <div class="usage">口语/生活用：<b>I was born in this city, so I know every corner of it.</b> 我出生在这座城市，所以这里的每个角落我都熟悉。</div>
+</div>
+
+<div class="card">
+  <div class="root-head"><span class="num">3</span><span class="root">ann / enn</span> <span class="meaning">= year 年</span></div>
+  <span class="trick">💡 记法：annual = 每年一次的；anniversary = "年"又转回来（纪念日）</span>
+  <span class="etym"><span class="lab">词源</span>：拉丁语 <b>annus</b>「年」，源自印欧语 <b>*h₂et-no-</b>「年」；<b>enn-</b> 是它在法语中的变体</span>
+  <span class="evo"><span class="lab">演化</span>：<b>年</b> → 每年一次=annual ｜ 周年转回=anniversary ｜ 每两年=biennial</span>
+  <ul>
+    <li><b>annual</b> 每年的；年刊 <span class="note">（ann + -ual，"一年一回的"）</span></li>
+    <li><b>anniversary</b> 周年纪念 <span class="note">（ann + i + vers 转，"年复一年地转回"）</span></li>
+    <li><b>biennial</b> 两年一次的 <span class="note">（bi- 二 + enn + -ial）</span></li>
+    <li><b>centennial</b> 百年纪念 <span class="note">（cent- 百 + enn + -ial）</span></li>
+    <li><b>annuity</b> 年金 <span class="note">（ann + -uity，每年发放的钱）</span></li>
+    <li><b>millennium</b> 千年 <span class="note">（mill- 千 + enn + -ium，千年之期）</span></li>
+  </ul>
+  <div class="variant">
+    <span class="var-title">🧩 变体家族</span>
+    <b>ann-</b> annual, anniversary, annuity（拉丁原形）<br>
+    <b>enn-</b> biennial, centennial, millennium（法语变体，表"以年为单位"）
+  </div>
+  <div class="usage">口语/生活用：<b>Next week is our wedding anniversary — it's been ten years!</b> 下周是我们的结婚纪念日——已经十年了！</div>
+</div>
+
+<div class="card">
+  <div class="root-head"><span class="num">4</span><span class="root">tact / tang / tag</span> <span class="meaning">= touch 触摸</span></div>
+  <span class="trick">💡 记法：contact = 双方"摸"到一起（联系）；intact = 没被"碰"过（完好无损）</span>
+  <span class="etym"><span class="lab">词源</span>：拉丁语 <b>tangere</b>「触摸」，完成分词 <b>tactus</b>，源自印欧语 <b>*tag-</b>「触摸」</span>
+  <span class="evo"><span class="lab">演化</span>：<b>触摸</b> → 摸到=contact ｜ 没被摸过=intact ｜ 摸得着=可触(tangible) ｜ 一"沾"就传染=contagion</span>
+  <ul>
+    <li><b>contact</b> 联系、接触 <span class="note">（con- 一起 + tact，"相互碰到"）</span></li>
+    <li><b>intact</b> 完好无损的 <span class="note">（in- 不 + tact，"没被动过"）</span></li>
+    <li><b>tangible</b> 可触摸的、有形的 <span class="note">（tang + -ible）</span></li>
+    <li><b>tactile</b> 触觉的 <span class="note">（tact + -ile，"和触摸有关的"）</span></li>
+    <li><b>tangent</b> 切线；离题 <span class="note">（tang + -ent，"与圆相接的直线"→引申为跑题）</span></li>
+    <li><b>contagion</b> 传染 <span class="note">（con- 一起 + tag + -ion，"一碰就传开"）</span></li>
+  </ul>
+  <div class="variant">
+    <span class="var-title">🧩 变体家族</span>
+    <b>tact-</b> contact, intact, tactile, tact「得体（不触碰敏感话题的智慧）」<br>
+    <b>tang-</b> tangible, tangent<br>
+    <b>tag-</b> contagion「传染」, tag「标签（贴上去触碰）」
+  </div>
+  <div class="usage">口语/生活用：<b>Don't touch the screen — the paint is still wet.</b> 别碰屏幕——油漆还没干。</div>
+</div>
+
+<div class="card">
+  <div class="root-head"><span class="num">5</span><span class="root">migr</span> <span class="meaning">= wander 迁移</span></div>
+  <span class="trick">💡 记法：migrant = 到处"迁"的人；immigrant = 迁"进"来（入境移民）</span>
+  <span class="etym"><span class="lab">词源</span>：拉丁语 <b>migrare</b>「迁移、搬家」，源自印欧语 <b>*mey-</b>「移动、改变」（与 move 的古拉丁同源支系）</span>
+  <span class="evo"><span class="lab">演化</span>：<b>迁移</b> → 迁进来=immigrate ｜ 迁出去=emigrate ｜ 季节性迁徙=migratory</span>
+  <ul>
+    <li><b>migrate</b> 迁移、迁徙 <span class="note">（migr + -ate，鸟群/人群季节性迁移）</span></li>
+    <li><b>immigrant</b> （入境）移民 <span class="note">（im- 进 + migr + -ant，"迁进来的人"）</span></li>
+    <li><b>emigrate</b> 移居（国外） <span class="note">（e- 出 + migr + -ate，"迁出去"）</span></li>
+    <li><b>migrant</b> 流动工人、迁徙者 <span class="note">（migr + -ant，到处流动的人）</span></li>
+    <li><b>migratory</b> 迁徙的 <span class="note">（migr + -atory）</span></li>
+    <li><b>transmigrate</b> 移民；（宗教）转世 <span class="note">（trans- 跨越 + migr + -ate，"灵魂迁移到另一身体"）</span></li>
+  </ul>
+  <div class="usage">口语/生活用：<b>Many birds migrate south before winter comes.</b> 冬天来临前，许多鸟会向南迁徙。</div>
+</div>
+
+<div class="card">
+  <div class="root-head"><span class="num">6</span><span class="root">astr / aster</span> <span class="meaning">= star 星（希腊）</span></div>
+  <span class="trick">💡 记法：astronaut = 航向"星"辰的人（宇航员）；disaster = "灾星"降临（灾难）</span>
+  <span class="etym"><span class="lab">词源</span>：希腊语 <b>astēr</b>「星」，源自印欧语 <b>*h₂stḗr</b>「星」</span>
+  <span class="evo"><span class="lab">演化</span>：<b>星</b> → 观星之学=天文学(astronomy) ｜ 星形符号=星号(asterisk) ｜ 灾星=disaster（古人不祥之星）</span>
+  <ul>
+    <li><b>astronaut</b> 宇航员 <span class="note">（astr + naut 船，"星际航行者"）</span></li>
+    <li><b>astronomy</b> 天文学 <span class="note">（astr + nom 法则，"星辰运行的法则"）</span></li>
+    <li><b>asterisk</b> 星号 * <span class="note">（aster + -isk 小，"小星星"）</span></li>
+    <li><b>disaster</b> 灾难 <span class="note">（dis- 不吉 + aster，"灾星当头"）</span></li>
+    <li><b>asteroid</b> 小行星 <span class="note">（aster + -oid 似，"像星星的东西"）</span></li>
+    <li><b>astrology</b> 占星术 <span class="note">（astr + log 学问）</span></li>
+  </ul>
+  <div class="cognate">
+    <span class="cog-title">🧬 同源对照</span>
+    <b>astēr</b>（希腊）→ astronaut, astronomy ｜ <b>stella</b>（拉丁）→ stellar「恒星的」 ｜ <b>star</b>（英语） ｜ 同为 PIE <b>*h₂stḗr</b>「星」（s 音对应）
+  </div>
+  <div class="usage">口语/生活用：<b>Have you ever watched a shooting star through a telescope?</b> 你曾用望远镜看过流星吗？</div>
+</div>
+
+<div class="card">
+  <div class="root-head"><span class="num">7</span><span class="root">psych</span> <span class="meaning">= mind, soul 心灵、精神（希腊）</span></div>
+  <span class="trick">💡 记法：psychology = 研究"心灵"的学问（心理学）；psychic = 能"读心"的人</span>
+  <span class="etym"><span class="lab">词源</span>：希腊语 <b>psyche</b>「呼吸、灵魂、心灵」，源自动词 <b>psychein</b>「呼吸、吹气」（古人以为心灵即呼吸之气）</span>
+  <span class="evo"><span class="lab">演化</span>：<b>呼吸/灵魂</b> → 心灵、精神(psyche) → 研究心灵的学问=psychology ｜ 心灵治疗=psychiatry</span>
+  <ul>
+    <li><b>psychology</b> 心理学 <span class="note">（psych + ology 学科）</span></li>
+    <li><b>psychic</b> 通灵的、超感知的 <span class="note">（psych + -ic，"读心"）</span></li>
+    <li><b>psychiatrist</b> 精神科医生 <span class="note">（psych + iatr 治疗 + -ist 人）</span></li>
+    <li><b>psychotherapy</b> 心理治疗 <span class="note">（psych + therapy 疗法）</span></li>
+    <li><b>psyche</b> 心灵、自我 <span class="note">（直接借自希腊语）</span></li>
+    <li><b>psychedelic</b> 致幻的；迷幻风格的 <span class="note">（psych + -delic 显现，"让心灵显现"）</span></li>
+  </ul>
+  <div class="usage">口语/生活用：<b>Talking to a psychologist really helped me manage my stress.</b> 和心理医生聊聊真的帮我缓解了压力。</div>
+</div>
+
+<h2 class="section">词缀（3 个）</h2>
+
+<div class="card affix">
+  <div class="root-head"><span class="num">8</span><span class="root">non-</span> <span class="meaning">= not 非、不</span></div>
+  <span class="trick">💡 记法：nonstop = 不"停"（直达）；nonfiction = "非"虚构（纪实文学）</span>
+  <span class="etym"><span class="lab">词源</span>：拉丁语 <b>non</b>「不」，本为 ne-oenum「不是一个」，由否定词 ne- + ōenum「一个」合成</span>
+  <span class="evo"><span class="lab">演化</span>：拉丁 <b>non</b> → 英语 <b>non-</b>，多用于名词/形容词前，表"非、无"的客观分类</span>
+  <ul>
+    <li><b>nonstop</b> 直达的、不停的 <span class="note">（non + stop，飞机不停站）</span></li>
+    <li><b>nonfiction</b> 纪实文学 <span class="note">（non + fiction，"非虚构"）</span></li>
+    <li><b>nonprofit</b> 非营利的 <span class="note">（non + profit）</span></li>
+    <li><b>nonsense</b> 胡说八道 <span class="note">（non + sense，"没有意义"）</span></li>
+    <li><b>nonalcoholic</b> 不含酒精的 <span class="note">（non + alcohol + -ic）</span></li>
+    <li><b>nonrefundable</b> 不可退款的 <span class="note">（non + refund + -able）</span></li>
+  </ul>
+  <div class="confuse">
+    <span class="confuse-title">💡 深度辨析：否定前缀四兄弟（收尾总动员）</span>
+    <span class="sub">non-</span>（拉丁，客观分类"非"）：nonfiction, nonstop, nonprofit<br>
+    <span class="sub">un-</span>（日耳曼，单纯否定状态，Day 3）：unhappy, unclear<br>
+    <span class="sub">dis-</span>（拉丁，主动反向动作，Day 2）：disagree, disconnect<br>
+    <span class="sub">in-/il-/im-/ir-</span>（拉丁，形容词否定，Day 7）：illegal, impossible<br>
+    例：<b>nonstop</b>（客观描述：不停）vs <b>disconnect</b>（主动动作：断开）vs <b>unclear</b>（状态：不清楚）——四大前缀至此全部齐了
+  </div>
+  <div class="usage">口语/生活用：<b>There's a nonstop flight to Tokyo every morning.</b> 每天上午都有一班飞往东京的直达航班。</div>
+</div>
+
+<div class="card affix">
+  <div class="root-head"><span class="num">9</span><span class="root">pro-</span> <span class="meaning">= forward, in favor of 向前、支持</span></div>
+  <span class="trick">💡 记法：progress = 向"前"走（进步）；promote = 往"前"推（晋升）</span>
+  <span class="etym"><span class="lab">词源</span>：拉丁语 <b>pro</b>「向前、在…之前、为了」，源自印欧语 <b>*pro-</b>「向前」</span>
+  <span class="evo"><span class="lab">演化</span>：<b>向前</b> → 往前移动=progress ｜ 往前推=promote ｜ 替…说话=支持(pro) ｜ 前置显现=proclaim</span>
+  <ul>
+    <li><b>progress</b> 进步 <span class="note">（pro- 前 + gress 走，"向前走"）</span></li>
+    <li><b>promote</b> 晋升、促进 <span class="note">（pro- 前 + mot 动，"向前推"）</span></li>
+    <li><b>produce</b> 生产 <span class="note">（pro- 前 + duc 引导，"引导出来"）</span></li>
+    <li><b>protect</b> 保护 <span class="note">（pro- 前 + tect 覆盖，"挡在前面护住"）</span></li>
+    <li><b>proclaim</b> 宣告 <span class="note">（pro- 前 + claim 喊，"大声喊出"）</span></li>
+    <li><b>pro &amp; con</b> 赞成与反对 <span class="note">（pro- 支持 vs con- 反对，如 weigh the pros and cons）</span></li>
+  </ul>
+  <div class="confuse">
+    <span class="confuse-title">💡 深度辨析：pro- vs pre-</span>
+    <span class="sub">pro-</span>（向前/支持，方向感）：progress, promote, pro-war<br>
+    <span class="sub">pre-</span>（时间上"预先"，Day 2 学过）：prepare, predict, preview<br>
+    例：<b>predict</b> 预先说（pre-）vs <b>produce</b> 引向前（pro-）——pro- 有"往前推进"的动感，pre- 只有"提前"的时间感
+  </div>
+  <div class="usage">口语/生活用：<b>She was promoted to manager after just one year.</b> 她只干了一年就升为经理了。</div>
+</div>
+
+<div class="card affix">
+  <div class="root-head"><span class="num">10</span><span class="root">-dom</span> <span class="meaning">= state, realm 状态、领域</span></div>
+  <span class="trick">💡 记法：kingdom = 国王"统治的领域"（王国）；freedom = "自由"的状态</span>
+  <span class="etym"><span class="lab">词源</span>：古英语 <b>-dom</b>「判断、统治、状态」，源自印欧语 <b>*dhe-</b>「放置、制定」（与 do、deed 同源）</span>
+  <span class="evo"><span class="lab">演化</span>：古英语 <b>-dom</b>（本义"定论、领地"）→ 现代英语表"状态 / 领域 / 身份"</span>
+  <ul>
+    <li><b>freedom</b> 自由 <span class="note">（free + dom，"自由的状态"）</span></li>
+    <li><b>kingdom</b> 王国 <span class="note">（king + dom，"国王统辖的领域"）</span></li>
+    <li><b>wisdom</b> 智慧 <span class="note">（wise + dom，"睿智的状态"）</span></li>
+    <li><b>boredom</b> 无聊 <span class="note">（bore + dom，"烦闷的状态"）</span></li>
+    <li><b>officialdom</b> 官场 <span class="note">（official + dom，"官员的世界"）</span></li>
+    <li><b>random</b> 随机的 <span class="note">（古法语 ran 疾奔 + dom，"没有明确方向的局面"）</span></li>
+  </ul>
+  <div class="confuse">
+    <span class="confuse-title">💡 深度辨析：名词后缀 -dom / -ship / -hood</span>
+    <span class="sub">-dom</span>（领域/统治状态，日耳曼）：kingdom, freedom<br>
+    <span class="sub">-ship</span>（身份/关系，Day 7 学过）：friendship, leadership<br>
+    <span class="sub">-hood</span>（阶段/群体状态）：childhood「童年」, neighborhood「邻里」<br>
+    例：<b>kingdom</b>（统治领域）vs <b>friendship</b>（人际状态）vs <b>childhood</b>（人生阶段）——三个后缀各偏一面
+  </div>
+  <div class="usage">口语/生活用：<b>Freedom doesn't come without responsibility.</b> 自由并非不需要承担责任。</div>
+</div>
+
+<div class="footer">词根词缀每日积累 · 每天 10 个 · 明天见 👋</div>
+
+</body>
+</html>

@@ -1,0 +1,6 @@
+.claude/
+.ttsenv/
+.ttslibs/
+__pycache__/
+*.pyc
+.DS_Store

@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>MWVB Unit 1 复习 · 词根整理 + 配套练习</title>
+<style>
+  @page { size: A4; margin: 15mm 14mm; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Noto Sans CJK SC', 'Droid Sans Fallback', 'WenQuanYi Zen Hei', sans-serif;
+    font-size: 9.8pt;
+    color: #1f2937;
+    line-height: 1.6;
+  }
+  .header {
+    border-bottom: 3px solid #7c3aed;
+    padding-bottom: 8px;
+    margin-bottom: 6px;
+  }
+  .header h1 { font-size: 17pt; color: #4c1d95; letter-spacing: 1px; }
+  .header .sub { font-size: 10.5pt; color: #6d28d9; margin-top: 2px; }
+  .header .meta { color: #6b7280; font-size: 9pt; margin-top: 2px; }
+  .header .meta b { color: #7c3aed; }
+
+  h2.section {
+    font-size: 12pt;
+    color: #4c1d95;
+    margin: 13px 0 7px 0;
+    padding-left: 8px;
+    border-left: 4px solid #7c3aed;
+    page-break-after: avoid;
+  }
+
+  .intro {
+    background: #f5f3ff;
+    border: 1px solid #ddd6fe;
+    border-radius: 6px;
+    padding: 7px 11px;
+    margin-bottom: 9px;
+    font-size: 9pt;
+    color: #4c1d95;
+  }
+  .intro b { color: #6d28d9; }
+
+  /* 词根总览表 */
+  table.overview {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 8.8pt;
+    margin: 5px 0 9px 0;
+  }
+  table.overview th {
+    background: #7c3aed; color: #fff;
+    border: 1px solid #7c3aed;
+    padding: 3px 6px; text-align: left;
+  }
+  table.overview td {
+    border: 1px solid #e5e7eb;
+    padding: 3px 6px; vertical-align: top;
+  }
+  table.overview tr:nth-child(even) td { background: #faf5ff; }
+  table.overview td b { color: #6d28d9; }
+
+  /* 词根卡片 */
+  .card {
+    border: 1px solid #e5e7eb;
+    border-left: 4px solid #7c3aed;
+    border-radius: 6px;
+    padding: 7px 11px 8px 11px;
+    margin-bottom: 8px;
+    page-break-inside: avoid;
+  }
+  .card .root-head { margin-bottom: 4px; }
+  .card .num {
+    display: inline-block;
+    width: 17px; height: 17px;
+    background: #7c3aed; color: #fff;
+    border-radius: 50%;
+    text-align: center; line-height: 17px;
+    font-size: 9pt; font-weight: bold;
+    margin-right: 6px; vertical-align: 1px;
+  }
+  .card .root { font-size: 12pt; font-weight: bold; color: #4c1d95; font-family: 'DejaVu Sans', sans-serif; }
+  .card .rm { color: #059669; font-size: 9.5pt; font-weight: bold; margin-left: 4px; }
+  .card .etym {
+    display: block;
+    margin-top: 2px;
+    font-size: 8.8pt;
+    color: #6d28d9;
+  }
+  .card .etym .lab { font-weight: bold; }
+  .card table.words {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 8.8pt;
+    margin: 4px 0 3px 0;
+    page-break-inside: avoid;
+  }
+  .card table.words th {
+    background: #ede9fe; color: #4c1d95;
+    border: 1px solid #ddd6fe;
+    padding: 2px 6px; text-align: left;
+  }
+  .card table.words td {
+    border: 1px solid #e5e7eb;
+    padding: 2px 6px; vertical-align: top;
+  }
+  .card table.words td b { color: #4c1d95; }
+  .card table.words td .pos { color: #059669; font-size: 8pt; font-weight: bold; }
+  .card table.words td .gloss { color: #6b7280; font-size: 8pt; }
+
+  .card .confuse {
+    margin-top: 4px;
+    background: #fefce8;
+    border: 1px solid #fde047;
+    border-radius: 5px;
+    padding: 4px 8px;
+    font-size: 8.8pt;
+    color: #854d0e;
+    line-height: 1.55;
+  }
+  .card .confuse .confuse-title { display: block; font-weight: bold; font-size: 9pt; color: #92400e; margin-bottom: 1px; }
+  .card .confuse b { color: #78350f; }
+
+  /* 练习区 */
+  .quiz { margin: 4px 0 10px 0; }
+  .quiz .qhead {
+    background: #ede9fe;
+    border-radius: 4px;
+    padding: 3px 9px;
+    font-size: 9.5pt;
+    font-weight: bold;
+    color: #4c1d95;
+    margin-bottom: 4px;
+  }
+  .quiz .qhead .hint { font-weight: normal; color: #6b7280; font-size: 8.5pt; margin-left: 6px; }
+  .quiz table.match {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 8.6pt;
+    page-break-inside: avoid;
+  }
+  .quiz table.match td {
+    border: 1px solid #e5e7eb;
+    padding: 2px 7px;
+    vertical-align: top;
+  }
+  .quiz table.match td:nth-child(1) { width: 58%; }
+  .quiz table.match tr:nth-child(even) td { background: #faf5ff; }
+  .quiz ol.fill { list-style: decimal; padding-left: 22px; }
+  .quiz ol.fill li { margin: 2px 0; font-size: 9.2pt; }
+  .quiz ol.fill li b { color: #4c1d95; }
+  .quiz ol.fill u { text-decoration-color: #c4b5fd; }
+  .bank {
+    background: #f0fdf4;
+    border: 1px dashed #86efac;
+    border-radius: 5px;
+    padding: 4px 9px;
+    font-size: 8.8pt;
+    color: #065f46;
+    margin-bottom: 4px;
+  }
+  .bank b { color: #047857; }
+
+  .answers {
+    margin-top: 5px;
+    background: #ecfdf5;
+    border: 1px dashed #34d399;
+    border-radius: 5px;
+    padding: 7px 11px;
+    font-size: 9pt;
+    color: #065f46;
+    line-height: 1.8;
+  }
+  .answers .atitle { font-weight: bold; color: #047857; font-size: 9.5pt; }
+  .answers b { color: #047857; }
+
+  .footer {
+    margin-top: 12px;
+    text-align: center;
+    color: #9ca3af;
+    font-size: 8.3pt;
+    border-top: 1px solid #e5e7eb;
+    padding-top: 5px;
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>Merriam-Webster's Vocabulary Builder · Unit 1 复习</h1>
+  <div class="sub">8 大词根 × 每根 4 词（32 词）+ 神话与历史 8 词 = 共 40 词 ｜ 词根整理 + 配套练习</div>
+  <div class="meta">2026 年 8 月 27 日 ｜ 内容忠实原书 2nd Ed. ｜ 含词根速查、详解、自测与答案</div>
+</div>
+
+<h2 class="section">一、词根速查总表</h2>
+
+<table class="overview">
+  <thead>
+    <tr><th>词根</th><th>含义</th><th>代表词（4 词一组）</th></tr>
+  </thead>
+  <tbody>
+    <tr><td><b>BENE</b></td><td>well 好</td><td>benediction · benefactor · beneficiary · benevolence</td></tr>
+    <tr><td><b>AM</b></td><td>love 爱</td><td>amicable · enamored · amorous · paramour</td></tr>
+    <tr><td><b>BELL</b></td><td>war 战争</td><td>antebellum · bellicose · belligerence · rebellion</td></tr>
+    <tr><td><b>PAC</b></td><td>peace / agree 和平、同意</td><td>pacify · pacifist · pact · pace</td></tr>
+    <tr><td><b>CRIM</b></td><td>crime / fault / accusation 罪、过错、指控</td><td>criminology · decriminalize · incriminate · recrimination</td></tr>
+    <tr><td><b>PROB</b></td><td>prove / honesty 证明、诚实</td><td>approbation · probate · probity · reprobate</td></tr>
+    <tr><td><b>GRAV</b></td><td>heavy / serious 重、严重</td><td>grave · gravitas · gravitate · aggravate</td></tr>
+    <tr><td><b>LEV</b></td><td>light / raise 轻、举起</td><td>alleviate · elevation · cantilever · levity</td></tr>
+  </tbody>
+</table>
+
+<h2 class="section">二、词根详解（每根 4 词）</h2>
+
+<div class="card">
+  <div class="root-head"><span class="num">1</span><span class="root">BENE</span><span class="rm">= well「好」</span></div>
+  <span class="etym"><span class="lab">词源</span>：拉丁语 <b>bene</b>「好」。西班牙语 bueno、法语 bon、意大利语 bene 同源——"好！/太好了！"</span>
+  <table class="words">
+    <thead><tr><th style="width:24%">单词</th><th style="width:38%">中文含义</th><th>英文释义 + 要点</th></tr></thead>
+    <tbody>
+      <tr><td><b>benediction</b> <span class="pos">n.</span></td><td>祝福祷告、赐福</td><td class="gloss">a prayer asking God's blessing（礼拜结尾的祝福）；bene + dictio「说」→"说好话"</td></tr>
+      <tr><td><b>benefactor</b> <span class="pos">n.</span></td><td>捐助者、恩人</td><td class="gloss">one who helps another, esp. by giving money；bene + facere「做」→"做好事的人"</td></tr>
+      <tr><td><b>beneficiary</b> <span class="pos">n.</span></td><td>受益人</td><td class="gloss">one who receives benefit / money, esp. after sb dies；人寿保险常见搭配</td></tr>
+      <tr><td><b>benevolence</b> <span class="pos">n.</span></td><td>仁慈、善心、慷慨</td><td class="gloss">kindness, generosity；bene + volo「愿」→"愿人好"；形容词 benevolent</td></tr>
+    </tbody>
+  </table>
+  <div class="confuse"><span class="confuse-title">⚠️ 区分方向</span><b>benefactor（给的人）↔ beneficiary（收的人）</b>，别搞反：donor 相当于 benefactor。</div>
+</div>
+
+<div class="card">
+  <div class="root-head"><span class="num">2</span><span class="root">AM</span><span class="rm">= love「爱」</span></div>
+  <span class="etym"><span class="lab">词源</span>：拉丁语 <b>amare</b>「爱」。罗马爱神有两个名字：Cupid 与 <b>Amor</b>；西班牙语 amigo「朋友」同源</span>
+  <table class="words">
+    <thead><tr><th style="width:24%">单词</th><th style="width:38%">中文含义</th><th>英文释义 + 要点</th></tr></thead>
+    <tbody>
+      <tr><td><b>amicable</b> <span class="pos">adj.</span></td><td>友好的、和平的</td><td class="gloss">friendly, peaceful——常形容两国/两组关系：amicable settlement（和平解决）</td></tr>
+      <tr><td><b>enamored</b> <span class="pos">adj.</span></td><td>着迷的、迷恋的</td><td class="gloss">charmed, fascinated；be enamored of / with 两种介词都常用</td></tr>
+      <tr><td><b>amorous</b> <span class="pos">adj.</span></td><td>多情的、情爱的</td><td class="gloss">having strong feelings of love——常带"肉欲/亲密"色彩</td></tr>
+      <tr><td><b>paramour</b> <span class="pos">n.</span></td><td>情人（秘密的、不合礼法的）</td><td class="gloss">a lover, often secret；法语 par amour「出于爱情」→ 婚外情人</td></tr>
+    </tbody>
+  </table>
+  <div class="confuse"><span class="confuse-title">⚠️ 程度差异</span><b>amicable</b>（客气的友好，用于关系/协议）≠ <b>amorous</b>（情欲之爱）≠ <b>enamored</b>（如痴如醉的迷恋）。</div>
+</div>
+
+<div class="card">
+  <div class="root-head"><span class="num">3</span><span class="root">BELL</span><span class="rm">= war「战争」</span></div>
+  <span class="etym"><span class="lab">词源</span>：拉丁语 <b>bellum</b>「战争」。罗马的战争女神叫 <b>Bellona</b>（战神马尔斯之妻），名字即由此来</span>
+  <table class="words">
+    <thead><tr><th style="width:24%">单词</th><th style="width:38%">中文含义</th><th>英文释义 + 要点</th></tr></thead>
+    <tbody>
+      <tr><td><b>antebellum</b> <span class="pos">adj.</span></td><td>战前的（尤指美国内战前）</td><td class="gloss">existing before a war；ante-「前」+ bellum；指美国南方的旧时光</td></tr>
+      <tr><td><b>bellicose</b> <span class="pos">adj.</span></td><td>好战的、好斗的、寻衅的</td><td class="gloss">warlike, aggressive——形容国家及其领导人（如威廉二世、墨索里尼）</td></tr>
+      <tr><td><b>belligerence</b> <span class="pos">n.</span></td><td>好战性、挑衅、敌意</td><td class="gloss">aggressiveness, combativeness；belligerent 还可做名词「交战国」</td></tr>
+      <tr><td><b>rebellion</b> <span class="pos">n.</span></td><td>叛乱、反抗</td><td class="gloss">open defiance of authority（常武装）；rebel 动词/名词；叛乱升级=革命</td></tr>
+    </tbody>
+  </table>
+  <div class="confuse"><span class="confuse-title">⚠️ 辨析</span><b>bellicose</b> 多形容"国家/领袖的好战态度"；<b>belligerence</b> 可小到个人、大到全球；<b>rebellion</b> 是对权威的反抗（不一定成功），<b>revolution</b> 是推翻政权的革命。</div>
+</div>
+
+<div class="card">
+  <div class="root-head"><span class="num">4</span><span class="root">PAC</span><span class="rm">= peace / agree「和平、同意」</span></div>
+  <span class="etym"><span class="lab">词源</span>：拉丁语 <b>pax, pacis</b>「和平；协议」。太平洋 Pacific Ocean 即"太平之洋"，由麦哲伦命名（他显然没见过台风）</span>
+  <table class="words">
+    <thead><tr><th style="width:24%">单词</th><th style="width:38%">中文含义</th><th>英文释义 + 要点</th></tr></thead>
+    <tbody>
+      <tr><td><b>pacify</b> <span class="pos">v.</span></td><td>平息、安抚；武装镇压</td><td class="gloss">to soothe anger / subdue by force；pacifier 安抚奶嘴</td></tr>
+      <tr><td><b>pacifist</b> <span class="pos">n.</span></td><td>和平主义者、反战者</td><td class="gloss">one opposed to war / refuses to fight；甘地、马丁·路德·金是代表</td></tr>
+      <tr><td><b>pact</b> <span class="pos">n.</span></td><td>协定、条约、盟约</td><td class="gloss">a formal agreement between nations or people；arms pact 军备协定</td></tr>
+      <tr><td><b>pace</b> <span class="pos">prep.</span></td><td>与……相反；恕我直言（学术用语）</td><td class="gloss">contrary to the opinion of；拉丁语，"peace to them"——非要说却不想吵架</td></tr>
+    </tbody>
+  </table>
+  <div class="confuse"><span class="confuse-title">⚠️ pace 陷阱</span>与"步速"pace 拼写相同，但此处读 <b>/ˈpɑːtʃeɪ/</b>（拉丁音）且常印成斜体，只出现在书面评论中。</div>
+</div>
+
+<div class="card">
+  <div class="root-head"><span class="num">5</span><span class="root">CRIM</span><span class="rm">= crime / fault / accusation「罪、过错、指控」</span></div>
+  <span class="etym"><span class="lab">词源</span>：拉丁语 <b>crimen</b>「罪行；指控」。crime 比 tort（民事侵权）更严重——犯罪由官府起诉，侵权须当事人自诉</span>
+  <table class="words">
+    <thead><tr><th style="width:24%">单词</th><th style="width:38%">中文含义</th><th>英文释义 + 要点</th></tr></thead>
+    <tbody>
+      <tr><td><b>criminology</b> <span class="pos">n.</span></td><td>犯罪学</td><td class="gloss">study of crime, criminals, law enforcement, punishment</td></tr>
+      <tr><td><b>decriminalize</b> <span class="pos">v.</span></td><td>使非刑事化</td><td class="gloss">remove / reduce criminal status；≠legalize（合法化），可能仍罚小款</td></tr>
+      <tr><td><b>incriminate</b> <span class="pos">v.</span></td><td>牵连、归罪</td><td class="gloss">show evidence of involvement in a crime；incriminating evidence 罪证</td></tr>
+      <tr><td><b>recrimination</b> <span class="pos">n.</span></td><td>反控、互相指责</td><td class="gloss">an accusation in answer to an accusation；re- 回应 + criminate</td></tr>
+    </tbody>
+  </table>
+  <div class="confuse"><span class="confuse-title">⚠️ 辨析</span><b>decriminalize ≠ legalize</b>：非刑事化可能仍留小额罚款（如交通罚单）；合法化则完全合法。另 incriminate 不一定指真犯罪，可表"有迹象表明是某病因"。</div>
+</div>
+
+<div class="card">
+  <div class="root-head"><span class="num">6</span><span class="root">PROB</span><span class="rm">= prove / honesty「证明、诚实」</span></div>
+  <span class="etym"><span class="lab">词源</span>：拉丁语 <b>probare</b>「证明、检验」及 <b>probus</b>「正直」。probe（探测器）就是在"找证据"；probable 原义"尚可证明的"</span>
+  <table class="words">
+    <thead><tr><th style="width:24%">单词</th><th style="width:38%">中文含义</th><th>英文释义 + 要点</th></tr></thead>
+    <tbody>
+      <tr><td><b>approbation</b> <span class="pos">n.</span></td><td>认可、嘉许、正式批准</td><td class="gloss">formal approval; praise——比 approval 更强、更正式</td></tr>
+      <tr><td><b>probate</b> <span class="pos">n.</span></td><td>遗嘱检验</td><td class="gloss">court process to prove a will valid & administer the estate</td></tr>
+      <tr><td><b>probity</b> <span class="pos">n.</span></td><td>正直、诚实</td><td class="gloss">absolute honesty and uprightness；官方/银行家应具的品质</td></tr>
+      <tr><td><b>reprobate</b> <span class="pos">n.</span></td><td>恶棍、道德败坏者</td><td class="gloss">a person of thoroughly bad character；对应动词 reprove「责备」；莎翁笔下的福斯塔夫</td></tr>
+    </tbody>
+  </table>
+  <div class="confuse"><span class="confuse-title">⚠️ 注意</span><b>approbation</b>（认可）与 <b>reprobate</b>（恶棍）都以 pro 为核心：approve「赞成」↔ reprove「谴责」，加 -ate/-ation 后词义南辕北辙。</div>
+</div>
+
+<div class="card">
+  <div class="root-head"><span class="num">7</span><span class="root">GRAV</span><span class="rm">= heavy / serious「重、严重」</span></div>
+  <span class="etym"><span class="lab">词源</span>：拉丁语 <b>gravis</b>「重、沉、严重」。gravity 万有引力让物体"变重"；grave（坟墓）一词其实与它无关，只是谐音</span>
+  <table class="words">
+    <thead><tr><th style="width:24%">单词</th><th style="width:38%">中文含义</th><th>英文释义 + 要点</th></tr></thead>
+    <tbody>
+      <tr><td><b>grave</b> <span class="pos">adj.</span></td><td>严重的；庄重的</td><td class="gloss">requiring serious concern；a grave situation 形势严峻；= 名词"坟墓"拼写同但源异</td></tr>
+      <tr><td><b>gravitas</b> <span class="pos">n.</span></td><td>庄重、威严、尊严</td><td class="gloss">great dignified seriousness——拉丁直借词；长者/掌权者的气质</td></tr>
+      <tr><td><b>gravitate</b> <span class="pos">v.</span></td><td>被吸引、自然倾向</td><td class="gloss">be drawn toward（如被引力牵引）；gravitate toward 常考搭配</td></tr>
+      <tr><td><b>aggravate</b> <span class="pos">v.</span></td><td>加重、恶化；使恼火</td><td class="gloss">make worse / annoy；ag- 加强——把伤"加重"，今天更多用于"惹恼"</td></tr>
+    </tbody>
+  </table>
+  <div class="confuse"><span class="confuse-title">⚠️ aggravate 双义</span>本义"使更严重"，口语多用"惹恼"义。注意与 aggravate（加重）相对的减轻动词是 <b>alleviate</b>。</div>
+</div>
+
+<div class="card">
+  <div class="root-head"><span class="num">8</span><span class="root">LEV</span><span class="rm">= light / raise「轻、举起」</span></div>
+  <span class="etym"><span class="lab">词源</span>：拉丁语 <b>levis</b>「轻」、<b>levare</b>「举起、减轻」。lever（杠杆）用来撬起东西；levitation 是魔术师让人"飘起来"</span>
+  <table class="words">
+    <thead><tr><th style="width:24%">单词</th><th style="width:38%">中文含义</th><th>英文释义 + 要点</th></tr></thead>
+    <tbody>
+      <tr><td><b>alleviate</b> <span class="pos">v.</span></td><td>减轻、缓解</td><td class="gloss">to lighten / relieve（esp. pain or suffering）；只缓不治</td></tr>
+      <tr><td><b>elevation</b> <span class="pos">n.</span></td><td>高度、海拔；提升、晋升</td><td class="gloss">height / the act of raising；elevated to president 晋升</td></tr>
+      <tr><td><b>cantilever</b> <span class="pos">n.</span></td><td>悬臂（梁）</td><td class="gloss">a beam projecting from a wall to support sth above；赖特"流水别墅"</td></tr>
+      <tr><td><b>levity</b> <span class="pos">n.</span></td><td>轻浮、缺乏严肃</td><td class="gloss">lack of appropriate seriousness；反义词 gravitas——"一轻一重"</td></tr>
+    </tbody>
+  </table>
+  <div class="confuse"><span class="confuse-title">⚠️ 成对记忆</span><b>levity（轻浮）↔ gravitas（庄重）</b>是绝妙反义对；<b>alleviate（减轻）↔ aggravate（加重）</b>也是。</div>
+</div>
+
+<h2 class="section">三、神话与历史词回顾（Unit 1 特殊章节）</h2>
+
+<div class="intro">
+8 个词按来源分三类：<b>人名系</b> cicerone（Cicero）· hector（Hector）· nestor（Nestor）· stentorian（Stentor）；<b>地名系</b> spartan（Sparta）· sybaritic（Sybaris）；<b>哲学系</b> hedonism（hēdonē 快乐）· stoic（Stoics 学派）。详细故事见同日《神话与历史词汇》文档。
+</div>
+
+<table class="overview">
+  <thead>
+    <tr><th style="width:22%">单词</th><th style="width:44%">今日含义</th><th>来源</th></tr>
+  </thead>
+  <tbody>
+    <tr><td><b>cicerone</b> <span class="pos">n.</span></td><td>讲解员、文化导游</td><td>Cicero 西塞罗（雄辩演说家）</td></tr>
+    <tr><td><b>hector</b> <span class="pos">v.</span></td><td>威吓、欺凌</td><td>Hector 赫克托耳（伦敦地痞团伙名）</td></tr>
+    <tr><td><b>hedonism</b> <span class="pos">n.</span></td><td>享乐主义</td><td>希腊语 hēdonē「快乐」</td></tr>
+    <tr><td><b>nestor</b> <span class="pos">n.</span></td><td>前辈、元老</td><td>Nestor 涅斯托尔（特洛伊最年长老将）</td></tr>
+    <tr><td><b>spartan</b> <span class="pos">adj.</span></td><td>简朴清苦的、自律的</td><td>Sparta 斯巴达（全民皆兵之城邦）</td></tr>
+    <tr><td><b>stentorian</b> <span class="pos">adj.</span></td><td>（嗓音）洪亮浑厚的</td><td>Stentor 斯滕托尔（声如铜锣的传令官）</td></tr>
+    <tr><td><b>stoic</b> <span class="pos">adj./n.</span></td><td>坚忍克己的；坚忍的人</td><td>Stoics 斯多葛学派</td></tr>
+    <tr><td><b>sybaritic</b> <span class="pos">adj.</span></td><td>骄奢淫逸的</td><td>Sybaris 锡巴里斯（奢靡古城）</td></tr>
+  </tbody>
+</table>
+
+<h2 class="section">四、配套练习</h2>
+
+<div class="quiz">
+  <div class="qhead">练习一 · 词根配对<span class="hint">把左列词根与右列含义连线</span></div>
+  <table class="match">
+    <tr><td>1. BENE</td><td>a. prove / honesty 证明、诚实</td></tr>
+    <tr><td>2. AM</td><td>b. war 战争</td></tr>
+    <tr><td>3. BELL</td><td>c. well 好</td></tr>
+    <tr><td>4. PAC</td><td>d. light / raise 轻、举起</td></tr>
+    <tr><td>5. CRIM</td><td>e. peace 和平、同意</td></tr>
+    <tr><td>6. PROB</td><td>f. heavy / serious 重、严重</td></tr>
+    <tr><td>7. GRAV</td><td>g. love 爱</td></tr>
+    <tr><td>8. LEV</td><td>h. crime / accusation 罪、指控</td></tr>
+  </table>
+</div>
+
+<div class="quiz">
+  <div class="qhead">练习二 A · 释义配对（BENE / AM）<span class="hint">左列释义 → 右列单词</span></div>
+  <table class="match">
+    <tr><td>1. a prayer that asks God's blessing</td><td>a. beneficiary</td></tr>
+    <tr><td>2. one who helps another by giving money</td><td>b. amorous</td></tr>
+    <tr><td>3. one who receives money / property after sb dies</td><td>c. benefactor</td></tr>
+    <tr><td>4. kindness, generosity</td><td>d. enamored</td></tr>
+    <tr><td>5. friendly, peaceful（of relations）</td><td>e. benevolence</td></tr>
+    <tr><td>6. charmed or fascinated</td><td>f. paramour</td></tr>
+    <tr><td>7. having strong feelings of love</td><td>g. benediction</td></tr>
+    <tr><td>8. a lover, often secret</td><td>h. amicable</td></tr>
+  </table>
+</div>
+
+<div class="quiz">
+  <div class="qhead">练习二 B · 释义配对（BELL / PAC）</div>
+  <table class="match">
+    <tr><td>1. existing before a war</td><td>a. rebellion</td></tr>
+    <tr><td>2. warlike, aggressive</td><td>b. pace</td></tr>
+    <tr><td>3. aggressiveness, combativeness</td><td>c. antebellum</td></tr>
+    <tr><td>4. open defiance of authority</td><td>d. pacify</td></tr>
+    <tr><td>5. to soothe anger or subdue</td><td>e. bellicose</td></tr>
+    <tr><td>6. a person opposed to war</td><td>f. pact</td></tr>
+    <tr><td>7. a formal agreement between nations</td><td>g. belligerence</td></tr>
+    <tr><td>8. contrary to the opinion of</td><td>h. pacifist</td></tr>
+  </table>
+</div>
+
+<div class="quiz">
+  <div class="qhead">练习二 C · 释义配对（CRIM / PROB）</div>
+  <table class="match">
+    <tr><td>1. the study of crime and law enforcement</td><td>a. probate</td></tr>
+    <tr><td>2. to remove the criminal status of</td><td>b. incriminate</td></tr>
+    <tr><td>3. to show evidence of involvement in a crime</td><td>c. criminology</td></tr>
+    <tr><td>4. an accusation in answer to an accusation</td><td>d. reprobate</td></tr>
+    <tr><td>5. formal approval; praise</td><td>e. recrimination</td></tr>
+    <tr><td>6. the court process of validating a will</td><td>f. approbation</td></tr>
+    <tr><td>7. absolute honesty and uprightness</td><td>g. decriminalize</td></tr>
+    <tr><td>8. a person of thoroughly bad character</td><td>h. probity</td></tr>
+  </table>
+</div>
+
+<div class="quiz">
+  <div class="qhead">练习二 D · 释义配对（GRAV / LEV）</div>
+  <table class="match">
+    <tr><td>1. serious; solemn（of a situation / manner）</td><td>a. elevation</td></tr>
+    <tr><td>2. great dignified seriousness</td><td>b. levity</td></tr>
+    <tr><td>3. to be drawn toward something</td><td>c. aggravate</td></tr>
+    <tr><td>4. to make worse; to annoy</td><td>d. grave</td></tr>
+    <tr><td>5. to lighten or relieve（pain）</td><td>e. gravitate</td></tr>
+    <tr><td>6. height; the act of raising; promotion</td><td>f. alleviate</td></tr>
+    <tr><td>7. a beam projecting from a wall</td><td>g. cantilever</td></tr>
+    <tr><td>8. lack of appropriate seriousness</td><td>h. gravitas</td></tr>
+  </table>
+</div>
+
+<div class="quiz">
+  <div class="qhead">练习三 · 反义配对<span class="hint">选与左列意义相反/相对的正确选项</span></div>
+  <table class="match">
+    <tr><td>1. benevolence（仁慈）</td><td>a. sybaritic</td></tr>
+    <tr><td>2. amicable（友好的）</td><td>b. stoicism</td></tr>
+    <tr><td>3. bellicose（好战的）</td><td>c. gravitas</td></tr>
+    <tr><td>4. aggravate（加重）</td><td>d. hostile</td></tr>
+    <tr><td>5. levity（轻浮）</td><td>e. malice（恶意）</td></tr>
+    <tr><td>6. spartan（清苦）</td><td>f. alleviate</td></tr>
+    <tr><td>7. hedonism（享乐主义）</td><td>g. peaceful</td></tr>
+    <tr><td>8. incriminate（归罪）</td><td>h. agitate（激怒）</td></tr>
+    <tr><td></td><td>i. exculpate（开脱罪责）</td></tr>
+  </table>
+</div>
+
+<div class="quiz">
+  <div class="qhead">练习四 A · 语境填空（词根词 ①）<span class="hint">用词库中单词的正确形式填空</span></div>
+  <div class="bank"><b>词库</b>：benediction · benefactor · beneficiary · benevolence · amicable · enamored · amorous · paramour · antebellum · bellicose · belligerence · rebellion · pacify · pacifist · pact · pace</div>
+  <ol class="fill">
+    <li>The church service ended with a solemn ___.</li>
+    <li>An anonymous ___ donated $2 million to the city library.</li>
+    <li>She was named the sole ___ of her father's life insurance.</li>
+    <li>Thanks to the ___ of a kind neighbor, the family got through the winter.</li>
+    <li>The two countries finally reached an ___ settlement after months of talks.</li>
+    <li>He was completely ___ of the little coastal town and never wanted to leave.</li>
+    <li>The tabloid exposed the senator's ___ affair with an aide.</li>
+    <li>The duchess arrived at the ball with her ___, scandalizing the court.</li>
+    <li>The ___ mansion on the hill has been preserved exactly as it was in 1850.</li>
+    <li>The general's ___ speech alarmed all the neighboring states.</li>
+    <li>Her unexpected ___ surprised everyone at the normally friendly meeting.</li>
+    <li>The students' ___ forced the principal to cancel the school trip.</li>
+    <li>A warm bath usually ___ a cranky baby.</li>
+    <li>Gandhi, a lifelong ___, won independence without violence.</li>
+    <li>The two nations signed a trade ___ to lower tariffs.</li>
+    <li>___ some critics, the movie was a masterpiece.</li>
+  </ol>
+</div>
+
+<div class="quiz">
+  <div class="qhead">练习四 B · 语境填空（词根词 ②）</div>
+  <div class="bank"><b>词库</b>：criminology · decriminalize · incriminate · recrimination · approbation · probate · probity · reprobate · grave · gravitas · gravitate · aggravate · alleviate · elevation · cantilever · levity</div>
+  <ol class="fill">
+    <li>Her degree in ___ led her to a career as a probation officer.</li>
+    <li>Many states have voted to ___ possession of small amounts of marijuana.</li>
+    <li>The footprints in the snow ___ the night guard.</li>
+    <li>The bitter divorce was followed by years of mutual ___.</li>
+    <li>The crowd's ___ was music to the young performer's ears.</li>
+    <li>The will had to go through ___ before the estate could be divided.</li>
+    <li>The judge was admired for her absolute ___.</li>
+    <li>In the novel, the ___ squandered his entire inheritance in a year.</li>
+    <li>The doctor's face grew ___ as she read the test results.</li>
+    <li>The CEO addressed the staff with the ___ of a head of state.</li>
+    <li>Young voters ___ toward candidates who speak their language.</li>
+    <li>Going back to running will only ___ the knee injury.</li>
+    <li>Cold compresses ___ the swelling, but only rest could cure it.</li>
+    <li>The ___ of the peak is 4,200 meters above sea level.</li>
+    <li>The balcony is supported by a steel ___.</li>
+    <li>His ___ at the funeral deeply shocked the mourners.</li>
+  </ol>
+</div>
+
+<div class="quiz">
+  <div class="qhead">练习四 C · 语境填空（神话与历史词）</div>
+  <div class="bank"><b>词库</b>：cicerone · hector · hedonism · nestor · spartan · stentorian · stoic · sybaritic</div>
+  <ol class="fill">
+    <li>A knowledgeable ___ guided us through the Acropolis and explained every ruin.</li>
+    <li>The big kids used to ___ the younger ones in the schoolyard.</li>
+    <li>After the promotion he embraced a life of ___, spending freely on travel and fine dining.</li>
+    <li>As a ___ of the profession, she was consulted on every major decision.</li>
+    <li>They rented a ___ hotel room with nothing but a bed and a desk.</li>
+    <li>The general's ___ command could be heard across the entire field.</li>
+    <li>He remained ___ through the whole ordeal, never once showing emotion.</li>
+    <li>The resort advertised a ___ spa package for its wealthiest guests.</li>
+  </ol>
+</div>
+
+<div class="quiz">
+  <div class="qhead">练习五 · 神话词来源配对<span class="hint">单词 → 名字/地名/词源</span></div>
+  <table class="match">
+    <tr><td>1. cicerone</td><td>a. Stentor（斯滕托尔）</td></tr>
+    <tr><td>2. hector</td><td>b. Stoics（斯多葛学派）</td></tr>
+    <tr><td>3. nestor</td><td>c. Nestor（涅斯托尔）</td></tr>
+    <tr><td>4. stentorian</td><td>d. hēdonē（希腊语"快乐"）</td></tr>
+    <tr><td>5. spartan</td><td>e. Sybaris（锡巴里斯古城）</td></tr>
+    <tr><td>6. sybaritic</td><td>f. Cicero（西塞罗）</td></tr>
+    <tr><td>7. stoic</td><td>g. Hector（赫克托耳）</td></tr>
+    <tr><td>8. hedonism</td><td>h. Sparta（斯巴达城邦）</td></tr>
+  </table>
+</div>
+
+<h2 class="section">五、答案</h2>
+
+<div class="answers">
+  <span class="atitle">练习一</span>　1-c ｜ 2-g ｜ 3-b ｜ 4-e ｜ 5-h ｜ 6-a ｜ 7-f ｜ 8-d<br>
+  <span class="atitle">练习二 A</span>　1-g ｜ 2-c ｜ 3-a ｜ 4-e ｜ 5-h ｜ 6-d ｜ 7-b ｜ 8-f<br>
+  <span class="atitle">练习二 B</span>　1-c ｜ 2-e ｜ 3-g ｜ 4-a ｜ 5-d ｜ 6-h ｜ 7-f ｜ 8-b<br>
+  <span class="atitle">练习二 C</span>　1-c ｜ 2-g ｜ 3-b ｜ 4-e ｜ 5-f ｜ 6-a ｜ 7-h ｜ 8-d<br>
+  <span class="atitle">练习二 D</span>　1-d ｜ 2-h ｜ 3-e ｜ 4-c ｜ 5-f ｜ 6-a ｜ 7-g ｜ 8-b<br>
+  <span class="atitle">练习三</span>　1-e ｜ 2-d ｜ 3-g ｜ 4-f ｜ 5-c ｜ 6-a ｜ 7-b ｜ 8-i<br>
+  <span class="atitle">练习四 A</span>　1 benediction ｜ 2 benefactor ｜ 3 beneficiary ｜ 4 benevolence ｜ 5 amicable ｜ 6 enamored ｜ 7 amorous ｜ 8 paramour ｜ 9 antebellum ｜ 10 bellicose ｜ 11 belligerence ｜ 12 rebellion ｜ 13 pacifies ｜ 14 pacifist ｜ 15 pact ｜ 16 Pace<br>
+  <span class="atitle">练习四 B</span>　1 criminology ｜ 2 decriminalize ｜ 3 incriminate ｜ 4 recriminations ｜ 5 approbation ｜ 6 probate ｜ 7 probity ｜ 8 reprobate ｜ 9 grave ｜ 10 gravitas ｜ 11 gravitate ｜ 12 aggravate ｜ 13 alleviated ｜ 14 elevation ｜ 15 cantilever ｜ 16 levity<br>
+  <span class="atitle">练习四 C</span>　1 cicerone ｜ 2 hector ｜ 3 hedonism ｜ 4 nestor ｜ 5 spartan ｜ 6 stentorian ｜ 7 stoic ｜ 8 sybaritic<br>
+  <span class="atitle">练习五</span>　1-f ｜ 2-g ｜ 3-c ｜ 4-a ｜ 5-h ｜ 6-e ｜ 7-b ｜ 8-d
+</div>
+
+<div class="footer">MWVB (2nd Ed.) · Unit 1 词根整理与复习 · 8 词根 × 4 词 + 神话 8 词 = 40 词 ｜ 学而时习之 👋</div>
+</body>
+</html>
