@@ -1,14 +1,48 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """扫描 /home/crf/english 下所有 HTML，生成分类索引页 index.html。
+
 用法: python3 build_index.py
+
+设计要点
+--------
+- 站点是「英语学习站」，标题与分类均为英语学习内容。
+  （此前本文件是从「古法编程技巧」项目整套复制来的，模板标题/分类硬编码为
+   编程话题，而 classify() 返回的却是英语分类，两者从未对齐，导致索引页
+   出现「经典算法专题」里装着词根词缀这类完全错配的情况。）
+- 桌面显示「桌面版 + PDF」，手机只显示「手机版」（`-手机版.html` 不单独成条目）。
+- 混入的非英语内容（编程/机器人笔记）由 EXCLUDE 兜住，不进索引。
+- 同分类内按日期倒序（新的在前）。
 """
 import html as html_mod
 import re
-from datetime import date
 from pathlib import Path
 
 ENGLISH_DIR = Path("/home/crf/english")
+
+SITE_TITLE = "英语学习站"
+SITE_EMOJI = "📚"
+SITE_DESC = "词根词缀 · 动词词组 · 文章精读 · 语法专题"
+
+# 不属于英语学习站的文件（别的项目混进来的），不进索引
+EXCLUDE = {
+    "index.html",
+    "s.html",          # VS Code Markdown 预览导出物，且引用 file:////root/... 死路径
+}
+EXCLUDE_KEYWORDS = ("激光", "里程计", "标定", "calibration")
+
+# 分类顺序即索引里区块的先后；key 与 classify() 返回值对应
+CATEGORIES = [
+    ("speech", "演讲精读"),
+    ("daily", "每日词根词缀"),
+    ("topic", "词根词缀专题"),
+    ("review", "复习巩固"),
+    ("phrasal", "动词词组"),
+    ("prep", "介词本义与词源"),
+    ("mwvb", "MWVB 词汇"),
+    ("verb", "不规则动词"),
+    ("other", "其他资料"),
+]
 
 
 def esc(s):
@@ -16,192 +50,169 @@ def esc(s):
 
 
 def classify(name):
+    """按文件名判分类。顺序有意为之：先具体后宽泛。"""
     if "复习" in name:
-        return "复习巩固", "review"
+        return "review"
     if "动词词组" in name:
-        return "动词词组", "phrasal"
+        return "phrasal"
     if "不规则动词" in name:
-        return "不规则动词", "verb"
+        return "verb"
     if "介词" in name:
-        return "介词本义与词源", "prep"
+        return "prep"
     if "MWVB" in name:
-        return "MWVB 词汇（Merriam-Webster）", "mwvb"
+        return "mwvb"
     if "Speech" in name or "I-Have-a-Dream" in name:
-        return "演讲精读", "speech"
+        return "speech"
+    # 汇总/辨析类专题，与「每日」系列区分开
+    if any(k in name for k in ("总表", "总辨析", "语义分类", "词根辨析")):
+        return "topic"
     if any(k in name for k in ("词根", "词缀", "词源")):
-        return "每日词根词缀", "daily"
-    return "其他资料", "other"
+        return "daily"
+    return "other"
 
 
-def main():
-    files = sorted(ENGLISH_DIR.glob("*.html"))
-    files = [f for f in files if f.name != "index.html" and not f.name.endswith("-手机版.html")]
+def date_key(name):
+    """取文件名开头的 YYYY-MM-DD 用于倒序；无日期者排最后。"""
+    m = re.match(r"(\d{4}-\d{2}-\d{2})", name)
+    return m.group(1) if m else ""
 
-    groups = {"daily": [], "phrasal": [], "verb": [], "review": [], "prep": [], "mwvb": [], "speech": [], "other": []}
-    for f in files:
-        cat, key = classify(f.name)
-        title = re.sub(r"\.html$", "", f.name)
-        groups[key].append((f.name, title, cat))
 
-    def items(key):
-        html_parts = []
-        for fname, title, cat in groups[key]:
-            stem = fname[:-5]
-            mob = f"{stem}-手机版.html"
-            has_mob = (ENGLISH_DIR / mob).exists()
-            pdf = fname.replace(".html", ".pdf")
-            pdf_link = (f' <a href="{esc(pdf)}" class="pdf desktop-only">PDF ↗</a>'
-                        if (ENGLISH_DIR / pdf).exists() else "")
-            if has_mob:
-                links = (f'<a class="main desktop-only" href="{esc(fname)}" target="_blank">{esc(title)}</a>'
-                         f'<a class="main mobile-only" href="{esc(mob)}" target="_blank">{esc(title)}</a>')
-            else:
-                links = f'<a class="main" href="{esc(fname)}" target="_blank">{esc(title)}</a>'
-            html_parts.append(f'<div class="file">{links}{pdf_link}</div>')
-        return "".join(html_parts)
+def collect():
+    groups = {k: [] for k, _ in CATEGORIES}
+    for f in ENGLISH_DIR.glob("*.html"):
+        n = f.name
+        if n in EXCLUDE or n.endswith("-手机版.html"):
+            continue
+        if any(k in n for k in EXCLUDE_KEYWORDS):
+            continue
+        groups[classify(n)].append(n)
+    for k in groups:   # 同分类内新的在前
+        groups[k].sort(key=lambda x: (date_key(x), x), reverse=True)
+    return groups
 
-    today = date.today()
-    html_out = f"""<!DOCTYPE html>
+
+def render_items(files):
+    out = []
+    for fname in files:
+        stem = fname[:-5]
+        mob = f"{stem}-手机版.html"
+        pdf = f"{stem}.pdf"
+        title = esc(stem)
+        if (ENGLISH_DIR / mob).exists():
+            links = (f'<a class="main desktop-only" href="{esc(fname)}">{title}</a>'
+                     f'<a class="main mobile-only" href="{esc(mob)}">{title}</a>')
+        else:
+            links = f'<a class="main" href="{esc(fname)}">{title}</a>'
+        pdf_link = (f'<a class="pdf desktop-only" href="{esc(pdf)}">PDF</a>'
+                    if (ENGLISH_DIR / pdf).exists() else "")
+        out.append(f'    <div class="file">{links}{pdf_link}</div>')
+    return "\n".join(out)
+
+
+def render_sections(groups):
+    out = []
+    for key, name in CATEGORIES:
+        files = groups[key]
+        if not files:
+            continue
+        out.append('  <section class="section">\n'
+                   f'    <h2>{esc(name)}<span class="count">{len(files)} 篇</span></h2>\n'
+                   f'{render_items(files)}\n'
+                   '  </section>')
+    return "\n\n".join(out)
+
+
+TEMPLATE = '''<!DOCTYPE html>
 <html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>古法编程技巧</title>
+<title>{title}</title>
 <style>
-  @page {{ size: A4; }}
   * {{ box-sizing: border-box; margin: 0; padding: 0; }}
   body {{
     font-family: 'Noto Sans CJK SC', 'Droid Sans Fallback', sans-serif;
-    background: #f5f6fa;
-    color: #1f2937;
-    line-height: 1.7;
+    background: #f5f6fa; color: #1f2937; line-height: 1.7;
     padding: 32px 20px 60px;
   }}
-  .wrap {{ max-width: 860px; margin: 0 auto; }}
+  .wrap {{ max-width: 820px; margin: 0 auto; }}
   .header {{
-    background: linear-gradient(135deg, #1e3a8a, #2563eb);
-    color: #fff;
-    border-radius: 12px;
-    padding: 26px 28px;
-    margin-bottom: 24px;
+    background: linear-gradient(135deg, #7f1d1d, #b91c1c);
+    color: #fff; border-radius: 12px; padding: 24px 26px; margin-bottom: 22px;
   }}
-  .header h1 {{ font-size: 24pt; letter-spacing: 1px; }}
-  .header p {{ color: #dbeafe; font-size: 10pt; margin-top: 4px; }}
+  .header h1 {{ font-size: 21pt; letter-spacing: 1px; }}
+  .header p {{ color: #fecaca; font-size: 10pt; margin-top: 6px; }}
   .section {{
-    background: #fff;
-    border-radius: 12px;
-    padding: 18px 22px 22px;
-    margin-bottom: 18px;
-    box-shadow: 0 1px 4px rgba(0,0,0,.06);
+    background: #fff; border-radius: 12px; padding: 16px 20px 20px;
+    margin-bottom: 16px; box-shadow: 0 1px 4px rgba(0,0,0,.06);
   }}
   .section h2 {{
-    font-size: 13pt;
-    padding-bottom: 8px;
-    margin-bottom: 12px;
-    border-bottom: 2px solid #e5e7eb;
-    color: #1e3a8a;
+    font-size: 12.5pt; padding-bottom: 8px; margin-bottom: 8px;
+    border-bottom: 2px solid #f1f5f9; color: #7f1d1d;
+    display: flex; justify-content: space-between; align-items: baseline;
   }}
-  .section .count {{
-    float: right;
-    font-size: 9pt;
-    color: #6b7280;
-    font-weight: normal;
-  }}
+  .section .count {{ font-size: 9pt; color: #94a3b8; font-weight: normal; }}
   .file {{
-    display: flex;
-    align-items: center;
-    padding: 5px 0;
-    border-bottom: 1px dashed #f0f1f4;
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 10px; padding: 5px 0; border-bottom: 1px dashed #f1f5f9;
   }}
   .file:last-child {{ border-bottom: none; }}
-  .file .main {{ color: #1e40af; text-decoration: none; font-size: 10.5pt; }}
-  .file .main:hover {{ text-decoration: underline; color: #2563eb; }}
+  .file .main {{
+    color: #1e40af; text-decoration: none; font-size: 10.5pt;
+    font-family: 'DejaVu Sans', 'Noto Sans CJK SC', sans-serif;
+  }}
+  .file .main:hover {{ text-decoration: underline; }}
   .file .pdf {{
-    margin-left: 12px;
-    font-size: 8.5pt;
-    color: #047857;
-    text-decoration: none;
-    border: 1px solid #a7f3d0;
-    border-radius: 4px;
-    padding: 0 6px;
-    background: #ecfdf5;
+    flex: none; font-size: 8.5pt; color: #047857; text-decoration: none;
+    border: 1px solid #a7f3d0; border-radius: 4px; padding: 0 6px; background: #ecfdf5;
   }}
   .file .pdf:hover {{ background: #d1fae5; }}
   .mobile-only {{ display: none; }}
+  .footer {{ text-align: center; color: #9ca3af; font-size: 8.5pt; margin-top: 18px; }}
+  .footer code {{ background: #eef2f7; padding: 1px 5px; border-radius: 4px; }}
   @media (max-width: 640px) {{
-    body {{ padding: 18px 12px 40px; }}
-    .header {{ padding: 20px 18px; }}
-    .header h1 {{ font-size: 19pt; }}
-    .section {{ padding: 14px 14px 16px; }}
-    .section h2 {{ font-size: 12pt; }}
-    .file .main {{ font-size: 10.5pt; }}
+    body {{ padding: 16px 12px 40px; }}
+    .header {{ padding: 18px 16px; }}
+    .header h1 {{ font-size: 17pt; }}
+    .section {{ padding: 13px 13px 15px; }}
+    .section h2 {{ font-size: 11.5pt; }}
     .desktop-only {{ display: none !important; }}
     a.mobile-only {{ display: inline; }}
-  }}
-  .footer {{
-    text-align: center;
-    color: #9ca3af;
-    font-size: 8.5pt;
-    margin-top: 20px;
   }}
 </style>
 </head>
 <body>
 <div class="wrap">
-  <div class="header">
-    <h1>🐚 古法编程技巧</h1>
-    <p>C 语言 · 汇编 · 指针与内存 · 算法笔记 · 共 {len(files)} 篇 · 整理于 {today.year} 年 {today.month} 月 {today.day} 日</p>
-  </div>
+  <header class="header">
+    <h1>{emoji} {title}</h1>
+    <p>{desc} · 共 {total} 篇 · 更新于 {updated}</p>
+  </header>
 
-  <div class="section">
-    <h2>经典算法专题 <span class="count">{len(groups['daily'])} 篇</span></h2>
-    {items('daily')}
-  </div>
+{sections}
 
-  <div class="section">
-    <h2>汇编优化笔记 <span class="count">{len(groups['phrasal'])} 篇</span></h2>
-    {items('phrasal')}
-  </div>
-
-  <div class="section">
-    <h2>指针与内存专题 <span class="count">{len(groups['prep'])} 篇</span></h2>
-    {items('prep')}
-  </div>
-
-  <div class="section">
-    <h2>数据结构专题 <span class="count">{len(groups['mwvb'])} 篇</span></h2>
-    {items('mwvb')}
-  </div>
-
-  <div class="section">
-    <h2>开源项目源码解读 <span class="count">{len(groups['speech'])} 篇</span></h2>
-    {items('speech')}
-  </div>
-
-  <div class="section">
-    <h2>编译原理笔记 <span class="count">{len(groups['verb'])} 篇</span></h2>
-    {items('verb')}
-  </div>
-
-  <div class="section">
-    <h2>代码复习与重构 <span class="count">{len(groups['review'])} 篇</span></h2>
-    {items('review')}
-  </div>
-
-  <div class="section">
-    <h2>疑难杂症排查 <span class="count">{len(groups['other'])} 篇</span></h2>
-    {items('other')}
-  </div>
-
-  <div class="footer">重新生成：python3 /home/crf/english/build_index.py · 古法编程，贵在坚持 🐚</div>
+  <div class="footer">重新生成：<code>python3 build_index.py</code> · 每天一点，贵在坚持</div>
 </div>
 </body>
 </html>
-"""
+'''
+
+
+def main():
+    groups = collect()
+    total = sum(len(v) for v in groups.values())
+    # 「更新于」取全站最新日期，而不是只看每日系列
+    newest = max((date_key(f) for v in groups.values() for f in v), default="")
+    html = TEMPLATE.format(
+        title=SITE_TITLE, emoji=SITE_EMOJI, desc=SITE_DESC,
+        total=total, updated=(newest or "—"),
+        sections=render_sections(groups),
+    )
     out = ENGLISH_DIR / "index.html"
-    out.write_text(html_out, encoding="utf-8")
-    print(f"共 {len(files)} 份 HTML：词根词缀 {len(groups['daily'])} · 动词词组 {len(groups['phrasal'])} · 介词 {len(groups['prep'])} · MWVB {len(groups['mwvb'])} · 不规则动词 {len(groups['verb'])} · 复习 {len(groups['review'])} · 演讲 {len(groups['speech'])} · 其他 {len(groups['other'])}")
-    print(f"输出: {out}")
+    out.write_text(html, encoding="utf-8")
+    print("wrote %s  %d 篇" % (out, total))
+    for key, name in CATEGORIES:
+        if groups[key]:
+            print("  %-14s %d 篇" % (name, len(groups[key])))
 
 
 if __name__ == "__main__":
