@@ -95,6 +95,35 @@
 
 @media print{ .psay, #pron-toggle{ display:none !important; } }
 
+/* pron-start */
+/* ---------- 单词发音（神经网络 MP3，缺失回退系统语音） ---------- */
+.psay{
+  display:inline-flex; align-items:center; justify-content:center;
+  width:19px; height:19px; margin:0 5px 0 0; padding:0;
+  border:1px solid #dbe2ea; border-radius:50%; background:#f8fafc;
+  color:#2563eb; cursor:pointer;
+  vertical-align:1px; -webkit-tap-highlight-color:transparent;
+  transition:background .15s,border-color .15s,color .15s;
+}
+.psay:hover{ background:#e8f0fe; border-color:#a9c7f5; }
+.psay.playing{ background:#2563eb; border-color:#2563eb; color:#fff; }
+.psay svg{ width:12px; height:12px; display:block; }
+
+#pron-toggle{
+  position:fixed; left:12px; bottom:calc(16px + env(safe-area-inset-bottom));
+  z-index:950; display:inline-flex; align-items:center; gap:5px;
+  border:none; border-radius:999px; padding:8px 14px;
+  background:rgba(37,99,235,.95); color:#fff; font-size:13px; cursor:pointer;
+  box-shadow:0 4px 14px rgba(0,0,0,.22);
+  font-family:'Noto Sans CJK SC','Droid Sans Fallback',sans-serif;
+  -webkit-tap-highlight-color:transparent;
+}
+#pron-toggle.on{ background:#047857; }
+#pron-toggle svg{ width:14px; height:14px; display:block; }
+
+@media print{ .psay, #pron-toggle{ display:none !important; } }
+/* pron-end */
+
 </style>
 </head>
 <body>
@@ -117,6 +146,8 @@
 <script>
 /* ---------- 单词发音 ---------- */
 (function () {
+  var ICON_SPEAKER = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5 6 9H3v6h3l5 4V5z"/><path d="M15.5 8.5a5 5 0 0 1 0 7"/><path d="M18.5 5.5a9 9 0 0 1 0 13"/></svg>';
+
   var synth = ("speechSynthesis" in window) ? window.speechSynthesis : null;
   var audio = new Audio();
   audio.preload = "auto";
@@ -159,7 +190,7 @@
     var prev = el.previousElementSibling;
     if (prev && prev.classList && prev.classList.contains("psay")) return;
     var b = document.createElement("button");
-    b.type = "button"; b.className = "psay"; b.textContent = "\uD83D\uDD0A"; b.title = "发音";
+    b.type = "button"; b.className = "psay"; b.innerHTML = ICON_SPEAKER; b.title = "发音";
     b.setAttribute("aria-label", "发音");
     b.addEventListener("click", function (e) {
       e.stopPropagation(); e.preventDefault();
@@ -176,11 +207,12 @@
   /* 点任意英文词发音 */
   var on = false;
   var tg = document.createElement("button");
-  tg.id = "pron-toggle"; tg.type = "button"; tg.textContent = "\uD83D\uDD24 点词发音";
+  tg.id = "pron-toggle"; tg.type = "button";
+  tg.innerHTML = ICON_SPEAKER + '<span>点词发音</span>';
   document.body.appendChild(tg);
   tg.addEventListener("click", function () {
     on = !on; tg.classList.toggle("on", on);
-    tg.textContent = on ? "\uD83D\uDD24 点词发音：开" : "\uD83D\uDD24 点词发音";
+    tg.querySelector("span").textContent = on ? "点词发音：开" : "点词发音";
   });
   function wordAt(x, y) {
     var node, offset;
@@ -207,4 +239,5 @@
 })();
 
 </script>
+
 </html>
