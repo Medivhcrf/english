@@ -256,6 +256,8 @@
   .say, #tts-bar{ display:none !important; }
 }
 
+
+
 /* ra-start */
 /* ---------- 朗读（Web Speech API / 神经网络音频） ---------- */
 .say{
@@ -788,7 +790,7 @@
 <div class="footer">I Have a Dream · Martin Luther King, Jr. ｜ 全文精读 + 词源 + 修辞 + 跟读 ｜ <span class="refrain free">Free at last</span> 👋</div>
 </body>
 <script>
-/* ---------- 朗读：优先播放预生成音频(data-audio)，否则用系统语音 ---------- */
+/* ---------- 朗读：优先系统语音（手机 Siri 等），无系统语音时用预生成音频 ---------- */
 (function () {
   var ICON_SPEAKER = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5 6 9H3v6h3l5 4V5z"/><path d="M15.5 8.5a5 5 0 0 1 0 7"/><path d="M18.5 5.5a9 9 0 0 1 0 13"/></svg>';
   var ICON_PLAY = '<svg viewBox="0 0 24 24" fill="currentColor" stroke="none" aria-hidden="true"><path d="M7 5v14l12-7z"/></svg>';
@@ -804,20 +806,29 @@
 
   var rate = 0.95, playing = false, paused = false, idx = 0;
   var currentBtn = null, mode = null;
+  var sysVoices = [];
+
+  function refreshVoices() {
+    if (!synth) return;
+    try { sysVoices = (synth.getVoices() || []).filter(function (v) { return /^en/i.test(v.lang); }); }
+    catch (e) { sysVoices = []; }
+  }
+  function hasSystemVoice() { return sysVoices.length > 0; }
+  if (synth) {
+    refreshVoices();
+    if (synth.onvoiceschanged !== undefined) { synth.onvoiceschanged = refreshVoices; }
+    setTimeout(refreshVoices, 600);
+    setTimeout(refreshVoices, 1800);
+  }
 
   function strip(sent) {
     var c = sent.cloneNode(true);
-    c.querySelectorAll(".brk,.sup,.pnum,.say").forEach(function (n) {
-      n.parentNode.removeChild(n);
-    });
+    c.querySelectorAll(".brk,.sup,.pnum,.say").forEach(function (n) { n.parentNode.removeChild(n); });
     return c.textContent.replace(/\s+/g, " ").replace(/\s+([.,!?;:])/g, "$1").trim();
   }
   function pickVoice() {
-    if (!synth) return null;
-    var vs = synth.getVoices() || [];
-    var en = vs.filter(function (v) { return /^en/i.test(v.lang); });
-    var us = en.filter(function (v) { return /en[-_]US/i.test(v.lang); });
-    return (us[0] || en[0] || null);
+    var us = sysVoices.filter(function (v) { return /en[-_]US/i.test(v.lang); });
+    return (us[0] || sysVoices[0] || null);
   }
   function utter(text) {
     var u = new SpeechSynthesisUtterance(text);
@@ -834,28 +845,30 @@
     if (synth) { try { synth.cancel(); } catch (e) {} }
     clearMark(); updateBar();
   }
+  function playAudio(sent, done) {
+    var src = sent.getAttribute("data-audio");
+    if (!src) { done(); return; }
+    mode = "audio";
+    audio.src = src;
+    audio.playbackRate = rate;
+    audio.onended = function () { audio.onended = null; audio.onerror = null; done(); };
+    audio.onerror = function () { audio.onerror = null; done(); };
+    var p = audio.play();
+    if (p && p.catch) { p.catch(function () { done(); }); }
+  }
   function speakTTS(sent, done) {
-    if (!synth) { done(); return; }
+    if (!synth || !hasSystemVoice()) { playAudio(sent, done); return; }
     mode = "tts";
     var u = utter(strip(sent));
-    u.onend = done; u.onerror = done;
+    u.onend = done;
+    u.onerror = function () { playAudio(sent, done); };
     synth.speak(u);
   }
   function speakSentence(sent, btn, done) {
     mark(btn);
     try { sent.scrollIntoView({ behavior: "smooth", block: "center" }); } catch (e) {}
-    var src = sent.getAttribute("data-audio");
-    if (src) {
-      mode = "audio";
-      audio.src = src;
-      audio.playbackRate = rate;
-      audio.onended = function () { audio.onended = null; audio.onerror = null; done(); };
-      audio.onerror = function () { audio.onerror = null; speakTTS(sent, done); };
-      var p = audio.play();
-      if (p && p.catch) { p.catch(function () { audio.onerror = null; speakTTS(sent, done); }); }
-    } else {
-      speakTTS(sent, done);
-    }
+    if (hasSystemVoice()) { speakTTS(sent, done); }
+    else { playAudio(sent, done); }
   }
 
   function playAll() {
@@ -924,11 +937,10 @@
       audio.playbackRate = rate;
     }
   });
-
-  if (synth && synth.onvoiceschanged !== undefined) { synth.onvoiceschanged = function () {}; }
 })();
 
 </script>
+
 
 
 <script>

@@ -82,6 +82,8 @@
 
 @media print{ .psay, #pron-toggle{ display:none !important; } }
 
+
+
 /* pron-start */
 /* ---------- 单词发音（神经网络 MP3，缺失回退系统语音） ---------- */
 .psay{
@@ -135,7 +137,7 @@
     <div class="footer">英语词根词缀总表 · 按类型归类 · 学而时习之 👋</div>
     </body>
 <script>
-/* ---------- 单词发音 ---------- */
+/* ---------- 单词发音：优先系统语音，无系统语音时用预生成音频 ---------- */
 (function () {
   var ICON_SPEAKER = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5 6 9H3v6h3l5 4V5z"/><path d="M15.5 8.5a5 5 0 0 1 0 7"/><path d="M18.5 5.5a9 9 0 0 1 0 13"/></svg>';
 
@@ -144,36 +146,53 @@
   audio.preload = "auto";
   audio.playbackRate = 0.95;
   var curBtn = null;
+  var sysVoices = [];
+
+  function refreshVoices() {
+    if (!synth) return;
+    try { sysVoices = (synth.getVoices() || []).filter(function (v) { return /^en/i.test(v.lang); }); }
+    catch (e) { sysVoices = []; }
+  }
+  function hasSystemVoice() { return sysVoices.length > 0; }
+  if (synth) {
+    refreshVoices();
+    if (synth.onvoiceschanged !== undefined) { synth.onvoiceschanged = refreshVoices; }
+    setTimeout(refreshVoices, 600);
+    setTimeout(refreshVoices, 1800);
+  }
 
   function pickVoice() {
-    if (!synth) return null;
-    var vs = synth.getVoices() || [];
-    return vs.filter(function (v) { return /en[-_]US/i.test(v.lang); })[0] ||
-           vs.filter(function (v) { return /^en/i.test(v.lang); })[0] || null;
+    var us = sysVoices.filter(function (v) { return /en[-_]US/i.test(v.lang); });
+    return (us[0] || sysVoices[0] || null);
   }
   function tts(text) {
-    if (!synth) return;
+    if (!synth || !hasSystemVoice()) return false;
     var u = new SpeechSynthesisUtterance(text);
     u.lang = "en-US";
     var v = pickVoice(); if (v) u.voice = v;
     try { synth.cancel(); } catch (e) {}
     synth.speak(u);
+    return true;
   }
   function clear() { if (curBtn) { curBtn.classList.remove("playing"); curBtn = null; } }
+  function playAudio(src, text, btn) {
+    if (!src) { if (btn) clear(); return; }
+    audio.src = src;
+    audio.onended = function () { if (curBtn === btn) clear(); };
+    audio.onerror = function () { if (curBtn === btn) clear(); };
+    var p = audio.play();
+    if (p && p.catch) { p.catch(function () { if (curBtn === btn) clear(); }); }
+  }
   function play(el, btn) {
     var src = el.getAttribute("data-say");
     var text = el.textContent.replace(/\s+/g, " ").trim();
     clear();
     if (btn) { btn.classList.add("playing"); curBtn = btn; }
-    if (src) {
-      audio.src = src;
-      audio.onended = function () { if (curBtn === btn) clear(); };
-      audio.onerror = function () { if (curBtn === btn) clear(); tts(text); };
-      var p = audio.play();
-      if (p && p.catch) { p.catch(function () { clear(); tts(text); }); }
+    if (hasSystemVoice()) {
+      if (!tts(text)) { playAudio(src, text, btn); }
+      else { setTimeout(function () { if (curBtn === btn) clear(); }, Math.max(1200, text.length * 80)); }
     } else {
-      tts(text);
-      setTimeout(function () { if (curBtn === btn) clear(); }, 1500);
+      playAudio(src, text, btn);
     }
   }
 
@@ -230,6 +249,7 @@
 })();
 
 </script>
+
 
     </html>
     
