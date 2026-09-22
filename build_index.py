@@ -35,7 +35,7 @@ def classify(name):
 
 def main():
     files = sorted(ENGLISH_DIR.glob("*.html"))
-    files = [f for f in files if f.name != "index.html"]
+    files = [f for f in files if f.name != "index.html" and not f.name.endswith("-手机版.html")]
 
     groups = {"daily": [], "phrasal": [], "verb": [], "review": [], "prep": [], "mwvb": [], "speech": [], "other": []}
     for f in files:
@@ -46,14 +46,18 @@ def main():
     def items(key):
         html_parts = []
         for fname, title, cat in groups[key]:
+            stem = fname[:-5]
+            mob = f"{stem}-手机版.html"
+            has_mob = (ENGLISH_DIR / mob).exists()
             pdf = fname.replace(".html", ".pdf")
-            pdf_link = f' <a href="{esc(pdf)}" class="pdf">PDF ↗</a>' if (ENGLISH_DIR / pdf).exists() else ""
-            html_parts.append(
-                f'<div class="file">'
-                f'<a class="main" href="{esc(fname)}" target="_blank">{esc(title)}</a>'
-                f'{pdf_link}'
-                f'</div>'
-            )
+            pdf_link = (f' <a href="{esc(pdf)}" class="pdf desktop-only">PDF ↗</a>'
+                        if (ENGLISH_DIR / pdf).exists() else "")
+            if has_mob:
+                links = (f'<a class="main desktop-only" href="{esc(fname)}" target="_blank">{esc(title)}</a>'
+                         f'<a class="main mobile-only" href="{esc(mob)}" target="_blank">{esc(title)}</a>')
+            else:
+                links = f'<a class="main" href="{esc(fname)}" target="_blank">{esc(title)}</a>'
+            html_parts.append(f'<div class="file">{links}{pdf_link}</div>')
         return "".join(html_parts)
 
     today = date.today()
@@ -61,6 +65,7 @@ def main():
 <html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>古法编程技巧</title>
 <style>
   @page {{ size: A4; }}
@@ -122,6 +127,17 @@ def main():
     background: #ecfdf5;
   }}
   .file .pdf:hover {{ background: #d1fae5; }}
+  .mobile-only {{ display: none; }}
+  @media (max-width: 640px) {{
+    body {{ padding: 18px 12px 40px; }}
+    .header {{ padding: 20px 18px; }}
+    .header h1 {{ font-size: 19pt; }}
+    .section {{ padding: 14px 14px 16px; }}
+    .section h2 {{ font-size: 12pt; }}
+    .file .main {{ font-size: 10.5pt; }}
+    .desktop-only {{ display: none !important; }}
+    a.mobile-only {{ display: inline; }}
+  }}
   .footer {{
     text-align: center;
     color: #9ca3af;
