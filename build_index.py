@@ -63,8 +63,8 @@ def classify(name):
         return "mwvb"
     if "Speech" in name or "I-Have-a-Dream" in name:
         return "speech"
-    # 汇总/辨析类专题，与「每日」系列区分开
-    if any(k in name for k in ("总表", "总辨析", "语义分类", "词根辨析")):
+    # 汇总/辨析/速查类专题，与「每日」系列区分开
+    if any(k in name for k in ("总表", "总辨析", "语义分类", "词根辨析", "速查表")):
         return "topic"
     if any(k in name for k in ("词根", "词缀", "词源")):
         return "daily"
