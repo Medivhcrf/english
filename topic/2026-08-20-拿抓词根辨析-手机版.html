@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>"拿·抓"词根深度辨析</title>
+<style>
+  @page { size: A4; margin: 15mm 14mm; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Noto Sans CJK SC', 'Droid Sans Fallback', 'WenQuanYi Zen Hei', sans-serif;
+    font-size: 10pt;
+    color: #1f2937;
+    line-height: 1.65;
+  }
+  .header {
+    border-bottom: 3px solid #059669;
+    padding-bottom: 9px;
+    margin-bottom: 8px;
+  }
+  .header h1 { font-size: 19pt; color: #065f46; letter-spacing: 1px; }
+  .header .meta { color: #6b7280; font-size: 9.5pt; margin-top: 2px; }
+  .header .meta b { color: #059669; }
+
+  h2.section {
+    font-size: 13pt;
+    color: #065f46;
+    margin: 14px 0 7px 0;
+    padding-left: 8px;
+    border-left: 4px solid #059669;
+    page-break-after: avoid;
+  }
+
+  /* 来源图例 */
+  .legend { font-size: 9pt; margin-bottom: 10px; color: #4b5563; }
+  .legend span { display: inline-block; padding: 1px 8px; border-radius: 4px; margin-right: 8px; }
+  .leg-lat { background: #dbeafe; color: #1e40af; }
+  .leg-grk { background: #fef3c7; color: #92400e; }
+  .leg-ger { background: #dcfce7; color: #166534; }
+  .leg-fre { background: #fce7f3; color: #9d174d; }
+
+  /* 来源标签 */
+  .src {
+    display: inline-block;
+    font-size: 8pt;
+    border-radius: 3px;
+    padding: 0 5px;
+    margin-left: 6px;
+    vertical-align: 2px;
+  }
+  .src.lat { background: #dbeafe; color: #1e40af; }
+  .src.grk { background: #fef3c7; color: #92400e; }
+  .src.ger { background: #dcfce7; color: #166534; }
+  .src.fre { background: #fce7f3; color: #9d174d; }
+
+  /* 词根卡片 */
+  .card {
+    border: 1px solid #e5e7eb;
+    border-left: 4px solid #2563eb;
+    border-radius: 6px;
+    padding: 8px 12px 9px 12px;
+    margin-bottom: 9px;
+    page-break-inside: avoid;
+  }
+  .card .head { margin-bottom: 3px; }
+  .card .num {
+    display: inline-block;
+    width: 17px; height: 17px;
+    background: #2563eb; color: #fff;
+    border-radius: 50%;
+    text-align: center; line-height: 17px;
+    font-size: 9pt; font-weight: bold;
+    margin-right: 6px;
+  }
+  .card .root { font-size: 12.5pt; font-weight: bold; color: #1e3a8a; font-family: 'DejaVu Sans', sans-serif; }
+  .card .mean { color: #4b5563; }
+  .card .chain {
+    display: block;
+    margin-top: 3px;
+    font-size: 9pt;
+    color: #b45309;
+  }
+  .card .chain .lab { font-weight: bold; }
+  .card ul { list-style: none; padding: 0; margin-top: 3px; }
+  .card li { padding: 1px 0; font-size: 10pt; }
+  .card li b { color: #111827; }
+  .card .note { color: #9ca3af; font-size: 8.5pt; }
+  .card .usage {
+    margin-top: 4px;
+    background: #eff6ff;
+    border-radius: 4px;
+    padding: 3px 8px;
+    font-size: 9.5pt;
+    color: #1e40af;
+  }
+  .card .usage b { color: #1e3a8a; }
+  .card .etym {
+    display: block;
+    margin-top: 2px;
+    font-size: 9pt;
+    color: #6d28d9;
+  }
+
+  /* 总对比表 */
+  table.diff {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 9pt;
+    margin-bottom: 12px;
+    page-break-inside: avoid;
+  }
+  table.diff th {
+    background: #059669;
+    color: #fff;
+    border: 1px solid #059669;
+    padding: 4px 7px;
+    text-align: left;
+  }
+  table.diff td {
+    border: 1px solid #e5e7eb;
+    padding: 4px 7px;
+    vertical-align: top;
+  }
+  table.diff tr:nth-child(even) td { background: #f0fdf4; }
+  table.diff .af { white-space: nowrap; font-weight: bold; color: #b91c1c; }
+
+  .key {
+    margin: 6px 0 12px 0;
+    background: #fef2f2;
+    border-left: 4px solid #dc2626;
+    border-radius: 4px;
+    padding: 6px 10px;
+    font-size: 9.5pt;
+    color: #7f1d1d;
+  }
+  .key b { color: #b91c1c; }
+
+  .footer {
+    margin-top: 14px;
+    text-align: center;
+    color: #9ca3af;
+    font-size: 8.5pt;
+    border-top: 1px solid #e5e7eb;
+    padding-top: 6px;
+  }
+/* ---------- 单词发音（神经网络 MP3，缺失回退系统语音） ---------- */
+.psay{
+  display:inline-flex; align-items:center; justify-content:center;
+  width:18px; height:18px; margin:0 5px 0 0; padding:0;
+  border:1px solid #cbd5e1; border-radius:50%; background:#f8fafc;
+  color:#2563eb; font-size:9px; line-height:1; cursor:pointer;
+  vertical-align:1px; -webkit-tap-highlight-color:transparent;
+  transition:background .15s,border-color .15s;
+}
+.psay:hover{ background:#dbeafe; border-color:#93c5fd; }
+.psay.playing{ background:#2563eb; border-color:#2563eb; color:#fff; animation:psay-pulse 1s infinite; }
+@keyframes psay-pulse{ 0%,100%{opacity:1;} 50%{opacity:.5;} }
+
+#pron-toggle{
+  position:fixed; left:12px; bottom:calc(16px + env(safe-area-inset-bottom));
+  z-index:950; border:none; border-radius:999px; padding:8px 14px;
+  background:rgba(37,99,235,.95); color:#fff; font-size:13px; cursor:pointer;
+  box-shadow:0 4px 14px rgba(0,0,0,.25);
+  font-family:'Noto Sans CJK SC','Droid Sans Fallback',sans-serif;
+  -webkit-tap-highlight-color:transparent;
+}
+#pron-toggle.on{ background:#047857; }
+
+@media print{ .psay, #pron-toggle{ display:none !important; } }
+
+
+
+
+
+/* pron-start */
+/* ---------- 单词发音（神经网络 MP3，缺失回退系统语音） ---------- */
+.psay{
+  display:inline-flex; align-items:center; justify-content:center;
+  width:19px; height:19px; margin:0 5px 0 0; padding:0;
+  border:1px solid #dbe2ea; border-radius:50%; background:#f8fafc;
+  color:#2563eb; cursor:pointer;
+  vertical-align:1px; -webkit-tap-highlight-color:transparent;
+  transition:background .15s,border-color .15s,color .15s;
+}
+.psay:hover{ background:#e8f0fe; border-color:#a9c7f5; }
+.psay.playing{ background:#2563eb; border-color:#2563eb; color:#fff; }
+.psay svg{ width:12px; height:12px; display:block; }
+
+#pron-toggle{
+  position:fixed; left:12px; bottom:calc(16px + env(safe-area-inset-bottom));
+  z-index:950; display:inline-flex; align-items:center; gap:5px;
+  border:none; border-radius:999px; padding:8px 14px;
+  background:rgba(37,99,235,.95); color:#fff; font-size:13px; cursor:pointer;
+  box-shadow:0 4px 14px rgba(0,0,0,.22);
+  font-family:'Noto Sans CJK SC','Droid Sans Fallback',sans-serif;
+  -webkit-tap-highlight-color:transparent;
+}
+#pron-toggle.on{ background:#047857; }
+#pron-toggle svg{ width:14px; height:14px; display:block; }
+
+@media print{ .psay, #pron-toggle{ display:none !important; } }
+/* pron-end */
+
+/* mobile-generic */
+  html { -webkit-text-size-adjust: 100%; }
+  body { overflow-wrap: break-word; }
+  @media (max-width: 640px) {
+    body { font-size: 16px !important; line-height: 1.8;
+           padding: 14px 12px calc(34px + env(safe-area-inset-bottom)); }
+    .header h1 { font-size: 1.5rem; }
+    .header .meta { font-size: .82rem; }
+    h2.section { font-size: 1.12rem; }
+    .card { padding: 11px 13px; border-radius: 10px; }
+    .card .root { font-size: 1.18rem; }
+    .card li { font-size: 1rem; padding: 3px 0; }
+    .card .usage { font-size: .95rem; }
+    .card .etym, .card .evo, .card .trick,
+    .card .confuse, .card .variant, .card .cognate { font-size: .86rem; }
+    table { display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    .flow { font-size: .9rem; }
+  }
+
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>"拿 · 抓"词根深度辨析</h1>
+  <div class="meta">2026 年 8 月 20 日 ｜ <b>5 个同义词根 + 2 个易混邻居</b> ｜ 来源与发展脉络</div>
+</div>
+
+<div class="legend">
+  <span class="leg-lat">拉丁</span>
+  <span class="leg-grk">希腊</span>
+  <span class="leg-ger">日耳曼（古英语/日耳曼语系）</span>
+  <span class="leg-fre">法语</span>
+</div>
+
+<h2 class="section">一、同义词根逐条拆解（含来源与发展链）</h2>
+
+<div class="card">
+  <div class="head"><span class="num">1</span><span class="root">cap / cip / cept / ceive</span> <span class="mean">＝ 拿、抓、夺取</span> <span class="src lat">拉丁</span></div>
+  <span class="etym"><span class="lab">词源</span>：拉丁语 <b>capere</b>「拿、抓、夺取」 ← 印欧语 <b>*kap-</b>「抓住」</span>
+  <span class="chain"><span class="lab">发展</span>：<b>capere 抓</b> → 现在分词词干 cap-（capture 捕获）→ 完成分词词干 cept-（receive 收到、concept 概念）→ 经法语变体 ceive-（receive、deceive 欺骗）</span>
+  <ul>
+    <li><b data-say="../words-audio/d7ba9bbfda42b9657f14ee37ef76150b.mp3">capture</b> 捕获 <span class="note">（cap + -ture，抓住猎物）</span></li>
+    <li><b data-say="../words-audio/cbd71f0d3114139d38a8d080d610e5fd.mp3">receive</b> 收到 <span class="note">（re- 回 + ceive，"把东西拿回手里"）</span></li>
+    <li><b data-say="../words-audio/47cb06083e87503762f6746725117a3c.mp3">concept</b> 概念 <span class="note">（con- 一起 + cept，"抓到心里的想法"）</span></li>
+    <li><b data-say="../words-audio/d1cc652b86b9858fe78058511716e92f.mp3">except</b> 除…之外 <span class="note">（ex- 出 + cept，"把…拿出来不算"）</span></li>
+    <li><b data-say="../words-audio/4abe77c201ff11663ccdf52fd6ecea86.mp3">accept</b> 接受 <span class="note">（ad- 朝 + cept，"向自己抓来"）</span></li>
+    <li><b data-say="../words-audio/7bd14a231864e618e1840c7e117e59c1.mp3">capacity</b> 容量、能力 <span class="note">（cap + -acity，"能抓住多少"）</span></li>
+  </ul>
+  <div class="usage">口语/生活用：<b data-say="../words-audio/1fadb5bef88f23e1cd76b3eaf1b04ea2.mp3">Please accept my apologies.</b> 请接受我的道歉。</div>
+</div>
+
+<div class="card">
+  <div class="head"><span class="num">2</span><span class="root">prehend / prehens</span> <span class="mean">＝ 抓住并握住 → 理解</span> <span class="src lat">拉丁</span></div>
+  <span class="etym"><span class="lab">词源</span>：拉丁语 <b>prehendere</b>「抓住、握住」 ← prae（在前）+ hendere（拿） ← 印欧语 <b>*ghend-</b>「抓住」</span>
+  <span class="chain"><span class="lab">发展</span>：<b>抓住不放</b> → 头脑"抓住"=理解 → 抓住罪犯=逮捕</span>
+  <ul>
+    <li><b data-say="../words-audio/482863db6bbcbe5d42b2c38fc881497d.mp3">comprehend</b> 理解 <span class="note">（com- 完全 + prehend，"彻底抓住"）</span></li>
+    <li><b data-say="../words-audio/28a2561377ac20d6f8ab52b457031e1f.mp3">apprehend</b> 逮捕；领会 <span class="note">（ap- 朝 + prehend，"上前抓住"）</span></li>
+    <li><b data-say="../words-audio/8fa9ed507b9f265f6126d6782ce8948b.mp3">prehensile</b> 可抓握的 <span class="note">（prehens + -ile，"能抓住的"，猴子尾巴）</span></li>
+    <li><b data-say="../words-audio/308319a5ba52f2b73fd79195accdd23a.mp3">comprehensive</b> 全面的 <span class="note">（comprehend 的形容词，"抓得全的"）</span></li>
+  </ul>
+  <div class="usage">口语/生活用：<b data-say="../words-audio/c39f59ce9b619f6e72e64e517b17f881.mp3">I can't comprehend why he left without saying goodbye.</b> 我无法理解他为什么不辞而别。</div>
+</div>
+
+<div class="card">
+  <div class="head"><span class="num">3</span><span class="root">rap / rapt / rav</span> <span class="mean">＝ 急速抢夺、攫取</span> <span class="src lat">拉丁</span></div>
+  <span class="etym"><span class="lab">词源</span>：拉丁语 <b>rapere</b>「攫取、抢走」 ← 印欧语 <b>*rep-</b>「抓取」</span>
+  <span class="chain"><span class="lab">发展</span>：<b>抢走</b> → 抢夺太"快"→rapid 快速 ｜ 心神被"掳走"→rapture 狂喜 ｜ 抢掠破坏→ravage</span>
+  <ul>
+    <li><b data-say="../words-audio/2a9bdb3d28d0f32d560fb8a27ae1f473.mp3">rapid</b> 快速的 <span class="note">（rap + -id，"像被抢走一样飞快"）</span></li>
+    <li><b data-say="../words-audio/2897614b85da05c6a208e3e7a64809e6.mp3">rapture</b> 狂喜 <span class="note">（rapt + -ure，"心神被掳走的喜悦"）</span></li>
+    <li><b data-say="../words-audio/98091d5566f83dca734c3b9c6225d46a.mp3">rapacious</b> 贪婪掠夺的 <span class="note">（rap + -acious，"不停抢夺"）</span></li>
+    <li><b data-say="../words-audio/39c7f6c7bd2769583fa9f664660b699b.mp3">ravage</b> 蹂躏、破坏 <span class="note">（rav + -age，"掠夺后的满目疮痍"）</span></li>
+    <li><b data-say="../words-audio/d8bdb62152e45f069aaf1ef98fd226f7.mp3">ravenous</b> 饿极了的 <span class="note">（rav + -enous，"饿到要抢食"）</span></li>
+  </ul>
+  <div class="usage">口语/生活用：<b data-say="../words-audio/13cd10431aff8612c494c84705b437d1.mp3">The city saw rapid growth in the past decade.</b> 过去十年这座城市飞速发展。</div>
+</div>
+
+<div class="card">
+  <div class="head"><span class="num">4</span><span class="root">sum / sumpt</span> <span class="mean">＝ 拿起、取用 → 消费</span> <span class="src lat">拉丁</span></div>
+  <span class="etym"><span class="lab">词源</span>：拉丁语 <b>sumere</b>「拿起、取用」 ← sub（在下）+ emere（拿） ← 印欧语 <b>*em-</b>「拿、取」</span>
+  <span class="chain"><span class="lab">发展</span>：<b>拿起</b> → 承担（把责任拿过来）→ 消费（把钱拿走）→ 重新拿起=resume</span>
+  <ul>
+    <li><b data-say="../words-audio/e6e5c196e1466e7e1d06a08576de666e.mp3">assume</b> 假定；承担 <span class="note">（as- 朝 + sum，"拿过来当自己的"）</span></li>
+    <li><b data-say="../words-audio/f0ef8c72418989a4bb20243ccb61eeb0.mp3">consume</b> 消费 <span class="note">（con- 完全 + sum，"全拿走用掉"）</span></li>
+    <li><b data-say="../words-audio/69f2afc2390cec954f7c208b07212d39.mp3">resume</b> 重新开始 <span class="note">（re- 再 + sum，"重新拿起"）</span></li>
+    <li><b data-say="../words-audio/fc482c0afca2f49e069fabe0e7b17b14.mp3">presume</b> 假定、擅自 <span class="note">（pre- 预先 + sum，"提前就拿定了"）</span></li>
+    <li><b data-say="../words-audio/1005b14bd29466723ace30d26f602f5b.mp3">consumer</b> 消费者 <span class="note">（consume + -er）</span></li>
+    <li><b data-say="../words-audio/64812e29215704620e2fd4965b413dbf.mp3">assumption</b> 假定 <span class="note">（assume 名词）</span></li>
+  </ul>
+  <div class="usage">口语/生活用：<b data-say="../words-audio/0c5eca7612faa1428ab2771711e6d81b.mp3">We should assume responsibility for our mistakes.</b> 我们应该为自己的错误承担责任。</div>
+</div>
+
+<div class="card">
+  <div class="head"><span class="num">5</span><span class="root">em / empt</span> <span class="mean">＝ 买取、取出</span> <span class="src lat">拉丁</span></div>
+  <span class="etym"><span class="lab">词源</span>：拉丁语 <b>emere</b>「拿取、购买」 ← 印欧语 <b>*em-</b>「拿、取」（与 sumere 同根，一个加 sub-、一个独立）</span>
+  <span class="chain"><span class="lab">发展</span>：<b>买/取</b> → 花钱"取"回=redeem ｜ 从义务中"取"出=exempt ｜ 抢先"取"占=preempt</span>
+  <ul>
+    <li><b data-say="../words-audio/147b6b98b0b5715a7b01a447a3cc5113.mp3">redeem</b> 赎回；兑现 <span class="note">（red- 回 + em，"花钱取回来"）</span></li>
+    <li><b data-say="../words-audio/48f1af0b8c3f2316d5da220943fe3b14.mp3">exempt</b> 免除 <span class="note">（ex- 出 + empt，"从义务中取出来"）</span></li>
+    <li><b data-say="../words-audio/9e4854ffe6427ebf0f7142f1b8978cfb.mp3">preempt</b> 抢先占据 <span class="note">（pre- 先 + empt，"提前买走"）</span></li>
+    <li><b data-say="../words-audio/1a79a4d60de6718e8e5b326e338ae533.mp3">example</b> 例子 <span class="note">（ex- 出 + em + -ple，"取出来的样本"）</span></li>
+    <li><b data-say="../words-audio/5e8ff9bf55ba3508199d22e984129be6.mp3">sample</b> 样品 <span class="note">（example 的缩略变体）</span></li>
+    <li><b data-say="../words-audio/4ae35dbb42614d2429b7d6d181a950bb.mp3">prompt</b> 迅速的；提示 <span class="note">（pro- 前 + em，"事先取出、提前"——注意 em 变 pm）</span></li>
+  </ul>
+  <div class="usage">口语/生活用：<b data-say="../words-audio/07e04f6b405781255818f81d48f0814f.mp3">You can redeem this coupon for a free drink.</b> 你可以用这张券兑换一杯免费饮料。</div>
+</div>
+
+<h2 class="section">二、两个"易混邻居"（也是拿，但动作不同）</h2>
+
+<div class="card">
+  <div class="head"><span class="num">6</span><span class="root">ten / tin / tain / tent</span> <span class="mean">＝ hold 握住不放、保持</span> <span class="src lat">拉丁</span></div>
+  <span class="etym"><span class="lab">词源</span>：拉丁语 <b>tenere</b>「握住、保持」 ← 印欧语 <b>*ten-</b>「拉伸、握住」（与英语 thin「薄」、tend「倾向」同源）</span>
+  <span class="chain"><span class="lab">发展</span>：<b>握住不放</b> → 包含（握在里面）→ 保留（继续握着）→ 维持（一直握住）</span>
+  <ul>
+    <li><b data-say="../words-audio/c58ff5e3a379801b6cc137158d5545fe.mp3">contain</b> 包含 <span class="note">（con- 一起 + tain，"握在里面"）</span></li>
+    <li><b data-say="../words-audio/16d79ff80feadcf2f52096f073f2b94a.mp3">retain</b> 保留 <span class="note">（re- 再 + tain，"继续握着"）</span></li>
+    <li><b data-say="../words-audio/02bc1150d41a4dfdc324849c25dce148.mp3">sustain</b> 维持 <span class="note">（sus- 下 + tain，"从下托住"）</span></li>
+    <li><b data-say="../words-audio/2ebb5fe74a065a121e4e22b52f0b09c7.mp3">obtain</b> 获得 <span class="note">（ob- 朝 + tain，"伸手握住"）</span></li>
+    <li><b data-say="../words-audio/9a0364b9e99bb480dd25e1f0284c8555.mp3">content</b> 内容 <span class="note">（con- + tent，"握在里面的东西"）</span></li>
+  </ul>
+  <div class="usage">口语/生活用：<b data-say="../words-audio/42adb9d4409de044568829684156a1ba.mp3">Please remain seated and stay calm.</b> 请保持坐姿、保持冷静。</div>
+</div>
+
+<div class="card">
+  <div class="head"><span class="num">7</span><span class="root">fer / port</span> <span class="mean">＝ carry 搬运、携带</span> <span class="src lat">拉丁</span></div>
+  <span class="etym"><span class="lab">词源</span>：拉丁语 <b>ferre</b>「携带」← PIE <b>*bher-</b>「带」；<b>portare</b>「搬运」← PIE <b>*per-</b>「穿过」</span>
+  <span class="chain"><span class="lab">发展</span>：<b>搬运</b> → 转移到别处=transfer ｜ 从下面托着=support ｜ 运到别处=transport</span>
+  <ul>
+    <li><b data-say="../words-audio/84a0f3455dcca894ace136be62efa292.mp3">transfer</b> 转移 <span class="note">（trans- 跨 + fer，"搬过去"）</span></li>
+    <li><b data-say="../words-audio/434990c8a25d2be94863561ae98bd682.mp3">support</b> 支持 <span class="note">（sup- 下 + port，"从下面托着"）</span></li>
+    <li><b data-say="../words-audio/7b334b7260361141659fa9862e803476.mp3">transport</b> 运输 <span class="note">（trans- 跨 + port，"搬过境"）</span></li>
+    <li><b data-say="../words-audio/29585c700c8d0be16c6b0a24d8c9d0bc.mp3">refer</b> 提及、参考 <span class="note">（re- 回 + fer，"带回目光/话题"）</span></li>
+  </ul>
+  <div class="usage">口语/生活用：<b data-say="../words-audio/31b0a04b02adca44ba25c295279f5f58.mp3">I'll transfer the money to your account now.</b> 我现在把钱转到你账户。</div>
+</div>
+
+<h2 class="section">三、总对比（一眼看清差别）</h2>
+
+<table class="diff">
+  <tr><th>词根</th><th>来源</th><th>抓的方式</th><th>代表词</th><th>一句话</th></tr>
+  <tr>
+    <td class="af">cap / cept</td><td>拉丁 capere</td><td>抓取、夺取（通用）</td><td>capture, receive, concept</td><td>抓一把、拿到手</td>
+  </tr>
+  <tr>
+    <td class="af">prehend</td><td>拉丁 prehendere</td><td>抓住并握住</td><td>comprehend, apprehend</td><td>抓住领会 = 理解</td>
+  </tr>
+  <tr>
+    <td class="af">rap / rapt</td><td>拉丁 rapere</td><td>急速抢夺（快/暴）</td><td>rapid, rapture, ravage</td><td>抢走 → 快、狂</td>
+  </tr>
+  <tr>
+    <td class="af">sum / sumpt</td><td>拉丁 sumere</td><td>拿起取用</td><td>assume, consume, resume</td><td>拿来用 = 承担/消费</td>
+  </tr>
+  <tr>
+    <td class="af">em / empt</td><td>拉丁 emere</td><td>买取（交易）</td><td>redeem, exempt, example</td><td>花钱取 = 买/赎回</td>
+  </tr>
+  <tr>
+    <td class="af">ten / tain</td><td>拉丁 tenere</td><td>握住不放（保持）</td><td>contain, retain, sustain</td><td>握着不松 = 保持</td>
+  </tr>
+  <tr>
+    <td class="af">fer / port</td><td>拉丁 ferre/portare</td><td>搬运（运送）</td><td>transfer, transport</td><td>搬走 = 运送</td>
+  </tr>
+</table>
+
+<div class="key"><b>记忆主线</b>：英语里"拿、抓"几乎全是<b>拉丁</b>词根，没有独立的希腊词根（希腊说 lambanō → 派生词根 <b>leps/lamb</b>，仅见于 "syllable" 等少数词）。这些拉丁词根都来自印欧语不同分支：<b>cap-（*kap-）</b>、<b>prehend（*ghend-）</b>、<b>rap（*rep-）</b>、<b>em/sum（*em-）</b>。<b>ten</b>（*ten- 拉伸）和 <b>fer/port</b> 虽也含"拿"义，但动作方向是"保持"与"运送"，不算严格的"抓"。</div>
+
+<div class="footer">"拿 · 抓"词根辨析 · 学而时习之 · 不亦说乎 👋</div>
+
+</body>
+<script>
+/* ---------- 单词发音：优先系统语音，无系统语音时才用预生成音频 ---------- */
+(function () {
+  var ICON_SPEAKER = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5 6 9H3v6h3l5 4V5z"/><path d="M15.5 8.5a5 5 0 0 1 0 7"/><path d="M18.5 5.5a9 9 0 0 1 0 13"/></svg>';
+
+  var synth = ("speechSynthesis" in window) ? window.speechSynthesis : null;
+  var audio = new Audio();
+  audio.preload = "auto";
+  audio.playbackRate = 0.95;
+  var curBtn = null;
+
+  function liveVoices() {
+    if (!synth) return [];
+    try { return (synth.getVoices() || []); } catch (e) { return []; }
+  }
+  function hasSystemVoice() {
+    if (!synth) return false;
+    if (liveVoices().some(function (v) { return /^en/i.test(v.lang); })) return true;
+    return /iP(hone|ad|od)|Android/i.test(navigator.userAgent || "");
+  }
+  function tts(text) {
+    if (!synth || !hasSystemVoice()) return false;
+    /* 不指定具体 voice，交给系统用「默认英文语音」（即用户在系统里选好的那个） */
+    var u = new SpeechSynthesisUtterance(text);
+    u.lang = "en-US";
+    try { synth.cancel(); } catch (e) {}
+    synth.speak(u);
+    return true;
+  }
+  function clear() { if (curBtn) { curBtn.classList.remove("playing"); curBtn = null; } }
+  function playAudio(src, btn) {
+    if (!src) { if (btn) clear(); return; }
+    audio.src = src;
+    audio.onended = function () { if (curBtn === btn) clear(); };
+    audio.onerror = function () { if (curBtn === btn) clear(); };
+    var p = audio.play();
+    if (p && p.catch) { p.catch(function () { if (curBtn === btn) clear(); }); }
+  }
+  function play(el, btn) {
+    var src = el.getAttribute("data-say");
+    var text = el.textContent.replace(/\s+/g, " ").trim();
+    clear();
+    if (btn) { btn.classList.add("playing"); curBtn = btn; }
+    if (hasSystemVoice()) {
+      if (!tts(text)) { playAudio(src, btn); }
+      else { setTimeout(function () { if (curBtn === btn) clear(); }, Math.max(1200, text.length * 80)); }
+    } else {
+      playAudio(src, btn);
+    }
+  }
+
+  document.querySelectorAll("[data-say]").forEach(function (el) {
+    var prev = el.previousElementSibling;
+    if (prev && prev.classList && prev.classList.contains("psay")) return;
+    var b = document.createElement("button");
+    b.type = "button"; b.className = "psay"; b.innerHTML = ICON_SPEAKER; b.title = "发音";
+    b.setAttribute("aria-label", "发音");
+    b.addEventListener("click", function (e) {
+      e.stopPropagation(); e.preventDefault();
+      if (curBtn === b) {
+        try { audio.pause(); } catch (err) {}
+        if (synth) { try { synth.cancel(); } catch (err) {} }
+        clear(); return;
+      }
+      play(el, b);
+    });
+    el.parentNode.insertBefore(b, el);
+  });
+
+  /* 点任意英文词发音 */
+  var on = false;
+  var tg = document.createElement("button");
+  tg.id = "pron-toggle"; tg.type = "button";
+  tg.innerHTML = ICON_SPEAKER + '<span>点词发音</span>';
+  document.body.appendChild(tg);
+  tg.addEventListener("click", function () {
+    on = !on; tg.classList.toggle("on", on);
+    tg.querySelector("span").textContent = on ? "点词发音：开" : "点词发音";
+  });
+  function wordAt(x, y) {
+    var node, offset;
+    if (document.caretRangeFromPoint) {
+      var r = document.caretRangeFromPoint(x, y);
+      if (!r) return null; node = r.startContainer; offset = r.startOffset;
+    } else if (document.caretPositionFromPoint) {
+      var p = document.caretPositionFromPoint(x, y);
+      if (!p) return null; node = p.offsetNode; offset = p.offset;
+    } else { return null; }
+    if (!node || node.nodeType !== 3) return null;
+    var t = node.textContent, re = /[A-Za-z][A-Za-z'\u2019\-]*/g, m;
+    while ((m = re.exec(t))) {
+      if (offset >= m.index && offset <= m.index + m[0].length) return m[0];
+    }
+    return null;
+  }
+  document.addEventListener("click", function (e) {
+    if (!on) return;
+    if (e.target.closest && (e.target.closest(".psay") || e.target.closest("#pron-toggle"))) return;
+    var w = wordAt(e.clientX, e.clientY);
+    if (w) tts(w);
+  }, true);
+})();
+
+</script>
+
+
+
+</html>

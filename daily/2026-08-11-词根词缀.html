@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>词根词缀每日积累 · Day 7</title>
+<style>
+  @page { size: A4; margin: 16mm 15mm; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Noto Sans CJK SC', 'Droid Sans Fallback', 'WenQuanYi Zen Hei', sans-serif;
+    font-size: 10.5pt;
+    color: #1f2937;
+    line-height: 1.65;
+  }
+  /* 页眉 */
+  .header {
+    border-bottom: 3px solid #2563eb;
+    padding-bottom: 10px;
+    margin-bottom: 6px;
+  }
+  .header h1 { font-size: 19pt; color: #1e3a8a; letter-spacing: 1px; }
+  .header .meta { color: #6b7280; font-size: 9.5pt; margin-top: 2px; }
+  .header .meta b { color: #2563eb; }
+
+  /* 分区标题 */
+  h2.section {
+    font-size: 12.5pt;
+    color: #1e3a8a;
+    margin: 14px 0 8px 0;
+    padding-left: 8px;
+    border-left: 4px solid #2563eb;
+  }
+
+  /* 词根卡片 */
+  .card {
+    border: 1px solid #e5e7eb;
+    border-left: 4px solid #2563eb;
+    border-radius: 6px;
+    padding: 8px 12px 9px 12px;
+    margin-bottom: 9px;
+    page-break-inside: avoid;
+  }
+  .card .root-head { margin-bottom: 4px; }
+  .card .num {
+    display: inline-block;
+    width: 17px; height: 17px;
+    background: #2563eb; color: #fff;
+    border-radius: 50%;
+    text-align: center; line-height: 17px;
+    font-size: 9pt; font-weight: bold;
+    margin-right: 6px;
+  }
+  .card .root { font-size: 12.5pt; font-weight: bold; color: #1e3a8a; font-family: 'DejaVu Sans', sans-serif; }
+  .card .meaning { color: #4b5563; }
+  .card .trick {
+    display: block;
+    color: #047857;
+    font-size: 9pt;
+    margin-top: 1px;
+  }
+  /* 词源与演化 */
+  .card .etym {
+    display: block;
+    margin-top: 3px;
+    font-size: 9pt;
+    color: #6d28d9;
+  }
+  .card .etym .lab, .card .evo .lab { font-weight: bold; }
+  .card .evo {
+    display: block;
+    margin-top: 1px;
+    font-size: 9pt;
+    color: #b45309;
+  }
+  .card ul { list-style: none; padding: 0; }
+  .card li {
+    padding: 1px 0;
+    font-size: 10.5pt;
+  }
+  .card li b { color: #111827; }
+  .card .note { color: #9ca3af; font-size: 9pt; }
+  .card .usage {
+    margin-top: 4px;
+    background: #eff6ff;
+    border-radius: 4px;
+    padding: 3px 8px;
+    font-size: 9.5pt;
+    color: #1e40af;
+  }
+  .card .usage b { color: #1e3a8a; }
+
+  /* 深度辨析块（词缀卡片内，浅黄背景） */
+  .card .confuse {
+    margin-top: 5px;
+    background: #fefce8;
+    border: 1px solid #fde047;
+    border-radius: 5px;
+    padding: 5px 9px;
+    font-size: 9pt;
+    color: #854d0e;
+    line-height: 1.6;
+  }
+  .card .confuse .confuse-title {
+    display: block;
+    font-weight: bold;
+    font-size: 9.5pt;
+    color: #92400e;
+    margin-bottom: 3px;
+  }
+  .card .confuse b { color: #78350f; }
+  .card .confuse .sub { color: #a16207; font-weight: bold; }
+
+  /* 多形词根变体块（紫色系） */
+  .card .variant {
+    margin-top: 5px;
+    background: #f5f3ff;
+    border: 1px solid #c4b5fd;
+    border-radius: 5px;
+    padding: 5px 9px;
+    font-size: 9pt;
+    color: #5b21b6;
+    line-height: 1.6;
+  }
+  .card .variant .var-title {
+    display: block;
+    font-weight: bold;
+    font-size: 9.5pt;
+    color: #6d28d9;
+    margin-bottom: 3px;
+  }
+  .card .variant b { color: #5b21b6; }
+
+  /* 同源对照块（琥珀系） */
+  .card .cognate {
+    margin-top: 5px;
+    background: #fffbeb;
+    border: 1px solid #fcd34d;
+    border-radius: 5px;
+    padding: 5px 9px;
+    font-size: 9pt;
+    color: #92400e;
+    line-height: 1.6;
+  }
+  .card .cognate .cog-title {
+    display: block;
+    font-weight: bold;
+    font-size: 9.5pt;
+    color: #b45309;
+    margin-bottom: 3px;
+  }
+  .card .cognate b { color: #78350f; }
+
+  /* 词缀卡片（不同色区分） */
+  .card.affix { border-left-color: #059669; }
+  .card.affix .num { background: #059669; }
+  .card.affix .root { color: #065f46; }
+  .card.affix .usage { background: #ecfdf5; color: #065f46; }
+
+  .footer {
+    margin-top: 14px;
+    text-align: center;
+    color: #9ca3af;
+    font-size: 8.5pt;
+    border-top: 1px solid #e5e7eb;
+    padding-top: 6px;
+  }
+/* ---------- 单词发音（神经网络 MP3，缺失回退系统语音） ---------- */
+.psay{
+  display:inline-flex; align-items:center; justify-content:center;
+  width:18px; height:18px; margin:0 5px 0 0; padding:0;
+  border:1px solid #cbd5e1; border-radius:50%; background:#f8fafc;
+  color:#2563eb; font-size:9px; line-height:1; cursor:pointer;
+  vertical-align:1px; -webkit-tap-highlight-color:transparent;
+  transition:background .15s,border-color .15s;
+}
+.psay:hover{ background:#dbeafe; border-color:#93c5fd; }
+.psay.playing{ background:#2563eb; border-color:#2563eb; color:#fff; animation:psay-pulse 1s infinite; }
+@keyframes psay-pulse{ 0%,100%{opacity:1;} 50%{opacity:.5;} }
+
+#pron-toggle{
+  position:fixed; left:12px; bottom:calc(16px + env(safe-area-inset-bottom));
+  z-index:950; border:none; border-radius:999px; padding:8px 14px;
+  background:rgba(37,99,235,.95); color:#fff; font-size:13px; cursor:pointer;
+  box-shadow:0 4px 14px rgba(0,0,0,.25);
+  font-family:'Noto Sans CJK SC','Droid Sans Fallback',sans-serif;
+  -webkit-tap-highlight-color:transparent;
+}
+#pron-toggle.on{ background:#047857; }
+
+@media print{ .psay, #pron-toggle{ display:none !important; } }
+
+
+
+
+
+/* pron-start */
+/* ---------- 单词发音（神经网络 MP3，缺失回退系统语音） ---------- */
+.psay{
+  display:inline-flex; align-items:center; justify-content:center;
+  width:19px; height:19px; margin:0 5px 0 0; padding:0;
+  border:1px solid #dbe2ea; border-radius:50%; background:#f8fafc;
+  color:#2563eb; cursor:pointer;
+  vertical-align:1px; -webkit-tap-highlight-color:transparent;
+  transition:background .15s,border-color .15s,color .15s;
+}
+.psay:hover{ background:#e8f0fe; border-color:#a9c7f5; }
+.psay.playing{ background:#2563eb; border-color:#2563eb; color:#fff; }
+.psay svg{ width:12px; height:12px; display:block; }
+
+#pron-toggle{
+  position:fixed; left:12px; bottom:calc(16px + env(safe-area-inset-bottom));
+  z-index:950; display:inline-flex; align-items:center; gap:5px;
+  border:none; border-radius:999px; padding:8px 14px;
+  background:rgba(37,99,235,.95); color:#fff; font-size:13px; cursor:pointer;
+  box-shadow:0 4px 14px rgba(0,0,0,.22);
+  font-family:'Noto Sans CJK SC','Droid Sans Fallback',sans-serif;
+  -webkit-tap-highlight-color:transparent;
+}
+#pron-toggle.on{ background:#047857; }
+#pron-toggle svg{ width:14px; height:14px; display:block; }
+
+@media print{ .psay, #pron-toggle{ display:none !important; } }
+/* pron-end */
+
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>词根词缀每日积累 · Day 7</h1>
+  <div class="meta">2026 年 8 月 11 日 ｜ <b>词根 7 个 · 词缀 3 个</b> ｜ 附词源与演化</div>
+</div>
+
+<h2 class="section">词根（7 个）</h2>
+
+<div class="card">
+  <div class="root-head"><span class="num">1</span><span class="root">sta / stat / stit</span> <span class="meaning">= stand 站、立</span></div>
+  <span class="trick">💡 记法：state「状态」= 你"站"在那里的样子；station 车站 = 站着等车的地方</span>
+  <span class="etym"><span class="lab">词源</span>：拉丁语 <b>stare</b>「站立」，完成分词 <b>status</b>；另有使役动词 <b>sistere</b>「使站立」，源自印欧语 <b>*steh₂-</b>「站、立」</span>
+  <span class="evo"><span class="lab">演化</span>：<b>站立</b> → 站着的形态=状态(state) ｜ 站得住=稳定(stable) ｜ 站在身边=帮助(assist) ｜ 一直站着=坚持(persist)</span>
+  <ul>
+    <li><b data-say="../words-audio/9ed39e2ea931586b6a985a6942ef573e.mp3">state</b> 状态；国家 <span class="note">（stat + -e，站立的形态；"立国"）</span></li>
+    <li><b data-say="../words-audio/e8ed3f2846110837f3adb8015ccad5ec.mp3">station</b> 车站 <span class="note">（stat + -ion，站着等候的地点）</span></li>
+    <li><b data-say="../words-audio/f40faf6384fc85a33d3b05a9d41c012b.mp3">stable</b> 稳定的 <span class="note">（sta + -able，站得住的）</span></li>
+    <li><b data-say="../words-audio/617ac08757d38a5a7ed91c224f0e90a0.mp3">constant</b> 恒定的 <span class="note">（con- 完全 + st + -ant，一直站着的）</span></li>
+    <li><b data-say="../words-audio/cfaa89ec89b7e4605665cdc0069a56e1.mp3">establish</b> 建立 <span class="note">（e- 出 + st + -abl + -ish，使"立"起来）</span></li>
+    <li><b data-say="../words-audio/5ca4b722707013b233e526659583df95.mp3">persist</b> 坚持 <span class="note">（per- 贯穿 + sist，一直站着不退缩）</span></li>
+  </ul>
+  <div class="variant">
+    <span class="var-title">🧩 变体家族</span>
+    <b>sta-</b> state, stable, station, establish<br>
+    <b>stat-</b> status, statute, statue<br>
+    <b>stit-</b> constitute「构成」, institution「制度」, substitute「替代」<br>
+    <b>sist-</b> assist「帮助」, resist「抵抗」, persist「坚持」, consist「组成」
+  </div>
+  <div class="usage">口语/生活用：<b data-say="../words-audio/f8eabc4661e562f72a2a2222fec30501.mp3">The bus station is a five-minute walk from here.</b> 公交站离这里步行五分钟。</div>
+</div>
+
+<div class="card">
+  <div class="root-head"><span class="num">2</span><span class="root">val / vail</span> <span class="meaning">= strong, worth 强壮、价值</span></div>
+  <span class="trick">💡 记法：valid「有效」= 站得住脚的；value「价值」= 值得</span>
+  <span class="etym"><span class="lab">词源</span>：拉丁语 <b>valere</b>「强壮、有价值」，源自印欧语 <b>*wal-</b>「强壮」</span>
+  <span class="evo"><span class="lab">演化</span>：<b>强壮/有价值</b> → 价值(value) ｜ 站得住=有效(valid) ｜ 更强=占上风(prevail)</span>
+  <ul>
+    <li><b data-say="../words-audio/2063c1608d6e0baf80249c42e2be5804.mp3">value</b> 价值 <span class="note">（val + -ue）</span></li>
+    <li><b data-say="../words-audio/9f7d0ee82b6a6ca7ddeae841f3253059.mp3">valid</b> 有效的、站得住脚的 <span class="note">（val + -id）</span></li>
+    <li><b data-say="../words-audio/e4894ca167b08880bfc35862f18575eb.mp3">available</b> 可获得的 <span class="note">（a- 到 + vail + -able，"够得着、用得上"）</span></li>
+    <li><b data-say="../words-audio/ada446e4082ac26c936a0ac14ef1dad9.mp3">prevail</b> 盛行、占上风 <span class="note">（pre- 前 + vail，"更强大而胜出"）</span></li>
+    <li><b data-say="../words-audio/94d2f2aabfda3169d54a9531cdb99890.mp3">evaluate</b> 评估 <span class="note">（e- 出 + val + -uate，估出价值）</span></li>
+    <li><b data-say="../words-audio/a219d952c828c6dfd3c9e7465f0d29c4.mp3">equivalent</b> 等价的 <span class="note">（equi 等 + val + -ent）</span></li>
+  </ul>
+  <div class="variant">
+    <span class="var-title">🧩 变体家族</span>
+    <b>val-</b> value, valid, evaluate, equivalent, valuable<br>
+    <b>vail-</b> available, prevail（经法语演变）
+  </div>
+  <div class="usage">口语/生活用：<b data-say="../words-audio/6233caa4c7ed9bc2262579fffa927775.mp3">The coupon is still valid until the end of this month.</b> 这张优惠券到这个月底仍然有效。</div>
+</div>
+
+<div class="card">
+  <div class="root-head"><span class="num">3</span><span class="root">sequ / secut / suit</span> <span class="meaning">= follow 跟随</span></div>
+  <span class="trick">💡 记法：second「第二」= 跟在第一"后面"的；consequence「后果」= "跟"着发生的事</span>
+  <span class="etym"><span class="lab">词源</span>：拉丁语 <b>sequi</b>「跟随」，完成分词 <b>secutus</b>，源自印欧语 <b>*sekʷ-</b>「跟随」</span>
+  <span class="evo"><span class="lab">演化</span>：<b>跟随</b> → 一个接一个=顺序(sequence) ｜ 跟着来=后果(consequence) ｜ 跟着追=pursue/suit</span>
+  <ul>
+    <li><b data-say="../words-audio/fa1c731ead93e333a9180e16f968c01e.mp3">sequence</b> 顺序、序列 <span class="note">（sequ + -ence，一个跟一个）</span></li>
+    <li><b data-say="../words-audio/da9c3748877e7cc063dea8073b33986d.mp3">consequence</b> 后果 <span class="note">（con- 完全 + sequ + -ence，"紧跟着发生的"）</span></li>
+    <li><b data-say="../words-audio/a9f0e61a137d86aa9db53465e0801612.mp3">second</b> 第二 <span class="note">（sec + -und，跟在第一后面的）</span></li>
+    <li><b data-say="../words-audio/bf497f9e19a2577b60fee2e001562df5.mp3">pursue</b> 追求、追赶 <span class="note">（经法语，"在后面跟着跑"）</span></li>
+    <li><b data-say="../words-audio/3250d1e21c4281d3cd9479f5685770b6.mp3">executive</b> 行政的 <span class="note">（ex- 出 + secut + -ive，执行命令者）</span></li>
+    <li><b data-say="../words-audio/9cf5af279482cc1b8cffc17b00ee1186.mp3">suit</b> 诉讼；一套衣服 <span class="note">（法语，"跟随"的变体；"成套"的衣服）</span></li>
+  </ul>
+  <div class="variant">
+    <span class="var-title">🧩 变体家族</span>
+    <b>sequ-</b> sequence, subsequent, consequence<br>
+    <b>secut-</b> execute, executive, consecutive「连续的」<br>
+    <b>su-</b> pursue「追求」, suit, ensue「接着发生」<br>
+    <b>sec-</b> second「第二」, sect「派别」
+  </div>
+  <div class="usage">口语/生活用：<b data-say="../words-audio/8ee75e32b64aad79505a4acdf436c7bf.mp3">What were the consequences of your decision?</b> 你的决定带来了什么后果？</div>
+</div>
+
+<div class="card">
+  <div class="root-head"><span class="num">4</span><span class="root">reg / rect</span> <span class="meaning">= rule, straight 统治、直</span></div>
+  <span class="trick">💡 记法：rule=统治；把"弯的拉直"就是 correct（改正），直直地引路就是 direct（直接）</span>
+  <span class="etym"><span class="lab">词源</span>：拉丁语 <b>regere</b>「统治、引导」，<b>rectus</b>「直的、正确的」，源自印欧语 <b>*reg-</b>「直、指引」</span>
+  <span class="evo"><span class="lab">演化</span>：<b>统治/指引</b> → 规则(regular) → 拉直=纠正(correct) ｜ 直路=直接(direct)</span>
+  <ul>
+    <li><b data-say="../words-audio/af37d08ae228a87dc6b265fd1019c97d.mp3">regular</b> 规律的、规则的 <span class="note">（reg + -ul + -ar，"按规矩来的"）</span></li>
+    <li><b data-say="../words-audio/e5d7cffe25654f7e3a1e334118c71549.mp3">correct</b> 正确的；纠正 <span class="note">（cor- + rect，"拉直、矫正"）</span></li>
+    <li><b data-say="../words-audio/7caa701b2bd5a182b80c72b9bdf88e2d.mp3">direct</b> 直接的；指导 <span class="note">（di- 分开 + rect，"指引方向"）</span></li>
+    <li><b data-say="../words-audio/15d3db1f060077e4e0084c0b5adb8e4e.mp3">regulate</b> 调节、管理 <span class="note">（reg + -ulate）</span></li>
+    <li><b data-say="../words-audio/960db2ed82202a9706b97775a4269378.mp3">region</b> 地区 <span class="note">（reg + -ion，"被统治的区域"）</span></li>
+    <li><b data-say="../words-audio/d98492c62533926b6961f41406756a4e.mp3">rectangle</b> 长方形 <span class="note">（rect + angle 角，"直角形"）</span></li>
+  </ul>
+  <div class="variant">
+    <span class="var-title">🧩 变体家族</span>
+    <b>reg-</b> regular, region, regulate, regime「政权」<br>
+    <b>rect-</b> correct, direct, erect「直立」, rectangle<br>
+    <b>reign/realm</b> 经法语变体：reign「统治」, realm「王国」
+  </div>
+  <div class="usage">口语/生活用：<b data-say="../words-audio/dce6eb50ebff87894bd01709611f2af6.mp3">You should get more regular exercise.</b> 你应该多做规律的运动。</div>
+</div>
+
+<div class="card">
+  <div class="root-head"><span class="num">5</span><span class="root">press</span> <span class="meaning">= press 压</span></div>
+  <span class="trick">💡 记法：press「按」→ 把话"压"出来=express（表达）；把情绪"压"下去=depress（沮丧）</span>
+  <span class="etym"><span class="lab">词源</span>：拉丁语 <b>premere</b>「压」，完成分词 <b>pressus</b>，源自印欧语 <b>*per-</b>「击打、按压」</span>
+  <span class="evo"><span class="lab">演化</span>：<b>压</b> → 压字印刷=报刊(press) ｜ 压出来=表达(express) ｜ 压进去=留下印象(impress)</span>
+  <ul>
+    <li><b data-say="../words-audio/5f0038e170564c7ad98d949c741a4da2.mp3">press</b> 按、压；报刊 <span class="note">（印刷术=压字）</span></li>
+    <li><b data-say="../words-audio/4ca65a8bdbeae8b6ee400801a8a8f812.mp3">express</b> 表达；特快的 <span class="note">（ex- 出 + press，"把想法压出来说出"）</span></li>
+    <li><b data-say="../words-audio/d99fad96a5d0a7cb2eb41341ea556093.mp3">pressure</b> 压力 <span class="note">（press + -ure）</span></li>
+    <li><b data-say="../words-audio/390626c545194d0f20a704589b190994.mp3">compress</b> 压缩 <span class="note">（com- 一起 + press，压到一起）</span></li>
+    <li><b data-say="../words-audio/ff1bcdbe49f5804d5df4c2268a42d3d1.mp3">depress</b> 使沮丧 <span class="note">（de- 下 + press，"情绪被压下去"）</span></li>
+    <li><b data-say="../words-audio/c86eeb51ad26e9a97e9043c7682435d0.mp3">impress</b> 留下印象 <span class="note">（im- 进 + press，"压进心里"）</span></li>
+  </ul>
+  <div class="usage">口语/生活用：<b data-say="../words-audio/0910d51892a13cdf3728ad8a7a643119.mp3">Don't put too much pressure on yourself.</b> 别给自己太大压力。</div>
+</div>
+
+<div class="card">
+  <div class="root-head"><span class="num">6</span><span class="root">vol</span> <span class="meaning">= will, wish 意愿</span></div>
+  <span class="trick">💡 记法：vol=意愿，benevolent 愿人好=仁慈，malevolent 愿人坏=恶毒（呼应 Day 6 的 bene/bon）</span>
+  <span class="etym"><span class="lab">词源</span>：拉丁语 <b>velle</b>「希望」，<b>voluntas</b>「意愿」，源自印欧语 <b>*welh₁-</b>「想要、选择」</span>
+  <span class="evo"><span class="lab">演化</span>：<b>意愿</b> → 出于自己意愿=voluntary ｜ 自愿出力=volunteer ｜ 意志力=volition</span>
+  <ul>
+    <li><b data-say="../words-audio/7e7c480e02ebbe43fca20044aac749bd.mp3">voluntary</b> 自愿的 <span class="note">（vol + -unt + -ary）</span></li>
+    <li><b data-say="../words-audio/2d56df9a08100634d51940309237855d.mp3">volunteer</b> 志愿者；自愿做 <span class="note">（vol + -unteer）</span></li>
+    <li><b data-say="../words-audio/4639225dae97bb4dbc97386aed152a5f.mp3">volition</b> 意志、自愿 <span class="note">（vol + -ition，"凭自己意愿行动"）</span></li>
+    <li><b data-say="../words-audio/2d6aa36467c2c7a7db0568bfcedd0778.mp3">benevolent</b> 仁慈的 <span class="note">（bene 好 + vol + -ent，"愿人好的"）</span></li>
+    <li><b data-say="../words-audio/a3c12b6bb02f8d7d66da8118e7b178ff.mp3">malevolent</b> 恶意的 <span class="note">（male 坏 + vol + -ent，"愿人坏的"）</span></li>
+    <li><b data-say="../words-audio/0630a0e419c311a9bbd983054b00377c.mp3">voluble</b> 健谈的 <span class="note">（vol + -uble，"话不停往外涌"）</span></li>
+  </ul>
+  <div class="usage">口语/生活用：<b data-say="../words-audio/3f6b8d3270e4ce710a437014bd87b971.mp3">She volunteered to help organize the event.</b> 她自愿帮忙组织这次活动。</div>
+</div>
+
+<div class="card">
+  <div class="root-head"><span class="num">7</span><span class="root">luc / lux / lumin</span> <span class="meaning">= light 光</span></div>
+  <span class="trick">💡 记法：luc=光，lucid「清晰」= 脑子里像点了一盏灯</span>
+  <span class="etym"><span class="lab">词源</span>：拉丁语 <b>lux/lucis</b>「光」、<b>lumen</b>「光线」，源自印欧语 <b>*leuk-</b>「光、明亮」；与希腊语 <b>leukos</b>「白色」（如 leukemia 白血病）同源</span>
+  <span class="evo"><span class="lab">演化</span>：<b>光</b> → 有光=明亮/明白(lucid) ｜ 照亮=illuminate ｜ 光能穿透=translucent（呼应 Day 6 trans-）</span>
+  <ul>
+    <li><b data-say="../words-audio/cc61b28cd3947b0636951c749d3bb199.mp3">lucid</b> 清晰的、清醒的 <span class="note">（luc + -id，"像有光的"）</span></li>
+    <li><b data-say="../words-audio/13809c95dabf38440b7ebc4b4164bab6.mp3">illuminate</b> 照亮；阐明 <span class="note">（il- 使 + lumin + -ate）</span></li>
+    <li><b data-say="../words-audio/3b34aae43a0c2f0a58d9fb6faa984bab.mp3">luminous</b> 发光的 <span class="note">（lumin + -ous）</span></li>
+    <li><b data-say="../words-audio/c0f884267b0501e64cb0b5e48b7a1bc4.mp3">translucent</b> 半透明的 <span class="note">（trans- 透过 + luc + -ent，"光能穿过的"）</span></li>
+    <li><b data-say="../words-audio/bc9a3b4a271a2024fc489e1e5fa35fb7.mp3">luxury</b> 奢侈 <span class="note">（lux + -ury，"华丽闪光的"）</span></li>
+    <li><b data-say="../words-audio/ea6d96a8ae1865885ff9b8fa76e18b5e.mp3">lucid dream</b> 清醒梦 <span class="note">（lucid + dream，做梦时神志清醒）</span></li>
+  </ul>
+  <div class="variant">
+    <span class="var-title">🧩 变体家族</span>
+    <b>luc-</b> lucid, translucent, lucifer「启明星」<br>
+    <b>lux-</b> luxury, luxuriant<br>
+    <b>lumin-</b> illuminate, luminous, luminous<br>
+    <b>lu-</b> （同源）luster「光泽」
+  </div>
+  <div class="usage">口语/生活用：<b data-say="../words-audio/fc6a5dfab0fc4feec877ac3796565804.mp3">The moonlight illuminated the path in front of us.</b> 月光照亮了我们前面的小路。</div>
+</div>
+
+<h2 class="section">词缀（3 个）</h2>
+
+<div class="card affix">
+  <div class="root-head"><span class="num">8</span><span class="root">in- / il- / im- / ir-</span> <span class="meaning">= not / into 否定、进入</span></div>
+  <span class="trick">💡 记法：为什么是 impossible？因为 in- 遇 p 变 im-；遇 l 变 il-、遇 r 变 ir-，发音顺口</span>
+  <span class="etym"><span class="lab">词源</span>：拉丁语 <b>in-</b>，一个前缀两种用法：① 否定（加形容词）② 进入（加动词）；随后面首字母同化：l 前→<b>il-</b>、p/b/m 前→<b>im-</b>、r 前→<b>ir-</b>；经法语 <b>en-/em-</b> 进入英语</span>
+  <span class="evo"><span class="lab">演化</span>：拉丁 <b>in-</b>（否定义 + 进入义）→ 法语 en-/em- → 英语 in-/en-/im-</span>
+  <ul>
+    <li><b data-say="../words-audio/19d3894f53ce79c3f836f26cf8a3be3b.mp3">inactive</b> 不活跃的 <span class="note">（in- 不 + active，呼应 Day 6）</span></li>
+    <li><b data-say="../words-audio/55f99613fd4c7efa27297f0b2f04407f.mp3">illegal</b> 非法的 <span class="note">（il- 不 + legal，l 前同化）</span></li>
+    <li><b data-say="../words-audio/79a2520f22b9e1526ff93176029603b8.mp3">impossible</b> 不可能的 <span class="note">（im- 不 + possible，p 前同化）</span></li>
+    <li><b data-say="../words-audio/39d3202ec495577fd03ee14c24767dd9.mp3">irregular</b> 不规则的 <span class="note">（ir- 不 + regular，r 前同化，呼应今日 reg）</span></li>
+    <li><b data-say="../words-audio/a43c1b0aa53a0c908810c06ab1ff3967.mp3">input</b> 输入 <span class="note">（in- 进入 + put）</span></li>
+    <li><b data-say="../words-audio/6dca4fe9cc3dfa1e593e1a60462b55c4.mp3">inspire</b> 激发 <span class="note">（in- 进入 + spir 呼吸，"吸气鼓劲"）</span></li>
+  </ul>
+  <div class="confuse">
+    <span class="confuse-title">💡 深度辨析：否定前缀家族总动员</span>
+    <span class="sub">in- / il- / im- / ir-</span>（拉丁，直接否定形容词）：illegal, impossible, inactive<br>
+    <span class="sub">un-</span>（日耳曼，日常最常用）：unhappy, unclear, unfair<br>
+    <span class="sub">dis-</span>（拉丁，主动反向动作，呼应 Day 2）：disagree, disconnect<br>
+    <span class="sub">non-</span>（拉丁，客观分类"非"）：nonstop, nonprofit<br>
+    例：correct 正确 → <b>incorrect</b>（in-）／可对比 Day 2 dis-、Day 3 un- 的辨析思路
+  </div>
+  <div class="usage">口语/生活用：<b data-say="../words-audio/fc157e7d214d4cf9bad1d6415f8df1c6.mp3">It's impossible to finish all this work in one day.</b> 一天之内完成所有这些工作是不可能的。</div>
+</div>
+
+<div class="card affix">
+  <div class="root-head"><span class="num">9</span><span class="root">-ship</span> <span class="meaning">= state, quality 状态、身份</span></div>
+  <span class="trick">💡 记法：ship 不是"船"！friend + ship = "做朋友"这种状态 → 友谊</span>
+  <span class="etym"><span class="lab">词源</span>：古英语 <b>-scipe</b>「状态、条件、关系」，与 shape「形状、形成」同源（"形成的状态"）</span>
+  <span class="evo"><span class="lab">演化</span>：古英语 <b>-scipe</b> → 现代英语 <b>-ship</b>，表示身份、关系、技能状态</span>
+  <ul>
+    <li><b data-say="../words-audio/93349189c5d0219ba8b20ca7cbf068a1.mp3">friendship</b> 友谊 <span class="note">（friend + -ship，做朋友的状态）</span></li>
+    <li><b data-say="../words-audio/e9b74766edff1096ba7c67999ca259b6.mp3">leadership</b> 领导力 <span class="note">（leader + -ship）</span></li>
+    <li><b data-say="../words-audio/09380046bd9951a56ee1117c85f24c89.mp3">citizenship</b> 公民身份 <span class="note">（citizen + -ship）</span></li>
+    <li><b data-say="../words-audio/b46127d3c32de3d485a478e88b8f6593.mp3">membership</b> 会员资格 <span class="note">（member + -ship）</span></li>
+    <li><b data-say="../words-audio/f03d4854848716a1087ee0bdbe549594.mp3">scholarship</b> 奖学金；学问 <span class="note">（scholar + -ship，"学者身份"→奖学金）</span></li>
+    <li><b data-say="../words-audio/b46b517b77d347176f23adef739a8f39.mp3">ownership</b> 所有权 <span class="note">（owner + -ship）</span></li>
+  </ul>
+  <div class="usage">口语/生活用：<b data-say="../words-audio/5cd40581965452f11e0d2b44f5c565d7.mp3">She earned a scholarship to study abroad.</b> 她获得了出国留学的奖学金。</div>
+</div>
+
+<div class="card affix">
+  <div class="root-head"><span class="num">10</span><span class="root">-age</span> <span class="meaning">= act, process, collective 行为、过程、集合</span></div>
+  <span class="trick">💡 记法：postage「邮资」= 寄信"这个行为"要付的钱；luggage「行李」= "一包包"的东西</span>
+  <span class="etym"><span class="lab">词源</span>：法语 <b>-age</b>，源自拉丁语后缀 <b>-aticum</b>，表示行为、状态、集合或费用</span>
+  <span class="evo"><span class="lab">演化</span>：拉丁 <b>-aticum</b> → 法语 <b>-age</b> → 英语 <b>-age</b>，含义扩展为行为/过程/集合/费用</span>
+  <ul>
+    <li><b data-say="../words-audio/9366282e11c151558bdfaab4a264aa1b.mp3">usage</b> 用法 <span class="note">（use + -age，使用的行为）</span></li>
+    <li><b data-say="../words-audio/ddecebdea58b5f264d27f1f7909bab74.mp3">storage</b> 储存 <span class="note">（store + -age）</span></li>
+    <li><b data-say="../words-audio/772b76917b47b88838f3c947de6d917a.mp3">marriage</b> 婚姻 <span class="note">（marry + -age，"结婚"的状态）</span></li>
+    <li><b data-say="../words-audio/efe90a8e604a7c840e88d03a67f6b7d8.mp3">package</b> 包裹 <span class="note">（pack + -age，一包一包的集合）</span></li>
+    <li><b data-say="../words-audio/d1647af53c2c008321505a874b658c2d.mp3">percentage</b> 百分比 <span class="note">（percent + -age）</span></li>
+    <li><b data-say="../words-audio/df30aaa36f078d501bae3f5ff10d78c7.mp3">luggage</b> 行李 <span class="note">（lug + -age，拎的一堆东西）</span></li>
+  </ul>
+  <div class="confuse">
+    <span class="confuse-title">💡 深度辨析：-age 的四种义项</span>
+    <span class="sub">1. 行为/过程</span>：usage, storage, marriage<br>
+    <span class="sub">2. 集合/总量</span>：package, luggage, percentage<br>
+    <span class="sub">3. 费用</span>：postage「邮资」, damage「赔偿金」<br>
+    <span class="sub">4. 状态/关系</span>：marriage, bondage「束缚」
+  </div>
+  <div class="usage">口语/生活用：<b data-say="../words-audio/a22f029075c480a3f0fcd3381660c29b.mp3">The package arrived two days early.</b> 包裹提前两天到了。</div>
+</div>
+
+<div class="footer">词根词缀每日积累 · 每天 10 个 · 明天见 👋</div>
+
+</body>
+<script>
+/* ---------- 单词发音：优先系统语音，无系统语音时才用预生成音频 ---------- */
+(function () {
+  var ICON_SPEAKER = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5 6 9H3v6h3l5 4V5z"/><path d="M15.5 8.5a5 5 0 0 1 0 7"/><path d="M18.5 5.5a9 9 0 0 1 0 13"/></svg>';
+
+  var synth = ("speechSynthesis" in window) ? window.speechSynthesis : null;
+  var audio = new Audio();
+  audio.preload = "auto";
+  audio.playbackRate = 0.95;
+  var curBtn = null;
+
+  function liveVoices() {
+    if (!synth) return [];
+    try { return (synth.getVoices() || []); } catch (e) { return []; }
+  }
+  function hasSystemVoice() {
+    if (!synth) return false;
+    if (liveVoices().some(function (v) { return /^en/i.test(v.lang); })) return true;
+    return /iP(hone|ad|od)|Android/i.test(navigator.userAgent || "");
+  }
+  function tts(text) {
+    if (!synth || !hasSystemVoice()) return false;
+    /* 不指定具体 voice，交给系统用「默认英文语音」（即用户在系统里选好的那个） */
+    var u = new SpeechSynthesisUtterance(text);
+    u.lang = "en-US";
+    try { synth.cancel(); } catch (e) {}
+    synth.speak(u);
+    return true;
+  }
+  function clear() { if (curBtn) { curBtn.classList.remove("playing"); curBtn = null; } }
+  function playAudio(src, btn) {
+    if (!src) { if (btn) clear(); return; }
+    audio.src = src;
+    audio.onended = function () { if (curBtn === btn) clear(); };
+    audio.onerror = function () { if (curBtn === btn) clear(); };
+    var p = audio.play();
+    if (p && p.catch) { p.catch(function () { if (curBtn === btn) clear(); }); }
+  }
+  function play(el, btn) {
+    var src = el.getAttribute("data-say");
+    var text = el.textContent.replace(/\s+/g, " ").trim();
+    clear();
+    if (btn) { btn.classList.add("playing"); curBtn = btn; }
+    if (hasSystemVoice()) {
+      if (!tts(text)) { playAudio(src, btn); }
+      else { setTimeout(function () { if (curBtn === btn) clear(); }, Math.max(1200, text.length * 80)); }
+    } else {
+      playAudio(src, btn);
+    }
+  }
+
+  document.querySelectorAll("[data-say]").forEach(function (el) {
+    var prev = el.previousElementSibling;
+    if (prev && prev.classList && prev.classList.contains("psay")) return;
+    var b = document.createElement("button");
+    b.type = "button"; b.className = "psay"; b.innerHTML = ICON_SPEAKER; b.title = "发音";
+    b.setAttribute("aria-label", "发音");
+    b.addEventListener("click", function (e) {
+      e.stopPropagation(); e.preventDefault();
+      if (curBtn === b) {
+        try { audio.pause(); } catch (err) {}
+        if (synth) { try { synth.cancel(); } catch (err) {} }
+        clear(); return;
+      }
+      play(el, b);
+    });
+    el.parentNode.insertBefore(b, el);
+  });
+
+  /* 点任意英文词发音 */
+  var on = false;
+  var tg = document.createElement("button");
+  tg.id = "pron-toggle"; tg.type = "button";
+  tg.innerHTML = ICON_SPEAKER + '<span>点词发音</span>';
+  document.body.appendChild(tg);
+  tg.addEventListener("click", function () {
+    on = !on; tg.classList.toggle("on", on);
+    tg.querySelector("span").textContent = on ? "点词发音：开" : "点词发音";
+  });
+  function wordAt(x, y) {
+    var node, offset;
+    if (document.caretRangeFromPoint) {
+      var r = document.caretRangeFromPoint(x, y);
+      if (!r) return null; node = r.startContainer; offset = r.startOffset;
+    } else if (document.caretPositionFromPoint) {
+      var p = document.caretPositionFromPoint(x, y);
+      if (!p) return null; node = p.offsetNode; offset = p.offset;
+    } else { return null; }
+    if (!node || node.nodeType !== 3) return null;
+    var t = node.textContent, re = /[A-Za-z][A-Za-z'\u2019\-]*/g, m;
+    while ((m = re.exec(t))) {
+      if (offset >= m.index && offset <= m.index + m[0].length) return m[0];
+    }
+    return null;
+  }
+  document.addEventListener("click", function (e) {
+    if (!on) return;
+    if (e.target.closest && (e.target.closest(".psay") || e.target.closest("#pron-toggle"))) return;
+    var w = wordAt(e.clientX, e.clientY);
+    if (w) tts(w);
+  }, true);
+})();
+
+</script>
+
+
+
+</html>

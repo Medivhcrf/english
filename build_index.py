@@ -78,33 +78,50 @@ def date_key(name):
 
 
 def collect():
+    """按子目录收集内容。
+
+    站点已按分类分子目录（daily/ speech/ review/ …），**目录即分类**。
+    根目录下残留的 html 仍按文件名兜底分类，避免新增文件漏收。
+    """
     groups = {k: [] for k, _ in CATEGORIES}
+    for key, _ in CATEGORIES:
+        d = ENGLISH_DIR / key
+        if not d.is_dir():
+            continue
+        for f in d.glob("*.html"):
+            if f.name.endswith("-手机版.html"):
+                continue
+            groups[key].append((key, f.name))
+    # 根目录残留（未归档的）按文件名分类
     for f in ENGLISH_DIR.glob("*.html"):
         n = f.name
         if n in EXCLUDE or n.endswith("-手机版.html"):
             continue
         if any(k in n for k in EXCLUDE_KEYWORDS):
             continue
-        groups[classify(n)].append(n)
+        groups[classify(n)].append(("", n))
     for k in groups:   # 同分类内新的在前
-        groups[k].sort(key=lambda x: (date_key(x), x), reverse=True)
+        groups[k].sort(key=lambda t: (date_key(t[1]), t[1]), reverse=True)
     return groups
 
 
 def render_items(files):
     out = []
-    for fname in files:
+    for sub, fname in files:
         stem = fname[:-5]
-        mob = f"{stem}-手机版.html"
-        pdf = f"{stem}.pdf"
+        stem_path = (ENGLISH_DIR / sub / stem) if sub else (ENGLISH_DIR / stem)
+        href = f"{sub}/{fname}" if sub else fname
         title = esc(stem)
-        if (ENGLISH_DIR / mob).exists():
-            links = (f'<a class="main desktop-only" href="{esc(fname)}">{title}</a>'
-                     f'<a class="main mobile-only" href="{esc(mob)}">{title}</a>')
+        if stem_path.with_name(stem + "-手机版.html").exists():
+            mhref = f"{sub}/{stem}-手机版.html" if sub else f"{stem}-手机版.html"
+            links = (f'<a class="main desktop-only" href="{esc(href)}">{title}</a>'
+                     f'<a class="main mobile-only" href="{esc(mhref)}">{title}</a>')
         else:
-            links = f'<a class="main" href="{esc(fname)}">{title}</a>'
-        pdf_link = (f'<a class="pdf desktop-only" href="{esc(pdf)}">PDF</a>'
-                    if (ENGLISH_DIR / pdf).exists() else "")
+            links = f'<a class="main" href="{esc(href)}">{title}</a>'
+        pdf_link = ""
+        if stem_path.with_name(stem + ".pdf").exists():
+            phref = f"{sub}/{stem}.pdf" if sub else f"{stem}.pdf"
+            pdf_link = f'<a class="pdf desktop-only" href="{esc(phref)}">PDF</a>'
         out.append(f'    <div class="file">{links}{pdf_link}</div>')
     return "\n".join(out)
 
@@ -201,7 +218,7 @@ def main():
     groups = collect()
     total = sum(len(v) for v in groups.values())
     # 「更新于」取全站最新日期，而不是只看每日系列
-    newest = max((date_key(f) for v in groups.values() for f in v), default="")
+    newest = max((date_key(f[1]) for v in groups.values() for f in v), default="")
     html = TEMPLATE.format(
         title=SITE_TITLE, emoji=SITE_EMOJI, desc=SITE_DESC,
         total=total, updated=(newest or "—"),

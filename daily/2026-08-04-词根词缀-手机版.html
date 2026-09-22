@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>词根词缀每日积累 · Day 1</title>
+<style>
+  @page { size: A4; margin: 16mm 15mm; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Noto Sans CJK SC', 'Droid Sans Fallback', 'WenQuanYi Zen Hei', sans-serif;
+    font-size: 10.5pt;
+    color: #1f2937;
+    line-height: 1.65;
+  }
+  /* 页眉 */
+  .header {
+    border-bottom: 3px solid #2563eb;
+    padding-bottom: 10px;
+    margin-bottom: 6px;
+  }
+  .header h1 { font-size: 19pt; color: #1e3a8a; letter-spacing: 1px; }
+  .header .meta { color: #6b7280; font-size: 9.5pt; margin-top: 2px; }
+  .header .meta b { color: #2563eb; }
+
+  /* 分区标题 */
+  h2.section {
+    font-size: 12.5pt;
+    color: #1e3a8a;
+    margin: 14px 0 8px 0;
+    padding-left: 8px;
+    border-left: 4px solid #2563eb;
+  }
+
+  /* 词根卡片 */
+  .card {
+    border: 1px solid #e5e7eb;
+    border-left: 4px solid #2563eb;
+    border-radius: 6px;
+    padding: 8px 12px 9px 12px;
+    margin-bottom: 9px;
+    page-break-inside: avoid;
+  }
+  .card .root-head { margin-bottom: 4px; }
+  .card .num {
+    display: inline-block;
+    width: 17px; height: 17px;
+    background: #2563eb; color: #fff;
+    border-radius: 50%;
+    text-align: center; line-height: 17px;
+    font-size: 9pt; font-weight: bold;
+    margin-right: 6px;
+  }
+  .card .root { font-size: 12.5pt; font-weight: bold; color: #1e3a8a; font-family: 'DejaVu Sans', sans-serif; }
+  .card .meaning { color: #4b5563; }
+  .card .trick {
+    display: block;
+    color: #047857;
+    font-size: 9pt;
+    margin-top: 1px;
+  }
+  /* 词源与演化 */
+  .card .etym {
+    display: block;
+    margin-top: 3px;
+    font-size: 9pt;
+    color: #6d28d9;
+  }
+  .card .etym .lab, .card .evo .lab { font-weight: bold; }
+  .card .evo {
+    display: block;
+    margin-top: 1px;
+    font-size: 9pt;
+    color: #b45309;
+  }
+  .card ul { list-style: none; padding: 0; }
+  .card li {
+    padding: 1px 0;
+    font-size: 10.5pt;
+  }
+  .card li b { color: #111827; }
+  .card .note { color: #9ca3af; font-size: 9pt; }
+  .card .usage {
+    margin-top: 4px;
+    background: #eff6ff;
+    border-radius: 4px;
+    padding: 3px 8px;
+    font-size: 9.5pt;
+    color: #1e40af;
+  }
+  .card .usage b { color: #1e3a8a; }
+
+  /* 词缀卡片（不同色区分） */
+  .card.affix { border-left-color: #059669; }
+  .card.affix .num { background: #059669; }
+  .card.affix .root { color: #065f46; }
+  .card.affix .usage { background: #ecfdf5; color: #065f46; }
+
+  .footer {
+    margin-top: 14px;
+    text-align: center;
+    color: #9ca3af;
+    font-size: 8.5pt;
+    border-top: 1px solid #e5e7eb;
+    padding-top: 6px;
+  }
+/* ---------- 单词发音（神经网络 MP3，缺失回退系统语音） ---------- */
+.psay{
+  display:inline-flex; align-items:center; justify-content:center;
+  width:18px; height:18px; margin:0 5px 0 0; padding:0;
+  border:1px solid #cbd5e1; border-radius:50%; background:#f8fafc;
+  color:#2563eb; font-size:9px; line-height:1; cursor:pointer;
+  vertical-align:1px; -webkit-tap-highlight-color:transparent;
+  transition:background .15s,border-color .15s;
+}
+.psay:hover{ background:#dbeafe; border-color:#93c5fd; }
+.psay.playing{ background:#2563eb; border-color:#2563eb; color:#fff; animation:psay-pulse 1s infinite; }
+@keyframes psay-pulse{ 0%,100%{opacity:1;} 50%{opacity:.5;} }
+
+#pron-toggle{
+  position:fixed; left:12px; bottom:calc(16px + env(safe-area-inset-bottom));
+  z-index:950; border:none; border-radius:999px; padding:8px 14px;
+  background:rgba(37,99,235,.95); color:#fff; font-size:13px; cursor:pointer;
+  box-shadow:0 4px 14px rgba(0,0,0,.25);
+  font-family:'Noto Sans CJK SC','Droid Sans Fallback',sans-serif;
+  -webkit-tap-highlight-color:transparent;
+}
+#pron-toggle.on{ background:#047857; }
+
+@media print{ .psay, #pron-toggle{ display:none !important; } }
+
+
+
+
+
+/* pron-start */
+/* ---------- 单词发音（神经网络 MP3，缺失回退系统语音） ---------- */
+.psay{
+  display:inline-flex; align-items:center; justify-content:center;
+  width:19px; height:19px; margin:0 5px 0 0; padding:0;
+  border:1px solid #dbe2ea; border-radius:50%; background:#f8fafc;
+  color:#2563eb; cursor:pointer;
+  vertical-align:1px; -webkit-tap-highlight-color:transparent;
+  transition:background .15s,border-color .15s,color .15s;
+}
+.psay:hover{ background:#e8f0fe; border-color:#a9c7f5; }
+.psay.playing{ background:#2563eb; border-color:#2563eb; color:#fff; }
+.psay svg{ width:12px; height:12px; display:block; }
+
+#pron-toggle{
+  position:fixed; left:12px; bottom:calc(16px + env(safe-area-inset-bottom));
+  z-index:950; display:inline-flex; align-items:center; gap:5px;
+  border:none; border-radius:999px; padding:8px 14px;
+  background:rgba(37,99,235,.95); color:#fff; font-size:13px; cursor:pointer;
+  box-shadow:0 4px 14px rgba(0,0,0,.22);
+  font-family:'Noto Sans CJK SC','Droid Sans Fallback',sans-serif;
+  -webkit-tap-highlight-color:transparent;
+}
+#pron-toggle.on{ background:#047857; }
+#pron-toggle svg{ width:14px; height:14px; display:block; }
+
+@media print{ .psay, #pron-toggle{ display:none !important; } }
+/* pron-end */
+
+/* mobile-generic */
+  html { -webkit-text-size-adjust: 100%; }
+  body { overflow-wrap: break-word; }
+  @media (max-width: 640px) {
+    body { font-size: 16px !important; line-height: 1.8;
+           padding: 14px 12px calc(34px + env(safe-area-inset-bottom)); }
+    .header h1 { font-size: 1.5rem; }
+    .header .meta { font-size: .82rem; }
+    h2.section { font-size: 1.12rem; }
+    .card { padding: 11px 13px; border-radius: 10px; }
+    .card .root { font-size: 1.18rem; }
+    .card li { font-size: 1rem; padding: 3px 0; }
+    .card .usage { font-size: .95rem; }
+    .card .etym, .card .evo, .card .trick,
+    .card .confuse, .card .variant, .card .cognate { font-size: .86rem; }
+    table { display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    .flow { font-size: .9rem; }
+  }
+
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>词根词缀每日积累 · Day 1</h1>
+  <div class="meta">2026 年 8 月 4 日 ｜ 词根 7 个 · 词缀 3 个 ｜ 附词源与演化</div>
+</div>
+
+<h2 class="section">一、词根（7 个）</h2>
+
+<div class="card">
+  <div class="root-head"><span class="num">1</span><span class="root">spect</span> <span class="meaning">= 看（look）</span></div>
+  <span class="trick">💡 记法：眼镜 spectacles 就是"看"的工具</span>
+  <span class="etym"><span class="lab">词源</span>：拉丁语 <b>specere</b>「看、观察」，源自古印欧语 <b>*spek-</b>「注视」</span>
+  <span class="evo"><span class="lab">演化</span>：<b>向前看</b> → expect 期待 ｜ <b>反复看</b> → respect 尊重 ｜ <b>向下看</b> → suspect 怀疑 ｜ <b>往里看</b> → inspect 检查</span>
+  <ul>
+    <li><b data-say="../words-audio/6e578ced8620311c061ee588b4a74f67.mp3">expect</b> 期待，预料 <span class="note">（向外看 → 望向未来）</span></li>
+    <li><b data-say="../words-audio/adb00236071c05878eaeec5b3b96103d.mp3">respect</b> 尊重 <span class="note">（反复看 → 仰视）</span></li>
+    <li><b data-say="../words-audio/9d8b58a7774845bd2be08033e61c3b67.mp3">suspect</b> 怀疑；嫌疑犯 <span class="note">（向下看 → 心里犯嘀咕）</span></li>
+    <li><b data-say="../words-audio/9350cbb84e8ab827898a783d8f724951.mp3">inspect</b> 检查，视察 <span class="note">（往里看）</span></li>
+    <li><b data-say="../words-audio/a9bfaef562396c30abed90577ebc00c1.mp3">spectator</b> 观众</li>
+  </ul>
+  <div class="usage">口语：<b data-say="../words-audio/f09c3500218e624aeb53a6f334d2b2ad.mp3">I expect you to be on time.</b> 我希望你准时到。</div>
+</div>
+
+<div class="card">
+  <div class="root-head"><span class="num">2</span><span class="root">port</span> <span class="meaning">= 搬运（carry）</span></div>
+  <span class="trick">💡 记法：护照 passport 就是"过港口"的凭证</span>
+  <span class="etym"><span class="lab">词源</span>：拉丁语 <b>portare</b>「搬运、携带」——注意与 portus「港口」是<b>两个不同的词根</b>：airport、passport 里的 port 来自 portus</span>
+  <span class="evo"><span class="lab">演化</span>：<b>搬回</b> → report 报告 ｜ <b>从下面托住</b> → support 支持 ｜ <b>搬到别处</b> → transport 运输 ｜ <b>带进去/带出去</b> → import / export</span>
+  <ul>
+    <li><b data-say="../words-audio/e98d2f001da5678b39482efbdf5770dc.mp3">report</b> 报告 <span class="note">（搬回来 → 汇报）</span></li>
+    <li><b data-say="../words-audio/434990c8a25d2be94863561ae98bd682.mp3">support</b> 支持 <span class="note">（从下面托着）</span></li>
+    <li><b data-say="../words-audio/7b334b7260361141659fa9862e803476.mp3">transport</b> 运输 <span class="note">（从这里搬到那里）</span></li>
+    <li><b data-say="../words-audio/523873e4664f1fb53a510eb26ece46de.mp3">import / export</b> 进口 / 出口</li>
+    <li><b data-say="../words-audio/1a8056c59b33ba44a02b0fc6dee44e83.mp3">portable</b> 便携的</li>
+  </ul>
+  <div class="usage">生活用：<b data-say="../words-audio/bfabd261b9f7ad710d330559544cbf19.mp3">portable charger</b> 充电宝 ｜ <b>airport</b> 机场（来自 portus「港口」）</div>
+</div>
+
+<div class="card">
+  <div class="root-head"><span class="num">3</span><span class="root">dict</span> <span class="meaning">= 说（say）</span></div>
+  <span class="etym"><span class="lab">词源</span>：拉丁语 <b>dicere</b>「说、宣告」，源自古印欧语 <b>*deik-</b>「指出、表明」（digit「手指」同源——手指就是用来"指"的）</span>
+  <span class="evo"><span class="lab">演化</span>：<b>提前说</b> → predict 预测 ｜ <b>对着说</b> → contradict 反驳 ｜ <b>一遍遍说</b> → dictate 口述、支配</span>
+  <ul>
+    <li><b data-say="../words-audio/59a9f87755ec523b0db73207fc8362df.mp3">predict</b> 预测 <span class="note">（提前说）</span></li>
+    <li><b data-say="../words-audio/abc20d7bde1df257f890e152af2e3470.mp3">dictionary</b> 词典 <span class="note">（说出来的词）</span></li>
+    <li><b data-say="../words-audio/1568da142fd95a923b9d0f8395062aba.mp3">dictate</b> 口述；支配 <span class="note">（"我说了算"）</span></li>
+    <li><b data-say="../words-audio/f0176086180c40caf65ee9dff9d86c3a.mp3">contradict</b> 反驳 <span class="note">（对着说）</span></li>
+  </ul>
+  <div class="usage">口语：<b data-say="../words-audio/72f3c71679fb9c203775f860250ba325.mp3">Don't dictate to me.</b> 别对我指手画脚。</div>
+</div>
+
+<div class="card">
+  <div class="root-head"><span class="num">4</span><span class="root">cred</span> <span class="meaning">= 相信（believe）</span></div>
+  <span class="etym"><span class="lab">词源</span>：拉丁语 <b>credere</b>「相信」，最初是「把心放进（某人那里）」——<b>交心 = 信任</b></span>
+  <span class="evo"><span class="lab">演化</span>：<b>交心</b> → 信任 → credit 信用 ｜ 加 in-（不）→ incredible 难以置信 ｜ 加 -ible → credible 可信的</span>
+  <ul>
+    <li><b data-say="../words-audio/660cb6fe7437d4b40e4a04b706b93f70.mp3">credit</b> 信用；学分；贷款</li>
+    <li><b data-say="../words-audio/d3ec4b0eaf1a3f9ed8ab0f7be86f2530.mp3">incredible</b> 难以置信的 <span class="note">（口语里 = 超赞）</span></li>
+    <li><b data-say="../words-audio/ff8e6cf7ca8468e430251aa6d5727bbb.mp3">credible</b> 可信的</li>
+    <li><b data-say="../words-audio/d3ed68f7315b7e72b8d886b2278fcac3.mp3">credentials</b> 学历 / 资质证明</li>
+  </ul>
+  <div class="usage">生活用：<b data-say="../words-audio/d83d5aa5c718fef1f06fb86c00eeb381.mp3">credit card</b> 信用卡（几乎天天见）</div>
+</div>
+
+<div class="card">
+  <div class="root-head"><span class="num">5</span><span class="root">vis / vid</span> <span class="meaning">= 看（see）</span></div>
+  <span class="etym"><span class="lab">词源</span>：拉丁语 <b>videre</b>「看」（过去分词 visus），源自古印欧语 <b>*weid-</b>「看见、知道」（wise、wit、idea 同源）</span>
+  <span class="evo"><span class="lab">演化</span>：<b>再看一遍</b> → revise 复习 ｜ <b>看得见</b> → visible ｜ <b>看得见的事实</b> → evidence 证据</span>
+  <ul>
+    <li><b data-say="../words-audio/9de70f6546b2452f6e7b98b46ac36070.mp3">visit</b> 参观，拜访</li>
+    <li><b data-say="../words-audio/46cf0e59759c9b7f1112ca4b174343ef.mp3">visible</b> 看得见的</li>
+    <li><b data-say="../words-audio/f42087059b37ae7f4d9f0d3a475801a8.mp3">vision</b> 视力；愿景</li>
+    <li><b data-say="../words-audio/572c00e184706033cad757a67ef575f2.mp3">revise</b> 复习；修改 <span class="note">（再看一遍）</span></li>
+    <li><b data-say="../words-audio/14e10d570047667f904261e6d08f520f.mp3">evidence</b> 证据 <span class="note">（看得见的事实）</span></li>
+  </ul>
+  <div class="usage">词组：<b data-say="../words-audio/499485827b6633bd91bf3a8789790289.mp3">revise for the exam</b> 复习备考</div>
+</div>
+
+<div class="card">
+  <div class="root-head"><span class="num">6</span><span class="root">tele</span> <span class="meaning">= 远（far）</span></div>
+  <span class="etym"><span class="lab">词源</span>：希腊语 <b>tēle</b>「远的」</span>
+  <span class="evo"><span class="lab">演化</span>：19 世纪起科学新词大量用它构词：<b>远+声</b> → telephone 电话 ｜ <b>远+视</b> → television 电视 ｜ <b>远+看</b> → telescope 望远镜；现代又造出 telework、telemedicine</span>
+  <ul>
+    <li><b data-say="../words-audio/b9bb7e7b00a4ba1e0d15fa8b2485d8c4.mp3">telephone</b> 电话 <span class="note">（远方传来的声音）</span></li>
+    <li><b data-say="../words-audio/79464212afb7fd6c38699d0617eaedeb.mp3">television</b> 电视</li>
+    <li><b data-say="../words-audio/8833f74b9da9cf81d33f6c6a79ac9985.mp3">telescope</b> 望远镜</li>
+    <li><b data-say="../words-audio/7b87b0875cc1071eb49caa876ffc9378.mp3">telework / telecommute</b> 远程办公</li>
+    <li><b data-say="../words-audio/6337879a2248667e039dc322b69a0232.mp3">telemedicine</b> 远程医疗</li>
+  </ul>
+  <div class="usage">生活用：现在很多人 <b data-say="../words-audio/d1f5c672effb136c4874ee04d41ac1a2.mp3">work from home</b>（在家办公）</div>
+</div>
+
+<div class="card">
+  <div class="root-head"><span class="num">7</span><span class="root">bio</span> <span class="meaning">= 生命（life）</span></div>
+  <span class="etym"><span class="lab">词源</span>：希腊语 <b>bios</b>「生命」（区别于 zōē「生命力」）</span>
+  <span class="evo"><span class="lab">演化</span>：17–19 世纪出现 biology 生物学、biography 传记 → 20 世纪造出 biofuel、biodegradable；如今 bio- 成了环保标识的常见前缀</span>
+  <ul>
+    <li><b data-say="../words-audio/3c575fe4b6c023e33eb322f74890d090.mp3">biology</b> 生物学</li>
+    <li><b data-say="../words-audio/5e79a4a0be0fdf8d91ce0dbd64466ea7.mp3">biography</b> 传记 <span class="note">（写一生）</span></li>
+    <li><b data-say="../words-audio/0c65ef76a6107e1e6852901e48533bf2.mp3">biodegradable</b> 可生物降解的</li>
+    <li><b data-say="../words-audio/9836b7b4bb3506dab504612a8a9d234c.mp3">biofuel</b> 生物燃料</li>
+  </ul>
+  <div class="usage">生活用：<b data-say="../words-audio/3878f9ca899e4c9d02a8a79667ddb729.mp3">biodegradable plastic</b> 可降解塑料（超市购物袋上常见）</div>
+</div>
+
+<h2 class="section">二、词缀（3 个）</h2>
+
+<div class="card affix">
+  <div class="root-head"><span class="num">8</span><span class="root">re-</span> <span class="meaning">= 再、又、回（again / back）</span></div>
+  <span class="etym"><span class="lab">词源</span>：拉丁语 <b>re-</b>，源自古印欧语 <b>*wert-</b>「转」，本义「转回去」</span>
+  <span class="evo"><span class="lab">演化</span>：<b>转回去</b> → return 返回、refund 退款 ｜ <b>转回起点</b> → recycle 回收、reuse 再利用 ｜ <b>再看一遍</b> → review 复习</span>
+  <ul>
+    <li><b data-say="../words-audio/e70c4df10ef0983b9c8c31bd06b2a2c3.mp3">return</b> 返回；归还</li>
+    <li><b data-say="../words-audio/1c67665285fb6a7d761414e12578e574.mp3">review</b> 复习；评论 <span class="note">（再看一遍）</span></li>
+    <li><b data-say="../words-audio/f914097ec216b1b65f6db6b0a13faa42.mp3">recycle</b> 回收利用</li>
+    <li><b data-say="../words-audio/df6f85687a0d5820baa1a069a04eff2d.mp3">refund</b> 退款 <span class="note">（把钱退回来）</span></li>
+  </ul>
+  <div class="usage">生活用：<b data-say="../words-audio/41c77fa6a5f1fa69127a730d5bb6b6e6.mp3">I'd like a refund.</b> 我要退款。—— 购物退换货最常用的一句！</div>
+</div>
+
+<div class="card affix">
+  <div class="root-head"><span class="num">9</span><span class="root">-able / -ible</span> <span class="meaning">= 可…的（able to be）</span></div>
+  <span class="etym"><span class="lab">词源</span>：拉丁语后缀 <b>-abilis / -ibilis</b>「能被…的」，经古法语 <b>-able</b> 进入英语</span>
+  <span class="evo"><span class="lab">演化</span>：最初只接拉丁语动词（visible、credible）→ 后来"本土化"可接任何动词：washable、breakable——构词能力极强</span>
+  <ul>
+    <li><b data-say="../words-audio/ff52b9c1eee2349b5099deb92b8307ed.mp3">comfortable</b> 舒服的</li>
+    <li><b data-say="../words-audio/e4894ca167b08880bfc35862f18575eb.mp3">available</b> 有空的；可获得的</li>
+    <li><b data-say="../words-audio/2c9cfc23e2116a3a55846157a62f8a8d.mp3">reliable</b> 可靠的</li>
+    <li><b data-say="../words-audio/4709b46906c8ca86ca4f6fe57e78dd55.mp3">affordable</b> 买得起的</li>
+  </ul>
+  <div class="usage">口语：<b data-say="../words-audio/c11d8e1f1fd9a5fda594d092eca75f82.mp3">Are you available tomorrow?</b> 你明天有空吗？—— 几乎天天用</div>
+</div>
+
+<div class="card affix">
+  <div class="root-head"><span class="num">10</span><span class="root">-less</span> <span class="meaning">= 无…的（without）</span></div>
+  <span class="etym"><span class="lab">词源</span>：古英语 <b>-lēas</b>「没有…的」，源自 lēas「缺乏、自由」，与 loose、lose 同源</span>
+  <span class="evo"><span class="lab">演化</span>：古英语时期就开始大量构词（homeless 早在 12 世纪）→ 现代无线时代又造出 wireless</span>
+  <ul>
+    <li><b data-say="../words-audio/6bca0d81fb5c518769ec9d32a5e0e50f.mp3">helpless</b> 无助的</li>
+    <li><b data-say="../words-audio/b8382b1e04aabf9ac37d306dc0b8d46f.mp3">careless</b> 粗心的</li>
+    <li><b data-say="../words-audio/7c2310f49b45203bf5e4ddc2a12c94da.mp3">useless</b> 没用的</li>
+    <li><b data-say="../words-audio/5f62483a188d1c0fef6b7be151751e10.mp3">wireless</b> 无线的</li>
+    <li><b data-say="../words-audio/e150616b3c0801e894e0cc6274f84a3e.mp3">endless</b> 无尽的</li>
+  </ul>
+  <div class="usage">生活用：<b data-say="../words-audio/3b5ee050ba7992da6f93f0cb69c45730.mp3">wireless charging</b> 无线充电</div>
+</div>
+
+<div class="footer">词根词缀每日积累 · 每天 10 个 · 明天见 👋</div>
+
+</body>
+<script>
+/* ---------- 单词发音：优先系统语音，无系统语音时才用预生成音频 ---------- */
+(function () {
+  var ICON_SPEAKER = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5 6 9H3v6h3l5 4V5z"/><path d="M15.5 8.5a5 5 0 0 1 0 7"/><path d="M18.5 5.5a9 9 0 0 1 0 13"/></svg>';
+
+  var synth = ("speechSynthesis" in window) ? window.speechSynthesis : null;
+  var audio = new Audio();
+  audio.preload = "auto";
+  audio.playbackRate = 0.95;
+  var curBtn = null;
+
+  function liveVoices() {
+    if (!synth) return [];
+    try { return (synth.getVoices() || []); } catch (e) { return []; }
+  }
+  function hasSystemVoice() {
+    if (!synth) return false;
+    if (liveVoices().some(function (v) { return /^en/i.test(v.lang); })) return true;
+    return /iP(hone|ad|od)|Android/i.test(navigator.userAgent || "");
+  }
+  function tts(text) {
+    if (!synth || !hasSystemVoice()) return false;
+    /* 不指定具体 voice，交给系统用「默认英文语音」（即用户在系统里选好的那个） */
+    var u = new SpeechSynthesisUtterance(text);
+    u.lang = "en-US";
+    try { synth.cancel(); } catch (e) {}
+    synth.speak(u);
+    return true;
+  }
+  function clear() { if (curBtn) { curBtn.classList.remove("playing"); curBtn = null; } }
+  function playAudio(src, btn) {
+    if (!src) { if (btn) clear(); return; }
+    audio.src = src;
+    audio.onended = function () { if (curBtn === btn) clear(); };
+    audio.onerror = function () { if (curBtn === btn) clear(); };
+    var p = audio.play();
+    if (p && p.catch) { p.catch(function () { if (curBtn === btn) clear(); }); }
+  }
+  function play(el, btn) {
+    var src = el.getAttribute("data-say");
+    var text = el.textContent.replace(/\s+/g, " ").trim();
+    clear();
+    if (btn) { btn.classList.add("playing"); curBtn = btn; }
+    if (hasSystemVoice()) {
+      if (!tts(text)) { playAudio(src, btn); }
+      else { setTimeout(function () { if (curBtn === btn) clear(); }, Math.max(1200, text.length * 80)); }
+    } else {
+      playAudio(src, btn);
+    }
+  }
+
+  document.querySelectorAll("[data-say]").forEach(function (el) {
+    var prev = el.previousElementSibling;
+    if (prev && prev.classList && prev.classList.contains("psay")) return;
+    var b = document.createElement("button");
+    b.type = "button"; b.className = "psay"; b.innerHTML = ICON_SPEAKER; b.title = "发音";
+    b.setAttribute("aria-label", "发音");
+    b.addEventListener("click", function (e) {
+      e.stopPropagation(); e.preventDefault();
+      if (curBtn === b) {
+        try { audio.pause(); } catch (err) {}
+        if (synth) { try { synth.cancel(); } catch (err) {} }
+        clear(); return;
+      }
+      play(el, b);
+    });
+    el.parentNode.insertBefore(b, el);
+  });
+
+  /* 点任意英文词发音 */
+  var on = false;
+  var tg = document.createElement("button");
+  tg.id = "pron-toggle"; tg.type = "button";
+  tg.innerHTML = ICON_SPEAKER + '<span>点词发音</span>';
+  document.body.appendChild(tg);
+  tg.addEventListener("click", function () {
+    on = !on; tg.classList.toggle("on", on);
+    tg.querySelector("span").textContent = on ? "点词发音：开" : "点词发音";
+  });
+  function wordAt(x, y) {
+    var node, offset;
+    if (document.caretRangeFromPoint) {
+      var r = document.caretRangeFromPoint(x, y);
+      if (!r) return null; node = r.startContainer; offset = r.startOffset;
+    } else if (document.caretPositionFromPoint) {
+      var p = document.caretPositionFromPoint(x, y);
+      if (!p) return null; node = p.offsetNode; offset = p.offset;
+    } else { return null; }
+    if (!node || node.nodeType !== 3) return null;
+    var t = node.textContent, re = /[A-Za-z][A-Za-z'\u2019\-]*/g, m;
+    while ((m = re.exec(t))) {
+      if (offset >= m.index && offset <= m.index + m[0].length) return m[0];
+    }
+    return null;
+  }
+  document.addEventListener("click", function (e) {
+    if (!on) return;
+    if (e.target.closest && (e.target.closest(".psay") || e.target.closest("#pron-toggle"))) return;
+    var w = wordAt(e.clientX, e.clientY);
+    if (w) tts(w);
+  }, true);
+})();
+
+</script>
+
+
+
+</html>

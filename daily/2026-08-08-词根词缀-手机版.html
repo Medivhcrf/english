@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>词根词缀每日积累 · 补充（8月8日）</title>
+<style>
+  @page { size: A4; margin: 16mm 15mm; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Noto Sans CJK SC', 'Droid Sans Fallback', 'WenQuanYi Zen Hei', sans-serif;
+    font-size: 10.5pt;
+    color: #1f2937;
+    line-height: 1.65;
+  }
+  .header {
+    border-bottom: 3px solid #2563eb;
+    padding-bottom: 10px;
+    margin-bottom: 6px;
+  }
+  .header h1 { font-size: 19pt; color: #1e3a8a; letter-spacing: 1px; }
+  .header .meta { color: #6b7280; font-size: 9.5pt; margin-top: 2px; }
+  .header .meta b { color: #2563eb; }
+
+  h2.section {
+    font-size: 12.5pt;
+    color: #1e3a8a;
+    margin: 14px 0 8px 0;
+    padding-left: 8px;
+    border-left: 4px solid #2563eb;
+  }
+
+  .card {
+    border: 1px solid #e5e7eb;
+    border-left: 4px solid #2563eb;
+    border-radius: 6px;
+    padding: 8px 12px 9px 12px;
+    margin-bottom: 9px;
+    page-break-inside: avoid;
+  }
+  .card .root-head { margin-bottom: 4px; }
+  .card .num {
+    display: inline-block;
+    width: 17px; height: 17px;
+    background: #2563eb; color: #fff;
+    border-radius: 50%;
+    text-align: center; line-height: 17px;
+    font-size: 9pt; font-weight: bold;
+    margin-right: 6px;
+  }
+  .card .root { font-size: 12.5pt; font-weight: bold; color: #1e3a8a; font-family: 'DejaVu Sans', sans-serif; }
+  .card .meaning { color: #4b5563; }
+  .card .trick {
+    display: block;
+    color: #047857;
+    font-size: 9pt;
+    margin-top: 1px;
+  }
+  .card .etym {
+    display: block;
+    margin-top: 3px;
+    font-size: 9pt;
+    color: #6d28d9;
+  }
+  .card .etym .lab, .card .evo .lab { font-weight: bold; }
+  .card .evo {
+    display: block;
+    margin-top: 1px;
+    font-size: 9pt;
+    color: #b45309;
+  }
+  .card ul { list-style: none; padding: 0; }
+  .card li {
+    padding: 1px 0;
+    font-size: 10.5pt;
+  }
+  .card li b { color: #111827; }
+  .card .note { color: #9ca3af; font-size: 9pt; }
+  .card .usage {
+    margin-top: 4px;
+    background: #eff6ff;
+    border-radius: 4px;
+    padding: 3px 8px;
+    font-size: 9.5pt;
+    color: #1e40af;
+  }
+  .card .usage b { color: #1e3a8a; }
+
+  .card.affix { border-left-color: #059669; }
+  .card.affix .num { background: #059669; }
+  .card.affix .root { color: #065f46; }
+  .card.affix .usage { background: #ecfdf5; color: #065f46; }
+
+  .footer {
+    margin-top: 14px;
+    text-align: center;
+    color: #9ca3af;
+    font-size: 8.5pt;
+    border-top: 1px solid #e5e7eb;
+    padding-top: 6px;
+  }
+/* ---------- 单词发音（神经网络 MP3，缺失回退系统语音） ---------- */
+.psay{
+  display:inline-flex; align-items:center; justify-content:center;
+  width:18px; height:18px; margin:0 5px 0 0; padding:0;
+  border:1px solid #cbd5e1; border-radius:50%; background:#f8fafc;
+  color:#2563eb; font-size:9px; line-height:1; cursor:pointer;
+  vertical-align:1px; -webkit-tap-highlight-color:transparent;
+  transition:background .15s,border-color .15s;
+}
+.psay:hover{ background:#dbeafe; border-color:#93c5fd; }
+.psay.playing{ background:#2563eb; border-color:#2563eb; color:#fff; animation:psay-pulse 1s infinite; }
+@keyframes psay-pulse{ 0%,100%{opacity:1;} 50%{opacity:.5;} }
+
+#pron-toggle{
+  position:fixed; left:12px; bottom:calc(16px + env(safe-area-inset-bottom));
+  z-index:950; border:none; border-radius:999px; padding:8px 14px;
+  background:rgba(37,99,235,.95); color:#fff; font-size:13px; cursor:pointer;
+  box-shadow:0 4px 14px rgba(0,0,0,.25);
+  font-family:'Noto Sans CJK SC','Droid Sans Fallback',sans-serif;
+  -webkit-tap-highlight-color:transparent;
+}
+#pron-toggle.on{ background:#047857; }
+
+@media print{ .psay, #pron-toggle{ display:none !important; } }
+
+
+
+
+
+/* pron-start */
+/* ---------- 单词发音（神经网络 MP3，缺失回退系统语音） ---------- */
+.psay{
+  display:inline-flex; align-items:center; justify-content:center;
+  width:19px; height:19px; margin:0 5px 0 0; padding:0;
+  border:1px solid #dbe2ea; border-radius:50%; background:#f8fafc;
+  color:#2563eb; cursor:pointer;
+  vertical-align:1px; -webkit-tap-highlight-color:transparent;
+  transition:background .15s,border-color .15s,color .15s;
+}
+.psay:hover{ background:#e8f0fe; border-color:#a9c7f5; }
+.psay.playing{ background:#2563eb; border-color:#2563eb; color:#fff; }
+.psay svg{ width:12px; height:12px; display:block; }
+
+#pron-toggle{
+  position:fixed; left:12px; bottom:calc(16px + env(safe-area-inset-bottom));
+  z-index:950; display:inline-flex; align-items:center; gap:5px;
+  border:none; border-radius:999px; padding:8px 14px;
+  background:rgba(37,99,235,.95); color:#fff; font-size:13px; cursor:pointer;
+  box-shadow:0 4px 14px rgba(0,0,0,.22);
+  font-family:'Noto Sans CJK SC','Droid Sans Fallback',sans-serif;
+  -webkit-tap-highlight-color:transparent;
+}
+#pron-toggle.on{ background:#047857; }
+#pron-toggle svg{ width:14px; height:14px; display:block; }
+
+@media print{ .psay, #pron-toggle{ display:none !important; } }
+/* pron-end */
+
+/* mobile-generic */
+  html { -webkit-text-size-adjust: 100%; }
+  body { overflow-wrap: break-word; }
+  @media (max-width: 640px) {
+    body { font-size: 16px !important; line-height: 1.8;
+           padding: 14px 12px calc(34px + env(safe-area-inset-bottom)); }
+    .header h1 { font-size: 1.5rem; }
+    .header .meta { font-size: .82rem; }
+    h2.section { font-size: 1.12rem; }
+    .card { padding: 11px 13px; border-radius: 10px; }
+    .card .root { font-size: 1.18rem; }
+    .card li { font-size: 1rem; padding: 3px 0; }
+    .card .usage { font-size: .95rem; }
+    .card .etym, .card .evo, .card .trick,
+    .card .confuse, .card .variant, .card .cognate { font-size: .86rem; }
+    table { display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    .flow { font-size: .9rem; }
+  }
+
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>词根词缀每日积累 · 补充（8 月 8 日补录）</h1>
+  <div class="meta">2026 年 8 月 8 日 ｜ 词根 7 个 · 词缀 3 个 ｜ 附词源与演化</div>
+</div>
+
+<h2 class="section">词根</h2>
+
+<div class="card">
+  <div class="root-head"><span class="num">1</span><span class="root">cap / capt / cept / ceive</span> <span class="meaning">= take, seize（拿、抓、获取）</span></div>
+  <span class="trick">💡 记法：ceive 就是"拿"——re- 回 + ceive = 拿回来 = receive 收到；ac- 去 + cept = 去拿 = accept 接受</span>
+  <span class="etym"><span class="lab">词源</span>：拉丁语 <b>capere</b>「拿、抓、获取」，过去分词 <b>captus</b>；现在时词干变体 <b>cip-</b>（如 incipient）；源自原始印欧语 <b>*kap-</b>「抓住」（与英语 have、heave 同源）</span>
+  <span class="evo"><span class="lab">演化</span>：<b>抓住</b> → capture 捕获 ｜ <b>拿回来</b> → receive 收到 ｜ <b>拿到一起 → 脑中抓住</b> → concept 概念 ｜ <b>去拿 → 接受</b> → accept 接受 ｜ <b>拿出去 → 排除</b> → except 除外 ｜ <b>透过表面去拿</b> → perceive 感知</span>
+  <ul>
+    <li><b data-say="../words-audio/d7ba9bbfda42b9657f14ee37ef76150b.mp3">capture</b> 捕获、俘获 <span class="note">（capt 抓 + -ure 名词 → 抓住）</span></li>
+    <li><b data-say="../words-audio/cbd71f0d3114139d38a8d080d610e5fd.mp3">receive</b> 收到、接到 <span class="note">（re- 回 + ceive 拿 → 拿回来）</span></li>
+    <li><b data-say="../words-audio/47cb06083e87503762f6746725117a3c.mp3">concept</b> 概念、观念 <span class="note">（con- 一起 + cept 拿 → 拿到一起形成的东西）</span></li>
+    <li><b data-say="../words-audio/4abe77c201ff11663ccdf52fd6ecea86.mp3">accept</b> 接受、同意 <span class="note">（ac- 去 + cept 拿 → 去拿过来）</span></li>
+    <li><b data-say="../words-audio/d1cc652b86b9858fe78058511716e92f.mp3">except</b> 除……之外 <span class="note">（ex- 出 + cept 拿 → 拿出去）</span></li>
+    <li><b data-say="../words-audio/340cbdadd77efbf214438778148d7d29.mp3">perceive</b> 感知、察觉 <span class="note">（per- 贯穿 + ceive 拿 → 透过表面去领会）</span></li>
+  </ul>
+  <div class="usage">口语/生活用：<b data-say="../words-audio/c1ad37dd2a3b875b5729c95fc4f17aa0.mp3">I didn't receive your message until this morning.</b> 我今天早上才收到你的消息。</div>
+</div>
+
+<div class="card">
+  <div class="root-head"><span class="num">2</span><span class="root">gen / gener</span> <span class="meaning">= birth, kind, race（出生、种类、种族）</span></div>
+  <span class="trick">💡 记法：gen 就是 gene（基因）的来源——基因决定你如何"出生"；generate = gen 生+erate = 产生</span>
+  <span class="etym"><span class="lab">词源</span>：拉丁语 <b>genus, generis</b>「出生、种族、种类」，动词 <b>gignere</b>「生育」；源自原始印欧语 <b>*gene-</b>「生育、产生」（同源：希腊语 genos「种族」、梵语 janati「生育」）</span>
+  <span class="evo"><span class="lab">演化</span>：<b>生育 → 产生</b> → generate 产生 / generation 一代人 ｜ <b>种族 → 种类 → 普遍的</b> → general 一般的 ｜ <b>高贵出身 → 慷慨</b> → generous 慷慨的 ｜ <b>天生的 → 真正的</b> → genuine 真正的</span>
+  <ul>
+    <li><b data-say="../words-audio/15117b282328146ac6afebaa8acd80e7.mp3">generate</b> 产生、生成 <span class="note">（gener 生 + -ate → 使产生）</span></li>
+    <li><b data-say="../words-audio/9cb9ce5bd9e807867d42a740c9633fc7.mp3">generation</b> 一代人、世代 <span class="note">（gener 生 + -ation → 生出来的一批人）</span></li>
+    <li><b data-say="../words-audio/958153f1b8b96ec4c4eb2147429105d9.mp3">general</b> 一般的、普遍的；将军 <span class="note">（gener 种类 + -al → 全种类的）</span></li>
+    <li><b data-say="../words-audio/c047bc59f51f52bfe702fd93ae105aa7.mp3">generous</b> 慷慨的、大方的 <span class="note">（gener 高贵出身 + -ous → 出身高贵的做派）</span></li>
+    <li><b data-say="../words-audio/7aa4a242d3ce5fe086e54bd1949ad950.mp3">genuine</b> 真正的、真诚的 <span class="note">（gen 天生 + -u- + -ine → 天生如此的）</span></li>
+    <li><b data-say="../words-audio/5971264e9294c121bfb7627ef1edae33.mp3">gene</b> 基因 <span class="note">（gen 生 → 遗传的基本单位）</span></li>
+  </ul>
+  <div class="usage">口语/生活用：<b data-say="../words-audio/881c4329dcbd76533d03ac16ae172fce.mp3">My grandfather was incredibly generous — he'd give you his last dollar.</b> 我爷爷慷慨得不得了——他会把最后一美元都给你。</div>
+</div>
+
+<div class="card">
+  <div class="root-head"><span class="num">3</span><span class="root">vit / viv</span> <span class="meaning">= life, live（生命、生活、活着）</span></div>
+  <span class="trick">💡 记法：viv 就是"活"——survive = sur- 超过 + viv 活 + e = 活得比别人久 = 幸存；vivid = 活生生的=生动的</span>
+  <span class="etym"><span class="lab">词源</span>：拉丁语 <b>vīta</b>「生命」、<b>vīvere</b>「活着」；源自原始印欧语 <b>*gʷeih₃-</b>「活着」（同源：希腊语 bios「生命」、英语 quick 古义「活的」）</span>
+  <span class="evo"><span class="lab">演化</span>：<b>活着</b> → vivid 生动的 ｜ <b>活过 → 幸存</b> → survive 幸存 ｜ <b>关乎生命的</b> → vital 至关重要的 ｜ <b>生命所需之物</b> → vitamin 维生素 ｜ <b>再次活过来</b> → revive 复活/复兴</span>
+  <ul>
+    <li><b data-say="../words-audio/abe62194632daa33fb01f482b52a822e.mp3">vivid</b> 生动的、鲜明的 <span class="note">（viv 活 + -id → 活生生的）</span></li>
+    <li><b data-say="../words-audio/8b6e2723bcb2890065fb0b5b2559df5d.mp3">survive</b> 幸存、活下来 <span class="note">（sur- 超过 + viv 活 + -e → 活得比别人久）</span></li>
+    <li><b data-say="../words-audio/c32add6b67bd0c26c50f1716849bfae9.mp3">vital</b> 至关重要的、生命的 <span class="note">（vit 生命 + -al → 关乎生命的）</span></li>
+    <li><b data-say="../words-audio/b34c018582d72d126d8338c8a0b557cd.mp3">vitamin</b> 维生素 <span class="note">（vit 生命 + amine 胺 → 维持生命的胺类物质）</span></li>
+    <li><b data-say="../words-audio/3b2dd09db3d4442052fe6b920658979e.mp3">revive</b> 复活、复兴、恢复 <span class="note">（re- 再次 + viv 活 + -e → 再次活过来）</span></li>
+    <li><b data-say="../words-audio/8a54ca8a36b38d50c0180a099a9bbbf0.mp3">vivacious</b> 活泼的、快活的 <span class="note">（viv 活 + -acious 倾向……的 → 充满活力的）</span></li>
+  </ul>
+  <div class="usage">口语/生活用：<b data-say="../words-audio/c781580ca0acaa0b34af17dcdadead16.mp3">Drinking enough water is vital for staying healthy.</b> 喝足够的水对保持健康至关重要。</div>
+</div>
+
+<div class="card">
+  <div class="root-head"><span class="num">4</span><span class="root">grad / gress</span> <span class="meaning">= step, go（步、行走、级别）</span></div>
+  <span class="trick">💡 记法：grad 和 grade（等级）是同一个词——一步一步往上走就是升级；progress = pro- 向前 + gress 迈步 = 进步</span>
+  <span class="etym"><span class="lab">词源</span>：拉丁语 <b>gradus</b>「步、台阶、级别」、动词 <b>gradī</b>「迈步、行走」，过去分词 <b>gressus</b>；源自原始印欧语 <b>*ghredh-</b>「行走」</span>
+  <span class="evo"><span class="lab">演化</span>：<b>步 → 等级</b> → grade 等级 / gradual 逐步的 ｜ <b>向前迈步</b> → progress 进步 ｜ <b>向对面迈步 → 攻击</b> → aggressive 侵略的 ｜ <b>向上迈步</b> → upgrade 升级 ｜ <b>迈步出去</b> → graduate 毕业</span>
+  <ul>
+    <li><b data-say="../words-audio/de6a20aa7f2e36fb6abe61de5fb464b1.mp3">grade</b> 等级、成绩、年级 <span class="note">（grad 步/级 + -e → 台阶 → 等级）</span></li>
+    <li><b data-say="../words-audio/f2a5b01cf4b63dce4c86bfe8d6124b40.mp3">gradual</b> 逐渐的、逐步的 <span class="note">（grad 步 + -u- + -al → 一步一步的）</span></li>
+    <li><b data-say="../words-audio/3c709b10a5d47ba33d85337dd9110917.mp3">progress</b> 进步、进展 <span class="note">（pro- 向前 + gress 迈步 → 向前走）</span></li>
+    <li><b data-say="../words-audio/7daca46098eec28a63e877c18451ce30.mp3">aggressive</b> 侵略的、好斗的、积极的 <span class="note">（ag- 向 + gress 迈步 + -ive → 向对方迈步）</span></li>
+    <li><b data-say="../words-audio/ae26b3d8e556703291282149e3ae894f.mp3">upgrade</b> 升级、提升 <span class="note">（up- 向上 + grad 步/级 + -e → 往上走一级）</span></li>
+    <li><b data-say="../words-audio/d86132c5a02abe421a25538c38c9fd5b.mp3">graduate</b> 毕业；毕业生 <span class="note">（grad 步 + -u- + -ate → 迈出新的一步）</span></li>
+  </ul>
+  <div class="usage">口语/生活用：<b data-say="../words-audio/7faca48992d53fafe439ea32513cbf8f.mp3">You're making great progress with your English — keep it up!</b> 你英语进步很大——继续加油！</div>
+</div>
+
+<div class="card">
+  <div class="root-head"><span class="num">5</span><span class="root">spir</span> <span class="meaning">= breathe（呼吸）</span></div>
+  <span class="trick">💡 记法：spir = 呼吸——in- 入 + spire = 吹气进去 = inspire 激励；ex- 出 + (s)pire = 呼出最后一口气 = expire 到期</span>
+  <span class="etym"><span class="lab">词源</span>：拉丁语 <b>spīrāre</b>「呼吸、吹气」；源自原始印欧语 <b>*(s)peis-</b>「吹气」（与古英语 fīst「屁」远亲同源，皆有"出气"之意）</span>
+  <span class="evo"><span class="lab">演化</span>：<b>呼吸 → 灵魂</b> → spirit 精神/灵魂 ｜ <b>吹入气息 → 激励</b> → inspire 激励/启发 ｜ <b>呼气出去 → 终结</b> → expire 到期/断气 ｜ <b>一起呼吸 → 密谋</b> → conspire 共谋 ｜ <b>向往之气</b> → aspiration 志向</span>
+  <ul>
+    <li><b data-say="../words-audio/07868a716d4712d7771f6414d2b8bf8a.mp3">spirit</b> 精神、灵魂、烈酒 <span class="note">（spir 呼吸 + -it → 呼吸=生命之气=灵魂）</span></li>
+    <li><b data-say="../words-audio/6dca4fe9cc3dfa1e593e1a60462b55c4.mp3">inspire</b> 激励、启发、赋予灵感 <span class="note">（in- 入 + spir 呼吸 + -e → 吹气进去）</span></li>
+    <li><b data-say="../words-audio/cd91e7679d575a2c548bd2c889c23b9e.mp3">expire</b> 到期、失效、断气 <span class="note">（ex- 出 + (s)pir 呼吸 + -e → 呼出最后一口气）</span></li>
+    <li><b data-say="../words-audio/eafb5011f1c97ea2a704f14dda943d40.mp3">respiration</b> 呼吸（作用） <span class="note">（re- 反复 + spir 呼吸 + -ation → 反复呼吸）</span></li>
+    <li><b data-say="../words-audio/98e3ae10c1a5684a6a8b8ca67b63316d.mp3">conspire</b> 密谋、共谋、串通 <span class="note">（con- 一起 + spir 呼吸 + -e → 同呼吸→同谋）</span></li>
+    <li><b data-say="../words-audio/13025fc8397ad7ec0bfc6405be6c0c23.mp3">aspiration</b> 志向、抱负、渴望 <span class="note">（a- 向 + spir 呼吸 + -ation → 向往的气息）</span></li>
+  </ul>
+  <div class="usage">口语/生活用：<b data-say="../words-audio/a885542c5a92c0eb2572c05b1beee427.mp3">That speech really inspired me to work harder on my goals.</b> 那个演讲真的激励了我更努力去追求目标。</div>
+</div>
+
+<div class="card">
+  <div class="root-head"><span class="num">6</span><span class="root">ver</span> <span class="meaning">= true（真、真实）</span></div>
+  <span class="trick">💡 记法：ver 就是 very（非常）的词根——very 本义是"真正地"→ 后来变成强调词；verify = ver 真+ify 使=验证</span>
+  <span class="etym"><span class="lab">词源</span>：拉丁语 <b>vērus</b>「真实的、真正的」；源自原始印欧语 <b>*weh₁ros</b>「真实的、值得信赖的」（同源：古英语 wǣr「信约」、德语 wahr「真的」）</span>
+  <span class="evo"><span class="lab">演化</span>：<b>真实 → 验证</b> → verify 验证 / verdict 裁决 ｜ <b>真正地 → 极其</b> → very 非常 ｜ <b>真实 → 诚实</b> → veracity 真实性 ｜ <b>近似真实的</b> → verisimilitude 逼真</span>
+  <ul>
+    <li><b data-say="../words-audio/e8418d1d706cd73548f9f16f1d55ad6e.mp3">verify</b> 验证、核实、确认 <span class="note">（ver 真 + -ify 使 → 使其为真→验证）</span></li>
+    <li><b data-say="../words-audio/9ff71a320a3d5088f588be18cf83a55a.mp3">verdict</b> 裁决、判决、定论 <span class="note">（ver 真 + dict 说 → 说真话→裁决）</span></li>
+    <li><b data-say="../words-audio/f016441d00c16c9b912d05e9d81d894d.mp3">very</b> 非常、很；真正的 <span class="note">（ver 真 + -y → 真正地→强调词）</span></li>
+    <li><b data-say="../words-audio/2383576a9ae22802531a0634f2c46952.mp3">veracity</b> 真实性、诚实 <span class="note">（ver 真 + -acity 性质 → 真实性质）</span></li>
+    <li><b data-say="../words-audio/0bca2b8100cc2f28c2a9dd0a01829395.mp3">veritable</b> 名副其实的、真正的 <span class="note">（ver 真 + -itable 可……的 → 可真认的）</span></li>
+    <li><b data-say="../words-audio/c190cdd69ffaf13ede547b9fe3c455bc.mp3">verisimilitude</b> 逼真、貌似真实 <span class="note">（veri 真 + simil 相似 + -itude → 与真相似）</span></li>
+  </ul>
+  <div class="usage">口语/生活用：<b data-say="../words-audio/69041cceec71dc68c1b2fc97e5a64388.mp3">Can you verify your email address before we continue?</b> 你能先验证一下邮箱地址我们再继续吗？</div>
+</div>
+
+<div class="card">
+  <div class="root-head"><span class="num">7</span><span class="root">mort</span> <span class="meaning">= death（死亡）</span></div>
+  <span class="trick">💡 记法：mort = 死——mortal 终有一死的；mortgage = mort 死 + gage 抵押 → 死抵=按揭（还到死或抵押失效才结束）</span>
+  <span class="etym"><span class="lab">词源</span>：拉丁语 <b>mors, mortis</b>「死亡」；源自原始印欧语 <b>*mer-</b>「死亡」（同源：梵语 marati「死亡」、希腊语 brotos「凡人」、英语 murder）</span>
+  <span class="evo"><span class="lab">演化</span>：<b>死亡</b> → mortal 终有一死的 ｜ <b>不死的</b> → immortal 不朽的 ｜ <b>死的抵押 → 房贷</b> → mortgage 按揭贷款 ｜ <b>使死去 → 使尴尬</b> → mortify 使难堪 ｜ <b>死后僵硬</b> → rigor mortis 尸僵</span>
+  <ul>
+    <li><b data-say="../words-audio/33ef2092139c9330720114f3bf54ac7c.mp3">mortal</b> 终有一死的；凡人 <span class="note">（mort 死 + -al → 会死的）</span></li>
+    <li><b data-say="../words-audio/cdcd267dd9829fbb9070142d231d16b0.mp3">immortal</b> 不朽的、永生的 <span class="note">（im- 不 + mort 死 + -al → 不死的）</span></li>
+    <li><b data-say="../words-audio/bd8c9c3d0994303e20b93ec61c88aa3c.mp3">mortgage</b> 按揭贷款、抵押 <span class="note">（mort 死 + gage 抵押 → 死抵→房贷）</span></li>
+    <li><b data-say="../words-audio/5e61600a12af47d41f5cd8365cdf3977.mp3">mortify</b> 使难堪、使羞愧 <span class="note">（mort 死 + -ify 使 → 使人想死→难堪）</span></li>
+    <li><b data-say="../words-audio/0733d3bd265f8d0860e0cb65251d648d.mp3">mortuary</b> 太平间、殡仪馆 <span class="note">（mort 死 + -u- + -ary 场所 → 放死者的地方）</span></li>
+    <li><b data-say="../words-audio/b946bb60d7cfba2d32bc5bcddad520af.mp3">postmortem</b> 验尸；事后分析 <span class="note">（post- 后 + mort 死 + -em → 死后）</span></li>
+  </ul>
+  <div class="usage">口语/生活用：<b data-say="../words-audio/37146cc4eca443c0d7929493a33ba27a.mp3">We finally paid off our mortgage — it feels amazing to be debt-free!</b> 我们终于还清了房贷——无债一身轻太爽了！</div>
+</div>
+
+<h2 class="section">词缀</h2>
+
+<div class="card affix">
+  <div class="root-head"><span class="num">8</span><span class="root">com- / con- / co- / col- / cor-</span> <span class="meaning">= together, with（一起、共同、完全）</span></div>
+  <span class="trick">💡 记法：com-/con- = "一起"——com 一起+bine 二→把两个绑一起=combine 结合；co 一起+operate=合作 cooperate</span>
+  <span class="etym"><span class="lab">词源</span>：拉丁语前缀 <b>cum</b>「与、一起、共同」；在不同辅音前发生同化：com-（b/p/m 前）、con-（多数辅音前）、co-（元音/h/gn 前）、col-（l 前）、cor-（r 前）</span>
+  <span class="evo"><span class="lab">演化</span>：<b>一起 → 聚集</b> → combine 结合 / connect 连接 ｜ <b>共同 → 合作</b> → cooperate 合作 / collaborate 协作 ｜ <b>彻底 → 加强</b> → confirm 确认 / complete 完成（完全填满）</span>
+  <ul>
+    <li><b data-say="../words-audio/c3eef34d092ed60c3b2791814511903a.mp3">combine</b> 结合、组合 <span class="note">（com- 一起 + bine 二 → 把两个绑一起）</span></li>
+    <li><b data-say="../words-audio/b640a0ce465fa2a4150c36b305c1c11b.mp3">connect</b> 连接、联系 <span class="note">（con- 一起 + nect 绑 → 绑在一起）</span></li>
+    <li><b data-say="../words-audio/d3df3d726abb1d76c082cc4f211ff4b2.mp3">cooperate</b> 合作、配合 <span class="note">（co- 一起 + oper 工作 + -ate → 一起工作）</span></li>
+    <li><b data-say="../words-audio/d5d70f7d70ea05d4315923b446ffc581.mp3">collaborate</b> 协作、合著 <span class="note">（col- 一起 + labor 劳动 + -ate → 共同劳动）</span></li>
+    <li><b data-say="../words-audio/5e0826baa49ec0eac5a037ffaa3e1b53.mp3">correlate</b> 相关、关联 <span class="note">（cor- 互相 + relate 关联 → 互相关联）</span></li>
+    <li><b data-say="../words-audio/6e525e8392851530eab21febe1b61d31.mp3">companion</b> 同伴、伙伴 <span class="note">（com- 一起 + pan 面包 + -ion → 一起分面包的人）</span></li>
+  </ul>
+  <div class="usage">口语/生活用：<b data-say="../words-audio/031561b619cc00cf79b376d08f9ce500.mp3">Let's cooperate on this project — two heads are better than one.</b> 咱们合作这个项目吧——三个臭皮匠顶个诸葛亮。</div>
+</div>
+
+<div class="card affix">
+  <div class="root-head"><span class="num">9</span><span class="root">-ous</span> <span class="meaning">= full of, having the quality of（充满……的、具有……性质的）</span></div>
+  <span class="trick">💡 记法：-ous = "充满……的"——danger 危险 + ous = dangerous 充满危险的；fame 名声 + ous = famous 有名的</span>
+  <span class="etym"><span class="lab">词源</span>：拉丁语形容词后缀 <b>-ōsus</b>「充满……的、富有……的」，经古法语 <b>-ous</b> / <b>-eus</b> 传入英语</span>
+  <span class="evo"><span class="lab">演化</span>：<b>充满……的</b> → dangerous 危险的 / famous 著名的 ｜ <b>具有……性质的</b> → nervous 紧张的 / curious 好奇的 ｜ <b>像……的</b> → mountainous 多山的 / courageous 勇敢的</span>
+  <ul>
+    <li><b data-say="../words-audio/0a8113941d35466c79218e83175665ef.mp3">dangerous</b> 危险的 <span class="note">（danger 危险 + -ous → 充满危险的）</span></li>
+    <li><b data-say="../words-audio/8d0b6604701b9a30c2547ffb8ee6a3c1.mp3">famous</b> 著名的、有名的 <span class="note">（fam(e) 名声 + -ous → 充满名声的）</span></li>
+    <li><b data-say="../words-audio/da97859f45baed5a5fee829be3ee5bbc.mp3">nervous</b> 紧张的、神经质的 <span class="note">（nerv(e) 神经 + -ous → 充满神经紧张的）</span></li>
+    <li><b data-say="../words-audio/821ae63dbe0c573eff8b69d451fb21bc.mp3">curious</b> 好奇的、求知欲强的 <span class="note">（cur(i) 关心 + -ous → 充满关切的）</span></li>
+    <li><b data-say="../words-audio/c047bc59f51f52bfe702fd93ae105aa7.mp3">generous</b> 慷慨的、大方的 <span class="note">（gener 高贵出身 + -ous → 有高贵品质的）</span></li>
+    <li><b data-say="../words-audio/b011ea5292153076feca1bd13f09dd3f.mp3">courageous</b> 勇敢的、有胆量的 <span class="note">（courage 勇气 + -ous → 充满勇气的）</span></li>
+  </ul>
+  <div class="usage">口语/生活用：<b data-say="../words-audio/7a6c16a06eef85b7ce90fcbac472c702.mp3">I'm a little nervous about tomorrow's job interview.</b> 我对明天的求职面试有点紧张。</div>
+</div>
+
+<div class="card affix">
+  <div class="root-head"><span class="num">10</span><span class="root">-al</span> <span class="meaning">= pertaining to, relating to（与……有关的、属于……的）</span></div>
+  <span class="trick">💡 记法：-al = "与……有关的"——person 人 + al = personal 个人的；nation 国家 + al = national 国家的</span>
+  <span class="etym"><span class="lab">词源</span>：拉丁语形容词后缀 <b>-ālis</b>「属于……的、与……有关的」；经古法语 <b>-al</b> / <b>-el</b> 传入英语；亦作名词后缀表示「动作、过程」</span>
+  <span class="evo"><span class="lab">演化</span>：<b>属于……的</b> → personal 个人的 / national 国家的 ｜ <b>与……有关的</b> → natural 自然的 / cultural 文化的 ｜ <b>具有……特性的</b> → digital 数字的 / emotional 情感的</span>
+  <ul>
+    <li><b data-say="../words-audio/0be5a6c82893ecaa8bb29bd36831e457.mp3">personal</b> 个人的、私人的 <span class="note">（person 人 + -al → 属于个人的）</span></li>
+    <li><b data-say="../words-audio/8f4ef05b543fb6157b374099100574b3.mp3">natural</b> 自然的、天生的 <span class="note">（nature 自然 + -al → 自然的）</span></li>
+    <li><b data-say="../words-audio/d4e3d1f7ef8fd3c9f5893a8af9f9e2cc.mp3">cultural</b> 文化的 <span class="note">（culture 文化 + -al → 与文化的）</span></li>
+    <li><b data-say="../words-audio/f82d71a6491c31b384ab5b57d85b6593.mp3">national</b> 国家的、民族的 <span class="note">（nation 国家 + -al → 国家的）</span></li>
+    <li><b data-say="../words-audio/e0e1d64fdac4188f087c4d44060de65e.mp3">digital</b> 数字的、数码的 <span class="note">（digit 数字 + -al → 与数字有关的）</span></li>
+    <li><b data-say="../words-audio/ddeecc7cf1b19525bcc19290ee6b8709.mp3">emotional</b> 情感的、情绪化的 <span class="note">（emotion 情感 + -al → 与情感有关的）</span></li>
+  </ul>
+  <div class="usage">口语/生活用：<b data-say="../words-audio/abcef1376cc77a49ab6fa2fce24cbd2a.mp3">Please don't read my personal diary — that's private.</b> 请不要看我的私人日记——那是隐私。</div>
+</div>
+
+<div class="footer">词根词缀每日积累 · 每天 10 个 · 明天见 👋</div>
+
+</body>
+<script>
+/* ---------- 单词发音：优先系统语音，无系统语音时才用预生成音频 ---------- */
+(function () {
+  var ICON_SPEAKER = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5 6 9H3v6h3l5 4V5z"/><path d="M15.5 8.5a5 5 0 0 1 0 7"/><path d="M18.5 5.5a9 9 0 0 1 0 13"/></svg>';
+
+  var synth = ("speechSynthesis" in window) ? window.speechSynthesis : null;
+  var audio = new Audio();
+  audio.preload = "auto";
+  audio.playbackRate = 0.95;
+  var curBtn = null;
+
+  function liveVoices() {
+    if (!synth) return [];
+    try { return (synth.getVoices() || []); } catch (e) { return []; }
+  }
+  function hasSystemVoice() {
+    if (!synth) return false;
+    if (liveVoices().some(function (v) { return /^en/i.test(v.lang); })) return true;
+    return /iP(hone|ad|od)|Android/i.test(navigator.userAgent || "");
+  }
+  function tts(text) {
+    if (!synth || !hasSystemVoice()) return false;
+    /* 不指定具体 voice，交给系统用「默认英文语音」（即用户在系统里选好的那个） */
+    var u = new SpeechSynthesisUtterance(text);
+    u.lang = "en-US";
+    try { synth.cancel(); } catch (e) {}
+    synth.speak(u);
+    return true;
+  }
+  function clear() { if (curBtn) { curBtn.classList.remove("playing"); curBtn = null; } }
+  function playAudio(src, btn) {
+    if (!src) { if (btn) clear(); return; }
+    audio.src = src;
+    audio.onended = function () { if (curBtn === btn) clear(); };
+    audio.onerror = function () { if (curBtn === btn) clear(); };
+    var p = audio.play();
+    if (p && p.catch) { p.catch(function () { if (curBtn === btn) clear(); }); }
+  }
+  function play(el, btn) {
+    var src = el.getAttribute("data-say");
+    var text = el.textContent.replace(/\s+/g, " ").trim();
+    clear();
+    if (btn) { btn.classList.add("playing"); curBtn = btn; }
+    if (hasSystemVoice()) {
+      if (!tts(text)) { playAudio(src, btn); }
+      else { setTimeout(function () { if (curBtn === btn) clear(); }, Math.max(1200, text.length * 80)); }
+    } else {
+      playAudio(src, btn);
+    }
+  }
+
+  document.querySelectorAll("[data-say]").forEach(function (el) {
+    var prev = el.previousElementSibling;
+    if (prev && prev.classList && prev.classList.contains("psay")) return;
+    var b = document.createElement("button");
+    b.type = "button"; b.className = "psay"; b.innerHTML = ICON_SPEAKER; b.title = "发音";
+    b.setAttribute("aria-label", "发音");
+    b.addEventListener("click", function (e) {
+      e.stopPropagation(); e.preventDefault();
+      if (curBtn === b) {
+        try { audio.pause(); } catch (err) {}
+        if (synth) { try { synth.cancel(); } catch (err) {} }
+        clear(); return;
+      }
+      play(el, b);
+    });
+    el.parentNode.insertBefore(b, el);
+  });
+
+  /* 点任意英文词发音 */
+  var on = false;
+  var tg = document.createElement("button");
+  tg.id = "pron-toggle"; tg.type = "button";
+  tg.innerHTML = ICON_SPEAKER + '<span>点词发音</span>';
+  document.body.appendChild(tg);
+  tg.addEventListener("click", function () {
+    on = !on; tg.classList.toggle("on", on);
+    tg.querySelector("span").textContent = on ? "点词发音：开" : "点词发音";
+  });
+  function wordAt(x, y) {
+    var node, offset;
+    if (document.caretRangeFromPoint) {
+      var r = document.caretRangeFromPoint(x, y);
+      if (!r) return null; node = r.startContainer; offset = r.startOffset;
+    } else if (document.caretPositionFromPoint) {
+      var p = document.caretPositionFromPoint(x, y);
+      if (!p) return null; node = p.offsetNode; offset = p.offset;
+    } else { return null; }
+    if (!node || node.nodeType !== 3) return null;
+    var t = node.textContent, re = /[A-Za-z][A-Za-z'\u2019\-]*/g, m;
+    while ((m = re.exec(t))) {
+      if (offset >= m.index && offset <= m.index + m[0].length) return m[0];
+    }
+    return null;
+  }
+  document.addEventListener("click", function (e) {
+    if (!on) return;
+    if (e.target.closest && (e.target.closest(".psay") || e.target.closest("#pron-toggle"))) return;
+    var w = wordAt(e.clientX, e.clientY);
+    if (w) tts(w);
+  }, true);
+})();
+
+</script>
+
+
+
+</html>
