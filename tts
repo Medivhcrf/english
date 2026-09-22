@@ -1,0 +1,28 @@
+#!/usr/bin/env bash
+# 网页/文章 → 神经网络语音 MP3 的便捷入口（webpage_tts.py 的包装）
+#
+# 用法: ./tts <URL|文件|-> [webpage_tts.py 的全部选项]
+#   ./tts https://example.com/article -o article.mp3
+#   ./tts article.html --sentence-split
+#   ./tts --list-voices en
+#
+# 依赖 edge-tts 的 Python 环境；按顺序找：$WEBPAGE_TTS_PY > ../.venv > ./.venv > ./.ttsenv
+set -euo pipefail
+
+HERE="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+
+PY="${WEBPAGE_TTS_PY:-}"
+if [ -z "$PY" ]; then
+  for c in "$HERE/../.venv/bin/python" "$HERE/.venv/bin/python" "$HERE/.ttsenv/bin/python"; do
+    if [ -x "$c" ] && "$c" -c "import edge_tts" >/dev/null 2>&1; then PY="$c"; break; fi
+  done
+fi
+
+if [ -z "$PY" ]; then
+  echo "找不到带 edge-tts 的 Python 环境。任选其一：" >&2
+  echo "  1) 在仓库目录建虚拟环境并安装：python3 -m venv .venv && .venv/bin/pip install edge-tts" >&2
+  echo "  2) 指定现成解释器：WEBPAGE_TTS_PY=/path/to/python $0 ..." >&2
+  exit 1
+fi
+
+exec "$PY" "$HERE/webpage_tts.py" "$@"
