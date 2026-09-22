@@ -176,6 +176,8 @@
 
 
 
+
+
 /* pron-start */
 /* ---------- 单词发音（神经网络 MP3，缺失回退系统语音） ---------- */
 .psay{
@@ -428,17 +430,11 @@
     if (liveVoices().some(function (v) { return /^en/i.test(v.lang); })) return true;
     return /iP(hone|ad|od)|Android/i.test(navigator.userAgent || "");
   }
-  function pickVoice() {
-    var vs = liveVoices();
-    var en = vs.filter(function (v) { return /^en/i.test(v.lang); });
-    var us = en.filter(function (v) { return /en[-_]US/i.test(v.lang); });
-    return (us[0] || en[0] || null);
-  }
   function tts(text) {
     if (!synth || !hasSystemVoice()) return false;
+    /* 不指定具体 voice，交给系统用「默认英文语音」（即用户在系统里选好的那个） */
     var u = new SpeechSynthesisUtterance(text);
     u.lang = "en-US";
-    var v = pickVoice(); if (v) u.voice = v;
     try { synth.cancel(); } catch (e) {}
     synth.speak(u);
     return true;
@@ -518,6 +514,7 @@
 })();
 
 </script>
+
 
 
 </html>

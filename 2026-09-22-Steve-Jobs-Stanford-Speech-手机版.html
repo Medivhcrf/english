@@ -868,16 +868,10 @@
     /* iOS / Android 的系统语音常不列在 getVoices() 里，但确实可用 */
     return /iP(hone|ad|od)|Android/i.test(navigator.userAgent || "");
   }
-  function pickVoice() {
-    var vs = liveVoices();
-    var en = vs.filter(function (v) { return /^en/i.test(v.lang); });
-    var us = en.filter(function (v) { return /en[-_]US/i.test(v.lang); });
-    return (us[0] || en[0] || null);
-  }
   function utter(text) {
+    /* 不指定具体 voice，交给系统用「默认英文语音」（即用户在系统里选好的那个） */
     var u = new SpeechSynthesisUtterance(text);
     u.lang = "en-US"; u.rate = rate;
-    var v = pickVoice(); if (v) u.voice = v;
     return u;
   }
   function strip(sent) {
