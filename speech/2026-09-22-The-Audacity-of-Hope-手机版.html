@@ -289,6 +289,12 @@
 .say.speaking{ background:#b91c1c; border-color:#b91c1c; color:#fff; }
 .say svg{ width:14px; height:14px; display:block; }
 
+/* 词源表单词 / 名言金句旁的小号按钮（inline，跟在词或句子后面） */
+#vocab .say, .card .head .say{
+  width:17px; height:17px; margin:0 0 0 7px; vertical-align:-3px;
+}
+#vocab .say svg, .card .head .say svg{ width:10px; height:10px; }
+
 #tts-bar{
   position:fixed; right:16px; bottom:16px; z-index:950;
   display:flex; align-items:center; gap:4px;
@@ -571,31 +577,31 @@
     <tr><th style="width:16%">单词</th><th style="width:44%">词源本义</th><th>在演讲中的含义</th></tr>
   </thead>
   <tbody>
-<tr><td><span class="n">①</span><b>gratitude</b> <span class="ipa">/ˈɡrætɪtjuːd/</span></td><td class="e" data-label="词源本义">拉丁 <b>gratus</b>「令人愉快的、心存感激的」→ gratitudo</td><td data-label="在演讲中的含义">感激——开场第一句就是谢意</td></tr>
-<tr><td><span class="n">②</span><b>crossroads</b> <span class="ipa">/ˈkrɒsrəʊdz/</span></td><td class="e" data-label="词源本义">cross（交叉）+ road（路）；字面「路交叉的地方」</td><td data-label="在演讲中的含义">十字路口——把伊利诺伊定位成全国的枢纽</td></tr>
-<tr><td><span class="n">③</span><b>perseverance</b> <span class="ipa">/ˌpɜːsɪˈvɪərəns/</span></td><td class="e" data-label="词源本义">拉丁 <b>per-</b>「彻底」+ <b>severus</b>「严肃、严格」→ 坚持到底</td><td data-label="在演讲中的含义">坚持不懈——祖父靠它把父亲送出肯尼亚</td></tr>
-<tr><td><span class="n">④</span><b>beacon</b> <span class="ipa">/ˈbiːkən/</span></td><td class="e" data-label="词源本义">古英语 <b>bēacen</b>「信号、记号」→ 灯塔、指路明灯</td><td data-label="在演讲中的含义">灯塔——美国在移民心中的形象</td></tr>
-<tr><td><span class="n">⑤</span><b>improbable</b> <span class="ipa">/ɪmˈprɒbəbl/</span></td><td class="e" data-label="词源本义">拉丁 <b>in-</b>「不」+ <b>probabilis</b>「可证明的」（probare 检验）</td><td data-label="在演讲中的含义">不太可能的——他说「我站在这里本身就不寻常」</td></tr>
-<tr><td><span class="n">⑥</span><b>abiding</b> <span class="ipa">/əˈbaɪdɪŋ/</span></td><td class="e" data-label="词源本义">古英语 <b>ābīdan</b>「停留、等待」（a- + bīdan 等待）</td><td data-label="在演讲中的含义">持久的——父母对美国可能性的信念</td></tr>
-<tr><td><span class="n">⑦</span><b>tolerant</b> <span class="ipa">/ˈtɒlərənt/</span></td><td class="e" data-label="词源本义">拉丁 <b>tolerare</b>「忍受、承担」</td><td data-label="在演讲中的含义">宽容的——「在宽容的美国，你的名字不是障碍」</td></tr>
-<tr><td><span class="n">⑧</span><b>barrier</b> <span class="ipa">/ˈbæriə/</span></td><td class="e" data-label="词源本义">古法语 <b>barriere</b>，源自 <b>barre</b>「横木、栅栏」</td><td data-label="在演讲中的含义">障碍——名字不该成为成功的障碍</td></tr>
-<tr><td><span class="n">⑨</span><b>potential</b> <span class="ipa">/pəˈtenʃl/</span></td><td class="e" data-label="词源本义">拉丁 <b>potentia</b>「力量」，源自 <b>posse</b>「能够」</td><td data-label="在演讲中的含义">潜力——「你不必富有也能实现潜力」</td></tr>
-<tr><td><span class="n">⑩</span><b>diversity</b> <span class="ipa">/daɪˈvɜːsəti/</span></td><td class="e" data-label="词源本义">拉丁 <b>diversitas</b>；<b>divertere</b>「转向不同方向」（dis- 分开 + vertere 转）</td><td data-label="在演讲中的含义">多样性——他为自己的混血出身感恩</td></tr>
-<tr><td><span class="n">⑪</span><b>heritage</b> <span class="ipa">/ˈherɪtɪdʒ/</span></td><td class="e" data-label="词源本义">拉丁 <b>heres</b>「继承人」→ hereditare「继承」</td><td data-label="在演讲中的含义">传承、血统——「我为我的血统感恩」</td></tr>
-<tr><td><span class="n">⑫</span><b>affirm</b> <span class="ipa">/əˈfɜːm/</span></td><td class="e" data-label="词源本义">拉丁 <b>affirmare</b>：ad-「朝向」+ <b>firmus</b>「坚固」→ 使坚固、断言</td><td data-label="在演讲中的含义">确认、重申——今晚聚在一起要确认国家的伟大</td></tr>
-<tr><td><span class="n">⑬</span><b>premise</b> <span class="ipa">/ˈpremɪs/</span></td><td class="e" data-label="词源本义">拉丁 <b>praemissa</b>；<b>praemittere</b>「先送出」（prae- 前 + mittere 送）</td><td data-label="在演讲中的含义">前提——「我们的自豪基于一个很简单的前提」</td></tr>
-<tr><td><span class="n">⑭</span><b>self-evident</b> <span class="ipa">/ˌself ˈevɪdənt/</span></td><td class="e" data-label="词源本义">拉丁 <b>evidens</b>：e-「向外」+ <b>videre</b>「看」→ 一看就明白</td><td data-label="在演讲中的含义">不言自明的——《独立宣言》原话</td></tr>
-<tr><td><span class="n">⑮</span><b>inalienable</b> <span class="ipa">/ɪnˈeɪliənəbl/</span></td><td class="e" data-label="词源本义">拉丁 <b>in-</b>「不」+ <b>alienare</b>「转让」（alienus 他人的）</td><td data-label="在演讲中的含义">不可剥夺的——「不可转让的权利」</td></tr>
-<tr><td><span class="n">⑯</span><b>insistence</b> <span class="ipa">/ɪnˈsɪstəns/</span></td><td class="e" data-label="词源本义">拉丁 <b>insistere</b>：in-「在上」+ <b>sistere</b>「站立」→ 站在上面不走</td><td data-label="在演讲中的含义">坚持——「对微小奇迹的坚持」</td></tr>
-<tr><td><span class="n">⑰</span><b>forbearers</b> <span class="ipa">/fɔːˈbeərəz/</span></td><td class="e" data-label="词源本义">古英语 <b>forberan</b>「忍受」→ 先辈（承受过的人）</td><td data-label="在演讲中的含义">祖先、先辈——「对照先辈留下的遗产」</td></tr>
-<tr><td><span class="n">⑱</span><b>retribution</b> <span class="ipa">/ˌretrɪˈbjuːʃn/</span></td><td class="e" data-label="词源本义">拉丁 <b>retribuere</b>：re-「回」+ <b>tribuere</b>「给予」→ 回报、报应</td><td data-label="在演讲中的含义">报复——「不必害怕投票被报复」</td></tr>
-<tr><td><span class="n">⑲</span><b>eradicate</b> <span class="ipa">/ɪˈrædɪkeɪt/</span></td><td class="e" data-label="词源本义">拉丁 <b>eradicare</b>：e-「出」+ <b>radix</b>「根」→ 连根拔起</td><td data-label="在演讲中的含义">根除——「根除『读书的黑人孩子在装白人』这种诽谤」</td></tr>
-<tr><td><span class="n">⑳</span><b>slander</b> <span class="ipa">/ˈslɑːndə/</span></td><td class="e" data-label="词源本义">古法语 <b>esclandre</b>，拉丁 <b>scandalum</b>「绊脚石、丑闻」</td><td data-label="在演讲中的含义">诽谤、中伤——上文那个「读书=装白人」的偏见</td></tr>
-<tr><td><span class="n">㉑</span><b>solemn</b> <span class="ipa">/ˈsɒləm/</span></td><td class="e" data-label="词源本义">拉丁 <b>sollemnis</b>「每年举行的（宗教仪式）」→ 庄严的</td><td data-label="在演讲中的含义">庄严的——「我们负有庄严的义务」</td></tr>
-<tr><td><span class="n">㉒</span><b>obligation</b> <span class="ipa">/ˌɒblɪˈɡeɪʃn/</span></td><td class="e" data-label="词源本义">拉丁 <b>obligatio</b>：ob-「朝向」+ <b>ligare</b>「绑」→ 被绑住的责任</td><td data-label="在演讲中的含义">义务——对待参战军人的责任</td></tr>
-<tr><td><span class="n">㉓</span><b>allegiance</b> <span class="ipa">/əˈliːdʒəns/</span></td><td class="e" data-label="词源本义">古法语 <b>lige</b>「臣属的」→ ligeance「对领主的效忠」</td><td data-label="在演讲中的含义">效忠——「我们都向星条旗宣誓效忠」</td></tr>
-<tr><td><span class="n">㉔</span><b>cynicism</b> <span class="ipa">/ˈsɪnɪsɪzəm/</span></td><td class="e" data-label="词源本义">希腊 <b>kynikos</b>「像狗的」，kynon「狗」——犬儒学派</td><td data-label="在演讲中的含义">愤世嫉俗——「玩世不恭的政治 vs 希望的政治」</td></tr>
-<tr><td><span class="n">㉕</span><b>audacity</b> <span class="ipa">/ɔːˈdæsəti/</span></td><td class="e" data-label="词源本义">拉丁 <b>audacia</b>；<b>audere</b>「敢于」→ 大胆、无畏</td><td data-label="在演讲中的含义">无畏、大胆——全篇的题眼 the audacity of hope</td></tr>
+<tr><td><span class="n">①</span><b class="w" data-audio="2026-09-22-The-Audacity-of-Hope.audio/w001.mp3">gratitude</b> <span class="ipa">/ˈɡrætɪtjuːd/</span></td><td class="e" data-label="词源本义">拉丁 <b>gratus</b>「令人愉快的、心存感激的」→ gratitudo</td><td data-label="在演讲中的含义">感激——开场第一句就是谢意</td></tr>
+<tr><td><span class="n">②</span><b class="w" data-audio="2026-09-22-The-Audacity-of-Hope.audio/w002.mp3">crossroads</b> <span class="ipa">/ˈkrɒsrəʊdz/</span></td><td class="e" data-label="词源本义">cross（交叉）+ road（路）；字面「路交叉的地方」</td><td data-label="在演讲中的含义">十字路口——把伊利诺伊定位成全国的枢纽</td></tr>
+<tr><td><span class="n">③</span><b class="w" data-audio="2026-09-22-The-Audacity-of-Hope.audio/w003.mp3">perseverance</b> <span class="ipa">/ˌpɜːsɪˈvɪərəns/</span></td><td class="e" data-label="词源本义">拉丁 <b>per-</b>「彻底」+ <b>severus</b>「严肃、严格」→ 坚持到底</td><td data-label="在演讲中的含义">坚持不懈——祖父靠它把父亲送出肯尼亚</td></tr>
+<tr><td><span class="n">④</span><b class="w" data-audio="2026-09-22-The-Audacity-of-Hope.audio/w004.mp3">beacon</b> <span class="ipa">/ˈbiːkən/</span></td><td class="e" data-label="词源本义">古英语 <b>bēacen</b>「信号、记号」→ 灯塔、指路明灯</td><td data-label="在演讲中的含义">灯塔——美国在移民心中的形象</td></tr>
+<tr><td><span class="n">⑤</span><b class="w" data-audio="2026-09-22-The-Audacity-of-Hope.audio/w005.mp3">improbable</b> <span class="ipa">/ɪmˈprɒbəbl/</span></td><td class="e" data-label="词源本义">拉丁 <b>in-</b>「不」+ <b>probabilis</b>「可证明的」（probare 检验）</td><td data-label="在演讲中的含义">不太可能的——他说「我站在这里本身就不寻常」</td></tr>
+<tr><td><span class="n">⑥</span><b class="w" data-audio="2026-09-22-The-Audacity-of-Hope.audio/w006.mp3">abiding</b> <span class="ipa">/əˈbaɪdɪŋ/</span></td><td class="e" data-label="词源本义">古英语 <b>ābīdan</b>「停留、等待」（a- + bīdan 等待）</td><td data-label="在演讲中的含义">持久的——父母对美国可能性的信念</td></tr>
+<tr><td><span class="n">⑦</span><b class="w" data-audio="2026-09-22-The-Audacity-of-Hope.audio/w007.mp3">tolerant</b> <span class="ipa">/ˈtɒlərənt/</span></td><td class="e" data-label="词源本义">拉丁 <b>tolerare</b>「忍受、承担」</td><td data-label="在演讲中的含义">宽容的——「在宽容的美国，你的名字不是障碍」</td></tr>
+<tr><td><span class="n">⑧</span><b class="w" data-audio="2026-09-22-The-Audacity-of-Hope.audio/w008.mp3">barrier</b> <span class="ipa">/ˈbæriə/</span></td><td class="e" data-label="词源本义">古法语 <b>barriere</b>，源自 <b>barre</b>「横木、栅栏」</td><td data-label="在演讲中的含义">障碍——名字不该成为成功的障碍</td></tr>
+<tr><td><span class="n">⑨</span><b class="w" data-audio="2026-09-22-The-Audacity-of-Hope.audio/w009.mp3">potential</b> <span class="ipa">/pəˈtenʃl/</span></td><td class="e" data-label="词源本义">拉丁 <b>potentia</b>「力量」，源自 <b>posse</b>「能够」</td><td data-label="在演讲中的含义">潜力——「你不必富有也能实现潜力」</td></tr>
+<tr><td><span class="n">⑩</span><b class="w" data-audio="2026-09-22-The-Audacity-of-Hope.audio/w010.mp3">diversity</b> <span class="ipa">/daɪˈvɜːsəti/</span></td><td class="e" data-label="词源本义">拉丁 <b>diversitas</b>；<b>divertere</b>「转向不同方向」（dis- 分开 + vertere 转）</td><td data-label="在演讲中的含义">多样性——他为自己的混血出身感恩</td></tr>
+<tr><td><span class="n">⑪</span><b class="w" data-audio="2026-09-22-The-Audacity-of-Hope.audio/w011.mp3">heritage</b> <span class="ipa">/ˈherɪtɪdʒ/</span></td><td class="e" data-label="词源本义">拉丁 <b>heres</b>「继承人」→ hereditare「继承」</td><td data-label="在演讲中的含义">传承、血统——「我为我的血统感恩」</td></tr>
+<tr><td><span class="n">⑫</span><b class="w" data-audio="2026-09-22-The-Audacity-of-Hope.audio/w012.mp3">affirm</b> <span class="ipa">/əˈfɜːm/</span></td><td class="e" data-label="词源本义">拉丁 <b>affirmare</b>：ad-「朝向」+ <b>firmus</b>「坚固」→ 使坚固、断言</td><td data-label="在演讲中的含义">确认、重申——今晚聚在一起要确认国家的伟大</td></tr>
+<tr><td><span class="n">⑬</span><b class="w" data-audio="2026-09-22-The-Audacity-of-Hope.audio/w013.mp3">premise</b> <span class="ipa">/ˈpremɪs/</span></td><td class="e" data-label="词源本义">拉丁 <b>praemissa</b>；<b>praemittere</b>「先送出」（prae- 前 + mittere 送）</td><td data-label="在演讲中的含义">前提——「我们的自豪基于一个很简单的前提」</td></tr>
+<tr><td><span class="n">⑭</span><b class="w" data-audio="2026-09-22-The-Audacity-of-Hope.audio/w014.mp3">self-evident</b> <span class="ipa">/ˌself ˈevɪdənt/</span></td><td class="e" data-label="词源本义">拉丁 <b>evidens</b>：e-「向外」+ <b>videre</b>「看」→ 一看就明白</td><td data-label="在演讲中的含义">不言自明的——《独立宣言》原话</td></tr>
+<tr><td><span class="n">⑮</span><b class="w" data-audio="2026-09-22-The-Audacity-of-Hope.audio/w015.mp3">inalienable</b> <span class="ipa">/ɪnˈeɪliənəbl/</span></td><td class="e" data-label="词源本义">拉丁 <b>in-</b>「不」+ <b>alienare</b>「转让」（alienus 他人的）</td><td data-label="在演讲中的含义">不可剥夺的——「不可转让的权利」</td></tr>
+<tr><td><span class="n">⑯</span><b class="w" data-audio="2026-09-22-The-Audacity-of-Hope.audio/w016.mp3">insistence</b> <span class="ipa">/ɪnˈsɪstəns/</span></td><td class="e" data-label="词源本义">拉丁 <b>insistere</b>：in-「在上」+ <b>sistere</b>「站立」→ 站在上面不走</td><td data-label="在演讲中的含义">坚持——「对微小奇迹的坚持」</td></tr>
+<tr><td><span class="n">⑰</span><b class="w" data-audio="2026-09-22-The-Audacity-of-Hope.audio/w017.mp3">forbearers</b> <span class="ipa">/fɔːˈbeərəz/</span></td><td class="e" data-label="词源本义">古英语 <b>forberan</b>「忍受」→ 先辈（承受过的人）</td><td data-label="在演讲中的含义">祖先、先辈——「对照先辈留下的遗产」</td></tr>
+<tr><td><span class="n">⑱</span><b class="w" data-audio="2026-09-22-The-Audacity-of-Hope.audio/w018.mp3">retribution</b> <span class="ipa">/ˌretrɪˈbjuːʃn/</span></td><td class="e" data-label="词源本义">拉丁 <b>retribuere</b>：re-「回」+ <b>tribuere</b>「给予」→ 回报、报应</td><td data-label="在演讲中的含义">报复——「不必害怕投票被报复」</td></tr>
+<tr><td><span class="n">⑲</span><b class="w" data-audio="2026-09-22-The-Audacity-of-Hope.audio/w019.mp3">eradicate</b> <span class="ipa">/ɪˈrædɪkeɪt/</span></td><td class="e" data-label="词源本义">拉丁 <b>eradicare</b>：e-「出」+ <b>radix</b>「根」→ 连根拔起</td><td data-label="在演讲中的含义">根除——「根除『读书的黑人孩子在装白人』这种诽谤」</td></tr>
+<tr><td><span class="n">⑳</span><b class="w" data-audio="2026-09-22-The-Audacity-of-Hope.audio/w020.mp3">slander</b> <span class="ipa">/ˈslɑːndə/</span></td><td class="e" data-label="词源本义">古法语 <b>esclandre</b>，拉丁 <b>scandalum</b>「绊脚石、丑闻」</td><td data-label="在演讲中的含义">诽谤、中伤——上文那个「读书=装白人」的偏见</td></tr>
+<tr><td><span class="n">㉑</span><b class="w" data-audio="2026-09-22-The-Audacity-of-Hope.audio/w021.mp3">solemn</b> <span class="ipa">/ˈsɒləm/</span></td><td class="e" data-label="词源本义">拉丁 <b>sollemnis</b>「每年举行的（宗教仪式）」→ 庄严的</td><td data-label="在演讲中的含义">庄严的——「我们负有庄严的义务」</td></tr>
+<tr><td><span class="n">㉒</span><b class="w" data-audio="2026-09-22-The-Audacity-of-Hope.audio/w022.mp3">obligation</b> <span class="ipa">/ˌɒblɪˈɡeɪʃn/</span></td><td class="e" data-label="词源本义">拉丁 <b>obligatio</b>：ob-「朝向」+ <b>ligare</b>「绑」→ 被绑住的责任</td><td data-label="在演讲中的含义">义务——对待参战军人的责任</td></tr>
+<tr><td><span class="n">㉓</span><b class="w" data-audio="2026-09-22-The-Audacity-of-Hope.audio/w023.mp3">allegiance</b> <span class="ipa">/əˈliːdʒəns/</span></td><td class="e" data-label="词源本义">古法语 <b>lige</b>「臣属的」→ ligeance「对领主的效忠」</td><td data-label="在演讲中的含义">效忠——「我们都向星条旗宣誓效忠」</td></tr>
+<tr><td><span class="n">㉔</span><b class="w" data-audio="2026-09-22-The-Audacity-of-Hope.audio/w024.mp3">cynicism</b> <span class="ipa">/ˈsɪnɪsɪzəm/</span></td><td class="e" data-label="词源本义">希腊 <b>kynikos</b>「像狗的」，kynon「狗」——犬儒学派</td><td data-label="在演讲中的含义">愤世嫉俗——「玩世不恭的政治 vs 希望的政治」</td></tr>
+<tr><td><span class="n">㉕</span><b class="w" data-audio="2026-09-22-The-Audacity-of-Hope.audio/w025.mp3">audacity</b> <span class="ipa">/ɔːˈdæsəti/</span></td><td class="e" data-label="词源本义">拉丁 <b>audacia</b>；<b>audere</b>「敢于」→ 大胆、无畏</td><td data-label="在演讲中的含义">无畏、大胆——全篇的题眼 the audacity of hope</td></tr>
   </tbody>
 </table>
 
@@ -648,23 +654,23 @@
 <h2 class="section">六、名言金句（建议背诵）</h2>
 
 <div class="card">
-  <div class="head"><span class="num">A</span><span class="t">There's not a liberal America and a conservative America — there is the United States of America.</span></div>
+  <div class="head"><span class="num">A</span><span class="t quote" data-audio="2026-09-22-The-Audacity-of-Hope.audio/q001.mp3">There's not a liberal America and a conservative America — there is the United States of America.</span></div>
   <div class="why">全篇最著名的一句。用<b>对偶</b>一次性否定「红州蓝州」的分类框架：前半句连说两个「不是」，破折号后只给一个「是」。值得整句背下来，可以套用到任何「不要用标签把人分开」的场合。</div>
 </div>
 <div class="card">
-  <div class="head"><span class="num">B</span><span class="t">We are one people, all of us pledging allegiance to the stars and stripes, all of us defending the United States of America.</span></div>
+  <div class="head"><span class="num">B</span><span class="t quote" data-audio="2026-09-22-The-Audacity-of-Hope.audio/q002.mp3">We are one people, all of us pledging allegiance to the stars and stripes, all of us defending the United States of America.</span></div>
   <div class="why">排比的收束句。`all of us…, all of us…` 两个并列短语把「one people」落到实处。注意 pledge allegiance to 是固定搭配（向…宣誓效忠），宾语常是 flag / country。</div>
 </div>
 <div class="card">
-  <div class="head"><span class="num">C</span><span class="t">Hope in the face of difficulty, hope in the face of uncertainty, the audacity of hope.</span></div>
+  <div class="head"><span class="num">C</span><span class="t quote" data-audio="2026-09-22-The-Audacity-of-Hope.audio/q003.mp3">Hope in the face of difficulty, hope in the face of uncertainty, the audacity of hope.</span></div>
   <div class="why">三连递进：前两个是「在…之中的希望」，第三个直接换成名词短语 <b>the audacity of hope</b>，把「希望」升级成「无畏」。in the face of 是高频搭配（面对…）。</div>
 </div>
 <div class="card">
-  <div class="head"><span class="num">D</span><span class="t">I am my brother's keeper, I am my sister's keeper.</span></div>
+  <div class="head"><span class="num">D</span><span class="t quote" data-audio="2026-09-22-The-Audacity-of-Hope.audio/q004.mp3">I am my brother's keeper, I am my sister's keeper.</span></div>
   <div class="why">引《创世记》该隐之问的回答，把「我们彼此相连」从政治命题提到伦理层面。连说两次（brother / sister）扩大覆盖面，念时要慢、要重。</div>
 </div>
 <div class="card">
-  <div class="head"><span class="num">E</span><span class="t">Out of this long political darkness a brighter day will come.</span></div>
+  <div class="head"><span class="num">E</span><span class="t quote" data-audio="2026-09-22-The-Audacity-of-Hope.audio/q005.mp3">Out of this long political darkness a brighter day will come.</span></div>
   <div class="why">结尾句。`Out of …` 置于句首的介词短语制造悬念，darkness 与 brighter day 形成明暗对偶。适合背下来做「困难之后会好起来」的表达模板。</div>
 </div>
 
@@ -714,6 +720,7 @@
 </div>
 
 <div class="footer">The Audacity of Hope ｜ 全文精读 + 词源 + 修辞 + 跟读 ｜ 👋</div>
+
 </body>
 <script>
 
@@ -813,6 +820,7 @@
     window.scrollTo({ top: 0, behavior: "smooth" });
   });
 })();
+/* ra-js-start */
 /* ---------- 朗读：优先系统语音（电脑/手机自带），无系统语音时才用预生成音频 ---------- */
 (function () {
   var ICON_SPEAKER = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5 6 9H3v6h3l5 4V5z"/><path d="M15.5 8.5a5 5 0 0 1 0 7"/><path d="M18.5 5.5a9 9 0 0 1 0 13"/></svg>';
@@ -821,7 +829,9 @@
   var ICON_STOP = '<svg viewBox="0 0 24 24" fill="currentColor" stroke="none" aria-hidden="true"><rect x="6" y="6" width="12" height="12" rx="2"/></svg>';
 
   var sents = Array.prototype.slice.call(document.querySelectorAll(".speech .sent"));
-  if (!sents.length) return;
+  /* 注意：**不要**在没有 .sent 时直接 return —— 词源表单词与名言金句也要挂 🔊，
+     一旦早退，只有词表/金句的片段页（或节选页）就会整个失效。
+     只有底部「朗读全文」才真正依赖句子，见下面的 sents.length 判断。 */
 
   var synth = ("speechSynthesis" in window) ? window.speechSynthesis : null;
   var audio = new Audio();
@@ -902,57 +912,77 @@
   }
 
   sents.forEach(function (sent) {
-    var b = document.createElement("button");
-    b.type = "button"; b.className = "say";
-    b.innerHTML = ICON_SPEAKER;
-    b.title = "朗读这句"; b.setAttribute("aria-label", "朗读这句");
-    b.addEventListener("click", function (e) {
-      e.stopPropagation(); e.preventDefault();
-      if (b.classList.contains("speaking")) { stopAll(); return; }
-      stopAll();
-      speakSentence(sent, b, function () { if (currentBtn === b) clearMark(); });
-    });
+    var b = makeSayBtn(sent);
     var p = sent.querySelector(".pnum");
     if (p) p.parentNode.insertBefore(b, p.nextSibling);
     else sent.insertBefore(b, sent.firstChild);
   });
 
-  var bar = document.createElement("div");
-  bar.id = "tts-bar";
-  bar.innerHTML = '<button data-act="play">' + ICON_PLAY + ' 朗读全文</button>' +
-                  '<button data-act="stop">' + ICON_STOP + ' 停止</button>' +
-                  '<button data-act="rate" class="rate">0.95\u00D7</button>';
-  document.body.appendChild(bar);
+  /* 词源表的单词、名言金句也挂 🔊：优先系统语音，缺失时回放预生成的 MP3。
+     与逐句朗读同一套逻辑，只是按钮更小、跟在词/句后面。 */
+  function inlineSay(el) {
+    var b = makeSayBtn(el);
+    el.parentNode.insertBefore(b, el.nextSibling);
+  }
+  Array.prototype.forEach.call(document.querySelectorAll("b.w"), inlineSay);
+  Array.prototype.forEach.call(document.querySelectorAll(".card .head .t.quote"), inlineSay);
+
+  function makeSayBtn(target) {
+    var b = document.createElement("button");
+    b.type = "button"; b.className = "say";
+    b.innerHTML = ICON_SPEAKER;
+    b.title = "朗读"; b.setAttribute("aria-label", "朗读");
+    b.addEventListener("click", function (e) {
+      e.stopPropagation(); e.preventDefault();
+      if (b.classList.contains("speaking")) { stopAll(); return; }
+      stopAll();
+      speakSentence(target, b, function () { if (currentBtn === b) clearMark(); });
+    });
+    return b;
+  }
+
+  /* 底部「朗读全文」控制条只在有逐句内容时出现；没有句子时 updateBar 安全返回 */
+  var bar = null;
   function updateBar() {
+    if (!bar) return;
     var pb = bar.querySelector('[data-act="play"]');
     pb.innerHTML = (playing && !paused) ? (ICON_PAUSE + " 暂停")
                  : (paused ? (ICON_PLAY + " 继续") : (ICON_PLAY + " 朗读全文"));
   }
-  bar.addEventListener("click", function (e) {
-    var btn = e.target.closest ? e.target.closest("button") : null;
-    if (!btn) return;
-    var act = btn.getAttribute("data-act");
-    if (act === "play") {
-      if (playing && !paused) {
-        paused = true;
-        if (mode === "audio") { try { audio.pause(); } catch (err) {} }
-        if (synth && synth.speaking) { try { synth.pause(); } catch (err) {} }
-        updateBar();
-      } else if (playing && paused) {
-        paused = false;
-        if (mode === "audio") { try { audio.play(); } catch (err) {} }
-        if (synth && synth.paused) { try { synth.resume(); } catch (err) {} }
-        updateBar();
-      } else { playAll(); }
-    } else if (act === "stop") {
-      stopAll();
-    } else if (act === "rate") {
-      rate = rate >= 1.3 ? 0.8 : Math.round((rate + 0.1) * 100) / 100;
-      btn.textContent = rate.toFixed(2) + "\u00D7";
-      audio.playbackRate = rate;
-    }
-  });
+  if (sents.length) {
+    bar = document.createElement("div");
+    bar.id = "tts-bar";
+    bar.innerHTML = '<button data-act="play">' + ICON_PLAY + ' 朗读全文</button>' +
+                    '<button data-act="stop">' + ICON_STOP + ' 停止</button>' +
+                    '<button data-act="rate" class="rate">0.95\u00D7</button>';
+    document.body.appendChild(bar);
+    bar.addEventListener("click", function (e) {
+      var btn = e.target.closest ? e.target.closest("button") : null;
+      if (!btn) return;
+      var act = btn.getAttribute("data-act");
+      if (act === "play") {
+        if (playing && !paused) {
+          paused = true;
+          if (mode === "audio") { try { audio.pause(); } catch (err) {} }
+          if (synth && synth.speaking) { try { synth.pause(); } catch (err) {} }
+          updateBar();
+        } else if (playing && paused) {
+          paused = false;
+          if (mode === "audio") { try { audio.play(); } catch (err) {} }
+          if (synth && synth.paused) { try { synth.resume(); } catch (err) {} }
+          updateBar();
+        } else { playAll(); }
+      } else if (act === "stop") {
+        stopAll();
+      } else if (act === "rate") {
+        rate = rate >= 1.3 ? 0.8 : Math.round((rate + 0.1) * 100) / 100;
+        btn.textContent = rate.toFixed(2) + "\u00D7";
+        audio.playbackRate = rate;
+      }
+    });
+  }
 })();
+/* ra-js-end */
 
 </script>
 </html>

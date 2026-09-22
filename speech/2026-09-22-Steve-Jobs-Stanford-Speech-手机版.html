@@ -289,6 +289,12 @@
 .say.speaking{ background:#b91c1c; border-color:#b91c1c; color:#fff; }
 .say svg{ width:14px; height:14px; display:block; }
 
+/* 词源表单词 / 名言金句旁的小号按钮（inline，跟在词或句子后面） */
+#vocab .say, .card .head .say{
+  width:17px; height:17px; margin:0 0 0 7px; vertical-align:-3px;
+}
+#vocab .say svg, .card .head .say svg{ width:10px; height:10px; }
+
 #tts-bar{
   position:fixed; right:16px; bottom:16px; z-index:950;
   display:flex; align-items:center; gap:4px;
@@ -628,30 +634,30 @@
     <tr><th style="width:16%">单词</th><th style="width:44%">词源本义</th><th>在演讲中的含义</th></tr>
   </thead>
   <tbody>
-<tr><td><span class="n">①</span><b>honored</b> <span class="ipa">/ˈɒnəd/</span></td><td class="e" data-label="词源本义">拉丁 <b>honor</b>「荣誉、尊敬」</td><td data-label="在演讲中的含义">感到荣幸（I'm honored to… 正式场合的谦敬开场）</td></tr>
-<tr><td><span class="n">②</span><b>commencement</b> <span class="ipa">/kəˈmensmənt/</span></td><td class="e" data-label="词源本义">拉丁 <b>com-</b>「一起」+ <b>initiare</b>「开始」→「共同开启」</td><td data-label="在演讲中的含义">毕业典礼——学业告一段落、人生新阶段“开始”</td></tr>
-<tr><td><span class="n">③</span><b>naively</b> <span class="ipa">/naɪˈiːvli/</span></td><td class="e" data-label="词源本义">拉丁 <b>nativus</b>「天生的、自然的」（与 native 同族）→ 未谙世事</td><td data-label="在演讲中的含义">天真地——选了和斯坦福一样贵的学校，事后看很傻</td></tr>
-<tr><td><span class="n">④</span><b>tuition</b> <span class="ipa">/tjuˈɪʃn/</span></td><td class="e" data-label="词源本义">拉丁 <b>tueri</b>「看护、保护」→ 原指“监护之责”</td><td data-label="在演讲中的含义">学费——父母把一生积蓄都花在这上面</td></tr>
-<tr><td><span class="n">⑤</span><b>intuition</b> <span class="ipa">/ˌɪntjuˈɪʃn/</span></td><td class="e" data-label="词源本义">拉丁 <b>in-</b>「向内」+ <b>tueri</b>「看」→「内在的注视」</td><td data-label="在演讲中的含义">直觉——不靠推理、内心直接给出的判断</td></tr>
-<tr><td><span class="n">⑥</span><b>calligraphy</b> <span class="ipa">/kəˈlɪɡrəfi/</span></td><td class="e" data-label="词源本义">希腊 <b>kallos</b>「美」+ <b>graphein</b>「写」→「美的书写」</td><td data-label="在演讲中的含义">书法——里德学院那门改变 Mac 字体的课</td></tr>
-<tr><td><span class="n">⑦</span><b>serif</b> <span class="ipa">/ˈserɪf/</span></td><td class="e" data-label="词源本义">荷兰语 <b>schreef</b>「一笔、刻线」</td><td data-label="在演讲中的含义">衬线——字母笔画末端的装饰短线（sans-serif 即“无衬线”）</td></tr>
-<tr><td><span class="n">⑧</span><b>typography</b> <span class="ipa">/taɪˈpɒɡrəfi/</span></td><td class="e" data-label="词源本义">希腊 <b>typos</b>「印记、字形」+ <b>graphein</b>「写」</td><td data-label="在演讲中的含义">排版——Mac 首创的优美字体排印</td></tr>
-<tr><td><span class="n">⑨</span><b>destiny</b> <span class="ipa">/ˈdestəni/</span></td><td class="e" data-label="词源本义">拉丁 <b>destinare</b>「固定、确定」→ 早已定下的事</td><td data-label="在演讲中的含义">命运——“相信点什么：直觉、命运、人生、因果”</td></tr>
-<tr><td><span class="n">⑩</span><b>karma</b> <span class="ipa">/ˈkɑːmə/</span></td><td class="e" data-label="词源本义">梵语 <b>karman</b>「行为、业」</td><td data-label="在演讲中的含义">因果、业力——乔布斯列举的“可信仰之物”之一</td></tr>
-<tr><td><span class="n">⑪</span><b>entrepreneur</b> <span class="ipa">/ˌɒntrəprəˈnɜː/</span></td><td class="e" data-label="词源本义">法语 <b>entreprendre</b>「承担、着手去做」</td><td data-label="在演讲中的含义">企业家——敢于扛起风险去开创的人</td></tr>
-<tr><td><span class="n">⑫</span><b>baton</b> <span class="ipa">/ˈbætɒn/</span></td><td class="e" data-label="词源本义">法语 <b>bâton</b>「棍、杖」</td><td data-label="在演讲中的含义">接力棒——“我觉得自己把传给下一代企业家的接力棒掉了”</td></tr>
-<tr><td><span class="n">⑬</span><b>devastating</b> <span class="ipa">/ˈdevəsteɪtɪŋ/</span></td><td class="e" data-label="词源本义">拉丁 <b>de-</b>「彻底」+ <b>vastare</b>「使荒芜」</td><td data-label="在演讲中的含义">毁灭性的——被自己创办的公司开除时的心情</td></tr>
-<tr><td><span class="n">⑭</span><b>renaissance</b> <span class="ipa">/rɪˈneɪsns/</span></td><td class="e" data-label="词源本义">法语 <b>re-</b>「再」+ <b>naissance</b>「出生」→「重生」</td><td data-label="在演讲中的含义">复兴——NeXT 技术成为苹果重生的核心</td></tr>
-<tr><td><span class="n">⑮</span><b>dogma</b> <span class="ipa">/ˈdɒɡmə/</span></td><td class="e" data-label="词源本义">希腊 <b>dogma</b>「意见、信条」</td><td data-label="在演讲中的含义">教条——“别被教条困住，那是别人思考的结论”</td></tr>
-<tr><td><span class="n">⑯</span><b>endoscope</b> <span class="ipa">/ˈendəskəʊp/</span></td><td class="e" data-label="词源本义">希腊 <b>endon</b>「内」+ <b>skopein</b>「看」</td><td data-label="在演讲中的含义">内窥镜——从喉咙伸入体内取活检的管子</td></tr>
-<tr><td><span class="n">⑰</span><b>pancreas</b> <span class="ipa">/ˈpæŋkriəs/</span></td><td class="e" data-label="词源本义">希腊 <b>pan</b>「全」+ <b>kreas</b>「肉」→「全肉之腺」</td><td data-label="在演讲中的含义">胰腺——他被查出肿瘤的器官</td></tr>
-<tr><td><span class="n">⑱</span><b>biopsy</b> <span class="ipa">/ˈbaɪɒpsi/</span></td><td class="e" data-label="词源本义">希腊 <b>bios</b>「生命」+ <b>opsis</b>「看」</td><td data-label="在演讲中的含义">活检——取活体组织检验</td></tr>
-<tr><td><span class="n">⑲</span><b>sedated</b> <span class="ipa">/sɪˈdeɪtɪd/</span></td><td class="e" data-label="词源本义">拉丁 <b>sedare</b>「使平静、安抚」</td><td data-label="在演讲中的含义">被镇静的——做内窥镜时的麻醉状态</td></tr>
-<tr><td><span class="n">⑳</span><b>incurable</b> <span class="ipa">/ɪnˈkjʊərəbl/</span></td><td class="e" data-label="词源本义">拉丁 <b>in-</b>「不」+ <b>curare</b>「治疗、关心」</td><td data-label="在演讲中的含义">无法治愈的——医生最初的判断</td></tr>
-<tr><td><span class="n">㉑</span><b>intellectual</b> <span class="ipa">/ˌɪntəˈlektʃuəl/</span></td><td class="e" data-label="词源本义">拉丁 <b>inter-</b>「之间」+ <b>legere</b>「挑选、读」→「在万物间挑选辨别的能力」</td><td data-label="在演讲中的含义">智力的——“死亡从纯粹概念变成切身体会”</td></tr>
-<tr><td><span class="n">㉒</span><b>idealistic</b> <span class="ipa">/ˌaɪdiəˈlɪstɪk/</span></td><td class="e" data-label="词源本义">希腊 <b>idea</b>「形象、理念」</td><td data-label="在演讲中的含义">理想主义的——《全球概览》的气质</td></tr>
-<tr><td><span class="n">㉓</span><b>adventurous</b> <span class="ipa">/ədˈventʃərəs/</span></td><td class="e" data-label="词源本义">拉丁 <b>ad-</b>「向」+ <b>venire</b>「来」→「迎向将要到来之事」</td><td data-label="在演讲中的含义">爱冒险的——“如果你够胆，就会在乡间小路搭车”</td></tr>
-<tr><td><span class="n">㉔</span><b>farewell</b> <span class="ipa">/ˌfeəˈwel/</span></td><td class="e" data-label="词源本义">中古英语 <b>fare</b>「行、走」+ <b>well</b>「好」→「走好」</td><td data-label="在演讲中的含义">告别——《全球概览》停刊时的临别寄语</td></tr>
+<tr><td><span class="n">①</span><b class="w" data-audio="2026-09-22-Steve-Jobs-Stanford-Speech.audio/w001.mp3">honored</b> <span class="ipa">/ˈɒnəd/</span></td><td class="e" data-label="词源本义">拉丁 <b>honor</b>「荣誉、尊敬」</td><td data-label="在演讲中的含义">感到荣幸（I'm honored to… 正式场合的谦敬开场）</td></tr>
+<tr><td><span class="n">②</span><b class="w" data-audio="2026-09-22-Steve-Jobs-Stanford-Speech.audio/w002.mp3">commencement</b> <span class="ipa">/kəˈmensmənt/</span></td><td class="e" data-label="词源本义">拉丁 <b>com-</b>「一起」+ <b>initiare</b>「开始」→「共同开启」</td><td data-label="在演讲中的含义">毕业典礼——学业告一段落、人生新阶段“开始”</td></tr>
+<tr><td><span class="n">③</span><b class="w" data-audio="2026-09-22-Steve-Jobs-Stanford-Speech.audio/w003.mp3">naively</b> <span class="ipa">/naɪˈiːvli/</span></td><td class="e" data-label="词源本义">拉丁 <b>nativus</b>「天生的、自然的」（与 native 同族）→ 未谙世事</td><td data-label="在演讲中的含义">天真地——选了和斯坦福一样贵的学校，事后看很傻</td></tr>
+<tr><td><span class="n">④</span><b class="w" data-audio="2026-09-22-Steve-Jobs-Stanford-Speech.audio/w004.mp3">tuition</b> <span class="ipa">/tjuˈɪʃn/</span></td><td class="e" data-label="词源本义">拉丁 <b>tueri</b>「看护、保护」→ 原指“监护之责”</td><td data-label="在演讲中的含义">学费——父母把一生积蓄都花在这上面</td></tr>
+<tr><td><span class="n">⑤</span><b class="w" data-audio="2026-09-22-Steve-Jobs-Stanford-Speech.audio/w005.mp3">intuition</b> <span class="ipa">/ˌɪntjuˈɪʃn/</span></td><td class="e" data-label="词源本义">拉丁 <b>in-</b>「向内」+ <b>tueri</b>「看」→「内在的注视」</td><td data-label="在演讲中的含义">直觉——不靠推理、内心直接给出的判断</td></tr>
+<tr><td><span class="n">⑥</span><b class="w" data-audio="2026-09-22-Steve-Jobs-Stanford-Speech.audio/w006.mp3">calligraphy</b> <span class="ipa">/kəˈlɪɡrəfi/</span></td><td class="e" data-label="词源本义">希腊 <b>kallos</b>「美」+ <b>graphein</b>「写」→「美的书写」</td><td data-label="在演讲中的含义">书法——里德学院那门改变 Mac 字体的课</td></tr>
+<tr><td><span class="n">⑦</span><b class="w" data-audio="2026-09-22-Steve-Jobs-Stanford-Speech.audio/w007.mp3">serif</b> <span class="ipa">/ˈserɪf/</span></td><td class="e" data-label="词源本义">荷兰语 <b>schreef</b>「一笔、刻线」</td><td data-label="在演讲中的含义">衬线——字母笔画末端的装饰短线（sans-serif 即“无衬线”）</td></tr>
+<tr><td><span class="n">⑧</span><b class="w" data-audio="2026-09-22-Steve-Jobs-Stanford-Speech.audio/w008.mp3">typography</b> <span class="ipa">/taɪˈpɒɡrəfi/</span></td><td class="e" data-label="词源本义">希腊 <b>typos</b>「印记、字形」+ <b>graphein</b>「写」</td><td data-label="在演讲中的含义">排版——Mac 首创的优美字体排印</td></tr>
+<tr><td><span class="n">⑨</span><b class="w" data-audio="2026-09-22-Steve-Jobs-Stanford-Speech.audio/w009.mp3">destiny</b> <span class="ipa">/ˈdestəni/</span></td><td class="e" data-label="词源本义">拉丁 <b>destinare</b>「固定、确定」→ 早已定下的事</td><td data-label="在演讲中的含义">命运——“相信点什么：直觉、命运、人生、因果”</td></tr>
+<tr><td><span class="n">⑩</span><b class="w" data-audio="2026-09-22-Steve-Jobs-Stanford-Speech.audio/w010.mp3">karma</b> <span class="ipa">/ˈkɑːmə/</span></td><td class="e" data-label="词源本义">梵语 <b>karman</b>「行为、业」</td><td data-label="在演讲中的含义">因果、业力——乔布斯列举的“可信仰之物”之一</td></tr>
+<tr><td><span class="n">⑪</span><b class="w" data-audio="2026-09-22-Steve-Jobs-Stanford-Speech.audio/w011.mp3">entrepreneur</b> <span class="ipa">/ˌɒntrəprəˈnɜː/</span></td><td class="e" data-label="词源本义">法语 <b>entreprendre</b>「承担、着手去做」</td><td data-label="在演讲中的含义">企业家——敢于扛起风险去开创的人</td></tr>
+<tr><td><span class="n">⑫</span><b class="w" data-audio="2026-09-22-Steve-Jobs-Stanford-Speech.audio/w012.mp3">baton</b> <span class="ipa">/ˈbætɒn/</span></td><td class="e" data-label="词源本义">法语 <b>bâton</b>「棍、杖」</td><td data-label="在演讲中的含义">接力棒——“我觉得自己把传给下一代企业家的接力棒掉了”</td></tr>
+<tr><td><span class="n">⑬</span><b class="w" data-audio="2026-09-22-Steve-Jobs-Stanford-Speech.audio/w013.mp3">devastating</b> <span class="ipa">/ˈdevəsteɪtɪŋ/</span></td><td class="e" data-label="词源本义">拉丁 <b>de-</b>「彻底」+ <b>vastare</b>「使荒芜」</td><td data-label="在演讲中的含义">毁灭性的——被自己创办的公司开除时的心情</td></tr>
+<tr><td><span class="n">⑭</span><b class="w" data-audio="2026-09-22-Steve-Jobs-Stanford-Speech.audio/w014.mp3">renaissance</b> <span class="ipa">/rɪˈneɪsns/</span></td><td class="e" data-label="词源本义">法语 <b>re-</b>「再」+ <b>naissance</b>「出生」→「重生」</td><td data-label="在演讲中的含义">复兴——NeXT 技术成为苹果重生的核心</td></tr>
+<tr><td><span class="n">⑮</span><b class="w" data-audio="2026-09-22-Steve-Jobs-Stanford-Speech.audio/w015.mp3">dogma</b> <span class="ipa">/ˈdɒɡmə/</span></td><td class="e" data-label="词源本义">希腊 <b>dogma</b>「意见、信条」</td><td data-label="在演讲中的含义">教条——“别被教条困住，那是别人思考的结论”</td></tr>
+<tr><td><span class="n">⑯</span><b class="w" data-audio="2026-09-22-Steve-Jobs-Stanford-Speech.audio/w016.mp3">endoscope</b> <span class="ipa">/ˈendəskəʊp/</span></td><td class="e" data-label="词源本义">希腊 <b>endon</b>「内」+ <b>skopein</b>「看」</td><td data-label="在演讲中的含义">内窥镜——从喉咙伸入体内取活检的管子</td></tr>
+<tr><td><span class="n">⑰</span><b class="w" data-audio="2026-09-22-Steve-Jobs-Stanford-Speech.audio/w017.mp3">pancreas</b> <span class="ipa">/ˈpæŋkriəs/</span></td><td class="e" data-label="词源本义">希腊 <b>pan</b>「全」+ <b>kreas</b>「肉」→「全肉之腺」</td><td data-label="在演讲中的含义">胰腺——他被查出肿瘤的器官</td></tr>
+<tr><td><span class="n">⑱</span><b class="w" data-audio="2026-09-22-Steve-Jobs-Stanford-Speech.audio/w018.mp3">biopsy</b> <span class="ipa">/ˈbaɪɒpsi/</span></td><td class="e" data-label="词源本义">希腊 <b>bios</b>「生命」+ <b>opsis</b>「看」</td><td data-label="在演讲中的含义">活检——取活体组织检验</td></tr>
+<tr><td><span class="n">⑲</span><b class="w" data-audio="2026-09-22-Steve-Jobs-Stanford-Speech.audio/w019.mp3">sedated</b> <span class="ipa">/sɪˈdeɪtɪd/</span></td><td class="e" data-label="词源本义">拉丁 <b>sedare</b>「使平静、安抚」</td><td data-label="在演讲中的含义">被镇静的——做内窥镜时的麻醉状态</td></tr>
+<tr><td><span class="n">⑳</span><b class="w" data-audio="2026-09-22-Steve-Jobs-Stanford-Speech.audio/w020.mp3">incurable</b> <span class="ipa">/ɪnˈkjʊərəbl/</span></td><td class="e" data-label="词源本义">拉丁 <b>in-</b>「不」+ <b>curare</b>「治疗、关心」</td><td data-label="在演讲中的含义">无法治愈的——医生最初的判断</td></tr>
+<tr><td><span class="n">㉑</span><b class="w" data-audio="2026-09-22-Steve-Jobs-Stanford-Speech.audio/w021.mp3">intellectual</b> <span class="ipa">/ˌɪntəˈlektʃuəl/</span></td><td class="e" data-label="词源本义">拉丁 <b>inter-</b>「之间」+ <b>legere</b>「挑选、读」→「在万物间挑选辨别的能力」</td><td data-label="在演讲中的含义">智力的——“死亡从纯粹概念变成切身体会”</td></tr>
+<tr><td><span class="n">㉒</span><b class="w" data-audio="2026-09-22-Steve-Jobs-Stanford-Speech.audio/w022.mp3">idealistic</b> <span class="ipa">/ˌaɪdiəˈlɪstɪk/</span></td><td class="e" data-label="词源本义">希腊 <b>idea</b>「形象、理念」</td><td data-label="在演讲中的含义">理想主义的——《全球概览》的气质</td></tr>
+<tr><td><span class="n">㉓</span><b class="w" data-audio="2026-09-22-Steve-Jobs-Stanford-Speech.audio/w023.mp3">adventurous</b> <span class="ipa">/ədˈventʃərəs/</span></td><td class="e" data-label="词源本义">拉丁 <b>ad-</b>「向」+ <b>venire</b>「来」→「迎向将要到来之事」</td><td data-label="在演讲中的含义">爱冒险的——“如果你够胆，就会在乡间小路搭车”</td></tr>
+<tr><td><span class="n">㉔</span><b class="w" data-audio="2026-09-22-Steve-Jobs-Stanford-Speech.audio/w024.mp3">farewell</b> <span class="ipa">/ˌfeəˈwel/</span></td><td class="e" data-label="词源本义">中古英语 <b>fare</b>「行、走」+ <b>well</b>「好」→「走好」</td><td data-label="在演讲中的含义">告别——《全球概览》停刊时的临别寄语</td></tr>
   </tbody>
 </table>
 
@@ -704,23 +710,23 @@
 <h2 class="section">六、名言金句（建议背诵）</h2>
 
 <div class="card">
-  <div class="head"><span class="num">A</span><span class="t">You've got to find what you love. … If you haven't found it yet, keep looking — and don't settle.</span></div>
+  <div class="head"><span class="num">A</span><span class="t quote" data-audio="2026-09-22-Steve-Jobs-Stanford-Speech.audio/q001.mp3">You've got to find what you love. … If you haven't found it yet, keep looking — and don't settle.</span></div>
   <div class="why">💎 全篇最被传诵的劝勉：把“爱”当作职业选择的第一原则，末尾 <span class="refrain settle">don't settle</span> 三个词收得极重。</div>
 </div>
 <div class="card">
-  <div class="head"><span class="num">B</span><span class="t">Your time is limited, so don't waste it living someone else's life.</span></div>
+  <div class="head"><span class="num">B</span><span class="t quote" data-audio="2026-09-22-Steve-Jobs-Stanford-Speech.audio/q002.mp3">Your time is limited, so don't waste it living someone else's life.</span></div>
   <div class="why">💎 短句 + 祈使，直击人心；“living someone else's life” 是极精准的动名词短语。</div>
 </div>
 <div class="card">
-  <div class="head"><span class="num">C</span><span class="t">Remembering that you are going to die is the best way I know to avoid the trap of thinking you have something to lose. You are already naked.</span></div>
+  <div class="head"><span class="num">C</span><span class="t quote" data-audio="2026-09-22-Steve-Jobs-Stanford-Speech.audio/q003.mp3">Remembering that you are going to die is the best way I know to avoid the trap of thinking you have something to lose. You are already naked.</span></div>
   <div class="why">💎 用死亡反衬自由：naked（赤条条）与 lose（失去）构成对偶，一句点醒。</div>
 </div>
 <div class="card">
-  <div class="head"><span class="num">D</span><span class="t">The only way to do great work is to love what you do.</span></div>
+  <div class="head"><span class="num">D</span><span class="t quote" data-audio="2026-09-22-Steve-Jobs-Stanford-Speech.audio/q004.mp3">The only way to do great work is to love what you do.</span></div>
   <div class="why">💎 “the only way to … is to …” 是英语里最好用的“唯一途径”句型。</div>
 </div>
 <div class="card">
-  <div class="head"><span class="num">E</span><span class="t">Stay Hungry. Stay Foolish.</span></div>
+  <div class="head"><span class="num">E</span><span class="t quote" data-audio="2026-09-22-Steve-Jobs-Stanford-Speech.audio/q005.mp3">Stay Hungry. Stay Foolish.</span></div>
   <div class="why">💎 英语演讲最著名的结尾之一：两个祈使句、四个词，对偶 + 反复，念完余音不散。</div>
 </div>
 
@@ -771,6 +777,7 @@
 </div>
 
 <div class="footer">Stay Hungry. Stay Foolish. · Steve Jobs 2005 Stanford ｜ 全文精读 + 词源 + 修辞 + 跟读 ｜ 👋</div>
+
 </body>
 <script>
 
@@ -870,6 +877,7 @@
     window.scrollTo({ top: 0, behavior: "smooth" });
   });
 })();
+/* ra-js-start */
 /* ---------- 朗读：优先系统语音（电脑/手机自带），无系统语音时才用预生成音频 ---------- */
 (function () {
   var ICON_SPEAKER = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5 6 9H3v6h3l5 4V5z"/><path d="M15.5 8.5a5 5 0 0 1 0 7"/><path d="M18.5 5.5a9 9 0 0 1 0 13"/></svg>';
@@ -878,7 +886,9 @@
   var ICON_STOP = '<svg viewBox="0 0 24 24" fill="currentColor" stroke="none" aria-hidden="true"><rect x="6" y="6" width="12" height="12" rx="2"/></svg>';
 
   var sents = Array.prototype.slice.call(document.querySelectorAll(".speech .sent"));
-  if (!sents.length) return;
+  /* 注意：**不要**在没有 .sent 时直接 return —— 词源表单词与名言金句也要挂 🔊，
+     一旦早退，只有词表/金句的片段页（或节选页）就会整个失效。
+     只有底部「朗读全文」才真正依赖句子，见下面的 sents.length 判断。 */
 
   var synth = ("speechSynthesis" in window) ? window.speechSynthesis : null;
   var audio = new Audio();
@@ -959,57 +969,77 @@
   }
 
   sents.forEach(function (sent) {
-    var b = document.createElement("button");
-    b.type = "button"; b.className = "say";
-    b.innerHTML = ICON_SPEAKER;
-    b.title = "朗读这句"; b.setAttribute("aria-label", "朗读这句");
-    b.addEventListener("click", function (e) {
-      e.stopPropagation(); e.preventDefault();
-      if (b.classList.contains("speaking")) { stopAll(); return; }
-      stopAll();
-      speakSentence(sent, b, function () { if (currentBtn === b) clearMark(); });
-    });
+    var b = makeSayBtn(sent);
     var p = sent.querySelector(".pnum");
     if (p) p.parentNode.insertBefore(b, p.nextSibling);
     else sent.insertBefore(b, sent.firstChild);
   });
 
-  var bar = document.createElement("div");
-  bar.id = "tts-bar";
-  bar.innerHTML = '<button data-act="play">' + ICON_PLAY + ' 朗读全文</button>' +
-                  '<button data-act="stop">' + ICON_STOP + ' 停止</button>' +
-                  '<button data-act="rate" class="rate">0.95\u00D7</button>';
-  document.body.appendChild(bar);
+  /* 词源表的单词、名言金句也挂 🔊：优先系统语音，缺失时回放预生成的 MP3。
+     与逐句朗读同一套逻辑，只是按钮更小、跟在词/句后面。 */
+  function inlineSay(el) {
+    var b = makeSayBtn(el);
+    el.parentNode.insertBefore(b, el.nextSibling);
+  }
+  Array.prototype.forEach.call(document.querySelectorAll("b.w"), inlineSay);
+  Array.prototype.forEach.call(document.querySelectorAll(".card .head .t.quote"), inlineSay);
+
+  function makeSayBtn(target) {
+    var b = document.createElement("button");
+    b.type = "button"; b.className = "say";
+    b.innerHTML = ICON_SPEAKER;
+    b.title = "朗读"; b.setAttribute("aria-label", "朗读");
+    b.addEventListener("click", function (e) {
+      e.stopPropagation(); e.preventDefault();
+      if (b.classList.contains("speaking")) { stopAll(); return; }
+      stopAll();
+      speakSentence(target, b, function () { if (currentBtn === b) clearMark(); });
+    });
+    return b;
+  }
+
+  /* 底部「朗读全文」控制条只在有逐句内容时出现；没有句子时 updateBar 安全返回 */
+  var bar = null;
   function updateBar() {
+    if (!bar) return;
     var pb = bar.querySelector('[data-act="play"]');
     pb.innerHTML = (playing && !paused) ? (ICON_PAUSE + " 暂停")
                  : (paused ? (ICON_PLAY + " 继续") : (ICON_PLAY + " 朗读全文"));
   }
-  bar.addEventListener("click", function (e) {
-    var btn = e.target.closest ? e.target.closest("button") : null;
-    if (!btn) return;
-    var act = btn.getAttribute("data-act");
-    if (act === "play") {
-      if (playing && !paused) {
-        paused = true;
-        if (mode === "audio") { try { audio.pause(); } catch (err) {} }
-        if (synth && synth.speaking) { try { synth.pause(); } catch (err) {} }
-        updateBar();
-      } else if (playing && paused) {
-        paused = false;
-        if (mode === "audio") { try { audio.play(); } catch (err) {} }
-        if (synth && synth.paused) { try { synth.resume(); } catch (err) {} }
-        updateBar();
-      } else { playAll(); }
-    } else if (act === "stop") {
-      stopAll();
-    } else if (act === "rate") {
-      rate = rate >= 1.3 ? 0.8 : Math.round((rate + 0.1) * 100) / 100;
-      btn.textContent = rate.toFixed(2) + "\u00D7";
-      audio.playbackRate = rate;
-    }
-  });
+  if (sents.length) {
+    bar = document.createElement("div");
+    bar.id = "tts-bar";
+    bar.innerHTML = '<button data-act="play">' + ICON_PLAY + ' 朗读全文</button>' +
+                    '<button data-act="stop">' + ICON_STOP + ' 停止</button>' +
+                    '<button data-act="rate" class="rate">0.95\u00D7</button>';
+    document.body.appendChild(bar);
+    bar.addEventListener("click", function (e) {
+      var btn = e.target.closest ? e.target.closest("button") : null;
+      if (!btn) return;
+      var act = btn.getAttribute("data-act");
+      if (act === "play") {
+        if (playing && !paused) {
+          paused = true;
+          if (mode === "audio") { try { audio.pause(); } catch (err) {} }
+          if (synth && synth.speaking) { try { synth.pause(); } catch (err) {} }
+          updateBar();
+        } else if (playing && paused) {
+          paused = false;
+          if (mode === "audio") { try { audio.play(); } catch (err) {} }
+          if (synth && synth.paused) { try { synth.resume(); } catch (err) {} }
+          updateBar();
+        } else { playAll(); }
+      } else if (act === "stop") {
+        stopAll();
+      } else if (act === "rate") {
+        rate = rate >= 1.3 ? 0.8 : Math.round((rate + 0.1) * 100) / 100;
+        btn.textContent = rate.toFixed(2) + "\u00D7";
+        audio.playbackRate = rate;
+      }
+    });
+  }
 })();
+/* ra-js-end */
 
 </script>
 </html>

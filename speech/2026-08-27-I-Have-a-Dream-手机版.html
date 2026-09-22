@@ -289,6 +289,12 @@
 .say.speaking{ background:#b91c1c; border-color:#b91c1c; color:#fff; }
 .say svg{ width:14px; height:14px; display:block; }
 
+/* 词源表单词 / 名言金句旁的小号按钮（inline，跟在词或句子后面） */
+#vocab .say, .card .head .say{
+  width:17px; height:17px; margin:0 0 0 7px; vertical-align:-3px;
+}
+#vocab .say svg, .card .head .say svg{ width:10px; height:10px; }
+
 #tts-bar{
   position:fixed; right:16px; bottom:16px; z-index:950;
   display:flex; align-items:center; gap:4px;
@@ -557,34 +563,34 @@
     <tr><th style="width:16%">单词</th><th style="width:44%">词源本义</th><th>在演讲中的含义</th></tr>
   </thead>
   <tbody>
-    <tr><td><span class="n">①</span><b>demonstration</b> <span class="ipa">/ˌdemənˈstreɪʃn/</span></td><td class="e" data-label="词源本义">拉丁 <b>demonstrare</b>「指出、展示」（de- + monstrare「显示」）</td><td data-label="在演讲中的含义">示威游行——「把（不公）亮出来给大家看」</td></tr>
-    <tr><td><span class="n">②</span><b>emancipation</b> <span class="ipa">/ɪˌmænsɪˈpeɪʃn/</span></td><td class="e" data-label="词源本义">拉丁 <b>emancipare</b>「宣告自由」= e-「出」+ manus「手」+ capere「抓」→「从掌权者手中放出」</td><td data-label="在演讲中的含义">解放；Emancipation Proclamation 解放黑人奴隶宣言（1863）</td></tr>
-    <tr><td><span class="n">③</span><b>seared</b> <span class="ipa">/sɪrd/</span></td><td class="e" data-label="词源本义">古英语 <b>searian</b>「烤干、烧焦」</td><td data-label="在演讲中的含义">被灼烫的——在「不公的火焰」中备受煎熬</td></tr>
-    <tr><td><span class="n">④</span><b>withering</b> <span class="ipa">/ˈwɪðərɪŋ/</span></td><td class="e" data-label="词源本义">中古英语 <b>widderen</b>，与 <b>weather（天气）</b>同族——「暴露在风雨中而干枯」</td><td data-label="在演讲中的含义">毁灭性的、摧枯拉朽的（形容不公）</td></tr>
-    <tr><td><span class="n">⑤</span><b>manacles</b> <span class="ipa">/ˈmænəkəlz/</span></td><td class="e" data-label="词源本义">拉丁 <b>manicula</b>「小手」= manus「手」（双铐如「小手」钳住手腕）</td><td data-label="在演讲中的含义">手铐——喻「隔离制度」像手铐锁住黑人</td></tr>
-    <tr><td><span class="n">⑥</span><b>segregation</b> <span class="ipa">/ˌseɡrɪˈɡeɪʃn/</span></td><td class="e" data-label="词源本义">拉丁 <b>segregare</b>「把羊群分开」= se-「分开」+ grex「羊群」</td><td data-label="在演讲中的含义">种族隔离——「把人群当羊群分开」</td></tr>
-    <tr><td><span class="n">⑦</span><b>discrimination</b> <span class="ipa">/dɪˌskrɪmɪˈneɪʃn/</span></td><td class="e" data-label="词源本义">拉丁 <b>discriminare</b>「区分」，discrimen「区别」；discernere「筛分」（dis- 分开 + cernere 筛）</td><td data-label="在演讲中的含义">歧视——本义「分别对待」，故歧视=「把（肤色）区别对待」</td></tr>
-    <tr><td><span class="n">⑧</span><b>exile</b> <span class="ipa">/ˈeksaɪl/</span></td><td class="e" data-label="词源本义">拉丁 <b>exsilium</b>，通常解作 ex-「出」+ salire「跳」→「被赶出去」</td><td data-label="在演讲中的含义">流亡者——「在自己的土地上被流放」</td></tr>
-    <tr><td><span class="n">⑨</span><b>unalienable</b> <span class="ipa">/ʌnˈeɪliənəbəl/</span></td><td class="e" data-label="词源本义">un- + <b>alienare</b>「转让」= alienus「他人的」→「不可转让给他人」</td><td data-label="在演讲中的含义">不可剥夺的（生命、自由、追求幸福权，出自《独立宣言》）</td></tr>
-    <tr><td><span class="n">⑩</span><b>defaulted</b> <span class="ipa">/dɪˈfɔːltɪd/</span></td><td class="e" data-label="词源本义">古法语 <b>deffaillir</b>「失约、辜负」= de- + faillir「失败」（拉丁 fallere「欺骗」）</td><td data-label="在演讲中的含义">违约——「美国在这张期票上违约了」</td></tr>
-    <tr><td><span class="n">⑪</span><b>bankrupt</b> <span class="ipa">/ˈbæŋkrʌpt/</span></td><td class="e" data-label="词源本义">意大利语 <b>banca rotta</b>「破了的板凳」——中世纪放贷人的柜台被砸断即宣告破产</td><td data-label="在演讲中的含义">破产——「正义之银行不会破产」</td></tr>
-    <tr><td><span class="n">⑫</span><b>hallowed</b> <span class="ipa">/ˈhæloʊd/</span></td><td class="e" data-label="词源本义">古英语 <b>halgian</b>「使神圣」，halig「神圣」（主祷文「Hallow be thy name」）</td><td data-label="在演讲中的含义">神圣的——林肯纪念堂=「圣地」</td></tr>
-    <tr><td><span class="n">⑬</span><b>urgency</b> <span class="ipa">/ˈɜːrdʒənsi/</span></td><td class="e" data-label="词源本义">拉丁 <b>urgere</b>「逼迫、催促」</td><td data-label="在演讲中的含义">紧迫性——「现在之刻的紧迫」</td></tr>
-    <tr><td><span class="n">⑭</span><b>gradualism</b> <span class="ipa">/ˈɡrædʒuəlɪzəm/</span></td><td class="e" data-label="词源本义">拉丁 <b>gradus</b>「台阶」→「一步一步来」</td><td data-label="在演讲中的含义">渐进主义——金斥其为「安神的麻醉剂」</td></tr>
-    <tr><td><span class="n">⑮</span><b>desolate</b> <span class="ipa">/ˈdesələt/</span></td><td class="e" data-label="词源本义">拉丁 <b>desolatus</b>「被遗弃」= de- + solus「独自」→「彻底孤独」</td><td data-label="在演讲中的含义">荒凉的——「种族隔离的荒谷」</td></tr>
-    <tr><td><span class="n">⑯</span><b>invigorating</b> <span class="ipa">/ɪnˈvɪɡəreɪtɪŋ/</span></td><td class="e" data-label="词源本义">拉丁 <b>vigor</b>「活力」，vigere「有生气」（与 vegetable「有生机的」同族）</td><td data-label="在演讲中的含义">令人振奋的——「自由平等的金秋」</td></tr>
-    <tr><td><span class="n">⑰</span><b>revolt</b> <span class="ipa">/rɪˈvoʊlt/</span></td><td class="e" data-label="词源本义">拉丁 <b>revolvere</b>「滚回去、翻转」= re- + volvere「滚动」</td><td data-label="在演讲中的含义">反抗——「掀翻现状」</td></tr>
-    <tr><td><span class="n">⑱</span><b>degenerate</b> <span class="ipa">/dɪˈdʒenəreɪt/</span></td><td class="e" data-label="词源本义">拉丁 <b>degenerare</b>「背离自己的族类」= de- + genus「种族、种类」</td><td data-label="在演讲中的含义">堕落——「抗议（一旦）退化成暴力」</td></tr>
-    <tr><td><span class="n">⑲</span><b>inextricably</b> <span class="ipa">/ˌɪnɪkˈstrɪkəbli/</span></td><td class="e" data-label="词源本义">拉丁 <b>extricare</b>「解开」= ex- + tricae「乱麻」→「解不开地」</td><td data-label="在演讲中的含义">不可分割地——「两族自由缠在一起解不开」</td></tr>
-    <tr><td><span class="n">⑳</span><b>tribulations</b> <span class="ipa">/ˌtrɪbjuˈleɪʃnz/</span></td><td class="e" data-label="词源本义">拉丁 <b>tribulum</b>「打谷板」（terere「碾磨」）——像打谷一样被反复碾压</td><td data-label="在演讲中的含义">苦难、磨难</td></tr>
-    <tr><td><span class="n">㉑</span><b>persecution</b> <span class="ipa">/ˌpɜːrsɪˈkjuːʃn/</span></td><td class="e" data-label="词源本义">拉丁 <b>persequi</b>「穷追不舍」= per-「彻」+ sequi「跟随」</td><td data-label="在演讲中的含义">迫害——「被一路追杀」</td></tr>
-    <tr><td><span class="n">㉒</span><b>redemptive</b> <span class="ipa">/rɪˈdemptɪv/</span></td><td class="e" data-label="词源本义">拉丁 <b>redimere</b>「买回、赎回」= red-「回」+ emere「买」</td><td data-label="在演讲中的含义">救赎的——「无辜受难具有救赎力量」</td></tr>
-    <tr><td><span class="n">㉓</span><b>creed</b> <span class="ipa">/kriːd/</span></td><td class="e" data-label="词源本义">拉丁 <b>credo</b>「我信」（《使徒信经》首词）</td><td data-label="在演讲中的含义">信条——「人人平等」的美国信条</td></tr>
-    <tr><td><span class="n">㉔</span><b>exalted</b> <span class="ipa">/ɪɡˈzɔːltɪd/</span></td><td class="e" data-label="词源本义">拉丁 <b>exaltare</b>「高举」= ex- + altus「高」（引《以赛亚书》40:4）</td><td data-label="在演讲中的含义">被抬高的——「幽谷将被填高」</td></tr>
-    <tr><td><span class="n">㉕</span><b>discords</b> <span class="ipa">/ˈdɪskɔːrdz/</span></td><td class="e" data-label="词源本义">拉丁 <b>discordia</b>「不和」= dis-「分离」+ cor「心」→「心与心分开」</td><td data-label="在演讲中的含义">不和谐音——「国家的刺耳杂音」</td></tr>
-    <tr><td><span class="n">㉖</span><b>symphony</b> <span class="ipa">/ˈsɪmfəni/</span></td><td class="e" data-label="词源本义">希腊 <b>symphonia</b>「众声齐鸣」= syn-「一起」+ phone「声音」（phonics 同根）</td><td data-label="在演讲中的含义">交响曲——「兄弟情谊的交响」</td></tr>
-    <tr><td><span class="n">㉗</span><b>prodigious</b> <span class="ipa">/prəˈdɪdʒəs/</span></td><td class="e" data-label="词源本义">拉丁 <b>prodigium</b>「预兆、奇物」→「大得惊人」</td><td data-label="在演讲中的含义">巨大的——「新罕布什尔的巍峨山巅」</td></tr>
-    <tr><td><span class="n">㉘</span><b>hamlet</b> <span class="ipa">/ˈhæmlət/</span></td><td class="e" data-label="词源本义">古法语 <b>hamel</b>「小村落」（ham「村庄」的指小词，与 home「家」同源）</td><td data-label="在演讲中的含义">小村庄——「每一个村庄每一条小巷」</td></tr>
+    <tr><td><span class="n">①</span><b class="w" data-audio="2026-08-27-I-Have-a-Dream.audio/w001.mp3">demonstration</b> <span class="ipa">/ˌdemənˈstreɪʃn/</span></td><td class="e" data-label="词源本义">拉丁 <b>demonstrare</b>「指出、展示」（de- + monstrare「显示」）</td><td data-label="在演讲中的含义">示威游行——「把（不公）亮出来给大家看」</td></tr>
+    <tr><td><span class="n">②</span><b class="w" data-audio="2026-08-27-I-Have-a-Dream.audio/w002.mp3">emancipation</b> <span class="ipa">/ɪˌmænsɪˈpeɪʃn/</span></td><td class="e" data-label="词源本义">拉丁 <b>emancipare</b>「宣告自由」= e-「出」+ manus「手」+ capere「抓」→「从掌权者手中放出」</td><td data-label="在演讲中的含义">解放；Emancipation Proclamation 解放黑人奴隶宣言（1863）</td></tr>
+    <tr><td><span class="n">③</span><b class="w" data-audio="2026-08-27-I-Have-a-Dream.audio/w003.mp3">seared</b> <span class="ipa">/sɪrd/</span></td><td class="e" data-label="词源本义">古英语 <b>searian</b>「烤干、烧焦」</td><td data-label="在演讲中的含义">被灼烫的——在「不公的火焰」中备受煎熬</td></tr>
+    <tr><td><span class="n">④</span><b class="w" data-audio="2026-08-27-I-Have-a-Dream.audio/w004.mp3">withering</b> <span class="ipa">/ˈwɪðərɪŋ/</span></td><td class="e" data-label="词源本义">中古英语 <b>widderen</b>，与 <b>weather（天气）</b>同族——「暴露在风雨中而干枯」</td><td data-label="在演讲中的含义">毁灭性的、摧枯拉朽的（形容不公）</td></tr>
+    <tr><td><span class="n">⑤</span><b class="w" data-audio="2026-08-27-I-Have-a-Dream.audio/w005.mp3">manacles</b> <span class="ipa">/ˈmænəkəlz/</span></td><td class="e" data-label="词源本义">拉丁 <b>manicula</b>「小手」= manus「手」（双铐如「小手」钳住手腕）</td><td data-label="在演讲中的含义">手铐——喻「隔离制度」像手铐锁住黑人</td></tr>
+    <tr><td><span class="n">⑥</span><b class="w" data-audio="2026-08-27-I-Have-a-Dream.audio/w006.mp3">segregation</b> <span class="ipa">/ˌseɡrɪˈɡeɪʃn/</span></td><td class="e" data-label="词源本义">拉丁 <b>segregare</b>「把羊群分开」= se-「分开」+ grex「羊群」</td><td data-label="在演讲中的含义">种族隔离——「把人群当羊群分开」</td></tr>
+    <tr><td><span class="n">⑦</span><b class="w" data-audio="2026-08-27-I-Have-a-Dream.audio/w007.mp3">discrimination</b> <span class="ipa">/dɪˌskrɪmɪˈneɪʃn/</span></td><td class="e" data-label="词源本义">拉丁 <b>discriminare</b>「区分」，discrimen「区别」；discernere「筛分」（dis- 分开 + cernere 筛）</td><td data-label="在演讲中的含义">歧视——本义「分别对待」，故歧视=「把（肤色）区别对待」</td></tr>
+    <tr><td><span class="n">⑧</span><b class="w" data-audio="2026-08-27-I-Have-a-Dream.audio/w008.mp3">exile</b> <span class="ipa">/ˈeksaɪl/</span></td><td class="e" data-label="词源本义">拉丁 <b>exsilium</b>，通常解作 ex-「出」+ salire「跳」→「被赶出去」</td><td data-label="在演讲中的含义">流亡者——「在自己的土地上被流放」</td></tr>
+    <tr><td><span class="n">⑨</span><b class="w" data-audio="2026-08-27-I-Have-a-Dream.audio/w009.mp3">unalienable</b> <span class="ipa">/ʌnˈeɪliənəbəl/</span></td><td class="e" data-label="词源本义">un- + <b>alienare</b>「转让」= alienus「他人的」→「不可转让给他人」</td><td data-label="在演讲中的含义">不可剥夺的（生命、自由、追求幸福权，出自《独立宣言》）</td></tr>
+    <tr><td><span class="n">⑩</span><b class="w" data-audio="2026-08-27-I-Have-a-Dream.audio/w010.mp3">defaulted</b> <span class="ipa">/dɪˈfɔːltɪd/</span></td><td class="e" data-label="词源本义">古法语 <b>deffaillir</b>「失约、辜负」= de- + faillir「失败」（拉丁 fallere「欺骗」）</td><td data-label="在演讲中的含义">违约——「美国在这张期票上违约了」</td></tr>
+    <tr><td><span class="n">⑪</span><b class="w" data-audio="2026-08-27-I-Have-a-Dream.audio/w011.mp3">bankrupt</b> <span class="ipa">/ˈbæŋkrʌpt/</span></td><td class="e" data-label="词源本义">意大利语 <b>banca rotta</b>「破了的板凳」——中世纪放贷人的柜台被砸断即宣告破产</td><td data-label="在演讲中的含义">破产——「正义之银行不会破产」</td></tr>
+    <tr><td><span class="n">⑫</span><b class="w" data-audio="2026-08-27-I-Have-a-Dream.audio/w012.mp3">hallowed</b> <span class="ipa">/ˈhæloʊd/</span></td><td class="e" data-label="词源本义">古英语 <b>halgian</b>「使神圣」，halig「神圣」（主祷文「Hallow be thy name」）</td><td data-label="在演讲中的含义">神圣的——林肯纪念堂=「圣地」</td></tr>
+    <tr><td><span class="n">⑬</span><b class="w" data-audio="2026-08-27-I-Have-a-Dream.audio/w013.mp3">urgency</b> <span class="ipa">/ˈɜːrdʒənsi/</span></td><td class="e" data-label="词源本义">拉丁 <b>urgere</b>「逼迫、催促」</td><td data-label="在演讲中的含义">紧迫性——「现在之刻的紧迫」</td></tr>
+    <tr><td><span class="n">⑭</span><b class="w" data-audio="2026-08-27-I-Have-a-Dream.audio/w014.mp3">gradualism</b> <span class="ipa">/ˈɡrædʒuəlɪzəm/</span></td><td class="e" data-label="词源本义">拉丁 <b>gradus</b>「台阶」→「一步一步来」</td><td data-label="在演讲中的含义">渐进主义——金斥其为「安神的麻醉剂」</td></tr>
+    <tr><td><span class="n">⑮</span><b class="w" data-audio="2026-08-27-I-Have-a-Dream.audio/w015.mp3">desolate</b> <span class="ipa">/ˈdesələt/</span></td><td class="e" data-label="词源本义">拉丁 <b>desolatus</b>「被遗弃」= de- + solus「独自」→「彻底孤独」</td><td data-label="在演讲中的含义">荒凉的——「种族隔离的荒谷」</td></tr>
+    <tr><td><span class="n">⑯</span><b class="w" data-audio="2026-08-27-I-Have-a-Dream.audio/w016.mp3">invigorating</b> <span class="ipa">/ɪnˈvɪɡəreɪtɪŋ/</span></td><td class="e" data-label="词源本义">拉丁 <b>vigor</b>「活力」，vigere「有生气」（与 vegetable「有生机的」同族）</td><td data-label="在演讲中的含义">令人振奋的——「自由平等的金秋」</td></tr>
+    <tr><td><span class="n">⑰</span><b class="w" data-audio="2026-08-27-I-Have-a-Dream.audio/w017.mp3">revolt</b> <span class="ipa">/rɪˈvoʊlt/</span></td><td class="e" data-label="词源本义">拉丁 <b>revolvere</b>「滚回去、翻转」= re- + volvere「滚动」</td><td data-label="在演讲中的含义">反抗——「掀翻现状」</td></tr>
+    <tr><td><span class="n">⑱</span><b class="w" data-audio="2026-08-27-I-Have-a-Dream.audio/w018.mp3">degenerate</b> <span class="ipa">/dɪˈdʒenəreɪt/</span></td><td class="e" data-label="词源本义">拉丁 <b>degenerare</b>「背离自己的族类」= de- + genus「种族、种类」</td><td data-label="在演讲中的含义">堕落——「抗议（一旦）退化成暴力」</td></tr>
+    <tr><td><span class="n">⑲</span><b class="w" data-audio="2026-08-27-I-Have-a-Dream.audio/w019.mp3">inextricably</b> <span class="ipa">/ˌɪnɪkˈstrɪkəbli/</span></td><td class="e" data-label="词源本义">拉丁 <b>extricare</b>「解开」= ex- + tricae「乱麻」→「解不开地」</td><td data-label="在演讲中的含义">不可分割地——「两族自由缠在一起解不开」</td></tr>
+    <tr><td><span class="n">⑳</span><b class="w" data-audio="2026-08-27-I-Have-a-Dream.audio/w020.mp3">tribulations</b> <span class="ipa">/ˌtrɪbjuˈleɪʃnz/</span></td><td class="e" data-label="词源本义">拉丁 <b>tribulum</b>「打谷板」（terere「碾磨」）——像打谷一样被反复碾压</td><td data-label="在演讲中的含义">苦难、磨难</td></tr>
+    <tr><td><span class="n">㉑</span><b class="w" data-audio="2026-08-27-I-Have-a-Dream.audio/w021.mp3">persecution</b> <span class="ipa">/ˌpɜːrsɪˈkjuːʃn/</span></td><td class="e" data-label="词源本义">拉丁 <b>persequi</b>「穷追不舍」= per-「彻」+ sequi「跟随」</td><td data-label="在演讲中的含义">迫害——「被一路追杀」</td></tr>
+    <tr><td><span class="n">㉒</span><b class="w" data-audio="2026-08-27-I-Have-a-Dream.audio/w022.mp3">redemptive</b> <span class="ipa">/rɪˈdemptɪv/</span></td><td class="e" data-label="词源本义">拉丁 <b>redimere</b>「买回、赎回」= red-「回」+ emere「买」</td><td data-label="在演讲中的含义">救赎的——「无辜受难具有救赎力量」</td></tr>
+    <tr><td><span class="n">㉓</span><b class="w" data-audio="2026-08-27-I-Have-a-Dream.audio/w023.mp3">creed</b> <span class="ipa">/kriːd/</span></td><td class="e" data-label="词源本义">拉丁 <b>credo</b>「我信」（《使徒信经》首词）</td><td data-label="在演讲中的含义">信条——「人人平等」的美国信条</td></tr>
+    <tr><td><span class="n">㉔</span><b class="w" data-audio="2026-08-27-I-Have-a-Dream.audio/w024.mp3">exalted</b> <span class="ipa">/ɪɡˈzɔːltɪd/</span></td><td class="e" data-label="词源本义">拉丁 <b>exaltare</b>「高举」= ex- + altus「高」（引《以赛亚书》40:4）</td><td data-label="在演讲中的含义">被抬高的——「幽谷将被填高」</td></tr>
+    <tr><td><span class="n">㉕</span><b class="w" data-audio="2026-08-27-I-Have-a-Dream.audio/w025.mp3">discords</b> <span class="ipa">/ˈdɪskɔːrdz/</span></td><td class="e" data-label="词源本义">拉丁 <b>discordia</b>「不和」= dis-「分离」+ cor「心」→「心与心分开」</td><td data-label="在演讲中的含义">不和谐音——「国家的刺耳杂音」</td></tr>
+    <tr><td><span class="n">㉖</span><b class="w" data-audio="2026-08-27-I-Have-a-Dream.audio/w026.mp3">symphony</b> <span class="ipa">/ˈsɪmfəni/</span></td><td class="e" data-label="词源本义">希腊 <b>symphonia</b>「众声齐鸣」= syn-「一起」+ phone「声音」（phonics 同根）</td><td data-label="在演讲中的含义">交响曲——「兄弟情谊的交响」</td></tr>
+    <tr><td><span class="n">㉗</span><b class="w" data-audio="2026-08-27-I-Have-a-Dream.audio/w027.mp3">prodigious</b> <span class="ipa">/prəˈdɪdʒəs/</span></td><td class="e" data-label="词源本义">拉丁 <b>prodigium</b>「预兆、奇物」→「大得惊人」</td><td data-label="在演讲中的含义">巨大的——「新罕布什尔的巍峨山巅」</td></tr>
+    <tr><td><span class="n">㉘</span><b class="w" data-audio="2026-08-27-I-Have-a-Dream.audio/w028.mp3">hamlet</b> <span class="ipa">/ˈhæmlət/</span></td><td class="e" data-label="词源本义">古法语 <b>hamel</b>「小村落」（ham「村庄」的指小词，与 home「家」同源）</td><td data-label="在演讲中的含义">小村庄——「每一个村庄每一条小巷」</td></tr>
   </tbody>
 </table>
 
@@ -649,23 +655,23 @@
 <h2 class="section">六、名言金句（建议背诵）</h2>
 
 <div class="card">
-  <div class="head"><span class="num">A</span><span class="t"><span class="refrain dream">I have a dream</span> that my four little children will one day live in a nation where they will not be judged by the color of their skin but by the content of their character.</span></div>
+  <div class="head"><span class="num">A</span><span class="t quote" data-audio="2026-08-27-I-Have-a-Dream.audio/q001.mp3"><span class="refrain dream">I have a dream</span> that my four little children will one day live in a nation where they will not be judged by the color of their skin but by the content of their character.</span></div>
   <div class="why">💎 全篇最著名对偶：肤色 vs 品格。背熟它，就背熟了"对偶"与"梦想"两大修辞。</div>
 </div>
 <div class="card">
-  <div class="head"><span class="num">B</span><span class="t"><span class="refrain now">Now is the time</span> to rise from the dark and desolate valley of segregation to the sunlit path of racial justice.</span></div>
+  <div class="head"><span class="num">B</span><span class="t quote" data-audio="2026-08-27-I-Have-a-Dream.audio/q002.mp3"><span class="refrain now">Now is the time</span> to rise from the dark and desolate valley of segregation to the sunlit path of racial justice.</span></div>
   <div class="why">💎 「现在」的力量 + 黑暗/光明隐喻。</div>
 </div>
 <div class="card">
-  <div class="head"><span class="num">C</span><span class="t">We refuse to believe that the bank of justice is bankrupt.</span></div>
+  <div class="head"><span class="num">C</span><span class="t quote" data-audio="2026-08-27-I-Have-a-Dream.audio/q003.mp3">We refuse to believe that the bank of justice is bankrupt.</span></div>
   <div class="why">💎 银行隐喻的单句浓缩版，双关精妙。</div>
 </div>
 <div class="card">
-  <div class="head"><span class="num">D</span><span class="t">With this faith we will be able to hew out of the mountain of despair a stone of hope.</span></div>
+  <div class="head"><span class="num">D</span><span class="t quote" data-audio="2026-08-27-I-Have-a-Dream.audio/q004.mp3">With this faith we will be able to hew out of the mountain of despair a stone of hope.</span></div>
   <div class="why">💎 绝望之山→希望之石，动词 hew（砍凿）极有力度。</div>
 </div>
 <div class="card">
-  <div class="head"><span class="num">E</span><span class="t"><span class="refrain free">Free at last</span>! <span class="refrain free">Free at last</span>! Thank God Almighty, we are free at last!</span></div>
+  <div class="head"><span class="num">E</span><span class="t quote" data-audio="2026-08-27-I-Have-a-Dream.audio/q005.mp3"><span class="refrain free">Free at last</span>! <span class="refrain free">Free at last</span>! Thank God Almighty, we are free at last!</span></div>
   <div class="why">💎 灵歌式收尾，英语演讲最经典的结尾之一。</div>
 </div>
 
@@ -716,6 +722,7 @@
 </div>
 
 <div class="footer">I Have a Dream · Martin Luther King, Jr. ｜ 全文精读 + 词源 + 修辞 + 跟读 ｜ <span class="refrain free">Free at last</span> 👋</div>
+
 </body>
 <script>
 
@@ -815,6 +822,7 @@
     window.scrollTo({ top: 0, behavior: "smooth" });
   });
 })();
+/* ra-js-start */
 /* ---------- 朗读：优先系统语音（电脑/手机自带），无系统语音时才用预生成音频 ---------- */
 (function () {
   var ICON_SPEAKER = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5 6 9H3v6h3l5 4V5z"/><path d="M15.5 8.5a5 5 0 0 1 0 7"/><path d="M18.5 5.5a9 9 0 0 1 0 13"/></svg>';
@@ -823,7 +831,9 @@
   var ICON_STOP = '<svg viewBox="0 0 24 24" fill="currentColor" stroke="none" aria-hidden="true"><rect x="6" y="6" width="12" height="12" rx="2"/></svg>';
 
   var sents = Array.prototype.slice.call(document.querySelectorAll(".speech .sent"));
-  if (!sents.length) return;
+  /* 注意：**不要**在没有 .sent 时直接 return —— 词源表单词与名言金句也要挂 🔊，
+     一旦早退，只有词表/金句的片段页（或节选页）就会整个失效。
+     只有底部「朗读全文」才真正依赖句子，见下面的 sents.length 判断。 */
 
   var synth = ("speechSynthesis" in window) ? window.speechSynthesis : null;
   var audio = new Audio();
@@ -904,57 +914,77 @@
   }
 
   sents.forEach(function (sent) {
-    var b = document.createElement("button");
-    b.type = "button"; b.className = "say";
-    b.innerHTML = ICON_SPEAKER;
-    b.title = "朗读这句"; b.setAttribute("aria-label", "朗读这句");
-    b.addEventListener("click", function (e) {
-      e.stopPropagation(); e.preventDefault();
-      if (b.classList.contains("speaking")) { stopAll(); return; }
-      stopAll();
-      speakSentence(sent, b, function () { if (currentBtn === b) clearMark(); });
-    });
+    var b = makeSayBtn(sent);
     var p = sent.querySelector(".pnum");
     if (p) p.parentNode.insertBefore(b, p.nextSibling);
     else sent.insertBefore(b, sent.firstChild);
   });
 
-  var bar = document.createElement("div");
-  bar.id = "tts-bar";
-  bar.innerHTML = '<button data-act="play">' + ICON_PLAY + ' 朗读全文</button>' +
-                  '<button data-act="stop">' + ICON_STOP + ' 停止</button>' +
-                  '<button data-act="rate" class="rate">0.95\u00D7</button>';
-  document.body.appendChild(bar);
+  /* 词源表的单词、名言金句也挂 🔊：优先系统语音，缺失时回放预生成的 MP3。
+     与逐句朗读同一套逻辑，只是按钮更小、跟在词/句后面。 */
+  function inlineSay(el) {
+    var b = makeSayBtn(el);
+    el.parentNode.insertBefore(b, el.nextSibling);
+  }
+  Array.prototype.forEach.call(document.querySelectorAll("b.w"), inlineSay);
+  Array.prototype.forEach.call(document.querySelectorAll(".card .head .t.quote"), inlineSay);
+
+  function makeSayBtn(target) {
+    var b = document.createElement("button");
+    b.type = "button"; b.className = "say";
+    b.innerHTML = ICON_SPEAKER;
+    b.title = "朗读"; b.setAttribute("aria-label", "朗读");
+    b.addEventListener("click", function (e) {
+      e.stopPropagation(); e.preventDefault();
+      if (b.classList.contains("speaking")) { stopAll(); return; }
+      stopAll();
+      speakSentence(target, b, function () { if (currentBtn === b) clearMark(); });
+    });
+    return b;
+  }
+
+  /* 底部「朗读全文」控制条只在有逐句内容时出现；没有句子时 updateBar 安全返回 */
+  var bar = null;
   function updateBar() {
+    if (!bar) return;
     var pb = bar.querySelector('[data-act="play"]');
     pb.innerHTML = (playing && !paused) ? (ICON_PAUSE + " 暂停")
                  : (paused ? (ICON_PLAY + " 继续") : (ICON_PLAY + " 朗读全文"));
   }
-  bar.addEventListener("click", function (e) {
-    var btn = e.target.closest ? e.target.closest("button") : null;
-    if (!btn) return;
-    var act = btn.getAttribute("data-act");
-    if (act === "play") {
-      if (playing && !paused) {
-        paused = true;
-        if (mode === "audio") { try { audio.pause(); } catch (err) {} }
-        if (synth && synth.speaking) { try { synth.pause(); } catch (err) {} }
-        updateBar();
-      } else if (playing && paused) {
-        paused = false;
-        if (mode === "audio") { try { audio.play(); } catch (err) {} }
-        if (synth && synth.paused) { try { synth.resume(); } catch (err) {} }
-        updateBar();
-      } else { playAll(); }
-    } else if (act === "stop") {
-      stopAll();
-    } else if (act === "rate") {
-      rate = rate >= 1.3 ? 0.8 : Math.round((rate + 0.1) * 100) / 100;
-      btn.textContent = rate.toFixed(2) + "\u00D7";
-      audio.playbackRate = rate;
-    }
-  });
+  if (sents.length) {
+    bar = document.createElement("div");
+    bar.id = "tts-bar";
+    bar.innerHTML = '<button data-act="play">' + ICON_PLAY + ' 朗读全文</button>' +
+                    '<button data-act="stop">' + ICON_STOP + ' 停止</button>' +
+                    '<button data-act="rate" class="rate">0.95\u00D7</button>';
+    document.body.appendChild(bar);
+    bar.addEventListener("click", function (e) {
+      var btn = e.target.closest ? e.target.closest("button") : null;
+      if (!btn) return;
+      var act = btn.getAttribute("data-act");
+      if (act === "play") {
+        if (playing && !paused) {
+          paused = true;
+          if (mode === "audio") { try { audio.pause(); } catch (err) {} }
+          if (synth && synth.speaking) { try { synth.pause(); } catch (err) {} }
+          updateBar();
+        } else if (playing && paused) {
+          paused = false;
+          if (mode === "audio") { try { audio.play(); } catch (err) {} }
+          if (synth && synth.paused) { try { synth.resume(); } catch (err) {} }
+          updateBar();
+        } else { playAll(); }
+      } else if (act === "stop") {
+        stopAll();
+      } else if (act === "rate") {
+        rate = rate >= 1.3 ? 0.8 : Math.round((rate + 0.1) * 100) / 100;
+        btn.textContent = rate.toFixed(2) + "\u00D7";
+        audio.playbackRate = rate;
+      }
+    });
+  }
 })();
+/* ra-js-end */
 
 </script>
 </html>
