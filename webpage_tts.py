@@ -587,8 +587,58 @@ def parse_args(argv: Iterable[str] | None = None):
     p.add_argument("--cookie", help="抓取时附加的 Cookie 头（需要登录的页面）")
     p.add_argument("--proxy", help="edge-tts 用的代理，如 http://127.0.0.1:7890")
     p.add_argument("--timeout", type=int, default=30, help="抓取超时秒数（默认 30）")
+    p.add_argument("--text", help="--try-voices 用的试听文本（默认一句英语长句）")
     p.add_argument("--list-voices", metavar="LANG", help="列出含该语言的音色后退出")
+    p.add_argument("--try-voices", metavar="V1,V2,...", nargs="?", const="",
+                   help="合成同一句试听样本（默认 6 个英语女声），方便挑音色后退出")
     return p.parse_args(list(argv) if argv is not None else None)
+
+
+TRY_SENTENCE = ("Reading aloud is one of the oldest study techniques in the book. "
+                "It forces you to slow down, and slowing down is where comprehension happens.")
+TRY_VOICES = ["en-US-AvaMultilingualNeural", "en-US-EmmaMultilingualNeural",
+              "en-US-AriaNeural", "en-US-JennyNeural",
+              "en-GB-LibbyNeural", "en-GB-SoniaNeural"]
+
+
+def try_voices(arg: str, args) -> int:
+    """把同一句话用多个音色各合成一遍，输出到 voices/ 并生成对比页。"""
+    voices = [v.strip() for v in arg.split(",") if v.strip()] if arg else TRY_VOICES
+    outdir = args.outdir or "voices"
+    os.makedirs(outdir, exist_ok=True)
+    text = args.text or TRY_SENTENCE
+    log(f"试听 {len(voices)} 个音色 → {outdir}/")
+    sem = asyncio.Semaphore(args.concurrency)
+
+    async def one(v: str):
+        async with sem:
+            audio, _b = await synth(text, v, args.rate, args.volume, args.pitch,
+                                    proxy=args.proxy)
+            p = os.path.join(outdir, f"{v}.mp3")
+            with open(p, "wb") as f:
+                f.write(audio)
+            log(f"  {v} → {p}（{os.path.getsize(p) / 1024:.0f} KB）")
+
+    asyncio.run(_gather([one(v) for v in voices]))
+
+    rows = "\n".join(
+        f'<div style="margin:10px 0;padding:10px;border:1px solid #e5e5e5;border-radius:8px">'
+        f'<b>{i + 1}. {v}</b><br><audio controls preload="none" src="{v}.mp3" '
+        f'style="width:100%"></audio></div>'
+        for i, v in enumerate(voices))
+    page = ("<!doctype html><meta charset=\"utf-8\"><title>音色对比</title>"
+            "<style>body{font:15px/1.6 system-ui,'Microsoft YaHei',sans-serif;"
+            "max-width:760px;margin:24px auto;padding:0 16px}</style>"
+            "<h1>音色对比</h1><p style='color:#666;font-size:13px'>点 ▶ 逐个听，"
+            "记下名字，然后 <code>-v 名字</code> 就能用它朗读。</p>" + rows)
+    with open(os.path.join(outdir, "index.html"), "w", encoding="utf-8") as f:
+        f.write(page)
+    log(f"对比页：{os.path.join(outdir, 'index.html')}")
+    return 0
+
+
+async def _gather(aws) -> None:
+    await asyncio.gather(*aws)
 
 
 def main(argv: Iterable[str] | None = None) -> int:
@@ -598,6 +648,9 @@ def main(argv: Iterable[str] | None = None) -> int:
 
     if args.list_voices:
         return list_voices(args.list_voices)
+
+    if args.try_voices is not None:
+        return try_voices(args.try_voices, args)
 
     if not args.input:
         log("错误: 没有输入。用 -h 查看用法，或传 URL/文件/-（标准输入）")
