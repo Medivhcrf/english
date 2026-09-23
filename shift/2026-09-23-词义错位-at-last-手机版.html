@@ -78,6 +78,43 @@
   .sense .warn { margin-top: 4px; font-size: 9.3pt; color: #b91c1c; }
   .sense .warn::before { content: "⚠ "; }
 
+  /* §4 用法例子 */
+  .ex {
+    border: 1px solid #e5e7eb; border-radius: 8px;
+    padding: 9px 11px 10px; margin-bottom: 10px;
+  }
+  .ex:last-of-type { margin-bottom: 0; }
+  .ex-head { margin-bottom: 5px; padding-bottom: 5px; border-bottom: 1px solid #eef2f7; }
+  .ex-head .word {
+    font-family: 'DejaVu Sans', sans-serif; font-weight: bold;
+    font-size: 11pt; color: #6d28d9; margin-right: 8px;
+  }
+  .ex-head .use { font-size: 8.8pt; color: #9ca3af; }
+  .ex-row { display: flex; gap: 8px; padding: 5px 0; border-bottom: 1px dashed #f1f5f9; }
+  .ex-row:last-child { border-bottom: none; padding-bottom: 0; }
+  .ex-row .mark {
+    flex: none; width: 16px; height: 16px; margin-top: 2px;
+    border-radius: 50%; text-align: center; line-height: 16px;
+    font-size: 8.5pt; font-weight: bold; color: #fff;
+  }
+  .ex-row.ok .mark { background: #047857; }
+  .ex-row.no .mark { background: #b91c1c; }
+  .ex-row.warn .mark { background: #b45309; }
+  .ex-body { min-width: 0; }
+  .ex-row .en {
+    font-family: 'DejaVu Sans', 'Noto Sans CJK SC', sans-serif;
+    font-size: 9.8pt; color: #1f2937;
+  }
+  .ex-row.no .en { color: #b91c1c; }
+  .ex-row .cn { font-size: 9.3pt; color: #047857; margin-top: 1px; }
+  .ex-row.no .cn { color: #9ca3af; }
+  .ex-row .note { font-size: 8.8pt; color: #9ca3af; margin-top: 2px; }
+  .ex-row .src {
+    display: inline-block; margin-left: 5px; padding: 0 5px;
+    border: 1px solid #e5e7eb; border-radius: 3px;
+    font-size: 7.8pt; color: #9ca3af; background: #f8fafc;
+  }
+
   /* 表格 */
   .scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   table { border-collapse: collapse; width: 100%; font-size: 9.5pt; }
@@ -156,6 +193,14 @@
     .sec code { font-size: .85rem; }
     ol.rules li { font-size: .93rem; }
 
+    .ex { padding: 8px 10px 9px; }
+    .ex-head .word { font-size: 1rem; }
+    .ex-head .use { font-size: .78rem; }
+    .ex-row .en { font-size: .92rem; }
+    .ex-row .cn { font-size: .88rem; }
+    .ex-row .note { font-size: .8rem; }
+    .ex-row .src { font-size: .72rem; }
+
     /* 表格 → 堆叠卡片：手机上不横向滚，一列一列读 */
     .scroll { overflow-x: visible; }
     table.etym, table.duty { display: block; width: 100%; }
@@ -189,7 +234,7 @@
   <div class="kicker">词义错位 · 英文原义 × 汉语对应词</div>
   <h1><span class="en">Free at last!</span> —— 是「终于自由了」还是「最后还是自由了」</h1>
   <p class="sub">at last / finally / in the end / eventually：都译成「最后」，为什么只有 at last 是「终于」</p>
-  <div class="meta">2026 年 9 月 23 日 ｜ 释义取自 Vocabulary.com ｜ 词源取自 etymonline</div>
+  <div class="meta">2026 年 9 月 23 日 ｜ 释义取自 Vocabulary.com ｜ 例句出处见句末标签 ｜ 词源取自 etymonline</div>
 </header>
 
 <div class="callout">
@@ -268,7 +313,50 @@
 </section>
 
 <section class="sec">
-  <h2><span class="num">四</span>分工表<span class="hint">哪个词管哪种场合，一眼看全</span></h2>
+  <h2><span class="num">四</span>用法例子<span class="hint">✓ 能用 ｜ ✗ 不能用 ｜ △ 勉强可通但不自然</span></h2>
+<div class="ex">
+  <div class="ex-head"><span class="word">at last</span><span class="use">久等之后可算到了｜必须是「已经发生」的</span></div>
+  <div class="ex-row ok"><span class="mark">✓</span><div class="ex-body"><p class="en">Free at last! Free at last! Thank God Almighty, we are free at last!</p><p class="cn">终于自由了！终于自由了！感谢全能的上帝，我们终于自由了！</p><p class="note">呼喊体：整句没有主谓，是省略句，靠三连重复推上去。<span class="src">灵歌 / 马丁·路德·金 1963</span></p></div></div>
+  <div class="ex-row ok"><span class="mark">✓</span><div class="ex-body"><p class="en">At last, the bus came.</p><p class="cn">公交车终于来了。</p><p class="note">「等久了」和「已经发生」两条同时满足，才用 at last。<span class="src">自拟</span></p></div></div>
+  <div class="ex-row ok"><span class="mark">✓</span><div class="ex-body"><p class="en">She passed the exam at last.</p><p class="cn">她终于通过了考试。</p><p class="note">放句末也成立，语气比放句首轻一点。<span class="src">自拟</span></p></div></div>
+  <div class="ex-row no"><span class="mark">✗</span><div class="ex-body"><p class="en">He will come back at last.</p><p class="cn">（想说）他最终会回来的。</p><p class="note">谈将来不能用 at last——它要求「已经等到」。改成 He will come back <b>eventually</b>.<span class="src">自拟</span></p></div></div>
+  <div class="ex-row no"><span class="mark">✗</span><div class="ex-body"><p class="en">At last, I'd like to thank my parents.</p><p class="cn">（想说）最后，我要感谢我的父母。</p><p class="note">这是「列举的最后一项」，用 <b>Finally / Lastly</b>。at last 根本没有这个义项。<span class="src">自拟</span></p></div></div>
+</div>
+<div class="ex">
+  <div class="ex-head"><span class="word">finally</span><span class="use">两义：久等＋松口气｜或列举的最后一步</span></div>
+  <div class="ex-row ok"><span class="mark">✓</span><div class="ex-body"><p class="en">We waited at the station all day. The train finally arrived, but it was 6 hours late.</p><p class="cn">我们在车站等了一整天。火车终于到了，但晚了 6 个小时。</p><p class="note">久等 + 释然；finally 放在动词前。<span class="src">EnglishClass101</span></p></div></div>
+  <div class="ex-row ok"><span class="mark">✓</span><div class="ex-body"><p class="en">I finally finished the project I started last year.</p><p class="cn">我终于做完了去年开始的那个项目。</p><p class="note">重音在「松口气」，不在过程。<span class="src">EnglishClass101</span></p></div></div>
+  <div class="ex-row ok"><span class="mark">✓</span><div class="ex-body"><p class="en">Finally, let the soup boil for 30 minutes, then turn off the heat and serve.</p><p class="cn">最后，让汤煮 30 分钟，然后关火、上桌。</p><p class="note">列举 / 菜谱的最后一步，放句首。<span class="src">EnglishClass101</span></p></div></div>
+  <div class="ex-row ok"><span class="mark">✓</span><div class="ex-body"><p class="en">Finally, I'd like to thank my parents.</p><p class="cn">最后，我要感谢我的父母。</p><p class="note">致辞收尾——这一句换成 at last 就错了。<span class="src">自拟</span></p></div></div>
+  <div class="ex-row no"><span class="mark">✗</span><div class="ex-body"><p class="en">I'm sure you'll finally get a promotion.</p><p class="cn">（想说）我相信你最终会升职的。</p><p class="note">谈将来不能用 finally，要用 <b>eventually</b>。<span class="src">EnglishClass101（讲解里明确点出不能说）</span></p></div></div>
+</div>
+<div class="ex">
+  <div class="ex-head"><span class="word">eventually</span><span class="use">不确定的「往后某一刻」｜可配将来时｜不含情绪</span></div>
+  <div class="ex-row ok"><span class="mark">✓</span><div class="ex-body"><p class="en">You're really talented! I'm sure you'll eventually get a promotion!</p><p class="cn">你很有才华！我相信你最终会升职的。</p><p class="note">将来时 + 时间不确定；at last 和 finally 在这里都不行。<span class="src">EnglishClass101</span></p></div></div>
+  <div class="ex-row ok"><span class="mark">✓</span><div class="ex-body"><p class="en">He was really sick last winter. He eventually got better, thanks to good medical care.</p><p class="cn">去年冬天他病得很重。靠好的医疗，他后来慢慢好了。</p><p class="note">过去时；强调「一点点好起来」，不是一下子的解脱。<span class="src">EnglishClass101</span></p></div></div>
+  <div class="ex-row ok"><span class="mark">✓</span><div class="ex-body"><p class="en">I eventually finished the project I started last year.</p><p class="cn">我后来把去年开始的那个项目做完了。</p><p class="note">和上面 finally 那句结构一样，味道不同：这里是一步步做完，没有松口气。<span class="src">EnglishClass101</span></p></div></div>
+  <div class="ex-row no"><span class="mark">✗</span><div class="ex-body"><p class="en">Eventually, let the soup boil for 30 minutes.</p><p class="cn">（想说）最后，让汤煮 30 分钟。</p><p class="note">步骤列举不能用 eventually，要用 <b>finally</b>。<span class="src">自拟</span></p></div></div>
+</div>
+<div class="ex">
+  <div class="ex-head"><span class="word">in the end</span><span class="use">几经周折之后的结局｜总结、理性口吻</span></div>
+  <div class="ex-row ok"><span class="mark">✓</span><div class="ex-body"><p class="en">In the end, we decided to stay.</p><p class="cn">最后还是决定留下来。</p><p class="note">犹豫、权衡之后的结论——这才是汉语「最后还是」。<span class="src">自拟</span></p></div></div>
+  <div class="ex-row ok"><span class="mark">✓</span><div class="ex-body"><p class="en">Ultimately, we decided not to buy the house.</p><p class="cn">最终我们决定不买那套房子。</p><p class="note">ultimately 与 in the end 同义、更正式；重点不在时间，在「权衡过」。<span class="src">EnglishClass101</span></p></div></div>
+  <div class="ex-row no"><span class="mark">✗</span><div class="ex-body"><p class="en">In the end, I'd like to thank my parents.</p><p class="cn">（想说）最后，我要感谢我的父母。</p><p class="note">列举收尾用 <b>finally / lastly</b>。<span class="src">自拟</span></p></div></div>
+  <div class="ex-row warn"><span class="mark">△</span><div class="ex-body"><p class="en">In the end, the bus came.</p><p class="cn">（勉强）最后公交车来了。</p><p class="note">语法没问题，但「久等的解脱」用 at last 才到位；in the end 需要一点波折感。<span class="src">自拟</span></p></div></div>
+</div>
+
+<div class="box">
+  <b>同一件事，换词换味</b>——火车晚了 6 小时才到：<br>
+  · The train <b>finally</b> arrived. —— 松一口气（终于）<br>
+  · The train arrived <b>at last</b>. —— 久等的解脱，更情绪化，可单独成感叹<br>
+  · The train <b>eventually</b> arrived. —— 过了段时间才到，<b>不带情绪</b><br>
+  · <b>in the end</b> 通常不配「车到了」这种单点事件（它要的是「几经周折的结局」）
+</div>
+
+</section>
+
+<section class="sec">
+  <h2><span class="num">五</span>分工表<span class="hint">哪个词管哪种场合，一眼看全</span></h2>
 <div class="scroll">
   <table class="duty">
     <thead><tr><th>词</th><th>英文原解</th><th>中文</th><th>用法限制</th></tr></thead>
@@ -283,16 +371,17 @@
 </section>
 
 <section class="sec">
-  <h2><span class="num">五</span>可迁移的规律</h2>
+  <h2><span class="num">六</span>可迁移的规律</h2>
 <ol class="rules">
   <li>见到「最后」先分两种：是<b>「排在末尾」</b>（序数），还是<b>「久等可算到了」</b>（lateness）？前者用 finally / in the end，后者才是 at last。</li>
   <li>查一个词的语义核心，去看它词源里的<b>比较级 / 最高级</b>：last ← late（最晚），所以它永远带「晚」；汉语对应词没有这层，就必然错位。</li>
   <li>词典把几个词互列为同义词，只说明「大意相通」，<b>不说明能互换</b>——差别在义项数、语域和时态限制上。</li>
   <li>at last 只用在「已发生 + 感叹」的场合；谈将来用 eventually / in the end。</li>
+  <li>找不到限制时，<b>自己造最小对比句</b>：把同一个场景分别套上四个词，读出来哪个别扭，限制就露出来了——别扭的那句往往正是母语者不说的。</li>
 </ol>
 </section>
 
-<div class="footer">释义引自 Vocabulary.com（Longman / Oxford / Cambridge 页面有反爬，未能直取）；词源引自 etymonline。<br>返回 <a href="../index.html">英语学习站</a> · 章节：词义错位</div>
+<div class="footer">释义引自 Vocabulary.com；例句出处见句末标签（EnglishClass101 语法讲解为逐句可查的来源，标「自拟」的是为显示限制而造的最小对比句）。Longman / Oxford / Cambridge 页面有反爬，未能直取；词源引自 etymonline。<br>返回 <a href="../index.html">英语学习站</a> · 章节：词义错位</div>
 
 </div>
 </body>
