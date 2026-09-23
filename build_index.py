@@ -22,7 +22,7 @@ ENGLISH_DIR = Path("/home/crf/english")
 
 SITE_TITLE = "英语学习站"
 SITE_EMOJI = "📚"
-SITE_DESC = "词根词缀 · 动词词组 · 文章精读 · 语法专题"
+SITE_DESC = "词根词缀 · 动词词组 · 文章精读 · 词义错位 · 语法专题"
 
 # 不属于英语学习站的文件（别的项目混进来的），不进索引
 EXCLUDE = {
@@ -36,6 +36,7 @@ CATEGORIES = [
     ("speech", "演讲精读"),
     ("daily", "每日词根词缀"),
     ("topic", "词根词缀专题"),
+    ("shift", "词义错位"),
     ("review", "复习巩固"),
     ("phrasal", "动词词组"),
     ("prep", "介词本义与词源"),
@@ -51,6 +52,8 @@ def esc(s):
 
 def classify(name):
     """按文件名判分类。顺序有意为之：先具体后宽泛。"""
+    if "词义错位" in name:
+        return "shift"
     if "复习" in name:
         return "review"
     if "动词词组" in name:

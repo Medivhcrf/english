@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>Free at last! —— 是「终于自由了」还是「最后还是自由了」 · 词义错位</title>
+<style>
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Noto Sans CJK SC', 'Droid Sans Fallback', 'WenQuanYi Zen Hei', sans-serif;
+    font-size: 10.5pt; line-height: 1.75; color: #1f2937; background: #f5f6fa;
+    padding: 28px 18px 56px; -webkit-text-size-adjust: 100%;
+  }
+  .wrap { max-width: 780px; margin: 0 auto; }
+
+  .hero {
+    background: linear-gradient(135deg, #7f1d1d, #b91c1c);
+    color: #fff; border-radius: 12px; padding: 20px 22px; margin-bottom: 16px;
+  }
+  .hero .kicker {
+    font-size: 8.5pt; letter-spacing: 2px; color: #fecaca; margin-bottom: 6px;
+  }
+  .hero h1 { font-size: 17pt; line-height: 1.35; letter-spacing: .5px; }
+  .hero h1 .en { font-family: 'DejaVu Sans', sans-serif; }
+  .hero .sub { color: #fee2e2; font-size: 10pt; margin-top: 7px; }
+  .hero .meta { color: #fca5a5; font-size: 8.5pt; margin-top: 9px; }
+
+  .callout {
+    background: #fff; border: 1px solid #e5e7eb; border-left: 4px solid #b91c1c;
+    border-radius: 10px; padding: 13px 16px; margin-bottom: 16px;
+  }
+  .callout .label {
+    font-size: 8pt; letter-spacing: 2px; color: #b91c1c;
+    font-weight: bold; margin-bottom: 4px;
+  }
+  .callout .verdict { font-size: 12pt; line-height: 1.6; }
+  .callout .verdict b { color: #7f1d1d; }
+  .callout .punch {
+    margin-top: 8px; padding-top: 8px; border-top: 1px dashed #e5e7eb;
+    color: #4b5563; font-size: 9.8pt;
+  }
+  .callout .punch b { color: #1e3a8a; }
+
+  .sec {
+    background: #fff; border: 1px solid #e5e7eb; border-radius: 10px;
+    padding: 15px 18px 17px; margin-bottom: 14px;
+  }
+  .sec h2 {
+    font-size: 12pt; color: #1e3a8a; padding-bottom: 7px; margin-bottom: 10px;
+    border-bottom: 1px solid #eef2f7;
+  }
+  .sec h2 .num {
+    display: inline-block; width: 19px; height: 19px; margin-right: 7px;
+    background: #1e3a8a; color: #fff; border-radius: 50%;
+    text-align: center; line-height: 19px; font-size: 9pt;
+  }
+  .sec h2 .hint { float: right; color: #9ca3af; font-size: 8.5pt; font-weight: normal; }
+
+  /* §1 词典释义 */
+  .sense { padding: 9px 0; border-bottom: 1px dashed #eef2f7; }
+  .sense:first-child { padding-top: 0; }
+  .sense:last-child { border-bottom: none; padding-bottom: 0; }
+  .sense-head { margin-bottom: 3px; }
+  a.src { text-decoration: none; }
+  .sense .word {
+    font-family: 'DejaVu Sans', sans-serif; font-weight: bold;
+    font-size: 11.5pt; color: #6d28d9;
+  }
+  a.src:hover .word { text-decoration: underline; }
+  .sense .def {
+    font-family: 'DejaVu Sans', 'Noto Sans CJK SC', sans-serif;
+    background: #f8fafc; border-left: 3px solid #cbd5e1;
+    padding: 5px 10px; border-radius: 0 5px 5px 0;
+    font-size: 9.8pt; color: #1f2937;
+  }
+  .sense .syn { margin-top: 4px; font-size: 9pt; color: #9ca3af; }
+  .sense .warn { margin-top: 4px; font-size: 9.3pt; color: #b91c1c; }
+  .sense .warn::before { content: "⚠ "; }
+
+  /* 表格 */
+  .scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  table { border-collapse: collapse; width: 100%; font-size: 9.5pt; }
+  th, td { border-bottom: 1px solid #eef2f7; padding: 6px 8px; text-align: left; vertical-align: top; }
+  thead th {
+    background: #f8fafc; color: #1e3a8a; font-size: 8.8pt; white-space: nowrap;
+    border-bottom: 1px solid #e2e8f0;
+  }
+  table.etym tbody th, table.duty tbody th {
+    font-family: 'DejaVu Sans', 'Noto Sans CJK SC', sans-serif;
+    color: #6d28d9; font-weight: bold; white-space: nowrap;
+  }
+  table.etym .form { color: #b45309; }
+  table.etym .lit { color: #1f2937; }
+  table.duty td { color: #4b5563; }
+  table.duty .cn { color: #047857; font-weight: bold; white-space: nowrap; }
+  table.duty .limit { color: #b91c1c; }
+
+  blockquote {
+    margin-top: 10px; background: #f5f3ff; border-left: 3px solid #6d28d9;
+    border-radius: 0 6px 6px 0; padding: 8px 12px;
+    font-family: 'DejaVu Sans', 'Noto Sans CJK SC', sans-serif;
+    font-size: 9.2pt; color: #5b21b6; line-height: 1.65;
+  }
+  blockquote cite { display: block; margin-top: 5px; font-style: normal; color: #8b5cf6; font-size: 8.5pt; }
+
+  .sec p { margin-bottom: 8px; }
+  .sec p:last-child { margin-bottom: 0; }
+  .sec b { color: #7f1d1d; }
+  .sec code {
+    font-family: 'DejaVu Sans Mono', monospace; background: #f1f5f9;
+    border-radius: 4px; padding: 1px 5px; font-size: 9.2pt; color: #1e40af;
+  }
+  .box {
+    background: #eff6ff; border: 1px solid #bfdbfe; border-radius: 7px;
+    padding: 9px 12px; margin: 9px 0; font-size: 9.6pt;
+  }
+  .box.green { background: #ecfdf5; border-color: #a7f3d0; }
+  .box.amber { background: #fffbeb; border-color: #fde68a; }
+
+  ol.rules { padding-left: 0; list-style: none; counter-reset: r; }
+  ol.rules li {
+    counter-increment: r; position: relative; padding-left: 26px;
+    margin-bottom: 8px; font-size: 9.8pt;
+  }
+  ol.rules li:last-child { margin-bottom: 0; }
+  ol.rules li::before {
+    content: counter(r); position: absolute; left: 0; top: 1px;
+    width: 17px; height: 17px; background: #047857; color: #fff;
+    border-radius: 50%; text-align: center; line-height: 17px; font-size: 8.5pt; font-weight: bold;
+  }
+
+  .footer {
+    margin-top: 16px; text-align: center; color: #9ca3af;
+    font-size: 8.5pt; line-height: 1.7;
+  }
+  .footer a { color: #1e40af; text-decoration: none; }
+  .footer a:hover { text-decoration: underline; }
+
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="hero">
+  <div class="kicker">词义错位 · 英文原义 × 汉语对应词</div>
+  <h1><span class="en">Free at last!</span> —— 是「终于自由了」还是「最后还是自由了」</h1>
+  <p class="sub">at last / finally / in the end / eventually：都译成「最后」，为什么只有 at last 是「终于」</p>
+  <div class="meta">2026 年 9 月 23 日 ｜ 释义取自 Vocabulary.com ｜ 词源取自 etymonline</div>
+</header>
+
+<div class="callout">
+<div class="label">一句话</div>
+<p class="verdict">首选译法：<b>终于自由了！</b>——不是「最后还是自由了」。</p>
+<p class="punch"><b>at last ≠ 最后</b>。last 的词根是 <b>late</b>，本义是「最晚、最迟」，不是序数「最后一名」。所以 at last 的重点是「久等之后可算到了」＝<b>终于</b>。</p>
+</div>
+
+<section class="sec">
+  <h2><span class="num">一</span>词典释义（英文原文）<span class="hint">只引真实辞书，标记出处；释义原文照抄，不改写</span></h2>
+<div class="sense">
+  <div class="sense-head"><a class="src" href="https://www.vocabulary.com/dictionary/at%20last" target="_blank" rel="noopener"><span class="word">at last</span></a></div>
+  <p class="def">as the end result of a succession or process</p>
+  <p class="syn">synonyms: at long last, finally, in the end, ultimately</p>
+  <p class="warn">只有 1 个义项，<b>没有「排列在最后」这层意思</b>。at last 是感叹，几乎总带情绪。</p>
+</div>
+<div class="sense">
+  <div class="sense-head"><a class="src" href="https://www.vocabulary.com/dictionary/finally" target="_blank" rel="noopener"><span class="word">finally</span></a></div>
+  <p class="def">① as the end result of a succession or process　② after an unspecified period of time or an especially long delay　③ the item at the end</p>
+  <p class="syn">③ 的同义词：in conclusion, last, lastly</p>
+  <p class="warn">三个词里<b>只有它能在列举时用</b>：Finally, I'd like to thank…。「最后（一点）」这个义项是 at last 完全没有的。</p>
+</div>
+<div class="sense">
+  <div class="sense-head"><a class="src" href="https://www.vocabulary.com/dictionary/eventually" target="_blank" rel="noopener"><span class="word">eventually</span></a></div>
+  <p class="def">after an unspecified period of time or an especially long delay</p>
+  <p class="syn">释义原文还有一句：<i>“refers to an unspecific time when something will be completed, and it usually suggests it won't be done soon.”</i></p>
+  <p class="warn">几乎<b>不含情感</b>，常配将来时。多译「最终 / 总有一天」，不要一律译「终于」。</p>
+</div>
+<div class="sense">
+  <div class="sense-head"><a class="src" href="https://www.vocabulary.com/dictionary/in%20the%20end" target="_blank" rel="noopener"><span class="word">in the end</span></a></div>
+  <p class="def">① as the end result of a succession or process　② after a very lengthy period of time</p>
+  <p class="syn">② 的同义词：in the long run</p>
+  <p class="warn">强调「几经周折，到头来」，是总结性、理性口吻，常与 after all 呼应。<b>汉语「最后还是」对应的是它，不是 at last。</b></p>
+</div>
+</section>
+
+<section class="sec">
+  <h2><span class="num">二</span>词源本义<span class="hint">本义看词根，不看现在的常用义</span></h2>
+<div class="scroll">
+  <table class="etym">
+    <thead><tr><th>词</th><th>最早形态 / 词根</th><th>字面本义</th></tr></thead>
+    <tbody>
+    <tr><th>at (the) last</th><td class="form" data-label="最早形态 / 词根">约 <b>1200 年</b>出现 <i>at (the) last</i>；<i>at long last</i> 是 <b>1520s</b></td><td class="lit" data-label="字面本义">「在最后（那一刻）」；long 版直接把「漫长的等待」写进了字面</td></tr>
+    <tr><th>last (adj.)</th><td class="form" data-label="最早形态 / 词根">古英语 <b>latost</b>「slowest, latest」，是 <i>læt</i>（late）的<b>最高级</b></td><td class="lit" data-label="字面本义">底层语义是「最晚 / 最迟」——<b>不是序数</b></td></tr>
+    <tr><th>finally</th><td class="form" data-label="最早形态 / 词根">final 约 14c ← 晚期拉丁 <i>finalis</i> ← 拉丁 <b>finis</b></td><td class="lit" data-label="字面本义">finis =「边界、界限」→「终点、结束」（finish / fine / finance 同源）</td></tr>
+    <tr><th>eventually</th><td class="form" data-label="最早形态 / 词根">1670s ← eventual（1610s「pertaining to events」）← 拉丁 <b>evenire</b></td><td class="lit" data-label="字面本义">evenire =「to come out, happen, result」；「ultimately resulting」这个义项<b>迟至 1823 年</b>才确立</td></tr>
+    <tr><th>in the end</th><td class="form" data-label="最早形态 / 词根">end ← 古英语 <i>ende</i> ← PIE <i>*antjo</i> ← 词根 <b>*ant-</b>「front, forehead」</td><td class="lit" data-label="字面本义">原义竟是「the opposite side」（对面那一头），后才引申为「末端、结局」</td></tr>
+    </tbody>
+  </table>
+</div><blockquote>last (adj.) c. 1200 — "latest, final, following all others," a contraction of Old English <b>latost</b> "slowest, latest," <b>superlative of læt</b> "slow, late" … Phrase <b>at (the) last</b> is from c. 1200; extended form <b>long last</b> is from 1520s.<cite>etymonline · last（2026-09-23 取）</cite></blockquote>
+</section>
+
+<section class="sec">
+  <h2><span class="num">三</span>错位是怎么产生的</h2>
+
+<p><b>错位不在翻译，在概念。</b>英语的 last 是一个「晚」的词，汉语的「最后」是一个「序数」的词。
+两者经常重叠，但底层不是一回事——一旦不重叠，译文就偏了。</p>
+
+<div class="box">
+  <b>左证一：last night = 昨晚。</b>不是「最后一晚」。<br>
+  <b>左证二：the last time I saw her</b> 可能指「我最近一次见她」。
+  etymonline 自己都说：<i>“latest would be more correct, but idiom rules.”</i>
+</div>
+
+<p>所以 <code>at last</code> 的字面是「<b>到了最晚（不能再晚）的那一刻</b>」，
+同时含「晚」和「到了」两件事——正好就是汉语「<b>终于</b>」。
+而汉语「最后」天生没有「晚 / 久等」这一层，用它去代 at last 就必然丢掉情绪与时间感。</p>
+
+<div class="box amber">
+  <b>为什么这句特别有名：</b><code>Free at last!</code> 出自美国黑人灵歌 <i>Free at Last</i>，
+  被马丁·路德·金 1963 年《我有一个梦想》结尾引用
+  （<i>Free at last! Free at last! Thank God Almighty, we are free at last!</i>）。
+  它是<b>呼喊</b>，不是叙述——这也反过来证明它对应「终于」，不对应「最后还是」。
+</div>
+
+</section>
+
+<section class="sec">
+  <h2><span class="num">四</span>分工表<span class="hint">哪个词管哪种场合，一眼看全</span></h2>
+<div class="scroll">
+  <table class="duty">
+    <thead><tr><th>词</th><th>英文原解</th><th>中文</th><th>用法限制</th></tr></thead>
+    <tbody>
+    <tr><th>at last</th><td data-label="英文原解">at the last moment of a long wait；情绪性解脱</td><td class="cn" data-label="中文">终于、可算</td><td class="limit" data-label="用法限制">① 不能用于列举　② 一般用于<b>已发生</b>的事：<i>He will come at last</i> 很别扭</td></tr>
+    <tr><th>finally</th><td data-label="英文原解">三义：结果 / 久等 / 列举末项</td><td class="cn" data-label="中文">终于；最后（一点）</td><td class="limit" data-label="用法限制">只有它能用于列举，也能写「最后我要说……」</td></tr>
+    <tr><th>in the end</th><td data-label="英文原解">the end result of a process，含「几经周折，到头来」</td><td class="cn" data-label="中文">最后还是、结果</td><td class="limit" data-label="用法限制">总结性、理性口吻；常与 after all 呼应</td></tr>
+    <tr><th>eventually</th><td data-label="英文原解">at an unspecified later time；释义明说 “won't be done soon”</td><td class="cn" data-label="中文">最终、总有一天、后来</td><td class="limit" data-label="用法限制">常配将来时；<b>近乎不含情感</b>，所以多译「最终」而非「终于」</td></tr>
+    </tbody>
+  </table>
+</div>
+</section>
+
+<section class="sec">
+  <h2><span class="num">五</span>可迁移的规律</h2>
+<ol class="rules">
+  <li>见到「最后」先分两种：是<b>「排在末尾」</b>（序数），还是<b>「久等可算到了」</b>（lateness）？前者用 finally / in the end，后者才是 at last。</li>
+  <li>查一个词的语义核心，去看它词源里的<b>比较级 / 最高级</b>：last ← late（最晚），所以它永远带「晚」；汉语对应词没有这层，就必然错位。</li>
+  <li>词典把几个词互列为同义词，只说明「大意相通」，<b>不说明能互换</b>——差别在义项数、语域和时态限制上。</li>
+  <li>at last 只用在「已发生 + 感叹」的场合；谈将来用 eventually / in the end。</li>
+</ol>
+</section>
+
+<div class="footer">释义引自 Vocabulary.com（Longman / Oxford / Cambridge 页面有反爬，未能直取）；词源引自 etymonline。<br>返回 <a href="../index.html">英语学习站</a> · 章节：词义错位</div>
+
+</div>
+</body>
+</html>

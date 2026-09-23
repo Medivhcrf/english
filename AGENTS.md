@@ -27,6 +27,7 @@
 | --- | --- | --- |
 | `daily/` | 每日词根词缀 `<日期>-词根词缀.{html,pdf}` | `daily-root-affix` skill |
 | `topic/` | 词根词缀专题（总表 / 总辨析 / 语义分类 / 速查表） | 手动或 `build_*_root.py` |
+| `shift/` | 词义错位：英文原义 × 汉语对应词（只出 HTML，不出 PDF） | `word-shift-notes` skill |
 | `review/` | 复习练习 `<日期>-词根词缀复习.*` | `root-affix-review` skill |
 | `phrasal/` | 动词词组 | `daily-phrasal-verbs` skill |
 | `speech/` | 演讲/文章精读（含同名 `<标题>.audio/` 逐句音频） | `english-article-reading` skill |
